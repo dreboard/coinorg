@@ -216,8 +216,15 @@ class CollectionBoxes
 //By coin
     public function getBoxCountByCoin($userID, $coinID)
     {
-        $sql = mysql_query("SELECT * FROM collectboxes WHERE coinID = '$coinID' AND  userID = '$userID'");
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collectboxes 
+            WHERE userID = :userID AND coinID = :coinID
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+        //$sql = mysql_query("SELECT * FROM collectboxes WHERE coinID = '$coinID' AND  userID = '$userID'");
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -91,6 +91,8 @@ header("location: viewCoin.php?coinID=".$Coin."");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php include("../secureScripts.php"); ?>
 <title><?php echo $coinName ?></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
  <script type="text/javascript">
 $(document).ready(function(){	
 $('#clientTbl').dataTable( {
