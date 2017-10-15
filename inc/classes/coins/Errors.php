@@ -429,8 +429,17 @@ class Errors
 //Coin
     function getErrorTypeCoinCount($coinID, $userID)
     {
-        $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '" . $coinID . "' AND errorCoin = '1' AND userID = '$userID'") or die(mysql_error());
-        return mysql_num_rows($countAll);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection
+            WHERE collection.userID = :userID AND coinID = :coinID
+            AND errorCoin = '1' 
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$countAll = mysql_query("SELECT * FROM collection WHERE coinID = '" . $coinID . "' AND errorCoin = '1' AND userID = '$userID'") or die(mysql_error());
     }
 
     function getErrorByTypeCoinCount($coinID, $userID, $error)
@@ -622,26 +631,41 @@ class Errors
 
 
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //BIE coins
+    /**
+     * BIE Unique Count
+     * @param $userID
+     * @return mixed
+     */
     public function getBIEUniqueCount($userID)
     {
-        $bieCoins = array('7117', '7173', '7116', '7174', '7113', '7114', '7115', '7175', '7176', '7177', '7178', '7179', '7180', '7181', '7182', '7183', '7184', '7185', '7187', '7188', '7189', '7171', '7172');
-        $sql = mysql_query("SELECT DISTINCT coinID FROM collection WHERE coinID IN(" . implode(',', $this->bieCoins) . ") AND userID = '$userID'");
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(DISTINCT coinID) FROM collection
+            WHERE collection.userID = :userID AND coinID IN(\" . ".implode(',', $this->bieCoins)." . \")
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT DISTINCT coinID FROM collection WHERE coinID IN(" . implode(',', $this->bieCoins) . ") AND userID = '$userID'");
     }
 
     public function getBIECount($userID)
     {
-        $bieCoins = array('7117', '7173', '7116', '7174', '7113', '7114', '7115', '7175', '7176', '7177', '7178', '7179', '7180', '7181', '7182', '7183', '7184', '7185', '7187', '7188', '7189', '7171', '7172');
-        $sql = mysql_query("SELECT * FROM collection WHERE coinID IN(" . implode(',', $this->bieCoins) . ") AND userID = '$userID'");
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection
+            WHERE collection.userID = :userID AND coinID IN(\" . ".implode(',', $this->bieCoins)." . \")
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinID IN(" . implode(',', $this->bieCoins) . ") AND userID = '$userID'");
     }
 
     public function getBIESum($userID)
     {
-        $bieCoins = array('7117', '7173', '7116', '7174', '7113', '7114', '7115', '7175', '7176', '7177', '7178', '7179', '7180', '7181', '7182', '7183', '7184', '7185', '7187', '7188', '7189', '7171', '7172');
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection  WHERE coinID IN(" . implode(',', $this->bieCoins) . ") AND userID = '$userID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
             $coinSum = $row['COALESCE(sum(purchasePrice), 0.00)'];
@@ -651,13 +675,34 @@ class Errors
 
     public function getBIETypeCount($userID, $bie)
     {
-        $bieCoins = array('7117', '7173', '7116', '7174', '7113', '7114', '7115', '7175', '7176', '7177', '7178', '7179', '7180', '7181', '7182', '7183', '7184', '7185', '7187', '7188', '7189', '7171', '7172');
-        $sql = mysql_query("SELECT * FROM collection WHERE coinID IN(" . implode(',', $this->bieCoins) . ") AND userID = '$userID' AND bie = '$bie'");
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection
+            WHERE collection.userID = :userID 
+             AND bie = :bie
+            AND coinID IN(\" . ".implode(',', $this->bieCoins)." . \")
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':bie', $bie, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinID IN(" . implode(',', $this->bieCoins) . ") AND userID = '$userID' AND bie = '$bie'");
     }
 
     public function getBIEByCoinIDCount($userID, $coinID, $bie)
     {
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection
+            WHERE collection.userID = :userID 
+            AND bie = :bie
+            AND coinID  = :coinID
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->bindParam(':bie', $bie, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
         $sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND bie = '$bie' AND userID = '$userID'");
         return mysql_num_rows($sql);
     }

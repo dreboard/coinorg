@@ -693,8 +693,16 @@ class Containers
         $html .= '<select name="Collection" id="Collection">';
         $html .= '<option selected="selected" value="">Select</option>';
 
-        $sql = mysql_query("SELECT * FROM containers WHERE containerType = 'Other' AND userID = '$userID'") or die(mysql_error());
-        while ($row = mysql_fetch_array($sql)) {
+        $stmt = $this->db->dbhc->prepare("
+                SELECT * FROM containers 
+                WHERE userID = :userID AND  containerType = 'Other'
+            ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        //$sql = mysql_query("SELECT * FROM containers WHERE containerType = 'Other' AND userID = '$userID'") or die(mysql_error());
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $this->getContainerById(intval($row['containerID']));
             if ($this->getSlabBoxOpenList($userID, intval($row['containerID'])) == '0') {
                 $html .= '';
@@ -717,8 +725,16 @@ class Containers
         $html = '<form action="" method="post" class="compactForm" id="containerListForm">';
         $html .= '<select name="Collection" id="Collection">';
         $html .= '<option selected="selected" value="">Select</option>';
-        $sql = mysql_query("SELECT * FROM containers WHERE  (containerType = 'Slabbed Box' OR containerType = 'Other') AND userID = '$userID'") or die(mysql_error());
-        while ($row = mysql_fetch_array($sql)) {
+
+        $stmt = $this->db->dbhc->prepare("
+                SELECT * FROM containers 
+                WHERE userID = :userID AND (containerType = 'Slabbed Box' OR containerType = 'Other')
+            ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        //$sql = mysql_query("SELECT * FROM containers WHERE  (containerType = 'Slabbed Box' OR containerType = 'Other') AND userID = '$userID'") or die(mysql_error());
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $this->getContainerById(intval($row['containerID']));
             if ($this->getSlabBoxOpenList($userID, intval($row['containerID'])) == '0') {
                 $html .= '';
@@ -748,15 +764,30 @@ class Containers
     {
         $Encryption = new Encryption();
         $collection = new collection();
-        $sql = mysql_query("SELECT * FROM collection WHERE proService != 'None' AND containerID = '0' AND collectsetID = '0' AND userID = '$userID'");
-        $coinCount = mysql_num_rows($sql);
+
+        $stmt = $this->db->dbhc->prepare("
+                SELECT * FROM collection 
+                WHERE userID = :userID AND proService != 'None' AND containerID = '0' AND collectsetID = '0'
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $count = $this->db->dbhc->prepare("
+                SELECT COUNT(*) FROM collection 
+                WHERE userID = :userID AND proService != 'None' AND containerID = '0' AND collectsetID = '0'
+        ");
+        $count->execute([':userID' => $userID]);
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE proService != 'None' AND containerID = '0' AND collectsetID = '0' AND userID = '$userID'");
+        $coinCount = $count->fetchColumn();
+
         $html = '( ' . $coinCount . ' ) ';
-        if (mysql_num_rows($sql) == 0) {
+        if ($coinCount == 0) {
             $html .= 'None In Collection';
         } else {
             $html .= '<form method="post" action="" class="compactForm">';
             $html .= '<select name="newID"><option value="" class="coinList" selected="selected">Switch Coin</option>';
-            while ($row = mysql_fetch_array($sql)) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $collection->getCollectionById(intval($row['collectionID']));
                 $html .= '<option value="' . $Encryption->encode(intval($row['collectionID'])) . '" class="coinList">' . $row['coinGrade'] . ' ' . $row['coinYear'] . ' ' . $row['coinType'] . '</option>';
             }

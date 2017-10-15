@@ -3103,6 +3103,17 @@ class Collection
 //BY COIN
     function getCoinDamageType($damage, $coinID, $userID)
     {
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            INNER JOIN coins ON collection.coinID = coins.coinID 
+            WHERE collection.userID = :userID AND coins.coinType = :coinType AND collection.proService != 'None'
+            ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
         $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . $coinID . "' AND $damage != '0'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
@@ -3113,81 +3124,197 @@ class Collection
 //BY COIN
     function getCoinRollCountByID($coinID, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collectrolls WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collectrolls 
+            WHERE userID = :userID AND coinID = :coinID
+            ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collectrolls WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
     }
 
     function getCoinBoxCountByID($coinID, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collectboxes WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collectboxes 
+            WHERE userID = :userID AND coinID = :coinID
+            ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collectboxes WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
     }
 
     function getCoinBagCountByID($coinID, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collectbags WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collectbags 
+            WHERE userID = :userID AND coinID = :coinID
+            ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collectbags WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
     }
 
-    function getCoinCertifiedCountByID($coinIDNum, $userID)
+    function getCoinCertifiedCountByID($coinID, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinIDNum' AND userID = '$userID' AND proService != 'None'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            WHERE userID = :userID AND coinID = :coinID
+            AND proService != 'None'
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinIDNum' AND userID = '$userID' AND proService != 'None'") or die(mysql_error());
     }
 
     function getCoinRollCountByCoinID($coinID, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND collectrollsID != '0' ") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            WHERE userID = :userID AND coinID = :coinID
+            AND collectrollsID != '0'
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND collectrollsID != '0' ") or die(mysql_error());
     }
 
     function getCoinFolderCountByCoinID($coinID, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND collectfolderID != '0' ") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collectrolls 
+            WHERE userID = :userID AND coinID = :coinID
+            AND collectfolderID != '0'
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND collectfolderID != '0' ") or die(mysql_error());
     }
 
     function getCoinSetsCountByCoinID($coinID, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND collectsetID != '0' ") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collectrolls 
+            WHERE userID = :userID AND coinID = :coinID
+            AND collectsetID != '0'
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND collectsetID != '0' ") or die(mysql_error());
     }
 
     function getCoinCertListCountByCoinID($coinID, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND certlist = '1' ") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collectrolls 
+            WHERE userID = :userID AND coinID = :coinID
+            AND certlist = '1'
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND certlist = '1' ") or die(mysql_error());
     }
 
 //BY COIN TYPE
     function getCoinRollCountByType($coinType, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collectrolls WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collectrolls 
+            WHERE userID = :userID AND coinType = :coinType
+            AND certlist = '1'
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collectrolls WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
     }
 
     function getCoinBoxCountByType($coinType, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collectboxes WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collectboxes 
+            WHERE userID = :userID AND coinType = :coinType
+            AND certlist = '1'
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collectboxes WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
     }
 
     function getCoinBagCountByType($coinType, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collectbags WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collectbags 
+            WHERE userID = :userID AND coinType = :coinType
+            AND certlist = '1'
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collectbags WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
     }
 
     function availableTypeCoinsRequest($coinType, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND proservice = 'None' AND collectfolderID = '0' AND collectrollsID = '0' AND collectsetID = '0' AND setregID = '0' AND userID = '$userID'");
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection
+            INNER JOIN coins ON collection.coinID = coins.coinID 
+            WHERE collection.userID = :userID AND coins.coinType = :coinType
+            AND collection.proservice = 'None' AND collection.collectfolderID = '0' AND collection.collectrollsID = '0' AND collection.collectsetID = '0' AND collection.setregID = '0'
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND proservice = 'None' AND collectfolderID = '0' AND collectrollsID = '0' AND collectsetID = '0' AND setregID = '0' AND userID = '$userID'");
     }
 
     function availableCategoryCoinsRequest($coinCategory, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND proservice = 'None' AND collectfolderID = '0' AND collectrollsID = '0' AND collectsetID = '0' AND setregID = '0' AND userID = '$userID'");
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection
+            INNER JOIN coins ON collection.coinID = coins.coinID 
+            WHERE collection.userID = :userID AND coins.coinCategory = :coinCategory
+            AND collection.proservice = 'None' AND collection.collectfolderID = '0' AND collection.collectrollsID = '0' AND collection.collectsetID = '0' AND collection.setregID = '0'
+        ");
+        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindValue(':coinCategory', str_replace('_', ' ', $coinCategory), PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND proservice = 'None' AND collectfolderID = '0' AND collectrollsID = '0' AND collectsetID = '0' AND setregID = '0' AND userID = '$userID'");
     }
 
     function gexMaxTypeRollNumberDisplay($coinType, $userID)

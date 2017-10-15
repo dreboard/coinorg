@@ -139,16 +139,47 @@ class CoinTypes
         return $row['coinYear'];
     }
 
+    /**
+     * Coin Roll Progress By coinID
+     *
+     * @param string $coinType Used to get the roll count for coins
+     * @param int $userID
+     * @param int $coinID
+     * @return string
+     */
     public function getCoinRollProgress($coinType, $userID, $coinID)
     {
-        $this->getCoinByType($coinType);
+        $type = $this->getCoinByType($coinType);
         $this->getRollCount();
-        $sql = mysql_query("SELECT * FROM collection WHERE coinID = '" . $coinID . "' AND userID = '$userID' LIMIT " . $this->getRollCount() . " ") or die(mysql_error());
-        $rollProgress = mysql_num_rows($sql);
-        if (mysql_num_rows($sql) == 0) {
+
+        $stmt = $this->db->dbhc->prepare("
+              SELECT * FROM collection 
+              INNER JOIN coins ON collection.coinID = coins.coinID 
+              WHERE collection.coinID = :coinID 
+              AND collection.userID = :userID 
+              ORDER BY coins.coinYear ASC 
+              LIMIT ".$this->getRollCount()."
+        ");
+        $stmt->execute([':coinID' => $coinID, ':userID' => $userID]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinID = '" . $coinID . "' AND userID = '$userID' LIMIT " . $this->getRollCount() . " ") or die(mysql_error());
+
+        $count = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              INNER JOIN coins ON collection.coinID = coins.coinID 
+              WHERE collection.coinID = :coinID 
+              AND collection.userID = :userID 
+              ORDER BY coins.coinYear ASC 
+              LIMIT ".$this->getRollCount()."
+        ");
+        $count->execute([':coinID' => $coinID, ':userID' => $userID]);
+
+        $rollProgress = $count->fetchColumn();
+
+        if ($stmt->fetchColumn() == 0) {
             return 'No Progress For This Coin';
         } else {
-            while ($row = mysql_fetch_array($sql)) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $coinVersion = str_replace(' ', '_', $row['coinVersion']);
                 $rolls = $this->getCoinByType($coinType);
                 $rollCount = $this->getRollCount();
