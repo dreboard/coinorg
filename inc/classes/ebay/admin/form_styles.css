@@ -1,0 +1,835 @@
+@charset "utf-8";
+/* form general definition */
+form.Sharp_Default {
+	padding:0;
+	margin:0;
+	font-family:Georgia, Times New Roman, Times, serif;
+	width:600px;
+}
+#form1 #cart_table {
+	text-align: left;
+}
+.tableform {
+	border: 1px solid #CCC;
+	border-collapse: collapse;
+}
+.tableform td,th {
+	border: 1px solid #CCC;
+	border-collapse: collaps;
+}
+
+
+form.Sharp_Default ul.Sharp_Default {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+}
+form.Sharp_Default ul.formList {
+	padding:0 0 0 0;
+	margin:35px 12px 12px 12px;
+  list-style-type:none;
+}
+form.Sharp_Default li.formItem {
+	clear:both;
+}
+form.Sharp_Default fieldset.Sharp_Default {
+	clear:both;
+	border-width:0;
+}
+
+/* legend */
+form.Sharp_Default span.groupHeader {
+	border:1px solid #CCC;
+	padding:3px 3px 3px 10px;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	width:820px;
+	position:absolute;
+	display:block;
+	white-space:nowrap;
+	border-right-width:0;
+	border-left-width:0;
+}
+
+/* labels */
+form.Sharp_Default label.groupHeader {
+	color:#b40000;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	text-align:right;
+	width:220px;
+	display:block;
+	float:left;
+	position:relative;
+}
+form.Sharp_Default label.sublabel {
+	text-align:right;
+	width:220px;
+	float:left;
+	display:block;
+	padding-top:2px;
+	padding-right:5px;
+}
+form.Sharp_Default label.secondSublabel {
+	width:auto;
+}
+form.Sharp_Default label.sublabelPlaceholder {
+}
+form.Sharp_Default span.requiredIndicator {
+	color:#b40000;
+}
+form.Sharp_Default span.fieldsetDescription {
+	color:#b40000;
+	text-align:right;
+	float:right;
+	margin-bottom:5px;
+}
+
+/* span wrappers for form */
+form.Sharp_Default div.formGroup {
+	display:inline;
+	float:left;
+}
+form.Sharp_Default div.lineGroup {
+	clear:left;
+	display:block;
+}
+/* defines column size */
+form.Sharp_Default div.wideColumnGroup {
+	width:414px;
+	padding-bottom:8px;
+	padding-top:8px;
+	display:inline;
+	float:left;
+}
+form.Sharp_Default div.fullColumnGroup {
+	width:794px;
+	padding-bottom:8px;
+	padding-top:8px;
+	display:inline;
+	float:left;
+}
+form.Sharp_Default div.columnGroup {
+	width:380px;
+	padding-bottom:8px;
+	padding-top:8px;
+	display:inline;
+	float:left;
+}
+form.Sharp_Default div.fieldGroup {
+	padding-left:8px;
+	padding-right:8px;
+  position:relative;
+	display:block;
+	float:left;
+}
+form.Sharp_Default div.fieldPair {
+	display:block;
+}
+
+form.Sharp_Default div.SameAsCheck_Row {
+	margin-top:6px;
+	margin-bottom:10px;
+}
+
+form.Sharp_Default span.precedingText {
+	text-align:right;
+	font-weight: bold;
+}
+form.Sharp_Default div.trailingText {
+	color:#b40000;
+	float:right;
+  white-space:nowrap;
+	margin-top:2px;
+	margin-right:2px;
+	margin-left:4px;
+	padding-top:2px;
+}
+form.Sharp_Default div.trailingText a {
+	color:#b40000;
+}
+form.Sharp_Default div.trailingText div {
+	background-color:#8c8c8c;
+}
+
+/* wide groups for items on a single line */
+form.Sharp_Default span.wideFieldGroup {
+	width:100%;
+	float:left;
+}
+
+/* button form elements */
+form.Sharp_Default span.buttonFieldGroup {
+	float:left;
+	text-align:right;
+	margin-top:10px;
+	margin-left:255px;
+}
+form.Sharp_Default input.formButton {
+	font-weight:bold;
+	font-size:16px;
+	font-family:Georgia, Times New Roman, Times, serif;
+	border-width:0;
+}
+
+/* text form elements */
+form.Sharp_Default input.formTextfield_XSmall {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:50px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default input.formTextfield_Small {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:80px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default input.formTextfield_Medium {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:120px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default input.formTextfield_Large {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:252px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+	text-align: left;
+}
+form.Sharp_Default input.formTextfield_XLarge {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:382px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+
+form.Sharp_Default .textfieldValidState input, form.Sharp_Default input.textfieldValidState {
+	background-color:#fff;
+	color:#000;
+	border-color:#8c8c8c;
+}
+
+form.Sharp_Default input.textfieldRequiredState, form.Sharp_Default .textfieldRequiredState input, 
+form.Sharp_Default input.textfieldInvalidFormatState, form.Sharp_Default .textfieldInvalidFormatState input, 
+form.Sharp_Default input.textfieldMinValueState, form.Sharp_Default .textfieldMinValueState input, 
+form.Sharp_Default input.textfieldMaxValueState, form.Sharp_Default .textfieldMaxValueState input, 
+form.Sharp_Default input.textfieldMinCharsState, form.Sharp_Default .textfieldMinCharsState input, 
+form.Sharp_Default input.textfieldMaxCharsState, form.Sharp_Default .textfieldMaxCharsState input {
+	background-color:#b40000;
+	color:#fff;
+	border-color:#8c8c8c;
+}
+
+form.Sharp_Default .textfieldFocusState input, form.Sharp_Default input.textfieldFocusState {
+	background-color:#fff;
+	color:#000;
+	border-color:#000;
+}
+
+form.Sharp_Default .textfieldFlashText input, form.Sharp_Default input.textfieldFlashText {
+	color: red !important;
+}
+
+form.Sharp_Default .textfieldHintState input, form.Sharp_Default input.textfieldHintState {
+	/*color: red !important;*/
+}
+
+
+/* textarea form elements */
+form.Sharp_Default textarea.formTextarea_Small {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:252px;
+	height:100px;
+	white-space:pre;
+	overflow:auto;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default textarea.formTextarea_Medium {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:382px;
+	height:150px;
+	white-space:pre;
+	overflow:auto;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default textarea.formTextarea_Large {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:514px;
+	height:200px;
+	white-space:pre;
+	overflow:auto;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default .textareaValidState textarea, form.Sharp_Default textarea.textareaValidState {
+	background-color:#fff;
+	color:#000;
+	border-color:#8c8c8c;
+}
+
+form.Sharp_Default textarea.textareaRequiredState, form.Sharp_Default .textareaRequiredState textarea, 
+form.Sharp_Default textarea.textareaMinCharsState, form.Sharp_Default .textareaMinCharsState textarea, 
+form.Sharp_Default textarea.textareaMaxCharsState, form.Sharp_Default .textareaMaxCharsState textarea {
+	background-color:#b40000;
+	color:#fff;
+	border-color:#8c8c8c;
+}
+
+form.Sharp_Default .textareaFocusState textarea, form.Sharp_Default textarea.textareaFocusState {
+	background-color:#fff;
+	color:#000;
+	border-color:#000;
+}
+
+form.Sharp_Default .textareaFlashState textarea, form.Sharp_Default textarea.textareaFlashState{
+	color:red !important;
+}
+
+form.Sharp_Default textarea.textareaHintState, form.Sharp_Default .textareaHintState textarea{
+	/* color: red !important;*/
+}
+
+
+/* select form elements */
+form.Sharp_Default select.formMenufield_XSmall {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:50px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default select.formMenufield_Small {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:80px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default select.formMenufield_Medium {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:120px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default select.formMenufield_Large {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:252px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default select.formMenufield_XLarge {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:382px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+
+form.Sharp_Default select.formListfield_XSmall {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:50px;
+	height:100px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default select.formListfield_Small {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:80px;
+	height:100px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default select.formListfield_Medium {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:120px;
+	height:100px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default select.formListfield_Large {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:252px;
+	height:100px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default select.formListfield_XLarge {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:382px;
+	height:150px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default .selectValidState select, form.Sharp_Default select.selectValidState {
+	background-color:#fff;
+	color:#000;
+	border-color:#8c8c8c;
+}
+
+form.Sharp_Default select.selectRequiredState, form.Sharp_Default .selectRequiredState select,
+form.Sharp_Default select.selectInvalidState, form.Sharp_Default .selectInvalidState select {
+	background-color:#b40000;
+	color:#fff;
+	border-color:#8c8c8c;
+}
+
+.selectFocusState select, form.Sharp_Default select.selectFocusState {
+	background-color:#fff;
+	color:#000;
+	border-color:#000;
+}
+
+/* radio button form elements */
+form.Sharp_Default input.formRadioField_Standard {
+	background-color:#fff;
+	color:#000;
+	padding:2px 2px 2px 2px;
+	margin-top:6px;
+	margin-left:2px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default .radioValidState input, form.Sharp_Default input.radioValidState {
+	background-color:#fff;
+	color:#000;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default input.radioRequiredState, form.Sharp_Default .radioRequiredState input,
+form.Sharp_Default input.radioInvalidState, form.Sharp_Default .radioInvalidState input {
+	background-color:#b40000;
+	color:#fff;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default .radioFocusState input, form.Sharp_Default input.radioFocusState {
+	background-color:#fff;
+	color:#000;
+	border-color:#000;
+}
+
+form.Sharp_Default span.radioFieldGroup_Narrow {
+	
+}
+form.Sharp_Default span.radioFieldGroup_Wide {
+	display:block;
+}
+form.Sharp_Default span.radioFieldGroup_OneColumn {
+	display:block;
+}
+form.Sharp_Default span.radioGroup_Narrow {
+	
+}
+form.Sharp_Default span.radioGroup_Wide {
+	display:block;
+}
+form.Sharp_Default span.radioGroup_OneColumn {
+	display:block;
+}
+form.Sharp_Default label.radioSublabel_Narrow {
+	font-style:italic;
+	width:60px;
+	float:left;
+	display:block;
+	text-align:left;
+	border-width:0;
+	margin-right:2px;
+	margin-bottom:2px;
+}
+form.Sharp_Default label.radioSublabel_Wide {
+	font-style:italic;
+	width:135px;
+	float:left;
+	display:block;
+	text-align:left;
+	border-width:0;
+	margin-right:2px;
+	margin-bottom:2px;
+}
+form.Sharp_Default label.radioSublabel_OneColumn {
+	font-style:italic;
+	display:block;
+	text-align:left;
+	border-width:0;
+	margin-bottom:2px;
+}
+
+
+/* checkbox form elements */
+form.Sharp_Default input.SameAsCheck {
+	background-color:#fff;
+	color:#000;
+	padding:2px 2px 2px 2px;
+	margin-top:6px;
+	margin-left:2px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default input.formCheckboxField_Standard {
+	background-color:#fff;
+	color:#000;
+	padding:2px 2px 2px 2px;
+	margin-top:6px;
+	margin-left:2px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default .checkboxValidState input, form.Sharp_Default input.checkboxValidState {
+	background-color:#fff;
+	color:#000;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default input.checkboxRequiredState, form.Sharp_Default .checkboxRequiredState input,
+form.Sharp_Default input.checkboxMinSelectionsState, form.Sharp_Default .checkboxMinSelectionsState input,
+form.Sharp_Default input.checkboxMaxSelectionsState, form.Sharp_Default .checkboxMaxSelectionsState input {
+	background-color:#b40000;
+	color:#fff;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default .checkboxFocusState input, form.Sharp_Default input.checkboxFocusState {
+	background-color:#fff;
+	color:#000;
+	border-color:#000;
+}
+
+form.Sharp_Default span.checkFieldGroup_Narrow {
+	display:block;
+}
+form.Sharp_Default span.checkFieldGroup_Wide {
+	
+}
+form.Sharp_Default span.checkFieldGroup_OneColumn {
+	display:block;
+}
+form.Sharp_Default span.checkGroup_Narrow {
+	display:block;
+}
+form.Sharp_Default span.checkGroup_Wide {
+	
+}
+form.Sharp_Default span.checkGroup_OneColumn {
+	display:block;
+}
+form.Sharp_Default label.checkSublabel_Narrow {
+	font-style:italic;
+	width:60px;
+	float:left;
+	display:block;
+	text-align:left;
+	border-width:0;
+	margin-right:2px;
+	margin-bottom:2px;
+}
+form.Sharp_Default label.checkSublabel_Wide {
+	font-style:italic;
+	width:135px;
+	float:left;
+	display:block;
+	text-align:left;
+	border-width:0;
+	margin-right:2px;
+	margin-bottom:2px;
+}
+form.Sharp_Default label.checkSublabel_OneColumn {
+	font-style:italic;
+	display:block;
+	text-align:left;
+	border-width:0;
+	margin-bottom:2px;
+}
+
+/* confirm and password states (same as text) */
+form.Sharp_Default input.formPasswordfield_XSmall {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:50px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default input.formPasswordfield_Small {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:80px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default input.formPasswordfield_Medium {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:120px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default input.formPasswordfield_Large {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:252px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+form.Sharp_Default input.formPasswordfield_XLarge {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:382px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+}
+
+form.Sharp_Default .confirmValidState input, form.Sharp_Default input.confirmValidState {
+	background-color:#fff;
+	color:#000;
+	border-color:#8c8c8c;
+}
+
+form.Sharp_Default input.confirmRequiredState, form.Sharp_Default .confirmRequiredState input, 
+form.Sharp_Default input.confirmInvalidState, form.Sharp_Default .confirmInvalidState input {
+	background-color:#b40000;
+	color:#fff;
+	border-color:#8c8c8c;
+}
+
+form.Sharp_Default .confirmFocusState input, form.Sharp_Default input.confirmFocusState {
+	background-color:#fff;
+	color:#000;
+	border-color:#000;
+}
+form.Sharp_Default .passwordValidState input, form.Sharp_Default input.passwordValidState {
+	background-color:#fff;
+	color:#000;
+	border-color:#8c8c8c;
+}
+
+form.Sharp_Default input.passwordRequiredState, form.Sharp_Default .passwordRequiredState input, 
+form.Sharp_Default input.passwordInvalidStrengthState, form.Sharp_Default .passwordInvalidStrengthState input, 
+form.Sharp_Default input.passwordMinCharsState, form.Sharp_Default .passwordMinCharsState input, 
+form.Sharp_Default input.passwordCustomState, form.Sharp_Default .passwordCustomState input, 
+form.Sharp_Default input.passwordMaxCharsState, form.Sharp_Default .passwordMaxCharsState input {
+	background-color:#b40000;
+	color:#fff;
+	border-color:#8c8c8c;
+}
+
+form.Sharp_Default .passwordFocusState input, form.Sharp_Default input.passwordFocusState {
+	background-color:#fff;
+	color:#000;
+	border-color:#000;
+}
+.req {
+	color: #F00;
+}
+.gtick{
+	margin:5px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color: #009900;
+	font-size: 12px;
+	border:1px solid #009900;
+	background-color:#FFFFE4;
+	background-image:url(Tick.png);
+	background-repeat:no-repeat;
+	background-position:10px center;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 50px;
+	width: 600px;
+}
+.ginfo{
+	margin:5px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color: #003399;
+	font-size: 12px;
+	border:1px solid #0000FF;
+	background-color:#FFFFE4;
+	background-image:url(../images/About2.png);
+	background-repeat:no-repeat;
+	background-position:left;
+
+	padding-top: 9px;
+	padding-right: 10px;
+	padding-bottom: 9px;
+	padding-left: 50px;
+	width: 420px;
+}
+#box {
+	width: 420px;
+	margin: auto;
+	text-align: center;
+	background-color: #FFFFFF;
+	height: auto;
+	color: #333333;
+	border: 4px solid #063;
+}
+.prodtable2 {
+
+	border: 1px solid #CCC;
+	border-collapse:collapse;
+}
+.formTextfield_Large {
+	background-color:#fff;
+	color:#000;
+	padding:5px 5px 5px 5px;
+	font-style:italic;
+	width:252px;
+	margin:0;
+	border-style:solid;
+	border-width:1px;
+	margin-left:2px;
+	border-color:#8c8c8c;
+	text-align: left;
+}
+.gerror {
+	margin:5px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color: #CC0000;
+	font-size: 12px;
+	border:1px solid red;
+	background-color:#FFFFE4;
+	/*background-image:url(../layout_img/error.gif);*/
+	background-repeat:no-repeat;
+	background-position:5px;
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-left: 40px;
+	width: 550px;
+}

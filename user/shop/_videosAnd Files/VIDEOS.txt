@@ -1,0 +1,160 @@
+
+
+
+1. E - Commerce Website Tutorial : Setting Up the Pages, Layout, and Templates
+In this first video we will establish pages our system will need. We also create a modular design and page lay...
+Video Thumbnail	
+
+2. E - Commerce Website Tutorial : MySQL Database and its Tables
+In this 2nd video we will create the MySQL database and its tables. We demonstrate a scripted method for datab...
+Video Thumbnail	
+
+3. E - Commerce Website Tutorial : Create Store Admin Area and Log In Form
+In this 3rd video we will create the Admin Log In System for managing inventory and other store functions in t...
+Video Thumbnail	
+
+4. E - Commerce Website Tutorial : Inventory Management
+In this 4th video we will create the inventory management page inside of the Admin area. We list all inventory...
+Video Thumbnail	
+
+5. E - Commerce Website Tutorial : Inventory Management Continued
+In this 5th video we will continue creating the Inventory management functionality in the Admin area. List all...
+Video Thumbnail	
+
+6. E - Commerce Website Tutorial : Inventory Management Continued
+In this 6th video we will continue creating the Inventory management functionality in the Admin area. Editing ...
+Video Thumbnail	
+
+7. E - Commerce Website Tutorial : Dynamic Home Page
+In this 7th video we will dynamically render an always up-to-date "newest items" listing for the onl...
+Video Thumbnail	
+
+8. E - Commerce Website Tutorial : Product Display Page
+In this 8th video we will begin creating the dynamic product display page, and also discuss payment gateway sh...
+Video Thumbnail	
+
+9. E - Commerce Website Tutorial : Shopping Cart PHP Multidimensional Array
+In this 9th video we will begin creating the multidimensional array in PHP that is the shopping cart. We will ...
+Video Thumbnail	
+
+10. E - Commerce Website Tutorial : Shopping Cart PHP Multidimensional Array +
+In this 10th video we will continue programming the multidimensional array in PHP that is the shopping cart. W...
+Video Thumbnail	
+
+11. E - Commerce Website Tutorial : Display the PHP Shopping Cart
+In this 11th video we will gather all the variables for each cart item by accessing our MySQL database. This w...
+Video Thumbnail	
+
+12. E - Commerce Website Tutorial : Display the PHP Shopping Cart +
+In this 12th video we will make our custom PHP cart look like an actual online shopping cart by statically des...
+Video Thumbnail	
+
+13. E - Commerce Website Tutorial : Tally the Total of Your PHP Shopping Cart
+In this 13th video we will tally the shopping cart total price combining all of the item prices for a grand to...
+Video Thumbnail	
+
+14. E - Commerce Website Tutorial : Remove Items From PHP Shopping Cart
+In this 14th video we will learn a simple method for allowing the user to remove cart items from your cart's m...
+Video Thumbnail	
+
+15. E - Commerce Website Tutorial : Format Your Currency and Numbers Correctly
+In this 15th video we will learn to format money and numbers using the money_format() and number_format() func...
+Video Thumbnail	
+
+16. E - Commerce Website Tutorial : Quantity Control In Shopping Cart
+In this 16th video we will learn to allow the user to adjust item quantities inside of the PHP shopping cart. ...
+Video Thumbnail	
+
+17. E - Commerce Website Tutorial : Quick Shopping Cart Tweak
+In this 17th video we patch up something that was a little buggy regarding allowing the user to adjust quantit...
+Video Thumbnail	
+
+18. E - Commerce Website Tutorial : Payment Processors, SSL, Encrypted Code
+In this 18th video we discuss Payment Processors, SSL encrypted pages, and encrypted button code. As well as s...
+Video Thumbnail	
+
+19. E - Commerce Website Tutorial : PayPal HTML Shopping Cart Variables
+PayPal Documentation Links In Video 1. https://www.paypal.com/cgi-bin/webscr?cmd=p/pdn/howto_checkout-outside...
+Video Thumbnail	
+
+20. E - Commerce Website Tutorial : PayPal IPN PHP Instant Payment Notification Script
+
+
+
+
+1.
+In this first video we will establish pages our system will need. We also create a modular design and page layout for easier site management. The E - Commerce Web Site we will be assembling is one in which all of the inventory is in a MySQL database and we offer a custom PHP cart for a unique shopping experience. It is a site that handles sales, customers, and inventory.
+
+
+2.
+In this 2nd video we will create the MySQL database and its tables. We demonstrate a scripted method for database table creation in this example. The E - Commerce Web Site we will be assembling is one in which all of the inventory is in a MySQL database and we offer a custom PHP cart for a unique shopping experience. It is a site that handles sales, customers, and inventory.
+
+3.
+In this 3rd video we will create the Admin Log In System for managing inventory and other store functions in the back end. We demonstrate a scripted method for database table creation in this example. The E - Commerce Web Site we will be assembling is one in which all of the inventory is in a MySQL database and we offer a custom PHP cart for a unique shopping experience. It is a site that handles sales, customers, and inventory.
+
+4.
+
+
+
+
+
+5.
+
+
+
+6.
+
+
+7.
+
+
+
+
+members
+
+id
+first
+last
+email
+password
+username
+address
+city
+state
+zip
+signupdate
+lastlogin
+emailactivated
+
+$mytime = date("Y-m-d H:i:s");
+
+enum '0','1'
+as defined 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,156 @@
+[05-Aug-2012 15:27:33] PHP Notice:  Undefined variable: user in /home/mycoinor/public_html/admin/index.php on line 5
+[05-Aug-2012 15:27:33] PHP Fatal error:  Call to a member function getUserById() on a non-object in /home/mycoinor/public_html/admin/index.php on line 5
+[29-Nov-2012 08:34:43 GMT] PHP Notice:  Undefined variable: Login in /home/mycoinor/public_html/admin/index.php on line 4
+[29-Nov-2012 08:34:43 GMT] PHP Fatal error:  Call to a member function loginCheck() on a non-object in /home/mycoinor/public_html/admin/index.php on line 4
+[29-Nov-2012 08:35:57 GMT] PHP Notice:  A session had already been started - ignoring session_start() in /home/mycoinor/public_html/inc/config.php on line 3
+[29-Nov-2012 03:35:58 America/Detroit] PHP Fatal error:  Cannot redeclare class User in /home/mycoinor/public_html/inc/classes/users/User.php on line 3
+[29-Nov-2012 08:36:17 GMT] PHP Notice:  Undefined variable: user in /home/mycoinor/public_html/admin/index.php on line 31
+[29-Nov-2012 08:36:17 GMT] PHP Fatal error:  Call to a member function getUserName() on a non-object in /home/mycoinor/public_html/admin/index.php on line 31
+[29-Nov-2012 08:36:31 GMT] PHP Notice:  Undefined index: pageText1 in /home/mycoinor/public_html/admin/viewList.php on line 16
+[29-Nov-2012 08:36:32 GMT] PHP Notice:  Undefined index: pageText1 in /home/mycoinor/public_html/admin/viewList.php on line 16
+[29-Nov-2012 08:36:57 GMT] PHP Notice:  Undefined variable: Login in /home/mycoinor/public_html/admin/users.php on line 4
+[29-Nov-2012 08:36:57 GMT] PHP Fatal error:  Call to a member function loginCheck() on a non-object in /home/mycoinor/public_html/admin/users.php on line 4
+[29-Nov-2012 08:37:40 GMT] PHP Notice:  Undefined index: lastlogin in /home/mycoinor/public_html/admin/users.php on line 44
+[29-Nov-2012 14:32:16 GMT] PHP Notice:  Undefined index: lastlogin in /home/mycoinor/public_html/admin/users.php on line 44
+[01-Dec-2012 00:28:46 GMT] PHP Notice:  Undefined variable: user in /home/mycoinor/public_html/admin/index.php on line 31
+[01-Dec-2012 00:28:46 GMT] PHP Fatal error:  Call to a member function getUserName() on a non-object in /home/mycoinor/public_html/admin/index.php on line 31
+[01-Dec-2012 00:28:50 GMT] PHP Fatal error:  Call to undefined function monthControls() in /home/mycoinor/public_html/admin/calendar.php on line 46
+[01-Dec-2012 00:31:26 GMT] PHP Fatal error:  Class 'Event' not found in /home/mycoinor/public_html/inc/classes/calendar/Calendar.class.php on line 40
+[01-Dec-2012 00:33:42 GMT] PHP Fatal error:  Call to undefined method Event::calendarEventDisplay2() in /home/mycoinor/public_html/inc/classes/calendar/Calendar.class.php on line 70
+[05-Dec-2012 09:51:43 GMT] PHP Notice:  Undefined variable: user in /home/mycoinor/public_html/admin/index.php on line 31
+[05-Dec-2012 09:51:43 GMT] PHP Fatal error:  Call to a member function getUserName() on a non-object in /home/mycoinor/public_html/admin/index.php on line 31
+[05-Dec-2012 09:51:50 GMT] PHP Warning:  Missing argument 3 for Calendar::draw_calendar(), called in /home/mycoinor/public_html/admin/calendar.php on line 41 and defined in /home/mycoinor/public_html/inc/classes/calendar/Calendar.class.php on line 118
+[05-Dec-2012 09:51:50 GMT] PHP Notice:  Undefined variable: loc in /home/mycoinor/public_html/inc/classes/calendar/Calendar.class.php on line 149
+[05-Dec-2012 09:52:18 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 51
+[05-Dec-2012 09:52:18 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 57
+[05-Dec-2012 09:52:18 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 99
+[05-Dec-2012 09:53:04 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 51
+[05-Dec-2012 09:53:04 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 57
+[05-Dec-2012 09:53:04 GMT] PHP Notice:  Undefined index: send_m in /home/mycoinor/public_html/admin/mail.php on line 100
+[05-Dec-2012 09:53:04 GMT] PHP Notice:  Undefined variable: mailNote in /home/mycoinor/public_html/admin/mail.php on line 157
+[05-Dec-2012 09:53:10 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 51
+[05-Dec-2012 09:53:10 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 57
+[05-Dec-2012 09:53:10 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 99
+[05-Dec-2012 09:53:21 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 51
+[05-Dec-2012 09:53:39 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 51
+[05-Dec-2012 09:53:39 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 57
+[05-Dec-2012 09:53:39 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 99
+[05-Dec-2012 09:53:46 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 51
+[05-Dec-2012 09:53:50 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 57
+[05-Dec-2012 09:53:50 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 99
+[05-Dec-2012 09:53:50 GMT] PHP Warning:  imap_header() [<a href='function.imap-header'>function.imap-header</a>]: Bad message number in /home/mycoinor/public_html/admin/mail.php on line 199
+[05-Dec-2012 09:53:50 GMT] PHP Notice:  Trying to get property of non-object in /home/mycoinor/public_html/admin/mail.php on line 200
+[05-Dec-2012 09:53:57 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 51
+[05-Dec-2012 09:54:06 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 57
+[05-Dec-2012 09:54:06 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 99
+[05-Dec-2012 09:54:06 GMT] PHP Warning:  imap_header() [<a href='function.imap-header'>function.imap-header</a>]: Bad message number in /home/mycoinor/public_html/admin/mail.php on line 199
+[05-Dec-2012 09:54:06 GMT] PHP Notice:  Trying to get property of non-object in /home/mycoinor/public_html/admin/mail.php on line 200
+[05-Dec-2012 09:54:34 GMT] PHP Warning:  Missing argument 3 for Calendar::draw_calendar(), called in /home/mycoinor/public_html/admin/calendar.php on line 41 and defined in /home/mycoinor/public_html/inc/classes/calendar/Calendar.class.php on line 118
+[05-Dec-2012 09:54:34 GMT] PHP Notice:  Undefined variable: loc in /home/mycoinor/public_html/inc/classes/calendar/Calendar.class.php on line 149
+[05-Dec-2012 09:57:17 GMT] PHP Notice:  Undefined variable: day_counter in /home/mycoinor/public_html/inc/classes/calendar/Calendar.class.php on line 170
+[05-Dec-2012 10:01:57 GMT] PHP Notice:  Undefined index: pageText1 in /home/mycoinor/public_html/admin/viewList.php on line 16
+[05-Dec-2012 10:01:58 GMT] PHP Notice:  Undefined index: pageText1 in /home/mycoinor/public_html/admin/viewList.php on line 16
+[05-Dec-2012 10:03:08 GMT] PHP Notice:  Undefined index: lastlogin in /home/mycoinor/public_html/admin/users.php on line 44
+[05-Dec-2012 10:05:01 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 51
+[05-Dec-2012 10:05:01 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 57
+[05-Dec-2012 10:05:01 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 99
+[05-Dec-2012 10:21:19 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 60
+[05-Dec-2012 10:21:19 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 66
+[05-Dec-2012 10:21:19 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 108
+[05-Dec-2012 10:24:44 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 125
+[05-Dec-2012 10:24:44 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 131
+[05-Dec-2012 10:24:44 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 173
+[05-Dec-2012 10:24:56 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 125
+[05-Dec-2012 10:24:56 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 131
+[05-Dec-2012 10:24:56 GMT] PHP Notice:  Undefined index: send_m in /home/mycoinor/public_html/admin/mail.php on line 174
+[05-Dec-2012 10:24:56 GMT] PHP Notice:  Undefined variable: mailNote in /home/mycoinor/public_html/admin/mail.php on line 230
+[05-Dec-2012 10:26:03 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 125
+[05-Dec-2012 10:26:03 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 131
+[05-Dec-2012 10:26:03 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 173
+[05-Dec-2012 10:26:13 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 125
+[05-Dec-2012 10:26:32 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 125
+[05-Dec-2012 10:26:32 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 131
+[05-Dec-2012 10:26:32 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 173
+[05-Dec-2012 10:27:16 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 125
+[05-Dec-2012 10:27:16 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 131
+[05-Dec-2012 10:27:16 GMT] PHP Notice:  Undefined index: send_m in /home/mycoinor/public_html/admin/mail.php on line 174
+[05-Dec-2012 10:27:16 GMT] PHP Notice:  Undefined variable: mailNote in /home/mycoinor/public_html/admin/mail.php on line 230
+[05-Dec-2012 10:32:24 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 134
+[05-Dec-2012 10:32:24 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 140
+[05-Dec-2012 10:32:24 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 182
+[05-Dec-2012 10:33:09 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 134
+[05-Dec-2012 10:33:09 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 140
+[05-Dec-2012 10:33:09 GMT] PHP Notice:  Undefined index: send_m in /home/mycoinor/public_html/admin/mail.php on line 183
+[05-Dec-2012 10:35:04 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 134
+[05-Dec-2012 10:35:04 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 140
+[05-Dec-2012 10:35:04 GMT] PHP Notice:  Undefined index: send_m in /home/mycoinor/public_html/admin/mail.php on line 183
+[05-Dec-2012 10:40:37 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 138
+[05-Dec-2012 10:40:37 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 144
+[05-Dec-2012 10:40:37 GMT] PHP Notice:  Undefined index: send_m in /home/mycoinor/public_html/admin/mail.php on line 187
+[05-Dec-2012 10:41:43 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 138
+[05-Dec-2012 10:41:43 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 144
+[05-Dec-2012 10:41:43 GMT] PHP Notice:  Undefined index: send_m in /home/mycoinor/public_html/admin/mail.php on line 187
+[05-Dec-2012 10:42:19 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 138
+[05-Dec-2012 10:42:19 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 144
+[05-Dec-2012 10:42:19 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 186
+[05-Dec-2012 10:42:28 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 138
+[05-Dec-2012 10:42:28 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 144
+[05-Dec-2012 10:42:28 GMT] PHP Notice:  Undefined index: send_m in /home/mycoinor/public_html/admin/mail.php on line 187
+[05-Dec-2012 10:43:14 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 138
+[05-Dec-2012 10:43:14 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 144
+[05-Dec-2012 10:43:14 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 186
+[05-Dec-2012 10:43:25 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 138
+[05-Dec-2012 10:43:25 GMT] PHP Notice:  Undefined property: stdClass::$personal in /home/mycoinor/public_html/admin/mail.php on line 156
+[05-Dec-2012 10:44:39 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 138
+[05-Dec-2012 10:44:39 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 144
+[05-Dec-2012 10:44:39 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 186
+[05-Dec-2012 10:44:46 GMT] PHP Notice:  Undefined index: delete in /home/mycoinor/public_html/admin/mail.php on line 138
+[05-Dec-2012 10:45:09 GMT] PHP Notice:  Undefined index: see in /home/mycoinor/public_html/admin/mail.php on line 144
+[05-Dec-2012 10:45:09 GMT] PHP Notice:  Undefined index: create in /home/mycoinor/public_html/admin/mail.php on line 186
+[05-Dec-2012 10:45:09 GMT] PHP Warning:  imap_header() [<a href='function.imap-header'>function.imap-header</a>]: Bad message number in /home/mycoinor/public_html/admin/mail.php on line 281
+[05-Dec-2012 10:45:09 GMT] PHP Notice:  Trying to get property of non-object in /home/mycoinor/public_html/admin/mail.php on line 282
+[06-Dec-2012 01:08:35 GMT] PHP Notice:  Undefined index: lastlogin in /home/mycoinor/public_html/admin/users.php on line 44
+[06-Dec-2012 01:08:42 GMT] PHP Notice:  Undefined variable: Users in /home/mycoinor/public_html/admin/userView.php on line 36
+[06-Dec-2012 01:08:42 GMT] PHP Fatal error:  Call to a member function getDisplayName() on a non-object in /home/mycoinor/public_html/admin/userView.php on line 36
+[06-Dec-2012 01:08:56 GMT] PHP Notice:  Undefined index: lastlogin in /home/mycoinor/public_html/admin/users.php on line 44
+[06-Dec-2012 01:09:34 GMT] PHP Notice:  Undefined index: lastlogin in /home/mycoinor/public_html/admin/users.php on line 44
+[06-Dec-2012 01:09:46 GMT] PHP Notice:  Undefined index: lastlogin in /home/mycoinor/public_html/admin/users.php on line 44
+[06-Dec-2012 02:42:00 GMT] PHP Notice:  Undefined index: lastlogin in /home/mycoinor/public_html/admin/users.php on line 44
+[06-Dec-2012 02:42:08 GMT] PHP Fatal error:  Call to undefined method Login::getUserIDLastLogin() in /home/mycoinor/public_html/admin/userView.php on line 49
+[06-Dec-2012 03:51:53 GMT] PHP Notice:  Undefined index: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 13
+[06-Dec-2012 03:51:53 GMT] PHP Fatal error:  Call to undefined function noScriptTextReturn() in /home/mycoinor/public_html/admin/taskView.php on line 20
+[06-Dec-2012 03:54:46 GMT] PHP Notice:  Undefined property: General::$eventDescription in /home/mycoinor/public_html/inc/classes/site/General.class.php on line 60
+[06-Dec-2012 03:54:46 GMT] PHP Notice:  Undefined index: priority in /home/mycoinor/public_html/admin/taskView.php on line 20
+[06-Dec-2012 03:54:46 GMT] PHP Fatal error:  Call to undefined function niceDate() in /home/mycoinor/public_html/admin/taskView.php on line 99
+[06-Dec-2012 03:55:38 GMT] PHP Notice:  Undefined index: priority in /home/mycoinor/public_html/admin/taskView.php on line 20
+[06-Dec-2012 03:55:38 GMT] PHP Fatal error:  Call to undefined function niceDate() in /home/mycoinor/public_html/admin/taskView.php on line 99
+[06-Dec-2012 03:56:35 GMT] PHP Fatal error:  Call to undefined function niceDate() in /home/mycoinor/public_html/admin/taskView.php on line 97
+[06-Dec-2012 03:57:00 GMT] PHP Notice:  Undefined variable: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 110
+[06-Dec-2012 03:58:04 GMT] PHP Notice:  Undefined variable: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 110
+[06-Dec-2012 03:59:20 GMT] PHP Notice:  Undefined variable: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 110
+[06-Dec-2012 03:59:23 GMT] PHP Notice:  Undefined variable: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 110
+[06-Dec-2012 03:59:44 GMT] PHP Notice:  Undefined variable: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 110
+[06-Dec-2012 04:03:11 GMT] PHP Notice:  Undefined variable: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 110
+[06-Dec-2012 04:03:35 GMT] PHP Notice:  Undefined variable: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 110
+[06-Dec-2012 04:06:39 GMT] PHP Notice:  Undefined variable: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 120
+[06-Dec-2012 04:06:59 GMT] PHP Notice:  Undefined variable: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 120
+[06-Dec-2012 04:07:00 GMT] PHP Notice:  Undefined variable: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 120
+[06-Dec-2012 04:07:29 GMT] PHP Notice:  Undefined variable: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 120
+[06-Dec-2012 04:07:30 GMT] PHP Notice:  Undefined variable: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 120
+[06-Dec-2012 04:09:21 GMT] PHP Fatal error:  Call to undefined function getEmployeeName() in /home/mycoinor/public_html/admin/tasksNew.php on line 119
+[06-Dec-2012 04:10:50 GMT] PHP Notice:  Undefined variable: websiteID in /home/mycoinor/public_html/admin/taskView.php on line 120
+[06-Dec-2012 04:12:36 GMT] PHP Notice:  Undefined index: lastlogin in /home/mycoinor/public_html/admin/users.php on line 44
+[06-Dec-2012 14:54:52 GMT] PHP Notice:  Undefined variable: user in /home/mycoinor/public_html/admin/index.php on line 31
+[06-Dec-2012 14:54:52 GMT] PHP Fatal error:  Call to a member function getUserName() on a non-object in /home/mycoinor/public_html/admin/index.php on line 31
+[13-Dec-2012 00:23:09 GMT] PHP Notice:  Undefined variable: user in /home/mycoinor/public_html/admin/index.php on line 31
+[13-Dec-2012 00:23:09 GMT] PHP Fatal error:  Call to a member function getUserName() on a non-object in /home/mycoinor/public_html/admin/index.php on line 31
+[13-Dec-2012 04:28:23 GMT] PHP Notice:  Undefined variable: user in /home/mycoinor/public_html/admin/index.php on line 31
+[13-Dec-2012 04:28:23 GMT] PHP Fatal error:  Call to a member function getUserName() on a non-object in /home/mycoinor/public_html/admin/index.php on line 31
+[13-Dec-2012 06:46:06 GMT] PHP Notice:  Undefined variable: user in /home/mycoinor/public_html/admin/index.php on line 31
+[13-Dec-2012 06:46:06 GMT] PHP Fatal error:  Call to a member function getUserName() on a non-object in /home/mycoinor/public_html/admin/index.php on line 31
+[15-Dec-2012 08:24:36 GMT] PHP Notice:  Undefined property: CoinClub::$clubAddress in /home/mycoinor/public_html/inc/classes/coins/CoinClub.php on line 35
+[15-Dec-2012 08:24:36 GMT] PHP Notice:  Undefined property: CoinClub::$clubCity in /home/mycoinor/public_html/inc/classes/coins/CoinClub.php on line 38
+[15-Dec-2012 08:24:36 GMT] PHP Notice:  Undefined property: CoinClub::$clubState in /home/mycoinor/public_html/inc/classes/coins/CoinClub.php on line 41
+[15-Dec-2012 08:24:36 GMT] PHP Notice:  Undefined property: CoinClub::$clubZip in /home/mycoinor/public_html/inc/classes/coins/CoinClub.php on line 44
+[15-Dec-2012 08:24:36 GMT] PHP Notice:  Undefined property: CoinClub::$clubState in /home/mycoinor/public_html/inc/classes/coins/CoinClub.php on line 41
+[19-Jan-2013 04:34:51 GMT] PHP Fatal error:  Call to undefined method Event::calendarEventDisplay() in /home/mycoinor/public_html/inc/classes/calendar/Calendar.class.php on line 180

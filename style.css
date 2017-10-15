@@ -1,0 +1,614 @@
+/*
+hover
+topLink 
+headerLogo
+addRadiosLbs
+*/
+
+
+body {margin:0px; padding:0px; width:100%; font-family:Arial, Helvetica, sans-serif; background-image:url(img/sidebg1.jpg); background-position:left bottom; background-repeat:no-repeat; background-attachment:fixed;}
+/*#footer {width:100%; height:400px; background-image:url(img/footerBG.jpg); background-repeat:repeat-x; margin-bottom:0px;}
+#footer a {color:#fff;}
+*/
+#footer {width:100%; height:400px; margin-bottom:0px;}
+/*#footer a {color:#8b4513; font-weight:bold;}*/
+#footer a {color:#fff; font-weight:bold;}
+#footerContent {
+	margin:0px auto;
+	padding:5px;
+	width:700px; 
+	color:#fff; 
+	padding:80px 10px;
+	
+}
+#footerTbl {
+	margin:0px auto;	
+}
+#header {width:100%; height:300px; padding-top:10px; border:2px solid#900;}
+.headerTbl {font-size:20px; 	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;}
+	#linksRow {}
+.headerTbl  h1 {margin:0px;}
+.headerTbl  a {color:#333;}
+.headerTbl  a:hover {text-decoration:underline; color:#000;}
+#linkListRow {font-size:16px;}
+
+.subNavList {margin:0px; width:100%; padding:none;}
+.subNavList li {list-style-type:none; text-align:left;  padding:none; margin:0px;}
+
+#headerContent {
+	margin:0px auto;
+	width:1000px; 
+	overflow:auto; 
+	 background-image:url(img/front/hdrbg.png); background-repeat:repeat-x; background-position:bottom;
+}	
+
+
+#logoHolder {
+	margin:5px auto 10px auto;
+	width:1000px; 
+	overflow:auto; 
+}
+
+#typeList {margin-left:330px;}
+#outterHead{width:1000px; border-radius: 5px; margin:0px auto; ;border:1px #CCCCCC solid;}
+#content {
+	margin:10px auto;
+	border-radius: 5px;
+	padding:5px;
+	width:1000px;
+	/*overflow:auto;*/
+	background-color:#FFFFFF;
+	text-align: left;
+}
+
+/*//////////////////////////////////////////////////////////////////////////NAV//////////////////////////////////////////////////////////////////////////////////////////////*/
+
+nav {
+	margin: 0px auto; 
+	text-align: center;
+}
+
+nav ul ul {
+	display: none;
+}
+
+	nav ul li:hover > ul {
+		display: block;
+	}
+
+
+nav ul {
+	background: #efefef; 
+	background: linear-gradient(top, #efefef 0%, #bbbbbb 100%);  
+	background: -moz-linear-gradient(top, #efefef 0%, #bbbbbb 100%); 
+	background: -webkit-linear-gradient(top, #efefef 0%,#bbbbbb 100%); 
+	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+	padding: 0 20px;
+	border-radius: 10px;  
+	list-style: none;
+	position: relative;
+	display: inline-table;
+}
+
+	nav ul:after {
+		content: ""; clear: both; display: block;
+	}
+
+	nav ul li {
+		float: left;
+	}
+		nav ul li:hover {
+			background: #dedede;
+			background: linear-gradient(top, #4f5964 0%, #5f6975 40%);
+			background: -moz-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+			background: -webkit-linear-gradient(top, #4f5964 0%,#5f6975 40%);
+		}
+			nav ul li:hover a {
+				color: #fff;
+			}
+		
+		nav ul li a {
+			display: block; padding: 25px 40px;
+			color: #757575; text-decoration: none;
+		}
+			
+		
+	nav ul ul {
+		background: #5f6975; border-radius: 0px; padding: 0;
+		position: absolute; top: 100%;
+	}
+		nav ul ul li {
+			float: none; 
+			border-top: 1px solid #6b727c;
+			border-bottom: 1px solid #575f6a; position: relative;
+		}
+			nav ul ul li a {
+				padding: 15px 40px;
+				color: #fff;
+			}	
+				nav ul ul li a:hover {
+					background: #4b545f;
+				}
+		
+	nav ul ul ul {
+		position: absolute; left: 100%; top:0;
+	}
+#headerList {
+	padding: 0 20px;
+	border-radius: 10px;  
+	list-style: none;
+	position: relative;
+	
+}
+#userToolsTbl {
+	margin: 0px auto; 
+	text-align: center;
+}
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*GENERAL STYLES*/
+.darker {font-weight:bold;}
+.clear {clear:both;}
+.inline {display:inline;}
+.floatLeft {float:left;}
+.floatRight {float:right;}
+.greyLink {color:#333333;}
+.noDot {list-style-type:none;}
+.noDot2 li {list-style-type:none; margin:0px; display:inline;}
+.autoCoinTbl {overflow:hidden;}
+table h3, table h1, table h2, table h4 {margin:0px;}
+.noMargin {margin:0px;}
+/*IMAGES*/
+a img, img {border:none;}
+.photo {
+float: left;
+margin: 0.5em;
+border: 1px solid #ccc;
+padding: 1em;
+font-size: 10px;
+}
+#addtypeImg {width:100px; height:auto; border:none; margin:0px;}
+#newBag {width:50px; height:auto;}
+.containerTypeImg {width:100px; height:auto;}
+/*LINKS*/
+.moneyGreen {color:#228b22;}
+/*
+Original brown #72584b
+
+*/
+a, a:hover {text-decoration:none;}
+.brownLink {color:#8b4513;}
+
+.brownLinkBold {color:#8b4513; font-weight:bold;}
+.brownLink:hover {color:#8b4513;}
+.greenLink {color:#5e871d; font-weight:bold;}
+.green {color:#5e871d;}
+table a, table a:hover {text-decoration:none; color:#8b4513;}
+.linkColor {color:#996600;}
+.redLink {color:#900;}
+.blueLink {color:#009;}
+/*.greenLink {color:#090;}*/
+
+/*TABLES*/
+.gryHover:hover {background-color:#CCCCCC;}
+#masterRollTbl {border-collapse:collapse;}
+#masterRollTbl tr:hover{background-color:#333; color:#FFF;}
+#masterRollTbl tr a:hover{color:#FFF;}
+
+#setList .setListRow:hover{background-color:#333; color:#FFF;}
+#setList .setListRow a:hover{color:#FFF;}
+
+#addCoinTbl td {padding:3px;}
+/*FRONTEND STYLES*/
+.descList {margin-left:10px; float:left; list-style-type:none;}
+
+/*FORM STYLES*/
+label {font-weight:bold;}
+.wideLable label{ float: left; width: 130px; font-weight: bold;}
+.wideLable input, {width: 200px; margin-bottom: 5px;}
+.wideLable select {width: 200px; margin-bottom: 5px;}
+#headList1 {background-color:#000; color:#fff;}
+.labelfocus {color:#666;}
+.errorInput {border:2px solid#900;}
+.errorTxt {color:#900; font-weight:bold;}
+.greenTxt {color:#090; font-weight:bold;}
+.wysiwyg{width:670px;  height:250px;}
+.readOnlyTxt {border:none;}
+.compactForm {display:inline; padding:0px; margin:0px;}
+textarea {font-family:Arial, Helvetica, sans-serif!important;}
+.addRadiosLbs {font-weight:normal;}
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////  Header & Nav  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/
+#menuList {float:left;}
+#menuList li {list-style-type:none; font-size:1.3em; padding:10px 5px;}
+#typeTbl {margin:0px auto;}
+#frontImg {height:300px; width:auto; margin-left:20px;}
+.frontImg {height:auto; width:100%;}
+.innerSlide {background-color:#fff  !important;}
+#topDiv {background-image:url(img/navUnder.png); background-repeat:repeat-x; background-position:bottom;}
+#navLinks {background-image:url(img/navBG2.jpg); background-repeat:repeat-x; margin-top:0px; z-index:100;}
+#navLinks2{background-image:url(img/navBG.png); background-repeat:repeat-x;}
+#nickelTbl td, #pennyTbl td {width:200px;}
+#halfDimeTbl td {width:25%;}
+#halfTbl td{width:20%;}
+
+.topNav2 {background-image:url(img/navBG.png); background-repeat:repeat-x;
+	margin:20px auto;
+	width:1000px; 
+	padding-top:7px;
+}
+
+.topNav2 p {
+	margin-left:20px;
+	margin-bottom:10px;
+	color:#fff;
+	display:inline;
+}
+.topNav2 span { color:#fff;}
+
+.topNav2 a {
+	color:#fff;
+	text-decoration:none;
+}
+
+#topNav span { color:#fff;}
+/* base nav styles */
+nav { display:block; margin:20px auto 20px; border:1px solid #222; position:relative; background-color:#6a6a6a; font:16px Tahoma, Sans-serif; }
+nav ul { padding:0px; margin:0px; }
+nav li { position:relative; float:left; list-style-type:none; }
+nav ul:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+nav li a { display:block; padding:10px 20px; border-left:1px solid #999; border-right:1px solid #222; color:#eee; text-decoration:none; }
+nav li a:focus { outline:none; text-decoration:underline; }
+nav li:first-child a { border-left:none; }
+nav li.last a { border-right:none; }
+nav a span { display:block; float:right; margin-left:5px; }
+nav ul ul { display:none; width:100%; position:absolute; left:0; background:#6a6a6a; }
+nav ul ul li { float:none; }
+nav ul ul a { padding:5px 10px; border-left:none; border-right:none; font-size:14px; }
+nav ul ul a:hover { background-color:#555; }
+
+#storeLink {text-align:right;}
+/* JS disabled styles */
+
+#searchForm {margin:0px; display:inline;}
+
+
+/*
+//////////////////////////////////////////////////////////////////////////////////////////////  Header & Nav  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*/
+
+
+/*FOLDER & LIST VIEWS*/
+#typeList {margin:0px;}
+#listTbl a, #typeList a, #folderTbl a, #reportList a, .albumTbl a {text-decoration:none; color:#72584b;}
+#typeList a:hover {font-weight:bold;}
+#listTbl {border-collapse:collapse;}
+#listTbl td {padding:4px;}
+.pageList {text-decoration:none; font-size:1.3em;}
+#listTbl, #reportList{background-color:#fff;}
+.dateHolder {text-align:center; font-weight:bold;}
+#folderTbl {background-color:#fff; border-collapse:collapse;}
+#folderTbl2 {background-color:#fff; border-collapse:collapse;}
+#folderTbl3 {background-color:#fff; border-collapse:collapse;}
+#folderTbl4 {background-color:#fff; border-collapse:collapse;}
+#folderTbl5 {background-color:#fff; border-collapse:collapse;}
+.collectLink {color:#B87333; text-decoration:none;}
+#bLogo {display:inline;}
+.collection {display:none;}
+
+
+
+.coinSwitchTbl {margin:0px auto; text-decoration:none; color:#72584b; text-align:center;}
+.coinSwitchTbl h3 {color:#000;}
+/*ADD COIN*/
+#additional {width:99%;}
+#gradeService {margin-bottom:7px;}
+#addCoinTbl td {padding:3px;}
+#additional {margin-bottom:7px;}
+#coinTypes a {text-decoration:none;}
+
+#newTbl {margin:0px auto;}
+#newGrade {border:#fff 3px solid; }
+.newImg {width:150px; height:auto;}
+
+/*REPORTS.PHP*/
+.reportList {}
+
+/*
+//////////////////////////////////////////////  SHADOWS AND BORDERS  ///////////////////////////////////////////////////////////////////////////
+*/
+.shadow {
+	padding:7px 0px;
+	-moz-box-shadow: 3px 3px 4px #000;
+		-webkit-box-shadow: 3px 3px 4px #000;
+		box-shadow: 3px 3px 4px #000;
+		/* For IE 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+		/* For IE 5.5 - 7 */
+		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+	}
+.rounded {
+	background-color:#666; 
+	border:1px #CCCCCC solid;
+	border-radius: 5px; padding:5px;
+}
+.roundedWhite {
+	background-color:#fff; 
+	border:2px #000 solid;
+	border-radius: 7px; padding:5px;
+}
+
+/*
+//////////////////////////////////////////////  PAGES  ///////////////////////////////////////////////////////////////////////////
+*/
+
+.mintageTbl  {border-collapse:collapse;}
+.mintageTbl td {padding:2px;;}
+
+/*/////////////////////////////////////////////////////FOLDERS//////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.paginate {
+font-family: Arial, Helvetica, sans-serif;
+font-size: .7em;
+}
+a.paginate {
+border: 1px solid #906656;
+padding: 2px 6px 2px 6px;
+text-decoration: none;
+color: #906656;
+}
+a.paginate:hover {
+background-color: #906656;
+color: #FFF;
+text-decoration: underline;
+}
+a.current {
+border: 1px solid #906656;
+font: bold .7em Arial,Helvetica,sans-serif;
+padding: 2px 6px 2px 6px;
+cursor: default;
+background:#906656;
+color: #FFF;
+text-decoration: none;
+}
+span.inactive {
+border: 1px solid #999;
+font-family: Arial, Helvetica, sans-serif;
+font-size: .7em;
+padding: 2px 6px 2px 6px;
+color: #999;
+cursor: default;
+}
+#albumDiv {
+	padding:10px 0px;
+	-moz-box-shadow: 3px 3px 4px #000;
+		-webkit-box-shadow: 3px 3px 4px #000;
+		box-shadow: 3px 3px 4px #000;
+		/* For IE 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+		/* For IE 5.5 - 7 */
+		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+	}
+
+/*
+//////////////////////////////////////////////  REPORTS  ///////////////////////////////////////////////////////////////////////////
+*/
+.reportTbl {border-collapse:collapse;}
+
+#gradeSelects {margin-top:20px;}
+
+.coinFaceVal {border:none; font-size:18px;}
+#topPriceRow {background-image:url(../../img/featured-bkg.png); height: 30px; color: #fff; font-size:1.6em;}
+.reportListTbl { font-size:1.4em; border-collapse:collapse; margin:0px auto;}
+#reportListLinks {margin:0px auto;}
+.reportListTbl td {padding: 10px;}
+.reportListTbl tr a {
+    text-decoration:none;
+}
+#priceListTbl {border-collapse:collapse;}
+#priceListTbl td {padding:3px;}
+.priceListTbl { font-size:1.4em; border-collapse:collapse;}
+.priceListTbl td {padding: 10px;}
+.noHighlight td{padding:3px; color:#000; background-color:#EFEFEF;  font-size:1em}
+.noHighlight table {border-collapse:collapse;}
+
+.miniReportLink {font-size:0.7em; color:#000;}
+.priceListTbl tr a {
+    text-decoration:none;
+}
+.priceListTbl tr:first-child {
+    border-bottom: none;   
+}
+.spacer {height:20px;}
+.coinHrdLogo {margin-right:7px;}
+#reportImg {width:100%; height:auto;}
+#reportListLinks td { text-align:center; background-image:url(img/navBG.png); background-repeat:repeat-x; padding:5px;}
+#reportListLinks a{text-decoration:none; color:#fff;}
+.grayRow { text-align:center; background-image:url(img/navBG.png); background-repeat:repeat-x; padding:5px;}
+
+.reportListLinks td { text-align:center; background-image:url(img/navBG.png); background-repeat:repeat-x; padding:5px;}
+.reportListLinks a, .grayRow a{text-decoration:none; color:#fff;}
+
+.reportListLinksLeft td {background-image:url(img/navBG.png); background-repeat:repeat-x;}
+
+.topLink {display:block; margin-top:10px; text-decoration:none; clear:both; color:#8b4513;}
+
+.collectCountTotal, #valTotals, #rollsCollectTotal, #rollsValTotal {background-color:#EFEFEF; color:#000; border:none; text-align:center; font-size:1em;}
+.collectCount, .investCount, .smallCentCollectCount, .rollCollectCount, .rollValCount, .valCount, #rollFaceVal {background-color:#fff; color:#000; border:none; text-align:center; font-size:1em;}
+.collectCount2 {background-color:#fff; color:#000; border:none; font-size:1em; margin:0px; width:40px;}
+.collectCount3 {background-color:#fff; color:#000; border:none; text-align:center; font-size:1em;}
+.collectCount4 {background-color:#fff; color:#000; border:none; text-align:center; font-size:1em;}
+.collectCount5 {background-color:#fff; color:#000; border:none; text-align:center; font-size:1em;}
+#total_quantity, #total_invest {color:#000; background-color:#fff;}
+.typeTbl {margin:0px auto;}
+.typeTbl td {width:150px;}
+
+
+.purchaseTotals {padding-right:3px;}
+
+.coinHdr {text-align:center;}
+
+#categoryErrorTbl {border-collapse:collapse;}
+/*Grades*/
+.certBgRow {background-image:url(../img/certBG.jpg); background-repeat:no-repeat; background-position:center;}
+.gradeNums td {padding:5px; font-size:120%;}
+#changerRow {padding-top:15px;}
+#listTbl h3 {margin:0px;}
+#loaderGif {height:20px; width:auto;}
+
+/*Designs*/
+#designLinksTbl h3 {margin-top:3px;}
+
+
+#yearLoader {font-size:110%;}
+
+#typeDiv h3 {text-align:center;}
+
+
+/*SALES AND SPENDING*/
+
+#monthInvestTbl {font-size:75%;}
+.smallTxt {font-size:85%;}
+.tdPadder {padding-right:5px;}
+#monthInvestTbl tr:hover
+{
+        background-color:#ccc;
+		color:#fff;
+}
+
+/*
+//////////////////////////////////////////////  VIEWS  ///////////////////////////////////////////////////////////////////////////
+*/
+.viewListBtns {font-size:1.2em;}
+#obvRev {margin:0px auto; display:block; width:350px; height:auto;}
+.coinIcon {height:17px; width:17px;}
+.otherInfo {padding:0px; text-align:left;}
+
+.pageImg {width:100px; height:auto;}
+
+#priceListTbl {border-collapse:collapse;}
+/*
+//////////////////////////////////////////////  ADD BAGS  ///////////////////////////////////////////////////////////////////////////
+*/
+.bulkListTbl { font-size:1.4em; border-collapse:collapse;}
+.bulkListTbl td {padding: 10px;}
+.bulkListTbl tr a {
+    text-decoration:none;
+}
+
+
+/*
+//////////////////////////////////////////////  Front End Pages  ///////////////////////////////////////////////////////////////////////////
+*/
+#menuList {float:left;}
+#menuList li {list-style-type:none; font-size:1.4em; padding:10px; width:110px;}
+#typeDisplayImg {width:500px; height:auto;}
+
+.coinTypeListTbl td {width:16%;}
+.coinTypeListTbl img {width:150px; height:auto; margin-right:10px;}
+#coinTypeListTbl img {width:250px; height:auto; margin-right:10px;}
+
+.genInfoHdr  {font-size:30px;}
+/*.pageNavTbl a {text-decoration:none; color:#fff;margin-left:13px;}*/
+.greyBg {background-image:url(img/navBG.png); background-repeat:repeat-x; }
+.keyRow {background-color:#333; color:#fff; border-left-color:#333; border:1px solid #333;}
+
+.keyRow a {text-decoration:none; color:#fff;}
+.SemiKeyRow {background-color:#999;border:1px solid #999;}
+
+.variety {border:1px solid #000;}
+.reference {font-size: 12px;}
+
+.noDot2Nav li a {color:#000;}
+#headerLogo {height:120px; width:auto;}	
+#headerLogo2 {height:95px; width:auto;}	
+.noDot2Nav li {list-style-type:none; margin:0px; display:inline; padding:0px 3px;}
+.noDot2Nav { font-size:22px; padding:3px 0px; height:35px; text-align:center;}
+
+/*
+//////////////////////////////////////////////  EBAY BOXES  ///////////////////////////////////////////////////////////////////////////
+*/
+.listingPic {width:50px; height:auto;}
+
+
+
+/*
+//////////////////////////////////////////////  Admin Pages  ///////////////////////////////////////////////////////////////////////////
+*/
+#priceListForm input[type=text]{width:80px;}
+
+
+/*
+//////////////////////////////////////////////  Unknown coins  ///////////////////////////////////////////////////////////////////////////
+*/
+#unkTxt {font-size:80%;}
+
+/*
+//////////////////////////////////////////////  Add Bulk  ///////////////////////////////////////////////////////////////////////////
+*/
+.wideTxtarea {width:99%;}
+#gradeService {margin-bottom:7px;}
+#addCoinTbl td {padding:3px;}
+
+#coinTypes a {text-decoration:none;}
+
+.bulkLinks {width:100px; height:auto;}
+.rollHdr {margin:0px; padding:0px;}
+
+
+/*
+//////////////////////////////////////////////  Add Rolls coins bags folders sets  ///////////////////////////////////////////////////////////////////////////
+*/
+.fromList{margin:0px;}
+#additional {width:99%; margin-bottom:7px;}
+#gradeService {margin-bottom:7px;}
+#addCoinTbl td {padding:3px;}
+.newFormImg {width:200px; height:auto; border:none; margin:0px;}
+#rawTypeTbl img {width:150px; height:150px; border:none;}
+.priceListTbl h3 {margin:0px;}
+#otherDetails {width:99%;}
+
+
+.addRollTbl td {padding:2px;}
+.addRollTbl { font-size:1.1em; border-collapse:collapse;}
+
+#coinDisplayList {font-size:80%;}
+/*///////////////////////////////////////////// Folders ///////////////////////////////////////////////////////////////////*/
+#removeChoiceTbl  {margin:0px auto;}
+
+/*///////////////////////////////////////////// Rolls ///////////////////////////////////////////////////////////////////*/
+
+.innerAlbum {padding:0px 10px;}
+
+
+/*///////////////////////////////////////////// Coin Details ///////////////////////////////////////////////////////////////////*/
+#purchaseTbl h3 {margin:0px;}
+
+.tdHeight {padding:0px;}
+.imgRow img {width:230px; height:auto;}
+.imgRow {height:240px; width:240px; overflow:hidden;}
+
+
+/*///////////////////////////////////////////// Coin Articles ///////////////////////////////////////////////////////////////////*/
+#widgetDiv {margin:0px auto; text-align:center;}
+
+
+
+/*///////////////////////////////////////////// Photo Albums ///////////////////////////////////////////////////////////////////*/
+.photo-link    { padding:5px; margin:5px; border:1px solid #ccc; display:block; width:200px; float:left; }
+.photo-link:hover  { border-color:#999; }
+.thumb {width:200px; height:auto;}
+
+.profileImg {width:250px; height:auto;}
+.forumUserImg {width:60px; height:auto;}
+
+/*///////////////////////////////////////////// Calendar Area ///////////////////////////////////////////////////////////////////*/
+.eventUL {padding:0px; margin:3px; list-style-type:none;}
+
+/*///////////////////////////////////////////// Dealer Area ///////////////////////////////////////////////////////////////////*/
+.calenderHdr {background-color:#333333; color:#fff;}
+.controlLinks a {color:#8b4513; font-weight:bold;}

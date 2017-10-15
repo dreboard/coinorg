@@ -1,0 +1,4 @@
+order deny,allow
+deny from all
+ErrorDocument 404 http://mycoinorganizer.com/inc/forbidden.php
+ErrorDocument 403 http://mycoinorganizer.com/inc/forbidden.php

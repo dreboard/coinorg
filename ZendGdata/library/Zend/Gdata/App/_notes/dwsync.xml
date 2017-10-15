@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="AuthException.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="BadMethodCallException.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="Base.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="BaseMediaSource.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="CaptchaRequiredException.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="Entry.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="Exception.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="Extension.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="Feed.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="FeedEntryParent.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="FeedSourceParent.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="HttpException.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="InvalidArgumentException.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="IOException.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="LoggingHttpClientAdapterSocket.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="MediaEntry.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="MediaFileSource.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="MediaSource.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="Util.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+<file name="VersionException.php" server="184.154.225.17//public_html/" local="129997576800000000" remote="129997576800000000" />
+</dwsync>

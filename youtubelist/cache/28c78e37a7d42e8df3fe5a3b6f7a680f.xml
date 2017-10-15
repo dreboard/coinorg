@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:app="http://www.w3.org/2007/app" xmlns:media="http://search.yahoo.com/mrss/" xmlns:openSearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:yt="http://gdata.youtube.com/schemas/2007" gd:etag="W/&quot;CEUEQX47eCp7I2A9WhJRFE4.&quot;">
+	<id>tag:youtube.com,2008:playlist:C4FBCA46405A8BF8</id>
+	<updated>2012-07-16T09:50:00.000Z</updated>
+	<category scheme="http://schemas.google.com/g/2005#kind" term="http://gdata.youtube.com/schemas/2007#playlist"/>
+	<title>Miles Davis</title>
+	<subtitle>The great Miles davis</subtitle>
+	<logo>http://www.youtube.com/img/pic_youtubelogo_123x63.gif</logo>
+	<link rel="alternate" type="text/html" href="http://www.youtube.com/playlist?list=PLC4FBCA46405A8BF8"/>
+	<link rel="http://schemas.google.com/g/2005#feed" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8?v=2"/>
+	<link rel="http://schemas.google.com/g/2005#batch" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8/batch?v=2"/>
+	<link rel="self" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8?start-index=1&amp;max-results=50&amp;format=5&amp;v=2"/>
+	<link rel="service" type="application/atomsvc+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8?alt=atom-service&amp;v=2"/>
+	<author>
+		<name>Ceasar Feijen</name>
+		<uri>http://gdata.youtube.com/feeds/api/users/cfconsultancy</uri>
+		<yt:userId>apezZcpl-F-Wi0kdb0kzJA</yt:userId>
+	</author>
+	<generator version="2.1" uri="http://gdata.youtube.com">YouTube data API</generator>
+	<openSearch:totalResults>11</openSearch:totalResults>
+	<openSearch:startIndex>1</openSearch:startIndex>
+	<openSearch:itemsPerPage>50</openSearch:itemsPerPage>
+	<media:group>
+		<media:content url="http://www.youtube.com/p/PLC4FBCA46405A8BF8" type="application/x-shockwave-flash" yt:format="5"/>
+		<media:description type="plain">The great Miles davis</media:description>
+		<media:thumbnail url="http://i.ytimg.com/vi/PoPL7BExSQU/default.jpg" height="90" width="120" yt:name="default"/>
+		<media:thumbnail url="http://i.ytimg.com/vi/PoPL7BExSQU/mqdefault.jpg" height="180" width="320" yt:name="mqdefault"/>
+		<media:thumbnail url="http://i.ytimg.com/vi/PoPL7BExSQU/hqdefault.jpg" height="360" width="480" yt:name="hqdefault"/>
+		<media:title type="plain">Miles Davis</media:title>
+	</media:group>
+	<yt:playlistId>PLC4FBCA46405A8BF8</yt:playlistId>
+	<entry gd:etag="W/&quot;YDwqeyM.&quot;">
+		<id>tag:youtube.com,2008:playlist:C4FBCA46405A8BF8:PLEfsiLjuPdJ61fKHzvF9wbacUIcAeAeWJ</id>
+		<published>2011-10-22T09:48:16.000Z</published>
+		<updated>1970-01-01T00:00:00.000Z</updated>
+		<category scheme="http://schemas.google.com/g/2005#kind" term="http://gdata.youtube.com/schemas/2007#video"/>
+		<category scheme="http://gdata.youtube.com/schemas/2007/categories.cat" term="Music" label="Music"/>
+		<title>Blue in Green by. Miles Davis</title>
+		<content type="application/x-shockwave-flash" src="http://www.youtube.com/v/PoPL7BExSQU?version=3&amp;f=playlists&amp;app=youtube_gdata"/>
+		<link rel="alternate" type="text/html" href="http://www.youtube.com/watch?v=PoPL7BExSQU&amp;feature=youtube_gdata"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.responses" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/PoPL7BExSQU/responses?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/PoPL7BExSQU/related?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#mobile" type="text/html" href="http://m.youtube.com/details?v=PoPL7BExSQU"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#uploader" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/users/XbVzw8nbv4D4BPwraieGUQ?v=2"/>
+		<link rel="related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/PoPL7BExSQU?v=2"/>
+		<link rel="self" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8/PLEfsiLjuPdJ61fKHzvF9wbacUIcAeAeWJ?v=2"/>
+		<author>
+			<name>Ceasar Feijen</name>
+			<uri>http://gdata.youtube.com/feeds/api/users/cfconsultancy</uri>
+			<yt:userId>apezZcpl-F-Wi0kdb0kzJA</yt:userId>
+		</author>
+		<yt:accessControl action="comment" permission="allowed"/>
+		<yt:accessControl action="commentVote" permission="allowed"/>
+		<yt:accessControl action="videoRespond" permission="allowed"/>
+		<yt:accessControl action="rate" permission="allowed"/>
+		<yt:accessControl action="embed" permission="allowed"/>
+		<yt:accessControl action="list" permission="allowed"/>
+		<yt:accessControl action="autoPlay" permission="moderated"/>
+		<yt:accessControl action="syndicate" permission="allowed"/>
+		<gd:comments>
+			<gd:feedLink rel="http://gdata.youtube.com/schemas/2007#comments" href="http://gdata.youtube.com/feeds/api/videos/PoPL7BExSQU/comments?v=2" countHint="3631"/>
+		</gd:comments>
+		<media:group>
+			<media:category label="Music" scheme="http://gdata.youtube.com/schemas/2007/categories.cat">Music</media:category>
+			<media:content url="http://www.youtube.com/v/PoPL7BExSQU?version=3&amp;f=playlists&amp;app=youtube_gdata" type="application/x-shockwave-flash" medium="video" isDefault="true" expression="full" duration="337" yt:format="5"/>
+			<media:content url="rtsp://v4.cache3.c.youtube.com/CiULENy73wIaHAkFSTER7MuDPhMYDSANFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="337" yt:format="1"/>
+			<media:content url="rtsp://v4.cache3.c.youtube.com/CiULENy73wIaHAkFSTER7MuDPhMYESARFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="337" yt:format="6"/>
+			<media:credit role="uploader" scheme="urn:youtube" yt:display="Amir3793">amir3793</media:credit>
+			<media:description type="plain">Another song from Kind of Blue</media:description>
+			<media:keywords/>
+			<media:license type="text/html" href="http://www.youtube.com/t/terms">youtube</media:license>
+			<media:player url="http://www.youtube.com/watch?v=PoPL7BExSQU&amp;feature=youtube_gdata_player"/>
+			<media:restriction type="country" relationship="deny">DE</media:restriction>
+			<media:thumbnail url="http://i.ytimg.com/vi/PoPL7BExSQU/default.jpg" height="90" width="120" time="00:02:48.500" yt:name="default"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/PoPL7BExSQU/mqdefault.jpg" height="180" width="320" yt:name="mqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/PoPL7BExSQU/hqdefault.jpg" height="360" width="480" yt:name="hqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/PoPL7BExSQU/1.jpg" height="90" width="120" time="00:01:24.250" yt:name="start"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/PoPL7BExSQU/2.jpg" height="90" width="120" time="00:02:48.500" yt:name="middle"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/PoPL7BExSQU/3.jpg" height="90" width="120" time="00:04:12.750" yt:name="end"/>
+			<media:title type="plain">Blue in Green by. Miles Davis</media:title>
+			<yt:duration seconds="337"/>
+			<yt:uploaded>2007-11-03T05:26:55.000Z</yt:uploaded>
+			<yt:uploaderId>UCXbVzw8nbv4D4BPwraieGUQ</yt:uploaderId>
+			<yt:videoid>PoPL7BExSQU</yt:videoid>
+		</media:group>
+		<gd:rating average="4.958521" max="5" min="1" numRaters="13983" rel="http://schemas.google.com/g/2005#overall"/>
+		<yt:statistics favoriteCount="0" viewCount="4010633"/>
+		<yt:rating numDislikes="145" numLikes="13838"/>
+		<yt:position>1</yt:position>
+	</entry>
+	<entry gd:etag="W/&quot;YDwqeyM.&quot;">
+		<id>tag:youtube.com,2008:playlist:C4FBCA46405A8BF8:PLEfsiLjuPdJ51h17Pw06PQz6I8z3Actct</id>
+		<published>2011-10-22T09:48:24.000Z</published>
+		<updated>1970-01-01T00:00:00.000Z</updated>
+		<category scheme="http://schemas.google.com/g/2005#kind" term="http://gdata.youtube.com/schemas/2007#video"/>
+		<category scheme="http://gdata.youtube.com/schemas/2007/categories.cat" term="Music" label="Music"/>
+		<title>Miles Davis "Summertime" (1958)</title>
+		<content type="application/x-shockwave-flash" src="http://www.youtube.com/v/N090STPx-2M?version=3&amp;f=playlists&amp;app=youtube_gdata"/>
+		<link rel="alternate" type="text/html" href="http://www.youtube.com/watch?v=N090STPx-2M&amp;feature=youtube_gdata"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.responses" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/N090STPx-2M/responses?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/N090STPx-2M/related?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#mobile" type="text/html" href="http://m.youtube.com/details?v=N090STPx-2M"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#uploader" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/users/GDIjTfpcgZjf2nVeyb7ELA?v=2"/>
+		<link rel="related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/N090STPx-2M?v=2"/>
+		<link rel="self" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8/PLEfsiLjuPdJ51h17Pw06PQz6I8z3Actct?v=2"/>
+		<author>
+			<name>Ceasar Feijen</name>
+			<uri>http://gdata.youtube.com/feeds/api/users/cfconsultancy</uri>
+			<yt:userId>apezZcpl-F-Wi0kdb0kzJA</yt:userId>
+		</author>
+		<yt:accessControl action="comment" permission="allowed"/>
+		<yt:accessControl action="commentVote" permission="allowed"/>
+		<yt:accessControl action="videoRespond" permission="denied"/>
+		<yt:accessControl action="rate" permission="allowed"/>
+		<yt:accessControl action="embed" permission="allowed"/>
+		<yt:accessControl action="list" permission="allowed"/>
+		<yt:accessControl action="autoPlay" permission="moderated"/>
+		<yt:accessControl action="syndicate" permission="allowed"/>
+		<gd:comments>
+			<gd:feedLink rel="http://gdata.youtube.com/schemas/2007#comments" href="http://gdata.youtube.com/feeds/api/videos/N090STPx-2M/comments?v=2" countHint="1106"/>
+		</gd:comments>
+		<media:group>
+			<media:category label="Music" scheme="http://gdata.youtube.com/schemas/2007/categories.cat">Music</media:category>
+			<media:content url="http://www.youtube.com/v/N090STPx-2M?version=3&amp;f=playlists&amp;app=youtube_gdata" type="application/x-shockwave-flash" medium="video" isDefault="true" expression="full" duration="197" yt:format="5"/>
+			<media:content url="rtsp://v1.cache2.c.youtube.com/CiULENy73wIaHAlj-_EzSXRPNxMYDSANFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="197" yt:format="1"/>
+			<media:content url="rtsp://v1.cache2.c.youtube.com/CiULENy73wIaHAlj-_EzSXRPNxMYESARFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="197" yt:format="6"/>
+			<media:credit role="uploader" scheme="urn:youtube" yt:display="rovingeye2">rovingeye2</media:credit>
+			<media:description type="plain">"Summertime" is a track from the album "Porgy and Bess"  by jazz trumpet musician Miles Davis, released in 1958 on Columbia Records. The album features arrangements by Davis and collaborator Gil Evans from George Gershwin's opera Porgy and Bess. The album was recorded in four sessions on July 22, July 29, August 4 and August 18 in 1958 at Columbia's 30th Street Studio in New York City. It is the second collaboration between Davis and Evans and has garnered much critical acclaim since its release, being acknowledged by music critics as the best of their collaborations. For many jazz critics, Porgy and Bess is regarded as historic.
+
+In 1958, Davis was one of many jazz musicians growing dissatisfied with bebop, seeing its increasingly complex chord changes as hindering creativity. Five years earlier, in 1953, pianist George Russell published his Lydian Chromatic Concept of Tonal Organization, which offered an alternative to the practice of improvisation based on chords. Abandoning the traditional major and minor key relationships of Western music, Russell developed a new formulation using scales or a series of scales for improvisations. Russell's approach to improvisation came to be known as modal in jazz. Davis saw Russell's methods of composition as a means of getting away from the dense chord-laden compositions of his time, which Davis had labeled "thick". Modal composition, with its reliance on scales and modes, represented, as Davis put it, "A return to melody". In a 1958 interview with Nat Hentoff of The Jazz Review, Davis remarked on the modal approach:
+
+When Gil wrote the arrangement of "I Loves You, Porgy," he only wrote a scale for me. No chords... gives you a lot more freedom and space to hear things... there will be fewer chords but infinite possibilities as to what to do with them. Classical composers have been writing this way for years, but jazz musicians seldom have.
+
+—Miles Davis
+
+In early 1958, Miles Davis began using with this approach and his sextet. Influenced by Russell's ideas, Davis implemented his first modal composition with the title track of his 1958 album Milestones, which was based on two modes, recorded in April of that year. Instead of soloing in the straight, conventional, melodic way, Daviss new style of improvisation featured rapid mode and scale changes played against sparse chord changes. Davis' second collaboration with Gil Evans on Porgy and Bess gave him more room for experimentation with Russell's concept and with third stream playing, as Evans' compositions for Davis featured this modal approach.
+
+Musicians
+Miles Davis - trumpet, flugelhorn 
+Ernie Royal, Bernie Glow, Johnny Coles and Louis Mucci - trumpet 
+Dick Hixon, Frank Rehak, Jimmy Cleveland and Joe Bennett - trombone 
+Willie Ruff, Julius Watkins and Gunther Schuller - horn 
+Bill Barber - tuba 
+Phil Bodner, Jerome Richardson and Romeo Penque - flute, alto flute &amp; clarinet 
+Cannonball Adderley - alto saxophone 
+Danny Bank - alto flute &amp; bass clarinet 
+Paul Chambers - bass 
+Jimmy Cobb - drums (except tracks 3,4, 9, &amp; 15) 
+Philly Joe Jones - drums (tracks 3,4, 9, &amp; 15) 
+Gil Evans - arranger &amp; conductor</media:description>
+			<media:keywords/>
+			<media:license type="text/html" href="http://www.youtube.com/t/terms">youtube</media:license>
+			<media:player url="http://www.youtube.com/watch?v=N090STPx-2M&amp;feature=youtube_gdata_player"/>
+			<media:restriction type="country" relationship="deny">DE</media:restriction>
+			<media:thumbnail url="http://i.ytimg.com/vi/N090STPx-2M/default.jpg" height="90" width="120" time="00:01:38.500" yt:name="default"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/N090STPx-2M/mqdefault.jpg" height="180" width="320" yt:name="mqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/N090STPx-2M/hqdefault.jpg" height="360" width="480" yt:name="hqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/N090STPx-2M/1.jpg" height="90" width="120" time="00:00:49.250" yt:name="start"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/N090STPx-2M/2.jpg" height="90" width="120" time="00:01:38.500" yt:name="middle"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/N090STPx-2M/3.jpg" height="90" width="120" time="00:02:27.750" yt:name="end"/>
+			<media:title type="plain">Miles Davis "Summertime" (1958)</media:title>
+			<yt:duration seconds="197"/>
+			<yt:uploaded>2008-08-14T14:08:12.000Z</yt:uploaded>
+			<yt:uploaderId>UCGDIjTfpcgZjf2nVeyb7ELA</yt:uploaderId>
+			<yt:videoid>N090STPx-2M</yt:videoid>
+		</media:group>
+		<gd:rating average="4.956029" max="5" min="1" numRaters="8733" rel="http://schemas.google.com/g/2005#overall"/>
+		<yt:statistics favoriteCount="0" viewCount="2690776"/>
+		<yt:rating numDislikes="96" numLikes="8637"/>
+		<yt:position>2</yt:position>
+	</entry>
+	<entry gd:etag="W/&quot;YDwqeyM.&quot;">
+		<id>tag:youtube.com,2008:playlist:C4FBCA46405A8BF8:PLEfsiLjuPdJ6Lj0AfOvn0n9Ti8KcZyoJp</id>
+		<published>2011-10-22T09:48:31.000Z</published>
+		<updated>1970-01-01T00:00:00.000Z</updated>
+		<category scheme="http://schemas.google.com/g/2005#kind" term="http://gdata.youtube.com/schemas/2007#video"/>
+		<category scheme="http://gdata.youtube.com/schemas/2007/categories.cat" term="Music" label="Music"/>
+		<title>Miles Davis Quintet - 'Round Midnight</title>
+		<content type="application/x-shockwave-flash" src="http://www.youtube.com/v/td3SE3zEVP0?version=3&amp;f=playlists&amp;app=youtube_gdata"/>
+		<link rel="alternate" type="text/html" href="http://www.youtube.com/watch?v=td3SE3zEVP0&amp;feature=youtube_gdata"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.responses" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/td3SE3zEVP0/responses?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/td3SE3zEVP0/related?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#mobile" type="text/html" href="http://m.youtube.com/details?v=td3SE3zEVP0"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#uploader" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/users/jdIAzt_TcA8EjAsZNNidPg?v=2"/>
+		<link rel="related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/td3SE3zEVP0?v=2"/>
+		<link rel="self" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8/PLEfsiLjuPdJ6Lj0AfOvn0n9Ti8KcZyoJp?v=2"/>
+		<author>
+			<name>Ceasar Feijen</name>
+			<uri>http://gdata.youtube.com/feeds/api/users/cfconsultancy</uri>
+			<yt:userId>apezZcpl-F-Wi0kdb0kzJA</yt:userId>
+		</author>
+		<yt:accessControl action="comment" permission="allowed"/>
+		<yt:accessControl action="commentVote" permission="allowed"/>
+		<yt:accessControl action="videoRespond" permission="moderated"/>
+		<yt:accessControl action="rate" permission="allowed"/>
+		<yt:accessControl action="embed" permission="allowed"/>
+		<yt:accessControl action="list" permission="allowed"/>
+		<yt:accessControl action="autoPlay" permission="moderated"/>
+		<yt:accessControl action="syndicate" permission="allowed"/>
+		<gd:comments>
+			<gd:feedLink rel="http://gdata.youtube.com/schemas/2007#comments" href="http://gdata.youtube.com/feeds/api/videos/td3SE3zEVP0/comments?v=2" countHint="242"/>
+		</gd:comments>
+		<yt:location>Tokyo</yt:location>
+		<media:group>
+			<media:category label="Music" scheme="http://gdata.youtube.com/schemas/2007/categories.cat">Music</media:category>
+			<media:content url="http://www.youtube.com/v/td3SE3zEVP0?version=3&amp;f=playlists&amp;app=youtube_gdata" type="application/x-shockwave-flash" medium="video" isDefault="true" expression="full" duration="355" yt:format="5"/>
+			<media:content url="rtsp://v7.cache1.c.youtube.com/CiULENy73wIaHAn9VMR8E9LdtRMYDSANFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="355" yt:format="1"/>
+			<media:content url="rtsp://v7.cache1.c.youtube.com/CiULENy73wIaHAn9VMR8E9LdtRMYESARFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="355" yt:format="6"/>
+			<media:credit role="uploader" scheme="urn:youtube" yt:display="60otaku3">60otaku3</media:credit>
+			<media:description type="plain">Miles Davis Quintet - 'Round Midnight (1956 Columbia Records Version)
+
+Personnel: Miles Davis (trumpet), John Coltrane (tenor sax), Red Garland (piano), Paul Chambers (bass), Philly Joe Jones (drums) 
+
+from the album ''ROUND ABOUT MIDNIGHT'</media:description>
+			<media:keywords/>
+			<media:license type="text/html" href="http://www.youtube.com/t/terms">youtube</media:license>
+			<media:player url="http://www.youtube.com/watch?v=td3SE3zEVP0&amp;feature=youtube_gdata_player"/>
+			<media:restriction type="country" relationship="deny">DE</media:restriction>
+			<media:thumbnail url="http://i.ytimg.com/vi/td3SE3zEVP0/default.jpg" height="90" width="120" time="00:02:57.500" yt:name="default"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/td3SE3zEVP0/mqdefault.jpg" height="180" width="320" yt:name="mqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/td3SE3zEVP0/hqdefault.jpg" height="360" width="480" yt:name="hqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/td3SE3zEVP0/1.jpg" height="90" width="120" time="00:01:28.750" yt:name="start"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/td3SE3zEVP0/2.jpg" height="90" width="120" time="00:02:57.500" yt:name="middle"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/td3SE3zEVP0/3.jpg" height="90" width="120" time="00:04:26.250" yt:name="end"/>
+			<media:title type="plain">Miles Davis Quintet - 'Round Midnight</media:title>
+			<yt:duration seconds="355"/>
+			<yt:uploaded>2008-10-26T14:05:02.000Z</yt:uploaded>
+			<yt:uploaderId>UCjdIAzt_TcA8EjAsZNNidPg</yt:uploaderId>
+			<yt:videoid>td3SE3zEVP0</yt:videoid>
+		</media:group>
+		<gd:rating average="4.937934" max="5" min="1" numRaters="2449" rel="http://schemas.google.com/g/2005#overall"/>
+		<yt:recorded>2008-10-26</yt:recorded>
+		<yt:statistics favoriteCount="0" viewCount="605105"/>
+		<yt:rating numDislikes="38" numLikes="2411"/>
+		<yt:position>3</yt:position>
+	</entry>
+	<entry gd:etag="W/&quot;YDwqeyM.&quot;">
+		<id>tag:youtube.com,2008:playlist:C4FBCA46405A8BF8:PLEfsiLjuPdJ4vgCmP9GcmYcdhkst73T9j</id>
+		<published>2011-10-22T09:48:37.000Z</published>
+		<updated>1970-01-01T00:00:00.000Z</updated>
+		<category scheme="http://schemas.google.com/g/2005#kind" term="http://gdata.youtube.com/schemas/2007#video"/>
+		<category scheme="http://gdata.youtube.com/schemas/2007/categories.cat" term="Music" label="Music"/>
+		<title>Miles Davis - Nature boy</title>
+		<content type="application/x-shockwave-flash" src="http://www.youtube.com/v/GDS_nqHaUvc?version=3&amp;f=playlists&amp;app=youtube_gdata"/>
+		<link rel="alternate" type="text/html" href="http://www.youtube.com/watch?v=GDS_nqHaUvc&amp;feature=youtube_gdata"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.responses" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/GDS_nqHaUvc/responses?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/GDS_nqHaUvc/related?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#mobile" type="text/html" href="http://m.youtube.com/details?v=GDS_nqHaUvc"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#uploader" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/users/H2C5X7zS8XQe4OASZ6pCGA?v=2"/>
+		<link rel="related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/GDS_nqHaUvc?v=2"/>
+		<link rel="self" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8/PLEfsiLjuPdJ4vgCmP9GcmYcdhkst73T9j?v=2"/>
+		<author>
+			<name>Ceasar Feijen</name>
+			<uri>http://gdata.youtube.com/feeds/api/users/cfconsultancy</uri>
+			<yt:userId>apezZcpl-F-Wi0kdb0kzJA</yt:userId>
+		</author>
+		<yt:accessControl action="comment" permission="allowed"/>
+		<yt:accessControl action="commentVote" permission="allowed"/>
+		<yt:accessControl action="videoRespond" permission="moderated"/>
+		<yt:accessControl action="rate" permission="allowed"/>
+		<yt:accessControl action="embed" permission="allowed"/>
+		<yt:accessControl action="list" permission="allowed"/>
+		<yt:accessControl action="autoPlay" permission="moderated"/>
+		<yt:accessControl action="syndicate" permission="allowed"/>
+		<gd:comments>
+			<gd:feedLink rel="http://gdata.youtube.com/schemas/2007#comments" href="http://gdata.youtube.com/feeds/api/videos/GDS_nqHaUvc/comments?v=2" countHint="274"/>
+		</gd:comments>
+		<media:group>
+			<media:category label="Music" scheme="http://gdata.youtube.com/schemas/2007/categories.cat">Music</media:category>
+			<media:content url="http://www.youtube.com/v/GDS_nqHaUvc?version=3&amp;f=playlists&amp;app=youtube_gdata" type="application/x-shockwave-flash" medium="video" isDefault="true" expression="full" duration="375" yt:format="5"/>
+			<media:content url="rtsp://v2.cache5.c.youtube.com/CiULENy73wIaHAn3Utqhnr80GBMYDSANFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="375" yt:format="1"/>
+			<media:content url="rtsp://v2.cache5.c.youtube.com/CiULENy73wIaHAn3Utqhnr80GBMYESARFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="375" yt:format="6"/>
+			<media:credit role="uploader" scheme="urn:youtube" yt:display="TheJazzn">thejazzn</media:credit>
+			<media:description type="plain"/>
+			<media:keywords/>
+			<media:license type="text/html" href="http://www.youtube.com/t/terms">youtube</media:license>
+			<media:player url="http://www.youtube.com/watch?v=GDS_nqHaUvc&amp;feature=youtube_gdata_player"/>
+			<media:restriction type="country" relationship="deny">DE</media:restriction>
+			<media:thumbnail url="http://i.ytimg.com/vi/GDS_nqHaUvc/default.jpg" height="90" width="120" time="00:03:07.500" yt:name="default"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/GDS_nqHaUvc/mqdefault.jpg" height="180" width="320" yt:name="mqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/GDS_nqHaUvc/hqdefault.jpg" height="360" width="480" yt:name="hqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/GDS_nqHaUvc/1.jpg" height="90" width="120" time="00:01:33.750" yt:name="start"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/GDS_nqHaUvc/2.jpg" height="90" width="120" time="00:03:07.500" yt:name="middle"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/GDS_nqHaUvc/3.jpg" height="90" width="120" time="00:04:41.250" yt:name="end"/>
+			<media:title type="plain">Miles Davis - Nature boy</media:title>
+			<yt:duration seconds="375"/>
+			<yt:uploaded>2009-11-05T23:49:38.000Z</yt:uploaded>
+			<yt:uploaderId>UCH2C5X7zS8XQe4OASZ6pCGA</yt:uploaderId>
+			<yt:videoid>GDS_nqHaUvc</yt:videoid>
+		</media:group>
+		<gd:rating average="4.9719844" max="5" min="1" numRaters="2570" rel="http://schemas.google.com/g/2005#overall"/>
+		<yt:statistics favoriteCount="0" viewCount="662483"/>
+		<yt:rating numDislikes="18" numLikes="2552"/>
+		<yt:position>4</yt:position>
+	</entry>
+	<entry gd:etag="W/&quot;YDwqeyM.&quot;">
+		<id>tag:youtube.com,2008:playlist:C4FBCA46405A8BF8:PLEfsiLjuPdJ6WRC7wnGngC8w6R-c3xrxK</id>
+		<published>2011-10-22T09:48:42.000Z</published>
+		<updated>1970-01-01T00:00:00.000Z</updated>
+		<category scheme="http://schemas.google.com/g/2005#kind" term="http://gdata.youtube.com/schemas/2007#video"/>
+		<category scheme="http://gdata.youtube.com/schemas/2007/categories.cat" term="Music" label="Music"/>
+		<title>MILES DAVIS:  TIME AFTER TIME</title>
+		<content type="application/x-shockwave-flash" src="http://www.youtube.com/v/OddHP8_Em7s?version=3&amp;f=playlists&amp;app=youtube_gdata"/>
+		<link rel="alternate" type="text/html" href="http://www.youtube.com/watch?v=OddHP8_Em7s&amp;feature=youtube_gdata"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.responses" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/OddHP8_Em7s/responses?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/OddHP8_Em7s/related?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#mobile" type="text/html" href="http://m.youtube.com/details?v=OddHP8_Em7s"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#uploader" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/users/W-5SJu1q2KvawG5prB5C4g?v=2"/>
+		<link rel="related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/OddHP8_Em7s?v=2"/>
+		<link rel="self" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8/PLEfsiLjuPdJ6WRC7wnGngC8w6R-c3xrxK?v=2"/>
+		<author>
+			<name>Ceasar Feijen</name>
+			<uri>http://gdata.youtube.com/feeds/api/users/cfconsultancy</uri>
+			<yt:userId>apezZcpl-F-Wi0kdb0kzJA</yt:userId>
+		</author>
+		<yt:accessControl action="comment" permission="allowed"/>
+		<yt:accessControl action="commentVote" permission="allowed"/>
+		<yt:accessControl action="videoRespond" permission="denied"/>
+		<yt:accessControl action="rate" permission="allowed"/>
+		<yt:accessControl action="embed" permission="allowed"/>
+		<yt:accessControl action="list" permission="allowed"/>
+		<yt:accessControl action="autoPlay" permission="moderated"/>
+		<yt:accessControl action="syndicate" permission="allowed"/>
+		<gd:comments>
+			<gd:feedLink rel="http://gdata.youtube.com/schemas/2007#comments" href="http://gdata.youtube.com/feeds/api/videos/OddHP8_Em7s/comments?v=2" countHint="248"/>
+		</gd:comments>
+		<media:group>
+			<media:category label="Music" scheme="http://gdata.youtube.com/schemas/2007/categories.cat">Music</media:category>
+			<media:content url="http://www.youtube.com/v/OddHP8_Em7s?version=3&amp;f=playlists&amp;app=youtube_gdata" type="application/x-shockwave-flash" medium="video" isDefault="true" expression="full" duration="219" yt:format="5"/>
+			<media:content url="rtsp://v4.cache1.c.youtube.com/CiULENy73wIaHAm7m8TPP0fXORMYDSANFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="219" yt:format="1"/>
+			<media:content url="rtsp://v4.cache1.c.youtube.com/CiULENy73wIaHAm7m8TPP0fXORMYESARFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="219" yt:format="6"/>
+			<media:credit role="uploader" scheme="urn:youtube" yt:display="papadoc73">papadoc73</media:credit>
+			<media:description type="plain">miles davis time after time</media:description>
+			<media:keywords/>
+			<media:license type="text/html" href="http://www.youtube.com/t/terms">youtube</media:license>
+			<media:player url="http://www.youtube.com/watch?v=OddHP8_Em7s&amp;feature=youtube_gdata_player"/>
+			<media:restriction type="country" relationship="deny">DE</media:restriction>
+			<media:thumbnail url="http://i.ytimg.com/vi/OddHP8_Em7s/default.jpg" height="90" width="120" time="00:01:49.500" yt:name="default"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/OddHP8_Em7s/mqdefault.jpg" height="180" width="320" yt:name="mqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/OddHP8_Em7s/hqdefault.jpg" height="360" width="480" yt:name="hqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/OddHP8_Em7s/1.jpg" height="90" width="120" time="00:00:54.750" yt:name="start"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/OddHP8_Em7s/2.jpg" height="90" width="120" time="00:01:49.500" yt:name="middle"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/OddHP8_Em7s/3.jpg" height="90" width="120" time="00:02:44.250" yt:name="end"/>
+			<media:title type="plain">MILES DAVIS:  TIME AFTER TIME</media:title>
+			<yt:duration seconds="219"/>
+			<yt:uploaded>2008-10-03T18:55:50.000Z</yt:uploaded>
+			<yt:uploaderId>UCW-5SJu1q2KvawG5prB5C4g</yt:uploaderId>
+			<yt:videoid>OddHP8_Em7s</yt:videoid>
+		</media:group>
+		<gd:rating average="4.9306245" max="5" min="1" numRaters="2018" rel="http://schemas.google.com/g/2005#overall"/>
+		<yt:statistics favoriteCount="0" viewCount="812136"/>
+		<yt:rating numDislikes="35" numLikes="1983"/>
+		<yt:position>5</yt:position>
+	</entry>
+	<entry gd:etag="W/&quot;YDwqeyM.&quot;">
+		<id>tag:youtube.com,2008:playlist:C4FBCA46405A8BF8:PLEfsiLjuPdJ7ejabmkLje0AHraAF-Rvv2</id>
+		<published>2011-10-22T09:48:47.000Z</published>
+		<updated>1970-01-01T00:00:00.000Z</updated>
+		<app:control>
+			<yt:state name="restricted" reasonCode="limitedSyndication">Syndication of this video was restricted.</yt:state>
+		</app:control>
+		<category scheme="http://schemas.google.com/g/2005#kind" term="http://gdata.youtube.com/schemas/2007#video"/>
+		<category scheme="http://gdata.youtube.com/schemas/2007/categories.cat" term="Music" label="Music"/>
+		<title>Miles Davis - So What</title>
+		<content type="application/x-shockwave-flash" src="http://www.youtube.com/v/zqNTltOGh5c?version=3&amp;f=playlists&amp;app=youtube_gdata"/>
+		<link rel="alternate" type="text/html" href="http://www.youtube.com/watch?v=zqNTltOGh5c&amp;feature=youtube_gdata"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.responses" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/zqNTltOGh5c/responses?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/zqNTltOGh5c/related?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#uploader" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/users/9NlE_veniVpnvpIegfifMQ?v=2"/>
+		<link rel="related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/zqNTltOGh5c?v=2"/>
+		<link rel="self" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8/PLEfsiLjuPdJ7ejabmkLje0AHraAF-Rvv2?v=2"/>
+		<author>
+			<name>Ceasar Feijen</name>
+			<uri>http://gdata.youtube.com/feeds/api/users/cfconsultancy</uri>
+			<yt:userId>apezZcpl-F-Wi0kdb0kzJA</yt:userId>
+		</author>
+		<yt:accessControl action="comment" permission="allowed"/>
+		<yt:accessControl action="commentVote" permission="allowed"/>
+		<yt:accessControl action="videoRespond" permission="allowed"/>
+		<yt:accessControl action="rate" permission="allowed"/>
+		<yt:accessControl action="embed" permission="allowed"/>
+		<yt:accessControl action="list" permission="allowed"/>
+		<yt:accessControl action="autoPlay" permission="denied"/>
+		<yt:accessControl action="syndicate" permission="allowed"/>
+		<gd:comments>
+			<gd:feedLink rel="http://gdata.youtube.com/schemas/2007#comments" href="http://gdata.youtube.com/feeds/api/videos/zqNTltOGh5c/comments?v=2" countHint="918"/>
+		</gd:comments>
+		<media:group>
+			<media:category label="Music" scheme="http://gdata.youtube.com/schemas/2007/categories.cat">Music</media:category>
+			<media:content url="http://www.youtube.com/v/zqNTltOGh5c?version=3&amp;f=playlists&amp;app=youtube_gdata" type="application/x-shockwave-flash" medium="video" isDefault="true" expression="full" duration="547" yt:format="5"/>
+			<media:credit role="uploader" scheme="urn:youtube" yt:display="MilesDavisVEVO" yt:type="partner">milesdavisvevo</media:credit>
+			<media:description type="plain">Music video by Miles Davis performing So What. (C) 2008 SONY MUSIC ENTERTAINMENT</media:description>
+			<media:keywords/>
+			<media:license type="text/html" href="http://www.youtube.com/t/terms">youtube</media:license>
+			<media:player url="http://www.youtube.com/watch?v=zqNTltOGh5c&amp;feature=youtube_gdata_player"/>
+			<media:restriction type="country" relationship="allow">UY UZ YT HR US HT HU HK DM HN HM UA DJ MK UG LS RS ET RW MQ EH MS MR MU MT MW RO MY MX EC MZ EE RE EG MA ZA MC ME MD MG MF MH ES ER MM ML MO MN UM SK SJ SI SH SO SN NZ SL SC NU SA NP NR SD NL SZ SY NO NI SR NF NG TL NA NC FR FM FO FI FJ FK PA KG PG KE PE PK PH KH PN KN PL PM PR PS KP KW KM PT KZ KY PY CZ CY CX KR CR CW CV CU CK CI CH CO CN CM CL CC CA CG CF RU PW LV DO LT LU LR DK IL QA LY YE DZ LC LA LK LI SM SV PF SB GI BS IE VE VG VA VC IM SG VN IN VI VU IQ SE IS IR MV AX KI AZ AU AT AW AQ AS AR AM AL AO SX AI AE AD AG AF WF JE MP JM JO JP WS NE IO BY BZ LB BQ BR ZW BT BV BW BH BI BJ BL BM BN BO BA BB ST BD BE BF BG TZ TV TW TT TR ZM CD TN TO OM TM TJ TK TH TF TG TD TC IT GW GU GT GS GR GQ GP GY GG GF GE GD GB GA GN GM GL ID GH</media:restriction>
+			<media:thumbnail url="http://i.ytimg.com/vi/zqNTltOGh5c/default.jpg" height="90" width="120" time="00:04:33.500" yt:name="default"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/zqNTltOGh5c/mqdefault.jpg" height="180" width="320" yt:name="mqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/zqNTltOGh5c/hqdefault.jpg" height="360" width="480" yt:name="hqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/zqNTltOGh5c/1.jpg" height="90" width="120" time="00:02:16.750" yt:name="start"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/zqNTltOGh5c/2.jpg" height="90" width="120" time="00:04:33.500" yt:name="middle"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/zqNTltOGh5c/3.jpg" height="90" width="120" time="00:06:50.250" yt:name="end"/>
+			<media:title type="plain">Miles Davis - So What</media:title>
+			<yt:aspectRatio>widescreen</yt:aspectRatio>
+			<yt:duration seconds="547"/>
+			<yt:uploaded>2010-10-20T00:19:20.000Z</yt:uploaded>
+			<yt:uploaderId>UC9NlE_veniVpnvpIegfifMQ</yt:uploaderId>
+			<yt:videoid>zqNTltOGh5c</yt:videoid>
+		</media:group>
+		<gd:rating average="4.9399486" max="5" min="1" numRaters="4263" rel="http://schemas.google.com/g/2005#overall"/>
+		<yt:statistics favoriteCount="0" viewCount="931186"/>
+		<yt:rating numDislikes="64" numLikes="4199"/>
+		<yt:position>6</yt:position>
+	</entry>
+	<entry gd:etag="W/&quot;YDwqeyM.&quot;">
+		<id>tag:youtube.com,2008:playlist:C4FBCA46405A8BF8:PLEfsiLjuPdJ5HOtbvfVlU8fsFuFknIksq</id>
+		<published>2011-10-22T09:48:50.000Z</published>
+		<updated>1970-01-01T00:00:00.000Z</updated>
+		<category scheme="http://schemas.google.com/g/2005#kind" term="http://gdata.youtube.com/schemas/2007#video"/>
+		<category scheme="http://gdata.youtube.com/schemas/2007/categories.cat" term="Music" label="Music"/>
+		<title>Cannonball Adderley feat. Miles Davis " Autumn Leaves" (1958)</title>
+		<content type="application/x-shockwave-flash" src="http://www.youtube.com/v/PPHtQn1t1n4?version=3&amp;f=playlists&amp;app=youtube_gdata"/>
+		<link rel="alternate" type="text/html" href="http://www.youtube.com/watch?v=PPHtQn1t1n4&amp;feature=youtube_gdata"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.responses" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/PPHtQn1t1n4/responses?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/PPHtQn1t1n4/related?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#mobile" type="text/html" href="http://m.youtube.com/details?v=PPHtQn1t1n4"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#uploader" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/users/GDIjTfpcgZjf2nVeyb7ELA?v=2"/>
+		<link rel="related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/PPHtQn1t1n4?v=2"/>
+		<link rel="self" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8/PLEfsiLjuPdJ5HOtbvfVlU8fsFuFknIksq?v=2"/>
+		<author>
+			<name>Ceasar Feijen</name>
+			<uri>http://gdata.youtube.com/feeds/api/users/cfconsultancy</uri>
+			<yt:userId>apezZcpl-F-Wi0kdb0kzJA</yt:userId>
+		</author>
+		<yt:accessControl action="comment" permission="allowed"/>
+		<yt:accessControl action="commentVote" permission="allowed"/>
+		<yt:accessControl action="videoRespond" permission="denied"/>
+		<yt:accessControl action="rate" permission="allowed"/>
+		<yt:accessControl action="embed" permission="allowed"/>
+		<yt:accessControl action="list" permission="allowed"/>
+		<yt:accessControl action="autoPlay" permission="allowed"/>
+		<yt:accessControl action="syndicate" permission="allowed"/>
+		<gd:comments>
+			<gd:feedLink rel="http://gdata.youtube.com/schemas/2007#comments" href="http://gdata.youtube.com/feeds/api/videos/PPHtQn1t1n4/comments?v=2" countHint="1369"/>
+		</gd:comments>
+		<media:group>
+			<media:category label="Music" scheme="http://gdata.youtube.com/schemas/2007/categories.cat">Music</media:category>
+			<media:content url="http://www.youtube.com/v/PPHtQn1t1n4?version=3&amp;f=playlists&amp;app=youtube_gdata" type="application/x-shockwave-flash" medium="video" isDefault="true" expression="full" duration="659" yt:format="5"/>
+			<media:content url="rtsp://v8.cache2.c.youtube.com/CiULENy73wIaHAl-1m19Qu3xPBMYDSANFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="659" yt:format="1"/>
+			<media:content url="rtsp://v8.cache2.c.youtube.com/CiULENy73wIaHAl-1m19Qu3xPBMYESARFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="659" yt:format="6"/>
+			<media:credit role="uploader" scheme="urn:youtube" yt:display="rovingeye2">rovingeye2</media:credit>
+			<media:description type="plain">Somethin' Else is a 1958 album by jazz musician Julian "Cannonball" Adderley, regarded as a landmark album in the hard bop and cool styles. This critically-acclaimed album is notable for the presence and prominent contributions of Miles Davis, in one of his few recording dates for Blue Note Records. Many critics and jazz fans consider Somethin' Else to be among the greatest jazz albums of all time. 
+
+When alto saxophonist Cannonball Adderley culled together this quartet, he grabbed three champions from seemingly disparate schools to complement his flinty solos: Miles Davis, the king of cool; Art Blakey, the thundering force of hard bop; Hank Jones, a veteran of swing; and Sam Jones, a versatile bassist adaptable to nearly any setting. The results are one of Blue Note's most beloved albums. The open-ended beauty of "Autumn Leaves," which features Davis beautifully stating the melody on muted trumpet, sounds like it could easily be an outtake from Kind of Blue (which it isn't). The midtempo title track provides the centerpiece of this classic as Adderley echoes Miles's swaggering melody before both unravel wonderful solos.
+
+
+Cannonball Adderley...Alto Saxophone
+Miles Davis...................Trumpet
+Art Blakey......................Drums
+Sam Jones....................Double Bass
+Hank Jones...................Piano</media:description>
+			<media:keywords/>
+			<media:license type="text/html" href="http://www.youtube.com/t/terms">youtube</media:license>
+			<media:player url="http://www.youtube.com/watch?v=PPHtQn1t1n4&amp;feature=youtube_gdata_player"/>
+			<media:restriction type="country" relationship="deny">DE</media:restriction>
+			<media:thumbnail url="http://i.ytimg.com/vi/PPHtQn1t1n4/default.jpg" height="90" width="120" time="00:05:29.500" yt:name="default"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/PPHtQn1t1n4/mqdefault.jpg" height="180" width="320" yt:name="mqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/PPHtQn1t1n4/hqdefault.jpg" height="360" width="480" yt:name="hqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/PPHtQn1t1n4/1.jpg" height="90" width="120" time="00:02:44.750" yt:name="start"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/PPHtQn1t1n4/2.jpg" height="90" width="120" time="00:05:29.500" yt:name="middle"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/PPHtQn1t1n4/3.jpg" height="90" width="120" time="00:08:14.250" yt:name="end"/>
+			<media:title type="plain">Cannonball Adderley feat. Miles Davis " Autumn Leaves" (1958)</media:title>
+			<yt:duration seconds="659"/>
+			<yt:uploaded>2008-07-25T16:28:02.000Z</yt:uploaded>
+			<yt:uploaderId>UCGDIjTfpcgZjf2nVeyb7ELA</yt:uploaderId>
+			<yt:videoid>PPHtQn1t1n4</yt:videoid>
+		</media:group>
+		<gd:rating average="4.9616804" max="5" min="1" numRaters="7307" rel="http://schemas.google.com/g/2005#overall"/>
+		<yt:statistics favoriteCount="0" viewCount="2023662"/>
+		<yt:rating numDislikes="70" numLikes="7237"/>
+		<yt:position>7</yt:position>
+	</entry>
+	<entry gd:etag="W/&quot;YDwqeyM.&quot;">
+		<id>tag:youtube.com,2008:playlist:C4FBCA46405A8BF8:PLEfsiLjuPdJ6EhnT-4hKDQdnKzlGMjST0</id>
+		<published>2011-10-22T09:48:54.000Z</published>
+		<updated>1970-01-01T00:00:00.000Z</updated>
+		<category scheme="http://schemas.google.com/g/2005#kind" term="http://gdata.youtube.com/schemas/2007#video"/>
+		<category scheme="http://gdata.youtube.com/schemas/2007/categories.cat" term="Music" label="Music"/>
+		<title>Miles Davis - Herbie Hancock - Wayne Shorter - Ron Carter -</title>
+		<content type="application/x-shockwave-flash" src="http://www.youtube.com/v/x_whk6m67VE?version=3&amp;f=playlists&amp;app=youtube_gdata"/>
+		<link rel="alternate" type="text/html" href="http://www.youtube.com/watch?v=x_whk6m67VE&amp;feature=youtube_gdata"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.responses" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/x_whk6m67VE/responses?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/x_whk6m67VE/related?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#mobile" type="text/html" href="http://m.youtube.com/details?v=x_whk6m67VE"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#uploader" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/users/nOv3WHg0MGS2mQM7v1aA1A?v=2"/>
+		<link rel="related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/x_whk6m67VE?v=2"/>
+		<link rel="self" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8/PLEfsiLjuPdJ6EhnT-4hKDQdnKzlGMjST0?v=2"/>
+		<author>
+			<name>Ceasar Feijen</name>
+			<uri>http://gdata.youtube.com/feeds/api/users/cfconsultancy</uri>
+			<yt:userId>apezZcpl-F-Wi0kdb0kzJA</yt:userId>
+		</author>
+		<yt:accessControl action="comment" permission="allowed"/>
+		<yt:accessControl action="commentVote" permission="allowed"/>
+		<yt:accessControl action="videoRespond" permission="moderated"/>
+		<yt:accessControl action="rate" permission="allowed"/>
+		<yt:accessControl action="embed" permission="allowed"/>
+		<yt:accessControl action="list" permission="allowed"/>
+		<yt:accessControl action="autoPlay" permission="allowed"/>
+		<yt:accessControl action="syndicate" permission="allowed"/>
+		<gd:comments>
+			<gd:feedLink rel="http://gdata.youtube.com/schemas/2007#comments" href="http://gdata.youtube.com/feeds/api/videos/x_whk6m67VE/comments?v=2" countHint="901"/>
+		</gd:comments>
+		<media:group>
+			<media:category label="Music" scheme="http://gdata.youtube.com/schemas/2007/categories.cat">Music</media:category>
+			<media:content url="http://www.youtube.com/v/x_whk6m67VE?version=3&amp;f=playlists&amp;app=youtube_gdata" type="application/x-shockwave-flash" medium="video" isDefault="true" expression="full" duration="288" yt:format="5"/>
+			<media:content url="rtsp://v3.cache3.c.youtube.com/CiULENy73wIaHAlR7bqpkyH8xxMYDSANFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="288" yt:format="1"/>
+			<media:content url="rtsp://v3.cache3.c.youtube.com/CiULENy73wIaHAlR7bqpkyH8xxMYESARFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="288" yt:format="6"/>
+			<media:credit role="uploader" scheme="urn:youtube" yt:display="moresco63">moresco63</media:credit>
+			<media:description type="plain">Miles Davis - Herbie Hancock - Wayne Shorter - Ron Carter - tony williams
+Stockholm 1963</media:description>
+			<media:keywords/>
+			<media:license type="text/html" href="http://www.youtube.com/t/terms">youtube</media:license>
+			<media:player url="http://www.youtube.com/watch?v=x_whk6m67VE&amp;feature=youtube_gdata_player"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/x_whk6m67VE/default.jpg" height="90" width="120" time="00:02:24" yt:name="default"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/x_whk6m67VE/mqdefault.jpg" height="180" width="320" yt:name="mqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/x_whk6m67VE/hqdefault.jpg" height="360" width="480" yt:name="hqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/x_whk6m67VE/1.jpg" height="90" width="120" time="00:01:12" yt:name="start"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/x_whk6m67VE/2.jpg" height="90" width="120" time="00:02:24" yt:name="middle"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/x_whk6m67VE/3.jpg" height="90" width="120" time="00:03:36" yt:name="end"/>
+			<media:title type="plain">Miles Davis - Herbie Hancock - Wayne Shorter - Ron Carter -</media:title>
+			<yt:duration seconds="288"/>
+			<yt:uploaded>2007-02-20T07:51:16.000Z</yt:uploaded>
+			<yt:uploaderId>UCnOv3WHg0MGS2mQM7v1aA1A</yt:uploaderId>
+			<yt:videoid>x_whk6m67VE</yt:videoid>
+		</media:group>
+		<gd:rating average="4.956492" max="5" min="1" numRaters="2942" rel="http://schemas.google.com/g/2005#overall"/>
+		<yt:statistics favoriteCount="0" viewCount="1186725"/>
+		<yt:rating numDislikes="32" numLikes="2910"/>
+		<yt:position>8</yt:position>
+	</entry>
+	<entry gd:etag="W/&quot;YDwqeyM.&quot;">
+		<id>tag:youtube.com,2008:playlist:C4FBCA46405A8BF8:PLEfsiLjuPdJ7eynqb0QWa8q7MuK8s6Vhz</id>
+		<published>2011-10-22T09:48:57.000Z</published>
+		<updated>1970-01-01T00:00:00.000Z</updated>
+		<category scheme="http://schemas.google.com/g/2005#kind" term="http://gdata.youtube.com/schemas/2007#video"/>
+		<category scheme="http://gdata.youtube.com/schemas/2007/categories.cat" term="Music" label="Music"/>
+		<title>Miles Davis - Around The Midnight (1967)</title>
+		<content type="application/x-shockwave-flash" src="http://www.youtube.com/v/LVFLYz0SdKg?version=3&amp;f=playlists&amp;app=youtube_gdata"/>
+		<link rel="alternate" type="text/html" href="http://www.youtube.com/watch?v=LVFLYz0SdKg&amp;feature=youtube_gdata"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.responses" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/LVFLYz0SdKg/responses?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/LVFLYz0SdKg/related?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#mobile" type="text/html" href="http://m.youtube.com/details?v=LVFLYz0SdKg"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#uploader" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/users/5M8OPK9TvxGeCcjA-9-PTw?v=2"/>
+		<link rel="related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/LVFLYz0SdKg?v=2"/>
+		<link rel="self" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8/PLEfsiLjuPdJ7eynqb0QWa8q7MuK8s6Vhz?v=2"/>
+		<author>
+			<name>Ceasar Feijen</name>
+			<uri>http://gdata.youtube.com/feeds/api/users/cfconsultancy</uri>
+			<yt:userId>apezZcpl-F-Wi0kdb0kzJA</yt:userId>
+		</author>
+		<yt:accessControl action="comment" permission="allowed"/>
+		<yt:accessControl action="commentVote" permission="allowed"/>
+		<yt:accessControl action="videoRespond" permission="moderated"/>
+		<yt:accessControl action="rate" permission="allowed"/>
+		<yt:accessControl action="embed" permission="allowed"/>
+		<yt:accessControl action="list" permission="allowed"/>
+		<yt:accessControl action="autoPlay" permission="allowed"/>
+		<yt:accessControl action="syndicate" permission="allowed"/>
+		<gd:comments>
+			<gd:feedLink rel="http://gdata.youtube.com/schemas/2007#comments" href="http://gdata.youtube.com/feeds/api/videos/LVFLYz0SdKg/comments?v=2" countHint="414"/>
+		</gd:comments>
+		<media:group>
+			<media:category label="Music" scheme="http://gdata.youtube.com/schemas/2007/categories.cat">Music</media:category>
+			<media:content url="http://www.youtube.com/v/LVFLYz0SdKg?version=3&amp;f=playlists&amp;app=youtube_gdata" type="application/x-shockwave-flash" medium="video" isDefault="true" expression="full" duration="2693" yt:format="5"/>
+			<media:content url="rtsp://v6.cache5.c.youtube.com/CiULENy73wIaHAmodBI9Y0tRLRMYDSANFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="2693" yt:format="1"/>
+			<media:content url="rtsp://v6.cache5.c.youtube.com/CiULENy73wIaHAmodBI9Y0tRLRMYESARFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="2693" yt:format="6"/>
+			<media:credit role="uploader" scheme="urn:youtube" yt:display="Greengrassmusic">greengrassmusic</media:credit>
+			<media:description type="plain"/>
+			<media:keywords/>
+			<media:license type="text/html" href="http://www.youtube.com/t/terms">youtube</media:license>
+			<media:player url="http://www.youtube.com/watch?v=LVFLYz0SdKg&amp;feature=youtube_gdata_player"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/LVFLYz0SdKg/default.jpg" height="90" width="120" time="00:22:26.500" yt:name="default"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/LVFLYz0SdKg/mqdefault.jpg" height="180" width="320" yt:name="mqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/LVFLYz0SdKg/hqdefault.jpg" height="360" width="480" yt:name="hqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/LVFLYz0SdKg/1.jpg" height="90" width="120" time="00:11:13.250" yt:name="start"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/LVFLYz0SdKg/2.jpg" height="90" width="120" time="00:22:26.500" yt:name="middle"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/LVFLYz0SdKg/3.jpg" height="90" width="120" time="00:33:39.750" yt:name="end"/>
+			<media:title type="plain">Miles Davis - Around The Midnight (1967)</media:title>
+			<yt:duration seconds="2693"/>
+			<yt:uploaded>2011-09-23T21:51:05.000Z</yt:uploaded>
+			<yt:uploaderId>UC5M8OPK9TvxGeCcjA-9-PTw</yt:uploaderId>
+			<yt:videoid>LVFLYz0SdKg</yt:videoid>
+		</media:group>
+		<gd:rating average="4.969385" max="5" min="1" numRaters="4181" rel="http://schemas.google.com/g/2005#overall"/>
+		<yt:statistics favoriteCount="0" viewCount="744477"/>
+		<yt:rating numDislikes="32" numLikes="4149"/>
+		<yt:position>9</yt:position>
+	</entry>
+	<entry gd:etag="W/&quot;YDwqeyM.&quot;">
+		<id>tag:youtube.com,2008:playlist:C4FBCA46405A8BF8:PLEfsiLjuPdJ6K1Re8tJQIcvEVpiipp_7i</id>
+		<published>2011-10-22T09:49:09.000Z</published>
+		<updated>1970-01-01T00:00:00.000Z</updated>
+		<category scheme="http://schemas.google.com/g/2005#kind" term="http://gdata.youtube.com/schemas/2007#video"/>
+		<category scheme="http://gdata.youtube.com/schemas/2007/categories.cat" term="Music" label="Music"/>
+		<title>Miles Davis-Moon Dreams</title>
+		<content type="application/x-shockwave-flash" src="http://www.youtube.com/v/8Qq2NLrbL7o?version=3&amp;f=playlists&amp;app=youtube_gdata"/>
+		<link rel="alternate" type="text/html" href="http://www.youtube.com/watch?v=8Qq2NLrbL7o&amp;feature=youtube_gdata"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.responses" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/8Qq2NLrbL7o/responses?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#video.related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/8Qq2NLrbL7o/related?v=2"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#mobile" type="text/html" href="http://m.youtube.com/details?v=8Qq2NLrbL7o"/>
+		<link rel="http://gdata.youtube.com/schemas/2007#uploader" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/users/i6dEAtDJ02Iuh37Y3ijADg?v=2"/>
+		<link rel="related" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/videos/8Qq2NLrbL7o?v=2"/>
+		<link rel="self" type="application/atom+xml" href="http://gdata.youtube.com/feeds/api/playlists/C4FBCA46405A8BF8/PLEfsiLjuPdJ6K1Re8tJQIcvEVpiipp_7i?v=2"/>
+		<author>
+			<name>Ceasar Feijen</name>
+			<uri>http://gdata.youtube.com/feeds/api/users/cfconsultancy</uri>
+			<yt:userId>apezZcpl-F-Wi0kdb0kzJA</yt:userId>
+		</author>
+		<yt:accessControl action="comment" permission="allowed"/>
+		<yt:accessControl action="commentVote" permission="allowed"/>
+		<yt:accessControl action="videoRespond" permission="moderated"/>
+		<yt:accessControl action="rate" permission="allowed"/>
+		<yt:accessControl action="embed" permission="allowed"/>
+		<yt:accessControl action="list" permission="allowed"/>
+		<yt:accessControl action="autoPlay" permission="allowed"/>
+		<yt:accessControl action="syndicate" permission="allowed"/>
+		<gd:comments>
+			<gd:feedLink rel="http://gdata.youtube.com/schemas/2007#comments" href="http://gdata.youtube.com/feeds/api/videos/8Qq2NLrbL7o/comments?v=2" countHint="27"/>
+		</gd:comments>
+		<yt:hd/>
+		<media:group>
+			<media:category label="Music" scheme="http://gdata.youtube.com/schemas/2007/categories.cat">Music</media:category>
+			<media:content url="http://www.youtube.com/v/8Qq2NLrbL7o?version=3&amp;f=playlists&amp;app=youtube_gdata" type="application/x-shockwave-flash" medium="video" isDefault="true" expression="full" duration="200" yt:format="5"/>
+			<media:content url="rtsp://v4.cache2.c.youtube.com/CiULENy73wIaHAm6L9u6NLYK8RMYDSANFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="200" yt:format="1"/>
+			<media:content url="rtsp://v4.cache2.c.youtube.com/CiULENy73wIaHAm6L9u6NLYK8RMYESARFEgGUglwbGF5bGlzdHMM/0/0/0/video.3gp" type="video/3gpp" medium="video" expression="full" duration="200" yt:format="6"/>
+			<media:credit role="uploader" scheme="urn:youtube" yt:display="Shane Woodbury">scwoodbury2009</media:credit>
+			<media:description type="plain">'Moon Dreams' from Miles Davis classic album 'Birth Of The Cool', recorded between the years of 1949 and 1950.</media:description>
+			<media:keywords/>
+			<media:license type="text/html" href="http://www.youtube.com/t/terms">youtube</media:license>
+			<media:player url="http://www.youtube.com/watch?v=8Qq2NLrbL7o&amp;feature=youtube_gdata_player"/>
+			<media:restriction type="country" relationship="deny">DE</media:restriction>
+			<media:thumbnail url="http://i.ytimg.com/vi/8Qq2NLrbL7o/default.jpg" height="90" width="120" time="00:01:40" yt:name="default"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/8Qq2NLrbL7o/mqdefault.jpg" height="180" width="320" yt:name="mqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/8Qq2NLrbL7o/hqdefault.jpg" height="360" width="480" yt:name="hqdefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/8Qq2NLrbL7o/sddefault.jpg" height="480" width="640" yt:name="sddefault"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/8Qq2NLrbL7o/1.jpg" height="90" width="120" time="00:00:50" yt:name="start"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/8Qq2NLrbL7o/2.jpg" height="90" width="120" time="00:01:40" yt:name="middle"/>
+			<media:thumbnail url="http://i.ytimg.com/vi/8Qq2NLrbL7o/3.jpg" height="90" width="120" time="00:02:30" yt:name="end"/>
+			<media:title type="plain">Miles Davis-Moon Dreams</media:title>
+			<yt:duration seconds="200"/>
+			<yt:uploaded>2011-01-11T03:02:03.000Z</yt:uploaded>
+			<yt:uploaderId>UCi6dEAtDJ02Iuh37Y3ijADg</yt:uploaderId>
+			<yt:videoid>8Qq2NLrbL7o</yt:videoid>
+		</media:group>
+		<gd:rating average="4.8974357" max="5" min="1" numRaters="195" rel="http://schemas.google.com/g/2005#overall"/>
+		<yt:statistics favoriteCount="0" viewCount="40944"/>
+		<yt:rating numDislikes="5" numLikes="190"/>
+		<yt:position>11</yt:position>
+	</entry>
+</feed>

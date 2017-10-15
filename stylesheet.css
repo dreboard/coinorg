@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+Page elements
+*/
+html,body{height:100%;}
+body { 
+    padding-top: 65px; 
+}
+
+.fill-height{
+    width:100%;
+    height:100%;
+    min-height:100%;
+    padding:10px;
+}
+
+#footer {padding-top:12px;}
+
+
+/*General*/
+.noMargin {margin:0px;}
+.topLink {clear:both;}
+.darker {font-weight:bold;}
+/*
+Tables
+*/
+.wellTbl {background-color:#fff;}
+
+
+/*auto widths*/
+
+.setSixRow td {width:16%; text-align:center;}
+.setFiveRow td {width:20%; text-align:center;}
+.setFourRow td {width:25%; text-align:center;}
+.setThreeRow td {width:33%; text-align:center;}
+.setTwoRow td {width:50%; text-align:center;}
+
+.setSixRow td img {height:100px; width:auto; text-align:center;}
+.setFiveRow td img {height:100px; width:auto; text-align:center;}
+.setFourRow td img {height:100px; width:auto; text-align:center;}
+.setThreeRow td img {height:100px; width:auto; text-align:center;}
+.setTwoRow td img {height:100px; width:auto; text-align:center;}
+/*
+Images
+*/
+#new-coin-selects-tbl img {width:15px; height:15px;}
+/*coin display images*/
+.coin-switch-tbl img {height:100%; width:auto;}
+.oneHundredWidth {width:100px; max-width:100%; height:auto;}
+
+/**/
+.notice-block {
+  .warning {
+    border: 1px solid #fe0;
+  }
+  .has-error {
+    border: 1px solid #900;
+  }
+  .has-success {
+    border: 1px solid #090;
+  }
+  .info {
+    color: #009;
+  }
+}   
+
+#termsHolder  {height:150px; overflow:scroll; border:1px solid #333; padding: 5px; overflow-x: auto;}

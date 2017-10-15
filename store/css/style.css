@@ -1,0 +1,50 @@
+/* CSS Document */
+
+/* LAYOUT */
+body {width:100%; padding:0px; background-image:url(../img/bodyBG.jpg); background-position:center; background-repeat:repeat-y; margin:0px;}
+.wide {width:100%;}
+.inner {width:980px; margin:0px auto;}
+#container {margin:0px;}
+#innerHeader {}
+#header {height:205px; padding-top:7px;}
+#footer {width:100%; height:350px; margin:0px; padding:0px;}
+
+#innerFooter {text-align:center; padding-top:50px;}
+#innerFooter a {color:#7a5e47; font-weight:bold;}
+
+/* GENERAL */
+.darker {font-weight:bold;}
+.clear {clear:both;}
+.errorTxt {color:#900; font-weight:bold;}
+.greenTxt {color:#090;}
+.errorInput {border:solid 1px #900;}
+.brownLink {color:#7a5e47;}
+.brownLinkBold {color:#7a5e47; font-weight:bold;}
+label {font-weight:bold;}
+table h2, table h3 {margin:0px;}
+.compactForm {display:inline; padding:0px;}
+
+table h2 {margin:0px;}
+table a{ text-decoration:none;}
+#adminNavTbl {background-color:#7a5e47; color:#000;}
+#adminNavTbl a{color:#fff; text-decoration:none;font-weight:bold;}
+#navTbl {background-color:#7a5e47; color:#7a5e47;}
+#navTbl2 a {color:#7a5e47; text-decoration:none; font-weight:bold;}
+#navTbl2 {color:#7a5e47;}
+#adminHdr {margin-top:28px; clear:both;}
+
+
+/* IMAGES */
+.listImg {height:50px; width:auto;}
+.productImg {height:auto; max-width:450px;}
+.productLikeImg {height:100px; width:auto;}
+.productPageImg {height:200px; width:auto;}
+img {border:none;}
+.leftPic {padding-left:20px;}
+
+/* LINKS */
+a {text-decoration:none;}
+#content p a {color:#000080; font-weight:bold;}
+#amazonBanner {text-align:center;}
+.productBox {height:265px; padding:0px; margin:0px;}
+#ebayBanner {text-align:center; padding:5px; width:740px; margin:0px auto;}

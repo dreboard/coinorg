@@ -1,0 +1,206 @@
+/* LAYOUT STYLES */
+deleteCartForm
+body {padding:0px; margin:0px; width:100%; background-color:#ddd; font-family:Arial, Helvetica, sans-serif; font-size:100%;}
+#header {
+	margin:0px 20px; 
+	max-height:100px; 
+	background-color:#000; 
+	color:#fff; 
+	padding:30px 0px 0px 0px;
+}
+#footer {
+	margin:0px 20px; 
+	height:100px; 
+	background-color:#000; 
+	color:#fff; 
+}
+#container {
+	margin-top:0px;
+	margin-right: 30px;
+	margin-left: 30px;
+	margin-bottom: 0px;
+	padding:0px 10px; background-color:#fff;
+	height:100%;
+}
+#paraRight{max-width:700px; float:left; padding-left:5px; height:70%;min-width:400px;}
+##paraRight #productDisplay {border:2px solid #000;}
+#paraLeft {max-width:200px; float:left; height:70%; margin-right:25px;}
+.paraLeftpara {font-weight:bold; margin-left:20px;}
+/*TEXT STYLES*/
+#bigType {font-size:110px; font-family:Georgia, "Times New Roman", Times, serif;;}
+#midType {font-size:70px; font-family:Georgia, "Times New Roman", Times, serif;}
+#bigType h1 {font-size:110px; font-family:Georgia, "Times New Roman", Times, serif; font-weight:normal; float:none; margin-left:0px; padding-left:0px; margin-bottom:0px; margin-top:0px;}
+#midType h1 {font-size:70px; font-family:Georgia, "Times New Roman", Times, serif; font-weight:normal;}
+.smallType {font-size:12px; text-align:right; margin-left:35%; line-height:70%;}
+.smallType2 {font-size:12px; text-align:left; line-height:70%;}
+.noDot2 {list-style-type:none;}
+.myArrow {list-style-image:url('../../MyOnlineStore - Copy/images/smArrow.png');}
+.myArrowLeft {list-style-image:url('../../MyOnlineStore - Copy/images/smArrow.png'); float:left;}
+.noDot {list-style-type:none; font-size:18px;}
+.headList {list-style-type:none; float:left;}
+.headSpacer {min-width:70px; float:left;}
+.clear {clear:both;}
+.top {font-size:12px;}
+.bottom {font-weight:bolder; font-size:20px;}
+.dark {font-weight:bold;}
+/*LINK STYLES*/
+#header a {text-decoration:none; color:#fff;}
+#footer a {text-decoration:none; color:#fff;}
+img {border:none;}
+#headLogo {width:100%; height:auto;}
+#logoBox {width:870px; height:380px; padding:0px; margin:0px; border:none;}
+#doList a {text-decoration:none; color:#000;}
+#doList a:hover,a:active {color:#333; font-weight:bold;}
+
+.greyLink a {color:#4D4D4D;}
+.greyLink a:hover,a:active {color:#666; font-weight:bold;}
+.cartLink a {color:#4D4D4D;}
+.cartLink a:hover,a:active {color:#666;}
+
+
+.myLink a {text-decoration:none; color:#000;}
+.myLink a:hover,a:active {color:#333; font-weight:bold;}
+#storeLinks {margin-left:30px;}
+#storeLinks a {font-size:18px;}
+#header a:hover,a:active {color:#b0b0b0;}
+#footer a:hover,a:active {color:#b0b0b0;}
+
+.labelfocus  {color:#b0b0b0;}
+
+/*FORM STYLES*/
+#searchForm {width:205px; margin:0px; float:left; max-height:50px;}
+#searchFormBtn {width:65px;}
+#search {width:120px;}
+
+#serviceForm {width:450px; padding:10px 20px; border: 1px solid #000;}
+#serviceForm .labelStill {color:#191919; float:none; width: 30px}
+#serviceForm legend {font-wight:bolder; font-size:55px;}
+#serviceForm input[type=text] {
+border-bottom: solid 2px #303030;
+border-right: solid 2px #303030;
+margin-bottom:7px;
+}
+#returnForm #state {width:180px;}
+#returnForm {width:450px; padding:10px 20px; border: 1px solid #000;}
+#returnForm .labelStill {color:#191919; float:none; width: 30px}
+#returnForm legend {font-wight:bolder; font-size:55px;}
+#returnForm input[type=text] {
+border-bottom: solid 2px #303030;
+border-right: solid 2px #303030;
+margin-bottom:7px;
+}
+#returnForm #eventDay {width:55px;}
+#returnForm #eventYear {width:80px;}
+#returnForm #eventMonth {width:145px;}
+#returnForm select{width: 95px; margin-bottom: 5px;}
+#returnForm  #datesArea {font-size:100%; font-weight:bold;}
+#returnForm  #eventMonth {width:80px;}
+
+.required {color:#900;}
+#senderMessage {color:#900;}
+#questionForm {width: 450px;}
+#questionForm legend {font-size:120%; font-weight:bold;}
+#serviceForm label{ float: none; margin-bottom: 5px;}
+
+
+
+#paraLeft p .widePara {width:100%; min-width:50%; float:left; display:block;}
+
+
+
+.wideField {float:left; border:none; margin:0px;}
+#mailForm legend {font-wight:bolder; font-size:55px;}
+#mailForm input[type=text] {
+border-bottom: solid 2px #303030;
+border-right: solid 2px #303030;
+margin-bottom:7px;
+}
+.legendPost {text-align:right; font-size:12px;}
+.radioBox {padding:10px; border:3px solid #303030; height:120px;}
+#mailForm {width:750px; padding:10px 20px; border: 1px solid #000;}
+#mailForm .labelStill {color:#191919; float:none; width: 30px}
+#invoiceForm {width:450px; padding:10px 20px;}
+#invoiceForm legend {font-wight:bolder; font-size:18px;}
+#invoiceForm label {color:#191919;}
+#myquiz input, textarea{width: 70px; margin-bottom: 5px;}
+label{ float: left; width: 130px; font-weight: bold;}
+input, textarea{width: 200px; margin-bottom: 5px;}
+select {width: 200px; margin-bottom: 5px;}
+.listHead {font-weight:bold; font-size:18px; margin-bottom:3px;}
+.softList {list-style-type:none;}
+.payform {margin:2px auto; text-align:center;}
+
+#loginForm {width:450px; padding:10px 20px;}
+#loginForm legend {font-wight:bolder; font-size:18px;}
+#loginForm label {color:#191919;}
+/*PROGRAMMING*/
+#cmsPic {float:left;}
+.picSpacer1 {margin-right:15px;}
+#cmsList {margin-left:15px;}
+/*GALLERY STYLES*/
+.galleryBox {width:270px; border:2px solid #666; float:left; min-height:500px; max-height:500px;}
+.galleryBox  p {padding:5px;}
+/*.galleryBox img {text-align:center; margin:0px auto;}*/
+.galleryBox2 {width:270px; border:2px solid #666; float:left; min-height:500px; max-height:500px; margin-left:25px;}
+.galleryBox2  p {padding:5px;}
+.galleryHead {background-image:url(../../MyOnlineStore%20-%20Copy/images/galleryBox.jpg); background-repeat:no-repeat; margin-top:0px; text-align:center;}
+.longBoxHead {background-image:url(../../MyOnlineStore%20-%20Copy/images/galleryBox2.jpg); background-repeat:repeat-x; margin-top:0px; text-align:center;}
+.longBox {min-width:650px; border:2px solid #666; float:left; min-height:500px; max-height:500px;}
+.longBox  p {padding:5px;}
+
+/*FLASH CONTENT*/
+#buildIntro {height:300px; max-width:650px; padding:0px; margin:0px;}
+
+/*LIGHTBOX  STYLES*/
+#lightbox{	position: absolute;	left: 0; width: 100%; z-index: 100; text-align: center; line-height: 0;}
+#lightbox img{ width: auto; height: auto;}
+#lightbox a img{ border: none; }
+
+#outerImageContainer{ position: relative; background-color: #fff; width: 250px; height: 250px; margin: 0 auto; }
+#imageContainer{ padding: 10px; }
+
+#loading{ position: absolute; top: 40%; left: 0%; height: 25%; width: 100%; text-align: center; line-height: 0; }
+#hoverNav{ position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: 10; }
+#imageContainer>#hoverNav{ left: 0;}
+#hoverNav a{ outline: none;}
+
+#prevLink, #nextLink{ width: 49%; height: 100%; background-image: url(data:images/gif;base64,AAAA); /* Trick IE into showing hover */ display: block; }
+#prevLink { left: 0; float: left;}
+#nextLink { right: 0; float: right;}
+#prevLink:hover, #prevLink:visited:hover { background: url(../../MyOnlineStore%20-%20Copy/images/prevlabel.gif) left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url(../../MyOnlineStore%20-%20Copy/images/nextlabel.gif) right 15% no-repeat; }
+
+#imageDataContainer{ font: 10px Verdana, Helvetica, sans-serif; background-color: #fff; margin: 0 auto; line-height: 1.4em; overflow: auto; width: 100%	; }
+
+#imageData{	padding:0 10px; color: #666; }
+#imageData #imageDetails{ width: 70%; float: left; text-align: left; }	
+#imageData #caption{ font-weight: bold;	}
+#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 1.0em;	}			
+#imageData #bottomNavClose{ width: 66px; float: right;  padding-bottom: 0.7em; outline: none;}	 	
+
+#overlay{ position: absolute; top: 0; left: 0; z-index: 90; width: 100%; height: 500px; background-color: #000; }
+
+<!--MEMBER PAGE-->
+/*#memberBox {width:550px;}
+#memberBox img {float:left; border:none;}
+#memberBoxArea {float:left; padding-left:10px;}*/
+
+/*QUIZ STYLES*/
+.qheader{
+font:bold 14px Arial;
+}
+.qselections{
+font:normal 13px Arial;
+}
+
+/*CART STYLES*/
+#dynamicList {margin-left:25px;}
+#deleteBtn {width:20px;}
+.cartImg {width:50px; height:auto;}
+.deleteCartForm .smDelete {width:80px;}
+.paypalImg {width:130px; height:auto;}
+#addCartBtn {height:100%; width:auto;}
+.productImg {width:200px; height:auto;}
+#showCart {border:none; padding-top:10px;}
+
+/*FRONT PAGE PRODUCT DISPLAY*/

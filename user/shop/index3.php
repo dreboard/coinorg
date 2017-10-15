@@ -1,0 +1,85 @@
+<?php 
+session_start();
+$toplinks = "";
+if(isset($_SESSION["id"])){
+	$userid = $_SESSION["id"];
+	$username = $_SESSION["username"];
+	$toplinks = '<a href="member_profile.php?id='. $userid .'">' . $username . '</a> &bull;
+	<a href="member_account.php">' . $username . '</a> &bull;
+	<a href="logout.php">Log Out></a>';
+} else {
+	$toplinks = '<a href="join_form.php">Register</a> &bull; <a href="login.php">Login</a>';
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+?>
+<?php 
+// Run a select query to get my letest 6 items
+// Connect to the MySQL database  
+include "../../MyOnlineStore - Copy/storescripts/connect_to_mysql.php"; 
+$dynamicList = "";
+$sql = mysql_query("SELECT * FROM products ORDER BY date_added DESC LIMIT 6");
+$productCount = mysql_num_rows($sql); // count the output amount
+if ($productCount > 0) {
+	while($row = mysql_fetch_array($sql)){ 
+             $id = $row["id"];
+			 $product_name = $row["product_name"];
+			 $price = $row["price"];
+			 $date_added = strftime("%b %d, %Y", strtotime($row["date_added"]));
+			 $dynamicList .= '<table width="100%" border="0" cellspacing="0" cellpadding="6">
+        <tr>
+          <td width="17%" valign="top"><a href="product.php?id=' . $id . '"><img class="storeImg" style="border:#666 1px solid;" src="inventory_images/' . $id . '.jpg" alt="' . $product_name . '" width="77" height="102" border="1" /></a></td>
+          <td width="83%" valign="top">' . $product_name . '<br />
+            $' . $price . '<br />
+            <a href="product.php?id=' . $id . '">View Product Details</a></td>
+        </tr>
+      </table>';
+    }
+} else {
+	$dynamicList = "We have no products listed in our store yet";
+}
+mysql_close();
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Store Home Page</title>
+<style type="text/css">
+/*#viewBtn {height:100%; width:auto;}*/
+.storeImg {width:100px; height:auto;}
+</style>
+<link rel="stylesheet" href="../../MyOnlineStore - Copy/style/style.css" type="text/css" media="screen" />
+</head>
+<body>
+<div align="center" id="mainWrapper">
+  <?php include_once("../../MyOnlineStore - Copy/template_header.php");?>
+  <div id="pageContent">
+  <table width="100%" border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <td width="32%" valign="top">
+    <h3>What the Hell?</h3>
+    <?php echo $toplinks ?>
+      <p>This website is very temporarily being used as an online live showcase area for an E - Commerce tutorial script set Adam is creating which can be seen on his channel here:<br />
+        <a href="http://www.youtube.com/flashbuilding" target="_blank">http://www.youtube.com/flashbuilding</a> </p>
+      <p>It is not an actual store and it will change directly after the tutorial series. <br />
+        <br />
+        This tutorial series is for educational purposes only. Use the scripts at your own risk.</p></td>
+    <td width="35%" valign="top"><h3>Latest Designer Fashions</h3>
+      <p><?php echo $dynamicList; ?><br />
+        </p>
+      <p><br />
+      </p></td>
+    <td width="33%" valign="top"><h3>Handy Tips</h3>
+      <p>If you operate any store online you should read the documentation provided to you by the online payment gateway you choose for handling the checkout process. You can get much more insight than I can offer on the various details of a gateway, from the gateway providers themselves. They are there to help you with whatever you need since they get a cut of your online business dealings.</p></td>
+  </tr>
+</table>
+
+  </div>
+  <?php include_once("../../MyOnlineStore - Copy/template_footer.php");?>
+</div>
+</body>
+</html>
