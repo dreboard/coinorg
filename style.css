@@ -402,7 +402,7 @@ cursor: default;
 #gradeSelects {margin-top:20px;}
 
 .coinFaceVal {border:none; font-size:18px;}
-#topPriceRow {background-image:url(../../img/featured-bkg.png); height: 30px; color: #fff; font-size:1.6em;}
+#topPriceRow {background-image:url(img/featured-bkg.png); height: 30px; color: #fff; font-size:1.6em;}
 .reportListTbl { font-size:1.4em; border-collapse:collapse; margin:0px auto;}
 #reportListLinks {margin:0px auto;}
 .reportListTbl td {padding: 10px;}
@@ -454,7 +454,7 @@ cursor: default;
 
 #categoryErrorTbl {border-collapse:collapse;}
 /*Grades*/
-.certBgRow {background-image:url(../img/certBG.jpg); background-repeat:no-repeat; background-position:center;}
+.certBgRow {background-image:url(img/certBG.jpg); background-repeat:no-repeat; background-position:center;}
 .gradeNums td {padding:5px; font-size:120%;}
 #changerRow {padding-top:15px;}
 #listTbl h3 {margin:0px;}

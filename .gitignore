@@ -28,3 +28,9 @@
 /user/_notes/
 /user/a37fdead
 /.idea
+/composer.phar
+/.phan/
+/inc/classes/_notes/
+/inc/classes/users/_notes/
+/phan.phar
+/vendor/

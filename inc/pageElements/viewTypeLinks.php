@@ -57,7 +57,7 @@
 
 
 <h3>Supplemental</h3>
-<?php if (in_array($coinType, $vamTypes)) {?>
+<?php if (in_array(str_replace('_', ' ', $_GET["coinType"]), $vamTypes)) {?>
 <a role="button" class="btn btn-default btn-block" href="vamReport.php?coinType=<?php echo str_replace(' ', '_', $_GET["coinType"]) ?>">Vam Report</a><br />
  <?php } else { echo ''; }  ?>   
 

@@ -145,6 +145,12 @@ class User
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //Check & Resend verification codes
 
+
+    /**
+     * @param string $email
+     * @param int $userID
+     * @todo switch id with user object to get user details
+     */
     function sendCodeMail($email, $userID)
     {
         $Encrypt = new Encryption();
