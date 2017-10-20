@@ -16,14 +16,16 @@ class Collection
     protected $DB_pass = "";
     protected $DB_name = "coins";
 
+    protected $userID;
+
     public function __construct()
     {
         $this->db = DBConnect::getInstance();
+        $this->userID = $_SESSION['userID'];
     }
 
     public function getCollectionById($collectionID)
     {
-        $userID = $_SESSION['userID'];
         //$sql = mysql_query("SELECT * FROM collection WHERE collectionID = '$collectionID' LIMIT 1") or die(mysql_error());
         $stmt = $this->db->dbhc->prepare("
             SELECT * FROM collection     
@@ -31,7 +33,7 @@ class Collection
             WHERE collectionID = :collectionID AND userID = :userID
             LIMIT 1
             ");
-        $stmt->execute(array(':collectionID' => $collectionID, ':userID' => $userID));
+        $stmt->execute(array(':collectionID' => $collectionID, ':userID' => $this->userID));
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
@@ -941,7 +943,7 @@ class Collection
     public function getTypeCollectionProgress($coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("CALL UserTypeCollectionProgress(:userID, :coinCategory)");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindValue(':coinCategory', str_replace('_', ' ', $coinCategory), PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -973,7 +975,7 @@ class Collection
     public function getCollectionCountById($userID)
     {
         $stmt = $this->db->dbhc->prepare("CALL UserAllCollectedCoins(:userID)");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn();
     }
@@ -981,7 +983,7 @@ class Collection
     public function getUniqueCollectionCountById($userID)
     {
         $stmt = $this->db->dbhc->prepare("Call UserAllUniqueCollectedCoins(:userID)");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn();
     }
@@ -991,7 +993,7 @@ class Collection
         $sql = "SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE  userID = :userID";
 
         $stmt = $this->db->dbhc->prepare($sql);
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->execute();
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -3101,21 +3103,24 @@ class Collection
 
 
 //BY COIN
+    /**
+     * @param $damage
+     * @param $coinID
+     * @param $userID
+     * @return mixed
+     */
     function getCoinDamageType($damage, $coinID, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
-            INNER JOIN coins ON collection.coinID = coins.coinID 
-            WHERE collection.userID = :userID AND coins.coinType = :coinType AND collection.proService != 'None'
+            WHERE collection.userID = :userID AND collection.coinID = :coinID AND collection.damage = '0'
             ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
-        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchColumn();
 
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . $coinID . "' AND $damage != '0'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . $coinID . "' AND $damage != '0'") or die(mysql_error());
     }
 
 
@@ -3128,7 +3133,7 @@ class Collection
             SELECT COUNT(*) FROM collectrolls 
             WHERE userID = :userID AND coinID = :coinID
             ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -3142,7 +3147,7 @@ class Collection
             SELECT COUNT(*) FROM collectboxes 
             WHERE userID = :userID AND coinID = :coinID
             ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -3156,7 +3161,7 @@ class Collection
             SELECT COUNT(*) FROM collectbags 
             WHERE userID = :userID AND coinID = :coinID
             ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -3171,7 +3176,7 @@ class Collection
             WHERE userID = :userID AND coinID = :coinID
             AND proService != 'None'
         ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -3186,7 +3191,7 @@ class Collection
             WHERE userID = :userID AND coinID = :coinID
             AND collectrollsID != '0'
         ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -3201,7 +3206,7 @@ class Collection
             WHERE userID = :userID AND coinID = :coinID
             AND collectfolderID != '0'
         ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -3216,7 +3221,7 @@ class Collection
             WHERE userID = :userID AND coinID = :coinID
             AND collectsetID != '0'
         ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -3231,7 +3236,7 @@ class Collection
             WHERE userID = :userID AND coinID = :coinID
             AND certlist = '1'
         ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -3247,7 +3252,7 @@ class Collection
             WHERE userID = :userID AND coinType = :coinType
             AND certlist = '1'
         ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -3257,12 +3262,15 @@ class Collection
 
     function getCoinBoxCountByType($coinType, $userID)
     {
+        if($userID !== $this->userID){
+            throw new Exception('User is not authorized');
+        }
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collectboxes 
             WHERE userID = :userID AND coinType = :coinType
             AND certlist = '1'
         ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -3277,7 +3285,7 @@ class Collection
             WHERE userID = :userID AND coinType = :coinType
             AND certlist = '1'
         ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -3293,7 +3301,7 @@ class Collection
             WHERE collection.userID = :userID AND coins.coinType = :coinType
             AND collection.proservice = 'None' AND collection.collectfolderID = '0' AND collection.collectrollsID = '0' AND collection.collectsetID = '0' AND collection.setregID = '0'
         ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -3309,7 +3317,7 @@ class Collection
             WHERE collection.userID = :userID AND coins.coinCategory = :coinCategory
             AND collection.proservice = 'None' AND collection.collectfolderID = '0' AND collection.collectrollsID = '0' AND collection.collectsetID = '0' AND collection.setregID = '0'
         ");
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindValue(':coinCategory', str_replace('_', ' ', $coinCategory), PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchColumn();
@@ -3364,18 +3372,54 @@ class Collection
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Folder coins
+
+    /**
+     * Get collection ID from user/folder combo
+     * @param $coinID
+     * @param $collectfolderID
+     * @param $userID
+     * @return mixed
+     */
     function getCollectionCoinByCoinID($coinID, $collectfolderID, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND collectfolderID = '$collectfolderID'") or die(mysql_error());
-        $row = mysql_fetch_array($sql);
-        $collectionID = $row['collectionID'];
-        return $collectionID;
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection
+            INNER JOIN coins ON collection.coinID = coins.coinID 
+            WHERE collection.userID = :userID AND coins.coinID = :coinID
+            AND collection.collectfolderID = :collectfolderID
+        ");
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
+        $stmt->bindParam(':collectfolderID', $collectfolderID, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $row['collectionID'];
+
+        /*$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND collectfolderID = '$collectfolderID'") or die(mysql_error());
+        $collectionID = $row['collectionID'];*/
     }
 
+    /**
+     * Get all folders by coin type
+     * {@internal collectfolder function}}
+     *
+     * @param $coinType
+     * @param $userID
+     * @return mixed
+     */
     function getFoldersCollectedByCoinType($coinType, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collectfolder WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collectfolder 
+            WHERE collectfolder.userID = :userID AND collectfolder.coinType = :coinType
+        ");
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collectfolder WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -3392,7 +3436,7 @@ class Collection
             AND collectionID = :collectionID
             LIMIT 1
         ");
-        $stmt->execute(array(':userID' => $userID, ':collectionID' => $collectionID));
+        $stmt->execute(array(':userID' => $this->userID, ':collectionID' => $collectionID));
 
         //$sql = mysql_query("SELECT * FROM collection WHERE collectionID = '$collectionID' AND userID = '$userID'") or die(mysql_error());
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -3585,7 +3629,7 @@ class Collection
         $sql = "CALL UserTotalInvestmentSumByCategory(:userID, :coinCategory)";
 
         $stmt = $this->db->dbhc->prepare($sql);
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindValue(':coinCategory', str_replace('_', ' ', $coinCategory), PDO::PARAM_STR);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -3602,7 +3646,7 @@ class Collection
         $sql = "CALL UserTotalInvestmentSumByType(:userID, :coinType)";
 
         $stmt = $this->db->dbhc->prepare($sql);
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -3624,7 +3668,7 @@ class Collection
           WHERE collection.userID = :userID 
           AND coins.coinType = :coinType";
         $stmt = $this->db->dbhc->prepare($sql);
-        $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
+        $stmt->bindParam(':userID', $this->userID, PDO::PARAM_INT);
         $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchColumn();

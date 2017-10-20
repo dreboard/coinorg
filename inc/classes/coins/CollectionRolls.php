@@ -4,20 +4,75 @@
 //otherSameCoinsList
 class CollectionRolls
 {
+    protected $userID;
+    protected $coinYearRange;
+    protected $coinYear;
+    protected $rollNickname;
+    protected $rollID;
+    protected $rollMintID;
+    protected $coinType;
+    protected $coinCategory;
+    protected $coinVersion;
+    protected $design;
+    protected $purchaseFrom;
+    protected $purchaseDate;
+    protected $purchasePrice;
+    protected $listDate;
+    protected $sellPrice;
+    protected $sellDate;
+    protected $ebaySellerID;
+    protected $auctionNumber;
+
+    protected $proService;
+    protected $proSerialNumber;
+    protected $slabLabel;
+    protected $slabCondition;
+    protected $coinGrade;
+    protected $designation;
+
+    protected $additional;
+    protected $coinNote;
+    protected $coinCount;
+    protected $rollHolder;
+    protected $firstday;
+    protected $coinID;
+    protected $mintMark;
+    protected $coinSubCategory;
+    protected $problem;
+    protected $strike;
+    protected $shopName;
+    protected $shopUrl;
+    protected $rollType;
+    protected $coinPic1;
+    protected $faceVal;
+    protected $showName;
+    protected $showCity;
+    protected $rollCondition;
+    protected $startYear;
+    protected $endYear;
+    protected $containerID;
+    protected $coincollectID;
+    protected $bulkRoll;
+
     public function __construct()
     {
         $this->db = DBConnect::getInstance();
+        $this->userID = $_SESSION['userID'];
     }
 
+    /**
+     * @see getRollHolderNumber
+     * @param $collectrollsID
+     * @return bool
+     */
     public function getCollectionRollById($collectrollsID)
     {
-        $userID = $_SESSION['userID'];
         $stmt = $this->db->dbhc->prepare("
             SELECT * FROM collectrolls     
             WHERE collectrollsID = :collectrollsID AND userID = :userID
             LIMIT 1
         ");
-        $stmt->execute(array(':collectrollsID' => $collectrollsID, ':userID' => $userID));
+        $stmt->execute(array(':collectrollsID' => $collectrollsID, ':userID' => $this->userID));
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->userID = $row['userID'];

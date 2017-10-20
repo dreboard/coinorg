@@ -4,17 +4,38 @@
 
 class CoinTypes
 {
+    protected $cointypeID;
+    protected $mintMarks;
+    protected $coinType;
+    protected $coinCategory;
+    protected $dates;
+    protected $denomination;
+    protected $keyDates;
+    protected $rollCount;
+    protected $rollVal;
+    protected $bagCount;
+    protected $bagVal;
+    protected $boxCount;
+    protected $boxVal;
+    protected $ebay;
+
+    protected $db;
 
     public function __construct()
     {
         $this->db = DBConnect::getInstance();
     }
 
-    public function getCoinByType($coinType)
+    /**
+     * @param string $coinType
+     * @return $this
+     */
+    public function getCoinByType(string $coinType)
     {
         $sql = 'SELECT * FROM cointypes WHERE coinType = :coinType';
         $stmt = $this->db->dbhc->prepare($sql);
-        $stmt->execute(array(':coinType' => $coinType));
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->cointypeID = $row['cointypeID'];
@@ -31,7 +52,7 @@ class CoinTypes
         $this->boxCount = $row['boxCount'];
         $this->boxVal = $row['boxVal'];
         $this->ebay = $row['ebay'];
-        return true;
+        return $this;
     }
 
     public function getEbay()
@@ -76,7 +97,7 @@ class CoinTypes
 
     public function getKeyDate()
     {
-        return strip_tags($this->keyDate);
+        return strip_tags($this->keyDates);
     }
 
     public function getDates()

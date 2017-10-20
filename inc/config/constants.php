@@ -1,5 +1,5 @@
-<?php 
-$snowTypes = array('Indian Head', 'Flying Eagle');
+<?php
+define('SNOW_TYPES', array('Indian Head', 'Flying Eagle'));
 $vamTypes = array('Morgan Dollar', 'Peace Dollar');
 $firstDayCats = array('Dollar', 'Quarter', 'Nickel');
 
@@ -31,7 +31,7 @@ $boxTypes = array('Indian Head Nickel', 'Westward Journey', 'Jefferson Nickel', 
 
 $albumCategories = array('Small Cent', 'Large Cent', 'Half Cent');
 
-$fullTypes = array('Jefferson Nickel','Standing Liberty','Winged Liberty Dime','Franklin Half Dollar','Roosevelt Dime');  
+$fullTypes = array('Jefferson Nickel','Standing Liberty','Winged Liberty Dime','Franklin Half Dollar','Roosevelt Dime');
 $satinTypes = array('Lincoln Wheat','Lincoln Memorial','Lincoln Bicentennial','Sacagawea Dollar');
 
 $cameoTypes = array('Lincoln Wheat', 'Lincoln Memorial', 'Jefferson Nickel', 'Winged Liberty Dime', 'Roosevelt Dime', 'Washington Quarter', 'Walking Liberty', 'Kennedy Half Dollar', 'Franklin Half Dollar',  'Susan B Anthony Dollar', 'Presidential Dollar', 'Sacagawea Dollar', 'Eisenhower Dollar', 'Commemorative Half Dollar', 'Silver Dollar', 'Tenth Ounce Gold', 'Quarter Ounce Gold', 'Half Ounce Gold', 'One Ounce Gold', 'Tenth Ounce Buffalo', 'Quarter Ounce Buffalo', 'Half Ounce Buffalo', 'One Ounce Buffalo', 'Tenth Ounce Platinum', 'Quarter Ounce Platinum', 'Half Ounce Platinum', 'One Ounce Platinum');

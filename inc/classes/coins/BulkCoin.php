@@ -4,6 +4,24 @@
 
 class BulkCoin
 {
+    protected $bulkNickname;
+    protected $userID;
+    protected $setregID;
+    protected $collectionID;
+    protected $coinID;
+    protected $coinType;
+    protected $coinCategory;
+    protected $coinNote;
+    protected $collectfolderID;
+    protected $collectrollsID;
+    protected $collectsetID;
+    protected $enterDate;
+    protected $coinYear;
+    protected $purchaseFrom;
+    protected $purchaseDate;
+    protected $purchasePrice;
+
+    protected $db;
 
     public function __construct()
     {
@@ -16,8 +34,6 @@ class BulkCoin
         $stmt = $this->db->dbhc->prepare($sql);
         $stmt->execute(array(':bulkcoinID' => $bulkcoinID));
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        //$sql = mysql_query("SELECT * FROM bulkcoin WHERE bulkcoinID = '$bulkcoinID'") or die(mysql_error());
 
         $this->bulkNickname = $row['bulkNickname'];
         $this->userID = $row['userID'];
@@ -35,7 +51,7 @@ class BulkCoin
         $this->purchaseFrom = $row['purchaseFrom'];
         $this->purchaseDate = $row['purchaseDate'];
         $this->purchasePrice = $row['purchasePrice'];
-        return true;
+        return $this;
     }
 
     public function getShowName()
