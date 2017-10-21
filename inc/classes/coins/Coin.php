@@ -73,55 +73,60 @@ class Coin
         $sql = 'SELECT * FROM coins WHERE coinID = :coinID';
         $stmt = $this->db->dbhc->prepare($sql);
         $stmt->execute(array(':coinID' => $coinID));
+
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($row){
+            $this->coinID = $row['coinID'];
+            $this->mintMark = $row['mintMark'];
+            $this->coinCategory = $row['coinCategory'];
+            $this->coinSubCategory = $row['coinSubCategory'];
+            $this->coinType = $row['coinType'];
+            $this->coinName = $row['coinName'];
+            $this->mintage = $row['mintage'];
+            $this->G4 = $row['G4'];
+            $this->VG8 = $row['VG8'];
+            $this->F12 = $row['F12'];
+            $this->VF20 = $row['VF20'];
+            $this->EF40 = $row['EF40'];
+            $this->AU50 = $row['AU50'];
+            $this->MS60 = $row['MS60'];
+            $this->MS63 = $row['MS63'];
+            $this->MS65 = $row['MS65'];
+            $this->PR63 = $row['PR63'];
+            $this->PR65 = $row['PR65'];
+            $this->byMint = $row['byMint'];
+            $this->coinVersion = $row['coinVersion'];
+            $this->century = $row['century'];
+            $this->strike = $row['strike'];
+            $this->commemorative = $row['commemorative'];
+            $this->commemorativeType = $row['commemorativeType'];
+            $this->commemorativeVersion = $row['commemorativeVersion'];
+            $this->series = $row['series'];
+            $this->seriesType = $row['seriesType'];
+            $this->design = $row['design'];
+            $this->designType = $row['designType'];
+            $this->denomination = $row['denomination'];
+            $this->keyDate = $row['keyDate'];
+            $this->coinYear = $row['coinYear'];
+            $this->byMintGold = $row['byMintGold'];
+            $this->errorCoin = $row['errorCoin'];
+            $this->coinMetal = $row['coinMetal'];
+            $this->varietyType = $row['varietyType'];
+            $this->varietyCoin = $row['varietyCoin'];
+            $this->obverse = $row['obverse'];
+            $this->reverse = $row['reverse'];
+            $this->snow = $row['snow'];
+            $this->ddr = $row['ddr'];
+            $this->ddo = $row['ddo'];
+            $this->wddr = $row['wddr'];
+            $this->wddo = $row['wddo'];
+            $this->mintmarkStage = $row['mintmarkStage'];
 
-        $this->coinID = $row['coinID'];
-        $this->mintMark = $row['mintMark'];
-        $this->coinCategory = $row['coinCategory'];
-        $this->coinSubCategory = $row['coinSubCategory'];
-        $this->coinType = $row['coinType'];
-        $this->coinName = $row['coinName'];
-        $this->mintage = $row['mintage'];
-        $this->G4 = $row['G4'];
-        $this->VG8 = $row['VG8'];
-        $this->F12 = $row['F12'];
-        $this->VF20 = $row['VF20'];
-        $this->EF40 = $row['EF40'];
-        $this->AU50 = $row['AU50'];
-        $this->MS60 = $row['MS60'];
-        $this->MS63 = $row['MS63'];
-        $this->MS65 = $row['MS65'];
-        $this->PR63 = $row['PR63'];
-        $this->PR65 = $row['PR65'];
-        $this->byMint = $row['byMint'];
-        $this->coinVersion = $row['coinVersion'];
-        $this->century = $row['century'];
-        $this->strike = $row['strike'];
-        $this->commemorative = $row['commemorative'];
-        $this->commemorativeType = $row['commemorativeType'];
-        $this->commemorativeVersion = $row['commemorativeVersion'];
-        $this->series = $row['series'];
-        $this->seriesType = $row['seriesType'];
-        $this->design = $row['design'];
-        $this->designType = $row['designType'];
-        $this->denomination = $row['denomination'];
-        $this->keyDate = $row['keyDate'];
-        $this->coinYear = $row['coinYear'];
-        $this->byMintGold = $row['byMintGold'];
-        $this->errorCoin = $row['errorCoin'];
-        $this->coinMetal = $row['coinMetal'];
-        $this->varietyType = $row['varietyType'];
-        $this->varietyCoin = $row['varietyCoin'];
-        $this->obverse = $row['obverse'];
-        $this->reverse = $row['reverse'];
-        $this->snow = $row['snow'];
-        $this->ddr = $row['ddr'];
-        $this->ddo = $row['ddo'];
-        $this->wddr = $row['wddr'];
-        $this->wddo = $row['wddo'];
-        $this->mintmarkStage = $row['mintmarkStage'];
+            return true;
+        }
+        return false;
 
-        return true;
+
     }
 
 
@@ -678,6 +683,12 @@ class Coin
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Coin categories table
+
+    /**
+     * @param $coincategoriesID
+     * @return bool
+     * @todo refactor to categories class
+     */
     public function getCoinCategoryById($coincategoriesID)
     {
         $sql = 'SELECT * FROM coincategories WHERE coincategoriesID = ' . $coincategoriesID;
@@ -693,6 +704,11 @@ class Coin
     }
 
 
+    /**
+     * @param $coinCategory
+     * @return mixed
+     * @todo refactor to categories class
+     */
     public function getTypeCount($coinCategory)
     {
         $query = mysql_query("SELECT * FROM coincategories WHERE categoryName = '" . str_replace('_', ' ', $coinCategory) . "'") or die(mysql_error());

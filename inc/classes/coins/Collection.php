@@ -3693,11 +3693,26 @@ class Collection
 
     function totalCoinCategoryInvestment($coinID, $userID)
     {
-        $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
-        while ($row = mysql_fetch_array($sql)) {
-            $coinSum = $row['COALESCE(sum(purchasePrice), 0.00)'];
+        $sql = "
+          SELECT COALESCE(sum(collection.purchasePrice), 0.00) 
+          FROM collection
+          WHERE collection.userID = :userID 
+          AND collection.coinID = :coinID
+         ";
+
+        $stmt = $this->db->dbhc->prepare($sql);
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($stmt->rowCount() == 1) {
+            return $row['COALESCE(sum(purchasePrice), 0.00)'];
+        } else {
+            return '0.00';
         }
-        return $coinSum;
+
+        //$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
     }
 
 
@@ -3711,7 +3726,7 @@ class Collection
           FROM collection
           WHERE collection.userID = :userID";
         $stmt = $this->db->dbhc->prepare($sql);
-        $stmt->execute([':userID' => $userID]);
+        $stmt->execute([':userID' => $this->user]);
         return $stmt->fetchColumn();
     }
 
@@ -3728,19 +3743,46 @@ class Collection
 // Page elements area
 
 
+    /**
+     * @param $coinID
+     * @param $userID
+     * @param $mintMark
+     * @return string
+     */
     function getMintMarkImageByID($coinID, $userID, $mintMark)
     {
-        $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' OR mintMark = '$mintMark' AND userID = '$userID'") or die(mysql_error());
-        $img_check = mysql_num_rows($countAll);
-        if ($img_check == 0) {
+        $sql = "
+          SELECT COUNT(*) 
+          FROM collection
+          INNER JOIN coins ON collection.coinID = coins.coinID
+          WHERE collection.userID = :userID AND (coins.coinID = :coinID OR coins.mintMark = :mintMark)
+         ";
+        $stmt = $this->db->dbhc->prepare($sql);
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->bindValue(':mintMark', str_replace('_', ' ', $mintMark), PDO::PARAM_STR);
+        $stmt->execute();
+
+        if(count($stmt->fetch(PDO::FETCH_ASSOC)) === 0){
             return "blank.jpg";
+        }
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $coinVersion = str_replace(' ', '_', $row['coinVersion']);
+        }
+        return $coinVersion . '.jpg';
+
+
+        /*$countAll = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' OR mintMark = '$mintMark' AND userID = '$userID'") or die(mysql_error())
+        if ($img_check == 0) {
+
         } else {
             while ($row = mysql_fetch_array($countAll)) {
                 $coinVersion = str_replace(' ', '_', $row['coinVersion']);
                 return $coinVersion . '.jpg';
             }
 
-        }
+        }*/
     }
 
     function getImageByID($coinID, $userID)

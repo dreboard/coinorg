@@ -3,7 +3,7 @@
 //getCoinName
 // AND LEFT(coinName, 4) <= ".date('Y')."
 
-class Coin {
+class Coin2 {
 	
 public function __construct() {}
 

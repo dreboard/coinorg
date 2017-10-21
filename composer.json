@@ -1,6 +1,14 @@
 {
 
     "require-dev": {
-        "phan/phan": "^0.10.0"
+        "phan/phan": "^0.10.0",
+        "phpunit/phpunit": "6.4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "CoinTest\\": ["tests/coins"]
+        },
+        "classmap": ["inc/classes/coins/", "inc/db/"],
+        "files": ["inc/classes/coins/Coin.php", "inc/db/DBConnect.php"]
     }
 }
