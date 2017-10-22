@@ -68,6 +68,14 @@ class Coin
         $this->db = DBConnect::getInstance();
     }
 
+    /**
+     * Get coin by id
+     *
+     * @param int $coinID
+     * @return bool
+     *
+     * @test
+     */
     public function getCoinById($coinID)
     {
         $sql = 'SELECT * FROM coins WHERE coinID = :coinID';
@@ -379,6 +387,10 @@ class Coin
         return strip_tags($this->wddr);
     }
 
+    /**
+     * @param $coinID
+     * @return mixed
+     */
     public function getCount($coinID)
     {
         $sql = "SELECT COUNT (*) FROM coins WHERE coinID = :coinID";

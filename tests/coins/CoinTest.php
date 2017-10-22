@@ -1,33 +1,34 @@
 <?php
 namespace CoinTest;
-
+require_once '../../vendor/autoload.php';
 use PHPUnit\Framework\TestCase;
 use Exception;
 
 class CoinTests extends TestCase
 {
+    const TEST_YEAR = 2005;
+    const TEST_COIN_ID = 33;
     protected $coin;
+
     /**
      * PHPUnit setup
      * Initiate classes to be tested
      */
     protected function setUp()
     {
-        //echo __DIR__; die;
-        require_once __DIR__."/../../inc/db/DBConnect.php";
-        require_once __DIR__.'/../../inc/classes/coins/Coin.php';
         $this->coin = new \Coin();
-
     }
 
     /**
      * Get a coin by ID
+     * @covers Coin::getCount()
      */
-    public function testGetACoinByID()
+    public function testGetCoinByID()
     {
         try {
-            $coin = $this->coin->getCoinByID(33);
+            $coin = $this->coin->getCoinByID(self::TEST_COIN_ID);
             $this->assertEquals(true, $coin);
+            $this->assertEquals(self::TEST_YEAR, $this->coin->getCoinYear());
         } catch (Exception $e) {
             echo $e->getMessage();
         }

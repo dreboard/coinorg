@@ -32,6 +32,6 @@
 /.phan/
 /inc/classes/_notes/
 /inc/classes/users/_notes/
-/phan.phar
+/*.phar
 /vendor/
 /*.txt

@@ -1835,8 +1835,26 @@ class Collection
 
     function getVarietyImg($coinVersion, $userID)
     {
+        $stmt = $this->db->dbhc->prepare("
+          SELECT COUNT(*) FROM collection 
+          INNER JOIN coins ON collection.coinID = coins.coinID 
+          WHERE coins.coinVersion = :coinVersion AND  
+          collection.userID = :userID
+         ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinVersion', str_replace('_', ' ', $coinVersion), PDO::PARAM_STR);
+        $stmt->execute();
+        $img_check = $stmt->fetchColumn();
 
-        $countAll = mysql_query("SELECT * FROM collection WHERE coinVersion = '" . str_replace('_', ' ', $coinVersion) . "' AND userID = '$userID'") or die(mysql_error());
+        if ($img_check > 0) {
+            $coinVersion = str_replace(' ', '_', $coinVersion);
+            $image = $coinVersion . '.jpg';
+        } else {
+            $image = "blank.jpg";
+        }
+        return $image;
+
+ /*       $countAll = mysql_query("SELECT * FROM collection WHERE coinVersion = '" . str_replace('_', ' ', $coinVersion) . "' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
         if ($img_check == 0) {
             return "blank.jpg";
@@ -1846,7 +1864,7 @@ class Collection
                 return $coinVersion . '.jpg';
             }
 
-        }
+        }*/
     }
 
     function getQuarterImg($design, $userID)
@@ -2788,26 +2806,68 @@ class Collection
 
     function getGradedStrikeCountByType($coinType, $userID, $strike)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID' AND strike = '$strike' AND coinGrade != 'No Grade'  AND proService = 'None'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coins.strike = :strike AND coins.coinType = :coinType AND collection.userID = :userID
+              AND collection.coinGrade != 'No Grade'  AND collection.proService = 'None'
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':strike', str_replace('_', ' ', $strike), PDO::PARAM_STR);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID' AND strike = '$strike' AND coinGrade != 'No Grade'  AND proService = 'None'") or die(mysql_error());
     }
 
     function getStrikeCountByCategory($coinCategory, $userID, $strike)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coins.strike = :strike AND coins.coinCategory = :coinCategory AND collection.userID = :userID
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':strike', str_replace('_', ' ', $strike), PDO::PARAM_STR);
+        $stmt->bindValue(':coinCategory', str_replace('_', ' ', $coinCategory), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error());
     }
 
     function getGradedStrikeCountByCategory($coinCategory, $userID, $strike)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND userID = '$userID' AND strike = '$strike' AND coinGrade != 'No Grade'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coins.strike = :strike AND coins.coinCategory = :coinCategory AND collection.userID = :userID
+              AND coinGrade != 'No Grade'
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':strike', str_replace('_', ' ', $strike), PDO::PARAM_STR);
+        $stmt->bindValue(':coinCategory', str_replace('_', ' ', $coinCategory), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND userID = '$userID' AND strike = '$strike' AND coinGrade != 'No Grade'") or die(mysql_error());
     }
 
     function getStrikeCountByType($coinType, $userID, $strike)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coins.strike = :strike AND coins.coinType = :coinType AND collection.userID = :userID
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':strike', str_replace('_', ' ', $strike), PDO::PARAM_STR);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error());
     }
 
     /*function getBusinessHighGradeNumberByType($coinType, $userID, $strike){
@@ -2853,153 +2913,178 @@ class Collection
     function assignGradePrefix($coinGradeNum)
     {
         switch ($coinGradeNum) {
-            case '1':
-                return "PO";
-                break;
-            case '2':
-                return "FR";
-                break;
-            case '3':
-                return "AG";
-                break;
-            case '4':
-                return "G";
-                break;
-            case '6':
-                return "G";
-                break;
-            case '8':
-                return "VG";
-                break;
-            case '10':
-                return "VG";
-                break;
-            case '12':
-                return "F";
-                break;
-            case '15':
-                return "F";
-                break;
-            case '20':
-                return "VF";
-                break;
-            case '25':
-                return "VF";
-                break;
-            case '30':
-                return "VF";
-                break;
-            case '35':
-                return "VF";
-                break;
-            case '40':
-                return "EF";
-                break;
-            case '45':
-                return "EF";
-                break;
-            case '50':
-                return "AU";
-                break;
-            case '55':
-                return "AU";
-                break;
-            case '58':
-                return "AU";
-                break;
-            case '60':
-                return "MS";
-                break;
-            case '61':
-                return "MS";
-                break;
-            case '62':
-                return "MS";
-                break;
-            case '63':
-                return "MS";
-                break;
-            case '64':
-                return "MS";
-                break;
-            case '65':
-                return "MS";
-                break;
-            case '66':
-                return "MS";
-                break;
-            case '67':
-                return "MS";
-                break;
-            case '68':
-                return "MS";
-                break;
-            case '69':
-                return "MS";
-                break;
-            case '70':
-                return "MS";
-                break;
-            /*			default:
-            return 'No coins graded';
-                break;*/
+            case '1': return "PO"; break;
+            case '2': return "FR"; break;
+            case '3': return "AG"; break;
+            case '4': return "G"; break;
+            case '6': return "G"; break;
+            case '8': return "VG"; break;
+            case '10': return "VG"; break;
+            case '12': return "F"; break;
+            case '15': return "F"; break;
+            case '20': return "VF"; break;
+            case '25': return "VF"; break;
+            case '30': return "VF"; break;
+            case '35': return "VF"; break;
+            case '40': return "EF"; break;
+            case '45': return "EF"; break;
+            case '50': return "AU"; break;
+            case '55': return "AU"; break;
+            case '58': return "AU"; break;
+            case '60': return "MS"; break;
+            case '61': return "MS"; break;
+            case '62': return "MS"; break;
+            case '63': return "MS"; break;
+            case '64': return "MS"; break;
+            case '65': return "MS"; break;
+            case '66': return "MS"; break;
+            case '67': return "MS"; break;
+            case '68': return "MS"; break;
+            case '69': return "MS"; break;
+            case '70': return "MS"; break;
+            default: return 'No';
         }
-
     }
 
 
 //Ungraded counts
     function getNoGradeCount($userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND proService = 'None'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              WHERE collection.userID = :userID AND proService = 'None'
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND proService = 'None'") or die(mysql_error());
     }
 
     function getGradeCategoryCount($coinCategory, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND coinGrade != 'No Grade'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coinGrade <> 'No Grade' AND coins.coinCategory = :coinCategory AND collection.userID = :userID
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinCategory', str_replace('_', ' ', $coinCategory), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND coinGrade != 'No Grade'") or die(mysql_error());
     }
 
     function getNoGradeCategoryCount($coinCategory, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND coinGrade = 'No Grade'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coinGrade = 'No Grade' AND coins.coinCategory = :coinCategory AND collection.userID = :userID
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinCategory', str_replace('_', ' ', $coinCategory), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND coinGrade = 'No Grade'") or die(mysql_error());
     }
 
     function getNoGradeTypeCount($coinType, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'  AND proService = 'None'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE proService = 'None' AND coins.coinType = :coinType AND collection.userID = :userID
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'  AND proService = 'None'") or die(mysql_error());
     }
 
     function getNoGradeGoldCount($userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID'  AND proService = 'None' AND coinMetal = 'Gold'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE collection.proService = 'None' AND coins.coinMetal = 'Gold' AND collection.userID = :userID
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND proService = 'None' AND coinMetal = 'Gold'") or die(mysql_error());
     }
 
     function getNoGradeStrikeTypeCount($coinType, $userID, $strike)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinGrade = 'No Grade' AND strike = '$strike'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coins.strike = :strike AND coins.coinType = :coinType AND collection.userID = :userID
+              AND collection.coinGrade = 'No Grade'
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':strike', str_replace('_', ' ', $strike), PDO::PARAM_STR);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinGrade = 'No Grade' AND strike = '$strike'") or die(mysql_error());
     }
 
+    /**
+     * Coins graded by coinID
+     * @param $proService
+     * @param $userID
+     * @param $coinID
+     * @return mixed
+     */
     function getCoinIDProGrader($proService, $userID, $coinID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND proService = '" . str_replace('_', ' ', $proService) . "' AND coinID = '$coinID'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              WHERE collection.coinID = :coinID AND collection.proService = :proService AND collection.userID = :userID
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->bindValue(':proService', str_replace('_', ' ', $proService), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND proService = '" . str_replace('_', ' ', $proService) . "' AND coinID = '$coinID'") or die(mysql_error());
     }
 
 /////////////////////////////////////////////////////////////////////////////////////ERROR REPORTS/////////////
     //ERROR report
 
+    /**
+     * Full count of collected error coins
+     * @param $userID
+     * @return mixed
+     */
     function getUserError($userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND errorCoin = '1' ") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              WHERE collection.errorCoin = '1' AND collection.userID = :userID
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND errorCoin = '1' ") or die(mysql_error());
     }
 
+    /**
+     * Total purchase price of collected errors
+     * @param $userID
+     * @return string
+     */
     function getUserErrorSum($userID)
     {
         $sql = "
@@ -3021,77 +3106,212 @@ class Collection
         //$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE errorCoin = '1' AND userID = '$userID'") or die(mysql_error());
     }
 
+    /**
+     * Count of Non Graded errors
+     * @param $errorType
+     * @param $userID
+     * @return mixed
+     */
     function getError($errorType, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService = 'None'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              WHERE collection.errorType = :errorType AND collection.userID = :userID
+              AND proService = 'None'
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':errorType', str_replace('_', ' ', $errorType), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService = 'None'") or die(mysql_error());
     }
 
+    /**
+     * Count of Graded errors
+     * @param $errorType
+     * @param $userID
+     * @return mixed
+     */
     function getProError($errorType, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService != 'None'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection 
+              WHERE collection.errorType = :errorType AND collection.userID = :userID
+              AND proService != 'None'
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':errorType', str_replace('_', ' ', $errorType), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService != 'None'") or die(mysql_error());
     }
 
 //type
     function getUserTypeError($userID, $coinType)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND errorCoin = '1' ") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coins.coinType = :coinType AND collection.userID = :userID
+              AND collection.errorCoin = '1' 
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND errorCoin = '1' ") or die(mysql_error());
     }
 
     function getUserTypeErrorSum($userID, $coinType)
     {
-        $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE errorCoin = '1' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
-        while ($row = mysql_fetch_array($sql)) {
-            $coinSum = $row['COALESCE(sum(purchasePrice), 0.00)'];
+        $sql = "
+          SELECT COALESCE(sum(collection.purchasePrice), 0.00) 
+          FROM collection
+          INNER JOIN coins ON collection.coinID = coins.coinID 
+          WHERE collection.userID = :userID 
+          AND coins.coinType = :coinType AND coins.errorCoin = '1'";
+        $stmt = $this->db->dbhc->prepare($sql);
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($stmt->rowCount() == 1) {
+            return $row['COALESCE(sum(purchasePrice), 0.00)'];
+        } else {
+            return '0.00';
         }
-        return $coinSum;
+
+        //$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE errorCoin = '1' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
     }
 
     function getTypeError($errorType, $coinType, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'  AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService = 'None'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coins.coinType = :coinType AND collection.userID = :userID
+              AND proService = 'None' AND collection.errorType = :errorType 
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':errorType', str_replace('_', ' ', $errorType), PDO::PARAM_STR);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'  AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService = 'None'") or die(mysql_error());
     }
 
     function getTypeProError($errorType, $coinType, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'  AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService != 'None'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coins.coinType = :coinType AND collection.userID = :userID
+              AND proService != 'None' AND collection.errorType = :errorType 
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':errorType', str_replace('_', ' ', $errorType), PDO::PARAM_STR);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'  AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService != 'None'") or die(mysql_error());
     }
 
 //category
     function getUserCategoryError($userID, $coinCategory)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND errorCoin = '1' ") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coins.coinCategory = :coinCategory AND collection.userID = :userID
+              AND collection.errorCoin = '1' 
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinCategory', str_replace('_', ' ', $coinCategory), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND errorCoin = '1' ") or die(mysql_error());
     }
 
     function getUserCategoryErrorSum($userID, $coinCategory)
     {
-        $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE errorCoin = '1' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND userID = '$userID'") or die(mysql_error());
-        while ($row = mysql_fetch_array($sql)) {
-            $coinSum = $row['COALESCE(sum(purchasePrice), 0.00)'];
+        $sql = "
+          SELECT COALESCE(sum(collection.purchasePrice), 0.00) 
+          FROM collection
+          INNER JOIN coins ON collection.coinID = coins.coinID 
+          WHERE collection.userID = :userID 
+          AND coins.coinCategory = :coinCategory AND coins.errorCoin = '1'";
+        $stmt = $this->db->dbhc->prepare($sql);
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinCategory', str_replace('_', ' ', $coinCategory), PDO::PARAM_STR);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($stmt->rowCount() == 1) {
+            return $row['COALESCE(sum(purchasePrice), 0.00)'];
+        } else {
+            return '0.00';
         }
-        return $coinSum;
+
+        //$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE errorCoin = '1' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND userID = '$userID'") or die(mysql_error());
     }
 
+    /**
+     * Ungraded Errors by category
+     * @param $errorType
+     * @param $coinCategory
+     * @param $userID
+     * @return mixed
+     */
     function getCategoryError($errorType, $coinCategory, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService = 'None'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coins.coinCategory = :coinCategory AND collection.userID = :userID
+              AND proService = 'None' AND collection.errorType = :errorType 
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':errorType', str_replace('_', ' ', $errorType), PDO::PARAM_STR);
+        $stmt->bindValue(':coinCategory', str_replace('_', ' ', $coinCategory), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService = 'None'") or die(mysql_error());
     }
 
+    /**
+     * Graded Errors by category
+     * @param $errorType
+     * @param $coinCategory
+     * @param $userID
+     * @return mixed
+     */
     function getCategoryProError($errorType, $coinCategory, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "'  AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService != 'None'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coins.coinCategory = :coinCategory AND collection.userID = :userID
+              AND proService != 'None' AND collection.errorType = :errorType 
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':errorType', str_replace('_', ' ', $errorType), PDO::PARAM_STR);
+        $stmt->bindValue(':coinCategory', str_replace('_', ' ', $coinCategory), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "'  AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService != 'None'") or die(mysql_error());
     }
 
     function checkCoin($userID, $collectfolderID)
     {
-
         if ($this->collectfolderID == '0') {
             $image = "blank.jpg";
         } else {
@@ -3981,8 +4201,17 @@ class Collection
     //Total Collected
     public function getTotalCollectedGoldByID($coinMetal, $userID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinMetal = '$coinMetal' AND userID = '$userID'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(*) FROM collection
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coins.coinMetal = :coinMetal AND collection.userID = :userID
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinMetal', str_replace('_', ' ', $coinMetal), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinMetal = '$coinMetal' AND userID = '$userID'") or die(mysql_error());
     }
 
     public function getTotalInvestmentSumByCoinMetal($coinMetal, $userID)
@@ -3996,9 +4225,17 @@ class Collection
 
     public function getTypeCollectionProgressByCoinMetal($coinMetal, $userID)
     {
-        $sql = mysql_query("SELECT DISTINCT coinType FROM collection WHERE coinMetal = '$coinMetal' AND  userID = '$userID'");
-        $collectCount = mysql_num_rows($sql);
-        return $collectCount;
+        $stmt = $this->db->dbhc->prepare("
+              SELECT COUNT(DISTINCT coins.coinType) FROM collection
+              INNER JOIN coins ON collection.coinID = coins.coinID
+              WHERE coins.coinMetal = :coinMetal AND collection.userID = :userID
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinMetal', str_replace('_', ' ', $coinMetal), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT DISTINCT coinType FROM collection WHERE coinMetal = '$coinMetal' AND  userID = '$userID'");
     }
 
 
@@ -5729,31 +5966,86 @@ class Collection
 //colorreport.php
     function getDistinctCoinIDByColorCount($coinType, $userID, $color)
     {
-        $sql = mysql_query("SELECT DISTINCT coinID FROM collection WHERE coinType = '$coinType' AND color = '$color' AND userID = '$userID' ") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(DISTINCT coinID) FROM collection 
+            INNER JOIN coins ON collection.coinID = coins.coinID 
+            WHERE collection.userID = :userID AND coins.coinType = :coinType AND coins.color = :color
+            ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->bindValue(':color', str_replace('_', ' ', $color), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT DISTINCT coinID FROM collection WHERE coinType = '$coinType' AND color = '$color' AND userID = '$userID' ") or die(mysql_error());
     }
 
     function getDistinctCoinIDByColorByCoinStrikeCount($coinType, $userID, $color, $strike)
     {
-        $sql = mysql_query("SELECT DISTINCT coinID FROM collection WHERE coinType = '$coinType' AND color = '$color' AND userID = '$userID' AND strike = '$strike' ") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(DISTINCT coinID) FROM collection 
+            INNER JOIN coins ON collection.coinID = coins.coinID 
+            WHERE collection.userID = :userID AND coins.coinType = :coinType AND coins.color = :color
+            AND coins.strike = :strike
+            ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->bindValue(':color', str_replace('_', ' ', $color), PDO::PARAM_STR);
+        $stmt->bindValue(':strike', str_replace('_', ' ', $strike), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT DISTINCT coinID FROM collection WHERE coinType = '$coinType' AND color = '$color' AND userID = '$userID' AND strike = '$strike' ") or die(mysql_error());
     }
 
     function getCoinIDByColorCount($coinType, $userID, $color)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinType = '$coinType' AND color = '$color' AND userID = '$userID' ") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            INNER JOIN coins ON collection.coinID = coins.coinID 
+            WHERE collection.userID = :userID AND coins.coinType = :coinType AND coins.color = :color
+            ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->bindValue(':color', str_replace('_', ' ', $color), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinType = '$coinType' AND color = '$color' AND userID = '$userID' ") or die(mysql_error());
     }
 
     function getCoinIDByColorByCoinStrikeCount($coinType, $userID, $color, $strike)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE coinType = '$coinType' AND color = '$color' AND userID = '$userID' AND strike = '$strike' ") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            INNER JOIN coins ON collection.coinID = coins.coinID 
+            WHERE collection.userID = :userID AND coins.coinType = :coinType AND coins.color = :color
+            AND coins.strike = :strike
+            ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->bindValue(':color', str_replace('_', ' ', $color), PDO::PARAM_STR);
+        $stmt->bindValue(':strike', str_replace('_', ' ', $strike), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinType = '$coinType' AND color = '$color' AND userID = '$userID' AND strike = '$strike' ") or die(mysql_error());
     }
 
 //full reports
     function getAllCoinsFullAttCount($coinType, $userID, $fullAtt)
     {
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            INNER JOIN coins ON collection.coinID = coins.coinID 
+            WHERE collection.userID = :userID AND coins.coinType = :coinType AND coin.strike :strike
+            ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->bindValue(':strike', str_replace('_', ' ', $strike), PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
         $sql = mysql_query("SELECT * FROM collection WHERE coinType = '$coinType' AND fullAtt = '$fullAtt' AND userID = '$userID' ") or die(mysql_error());
         return mysql_num_rows($sql);
     }

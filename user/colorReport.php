@@ -1,7 +1,8 @@
 <?php 
 include '../inc/config.php';
 include_once "../inc/pageElements/logSession.php";
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 if (isset($_GET["coinType"])) { 
 $coinType = str_replace('_', ' ', $_GET["coinType"]);
@@ -296,8 +297,15 @@ $(document).ready(function(){
       <td width="16%" align="center"><img src="../img/Lincoln_Brown.jpg" alt="11" width="20" height="20" align="absmiddle" /> Brown</td>
     </tr>
 <?php
-$countAll = mysql_query("SELECT * FROM coins WHERE coinType = '$coinType' ORDER BY coinYear DESC") or die(mysql_error());    
-while($row = mysql_fetch_array($countAll))
+$stmt = $db->dbhc->prepare("
+            SELECT * FROM coins 
+            WHERE coins.coinType = :coinType ORDER BY coins.coinYear DESC
+            ");
+$stmt->bindValue(':coinType', str_replace('_', ' ', $_GET["coinType"]), PDO::PARAM_STR);
+$stmt->execute();
+
+//$countAll = mysql_query("SELECT * FROM coins WHERE coinType = '$coinType' ORDER BY coinYear DESC") or die(mysql_error());
+while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 	  {
 		  $coin->getCoinById(intval($row['coinID']));
      echo '
