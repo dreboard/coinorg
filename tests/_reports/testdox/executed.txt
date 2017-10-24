@@ -1,0 +1,3 @@
+CoinTest\CoinTests
+ [x] Get coin by i d
+

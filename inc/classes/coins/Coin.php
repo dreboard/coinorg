@@ -1,4 +1,8 @@
 <?php
+namespace App\Coins;
+
+use \DBConnect;
+use \PDO;
 //getYearDistinctMintMarkCount
 //getCoinName
 // AND LEFT(coinName, 4) <= ".date('Y')."

@@ -1,4 +1,9 @@
 <?php
+namespace App\Coins;
+
+use \DBConnect;
+use \PDO;
+use \Exception;
 //getKennedyMetalImg
 //getCollectionCountByVersion
 //getCoinStrikeColorProCount
@@ -1498,7 +1503,7 @@ class Collection
         ");
         $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
         $stmt->bindParam(':coinYear', $coinYear, PDO::PARAM_INT);
-        $stmt->bindParam(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchColumn();
     }
@@ -1883,11 +1888,39 @@ class Collection
 
     function getDesignImg($design, $userID)
     {
-        $countAll = mysql_query("SELECT * FROM collection WHERE design = '" . str_replace('_', ' ', $design) . "' AND userID = '$userID'") or die(mysql_error());
-        $bagsAll = mysql_query("SELECT * FROM collectbags WHERE design = '" . str_replace('_', ' ', $design) . "' AND userID = '$userID'") or die(mysql_error());
-        $rollsAll = mysql_query("SELECT * FROM collectrolls WHERE design = '" . str_replace('_', ' ', $design) . "' AND userID = '$userID'") or die(mysql_error());
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            INNER JOIN coins ON collection.coinID = coins.coinID 
+            WHERE collection.userID = :userID AND collection.design = :design
+            ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':design', str_replace('_', ' ', $design), PDO::PARAM_STR);
+        $stmt->execute();
+        $countAll =  $stmt->fetchColumn();
 
-        $img_check = mysql_num_rows($countAll) + mysql_num_rows($bagsAll) + mysql_num_rows($rollsAll);
+        $stmt2 = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collectbags 
+            WHERE collection.userID = :userID AND coins.design = :design
+            ");
+        $stmt2->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt2->bindValue(':design', str_replace('_', ' ', $design), PDO::PARAM_STR);
+        $stmt2->execute();
+        $bagsAll =  $stmt2->fetchColumn();
+
+        $stmt3 = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collectrolls 
+            WHERE collection.userID = :userID AND coins.design = :design
+            ");
+        $stmt3->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt3->bindValue(':design', str_replace('_', ' ', $design), PDO::PARAM_STR);
+        $stmt3->execute();
+        $rollsAll =  $stmt3->fetchColumn();
+
+        //$countAll = mysql_query("SELECT * FROM collection WHERE design = '" . str_replace('_', ' ', $design) . "' AND userID = '$userID'") or die(mysql_error());
+        //$bagsAll = mysql_query("SELECT * FROM collectbags WHERE design = '" . str_replace('_', ' ', $design) . "' AND userID = '$userID'") or die(mysql_error());
+        //$rollsAll = mysql_query("SELECT * FROM collectrolls WHERE design = '" . str_replace('_', ' ', $design) . "' AND userID = '$userID'") or die(mysql_error());
+
+        $img_check = $countAll + $bagsAll + $rollsAll;
         if ($img_check == 0) {
             return "blank.jpg";
         } else {
@@ -1931,7 +1964,7 @@ class Collection
     public function getCollectionUniqueCountByType($userID, $coinType)
     {
         $stmt = $this->db->dbhc->prepare("
-            SELECT COUNT(DISTINCT coinID) FROM collection 
+            SELECT COUNT(DISTINCT coins.coinType) FROM collection 
             INNER JOIN coins ON collection.coinID = coins.coinID 
             WHERE collection.userID = :userID AND coins.coinType = :coinType
             ");
@@ -1947,7 +1980,7 @@ class Collection
     public function getCertCollectionUniqueCountByType($userID, $coinType)
     {
         $stmt = $this->db->dbhc->prepare("
-            SELECT COUNT(DISTINCT coinID) FROM collection 
+            SELECT COUNT(DISTINCT coins.coinType) FROM collection 
             INNER JOIN coins ON collection.coinID = coins.coinID 
             WHERE collection.userID = :userID AND coins.coinType = :coinType AND proService != 'None'
             ");
@@ -3482,9 +3515,10 @@ class Collection
 
     function getCoinBoxCountByType($coinType, $userID)
     {
+        /*echo $this->user, $userID; die;
         if($userID !== $this->user){
             throw new Exception('User is not authorized');
-        }
+        }*/
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collectboxes 
             WHERE userID = :userID AND coinType = :coinType
@@ -5824,8 +5858,7 @@ class Collection
         }
     }
 
-    public
-    function getSnowCountByYear($coinYear, $userID, $coinType)
+    public function getSnowCountByYear($coinYear, $userID, $coinType)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinYear = '$coinYear' AND userID = '$userID' AND snow != 'None' ") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -5837,20 +5870,54 @@ class Collection
 
     function getTypeDesignationGradeCount($userID, $designation, $coinType)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND designation = '$designation'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            INNER JOIN coins ON collection.coinID = coins.coinID 
+            WHERE collection.userID = :userID AND coins.coinType = :coinType 
+            AND collection.designation = :designation
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->bindParam(':designation', $designation, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND designation = '$designation'") or die(mysql_error());
     }
 
     function getTypeColorCount($userID, $color, $coinType)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND color = '$color'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            INNER JOIN coins ON collection.coinID = coins.coinID 
+            WHERE collection.userID = :userID AND coins.coinType = :coinType 
+            AND collection.color = :color
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->bindParam(':color', $color, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND color = '$color'") or die(mysql_error());
     }
 
     function getTypeStrikeColorCount($userID, $color, $coinType, $strike)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND color = '$color' AND strike = '$strike'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            INNER JOIN coins ON collection.coinID = coins.coinID 
+            WHERE collection.userID = :userID AND coins.coinType = :coinType 
+            AND collection.color = :color AND coins.strike = :strike
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
+        $stmt->bindParam(':color', $color, PDO::PARAM_STR);
+        $stmt->bindParam(':strike', $strike, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND color = '$color' AND strike = '$strike'") or die(mysql_error());
     }
 
     function getCoinColorCount($userID, $color, $coinID)
@@ -5940,27 +6007,66 @@ class Collection
 
     function getCoinDesignationProCount($userID, $fullAtt, $coinID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND fullAtt = '$fullAtt' AND proService != 'None'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            WHERE userID = :userID AND coinID = :coinID
+            AND fullAtt = :fullAtt AND proService != 'None'
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->bindParam(':fullAtt', $fullAtt, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND fullAtt = '$fullAtt' AND proService != 'None'") or die(mysql_error());
     }
 
     function getCoinDesignationRawCount($userID, $fullAtt, $coinID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND fullAtt = '$fullAtt' AND proService = 'None'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            WHERE userID = :userID AND coinID = :coinID
+            AND fullAtt = :fullAtt AND proService = 'None'
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->bindParam(':fullAtt', $fullAtt, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND fullAtt = '$fullAtt' AND proService = 'None'") or die(mysql_error());
     }
 
 
     function getCoinDesignationCount($userID, $fullAtt, $coinID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND fullAtt = '$fullAtt'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            WHERE userID = :userID AND coinID = :coinID
+            AND fullAtt = :fullAtt
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->bindParam(':fullAtt', $fullAtt, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND fullAtt = '$fullAtt'") or die(mysql_error());
     }
 
     function getCoinMorganDesignationCount($userID, $morganDesignation, $coinID)
     {
-        $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND morganDesignation = '$morganDesignation'") or die(mysql_error());
-        return mysql_num_rows($sql);
+        $stmt = $this->db->dbhc->prepare("
+            SELECT COUNT(*) FROM collection 
+            WHERE userID = :userID AND coinID = :coinID
+            AND morganDesignation = :morganDesignation
+        ");
+        $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
+        $stmt->bindParam(':coinID', $coinID, PDO::PARAM_INT);
+        $stmt->bindParam(':morganDesignation', $morganDesignation, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+
+        //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND morganDesignation = '$morganDesignation'") or die(mysql_error());
     }
 
 //colorreport.php
@@ -5970,7 +6076,7 @@ class Collection
             SELECT COUNT(DISTINCT coinID) FROM collection 
             INNER JOIN coins ON collection.coinID = coins.coinID 
             WHERE collection.userID = :userID AND coins.coinType = :coinType AND coins.color = :color
-            ");
+        ");
         $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
         $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
         $stmt->bindValue(':color', str_replace('_', ' ', $color), PDO::PARAM_STR);
@@ -6038,16 +6144,16 @@ class Collection
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
             INNER JOIN coins ON collection.coinID = coins.coinID 
-            WHERE collection.userID = :userID AND coins.coinType = :coinType AND coin.strike :strike
-            ");
+            WHERE collection.userID = :userID AND coins.coinType = :coinType
+            AND collection.fullAtt = :fullAtt
+        ");
         $stmt->bindParam(':userID', $this->user, PDO::PARAM_INT);
         $stmt->bindValue(':coinType', str_replace('_', ' ', $coinType), PDO::PARAM_STR);
-        $stmt->bindValue(':strike', str_replace('_', ' ', $strike), PDO::PARAM_STR);
+        $stmt->bindParam(':fullAtt', $fullAtt, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchColumn();
 
-        $sql = mysql_query("SELECT * FROM collection WHERE coinType = '$coinType' AND fullAtt = '$fullAtt' AND userID = '$userID' ") or die(mysql_error());
-        return mysql_num_rows($sql);
+        //$sql = mysql_query("SELECT * FROM collection WHERE coinType = '$coinType' AND fullAtt = '$fullAtt' AND userID = '$userID' ") or die(mysql_error());
     }
 
 }//END CLASS

@@ -1,5 +1,8 @@
 <?php
+namespace App\Coins;
 
+use \DBConnect;
+use \PDO;
 //getUniqueCollectionCountByCategory
 
 class BulkCoin

@@ -1,76 +1,76 @@
 <?php
-
-include "DBConnect.php";
+use App\Coins\{Collection, BulkCoin, Coin, Snow};
+require_once "DBConnect.php";
 //Coin ../classes
-include "coins/Coin.php";
-include "coins/Pages.php";
-include "coins/Folder.php";
-include "coins/CollectionRolls.php";
-include "coins/CollectionFolder.php";
-include "coins/CollectionBoxes.php";
-include "coins/CollectionSet.php";
-include "coins/CollectionBags.php";
-include "coins/Forum.class.php";
-include "coins/Collection.php";
-include "coins/Rolls.php";
-include "coins/Mintset.class.php";
-include "coins/CoinClub.php";
-include "coins/SellList.php";
-include "coins/WantList.php";
-include "coins/CollectMintRolls.php";
-include "coins/FirstDay.php";
-include "coins/CollectionFirstday.php";
-include "coins/MintBag.php";
-include("coins/Bullion.php");
-include("coins/Report.class.php");
-include("coins/Invest.class.php");
-include("coins/CoinDesign.class.php");
-include("coins/Errors.php");
-include("coins/Grade.php");
-include("coins/CoinTypes.php");
-include("coins/CoinCategories.php");
-include("coins/MintBox.php");
-include("coins/News.class.php");
-include("coins/SetRegistry.php");
-include("coins/CoinCollect.class.php");
-include("coins/Commemorative.php");
-include("coins/Containers.class.php");
-include("coins/CertList.class.php");
-include("coins/ContainerType.class.php");
-include("coins/CollectionUnk.php");
-include("coins/VarietySet.class.php");
-include "coins/Snow.php";
-include "coins/Vam.php";
-include("coins/Note.php");
-include("coins/BulkCoin.php");
-include("coins/CoinLot.php");
-include __DIR__."/../coinArray.php";
+require_once "coins/Coin.php";
+require_once "coins/Pages.php";
+require_once "coins/Folder.php";
+require_once "coins/CollectionRolls.php";
+require_once "coins/CollectionFolder.php";
+require_once "coins/CollectionBoxes.php";
+require_once "coins/CollectionSet.php";
+require_once "coins/CollectionBags.php";
+require_once "coins/Forum.class.php";
+//require_once "coins/Collection.php";
+require_once "coins/Rolls.php";
+require_once "coins/Mintset.class.php";
+require_once "coins/CoinClub.php";
+require_once "coins/SellList.php";
+require_once "coins/WantList.php";
+require_once "coins/CollectMintRolls.php";
+require_once "coins/FirstDay.php";
+require_once "coins/CollectionFirstday.php";
+require_once "coins/MintBag.php";
+require_once("coins/Bullion.php");
+require_once("coins/Report.class.php");
+require_once("coins/Invest.class.php");
+require_once("coins/CoinDesign.class.php");
+require_once("coins/Errors.php");
+require_once("coins/Grade.php");
+require_once("coins/CoinTypes.php");
+require_once("coins/CoinCategories.php");
+require_once("coins/MintBox.php");
+require_once("coins/News.class.php");
+require_once("coins/SetRegistry.php");
+require_once("coins/CoinCollect.class.php");
+require_once("coins/Commemorative.php");
+require_once("coins/Containers.class.php");
+require_once("coins/CertList.class.php");
+require_once("coins/ContainerType.class.php");
+require_once("coins/CollectionUnk.php");
+require_once("coins/VarietySet.class.php");
+//require_once "coins/Snow.php";
+require_once "coins/Vam.php";
+require_once("coins/Note.php");
+//require_once("coins/BulkCoin.php");
+require_once("coins/CoinLot.php");
+require_once __DIR__."/../coinArray.php";
 
 //User ../classes
-include "users/User.php";
-include ("users/Login.php");
+require_once "users/User.php";
+require_once ("users/Login.php");
 //Site ../classes
-include "Paginator.php";
-include_once("PHPMailer/class.phpmailer.php");
-include ("site/General.class.php");
-include("site/Message.class.php");
+require_once "Paginator.php";
+require_once("PHPMailer/class.phpmailer.php");
+require_once ("site/General.class.php");
+require_once("site/Message.class.php");
 
-include("Encryption.class.php");
-include  __DIR__."/../functions/coinFunctions.php";
+require_once("Encryption.class.php");
+require_once  __DIR__."/../functions/coinFunctions.php";
 
 //ebay
 //require_once('../ebay/DisplayUtils.php');
 
 //calendar
-include ("calendar/Calendar.class.php");
-include ("calendar/Event.class.php");
+require_once ("calendar/Calendar.class.php");
+require_once ("calendar/Event.class.php");
 
 //Files
-include "files/Upload.class.php";
-include ("files/FileManager.class.php");
-include ("files/Image.class.php");
-include ("files/Album.class.php");
-//include_once "../facebook/src/facebook.php";
+require_once "files/Upload.class.php";
+require_once ("files/FileManager.class.php");
+require_once ("files/Image.class.php");
+require_once ("files/Album.class.php");
+//require_once "../facebook/src/facebook.php";
 //New ../classes
 
 $BulkCoin = new BulkCoin();

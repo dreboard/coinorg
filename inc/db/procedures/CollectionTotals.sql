@@ -89,4 +89,6 @@ CREATE PROCEDURE UserTotalInvestmentSumByType
 DELIMITER ;
 
 
-
+SELECT COUNT(*) FROM collection
+  INNER JOIN coins ON collection.coinID = coins.coinID
+WHERE collection.userID = 5 AND collection.design = 'Peace Medal'

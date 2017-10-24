@@ -6,9 +6,13 @@
     },
     "autoload": {
         "psr-4": {
-            "CoinTest\\": ["tests/coins"]
+            "CoinTest\\": ["tests/coins"],
+            "App\\Coins\\": ["inc/classes/coins/"]
         },
         "classmap": ["inc/classes/coins/", "inc/db/"],
         "files": ["inc/classes/coins/Coin.php", "inc/db/DBConnect.php"]
+    },
+    "require": {
+        "dshafik/php7-mysql-shim": "^0.2.0"
     }
 }
