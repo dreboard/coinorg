@@ -125,4 +125,3 @@ class PaginateFolder{
 		return $this->return;
 	}
 }//End Class
-?>

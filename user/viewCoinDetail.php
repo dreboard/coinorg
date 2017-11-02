@@ -1,4 +1,5 @@
 <?php
+use App\Coins\{Collection, BulkCoin, Coin, Snow};
 include '../inc/config.php';
 include_once "../inc/pageElements/logSession.php";
 

@@ -4,6 +4,7 @@ namespace App\Coins;
 use \DBConnect;
 use \PDO;
 use \Exception;
+use \Encryption;
 //getKennedyMetalImg
 //getCollectionCountByVersion
 //getCoinStrikeColorProCount

@@ -1,5 +1,6 @@
 <?php
 
+use App\Coins\{Collection, BulkCoin, Coin, Snow};
 /*
 Errors, cleaned, damaged coins
 getErrorForCoin

@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use App\Coins\{Collection, BulkCoin, Coin, Snow};
 //otherCoinsList
 //getFolderCoin
 //addOpenFolderCoins

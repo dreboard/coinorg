@@ -1,6 +1,7 @@
 <?php
 use App\Coins\{Collection, BulkCoin, Coin, Snow};
 //C:\xampp719\htdocs\_COINS\coins\inc
+define('BASE_URL', dirname(dirname($_SERVER['PHP_SELF'])).'/');
 set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__.'/db'.PATH_SEPARATOR. __DIR__.'/classes'.PATH_SEPARATOR. __DIR__.'/config');
 require_once '../vendor/autoload.php';
 require_once 'settings.php';
