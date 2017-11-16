@@ -122,7 +122,7 @@ class CoinClub {
 		$GetMember->getUserById($clubmember);
         return $GetMember->getUserName();
     }
-function getManagerLinks($userID, $clubManager, $coinClubID){
+public function getManagerLinks($userID, $clubManager, $coinClubID){
 	
 		if($userID === $this->getClubAdmin()){
 		$mailLink = ' | <a href="mailUsers.php?coinClubID='.$coinClubID.'">Send Message</a>';
@@ -187,7 +187,7 @@ public function deleteImg($galleryID) {
 }
 
 
-function createGallery($coinClubID) {
+public function createGallery($coinClubID) {
 	
 		$folderName = "../clubs/".$coinClubID."/";
 		if ( !file_exists($folderName) ) {
@@ -214,7 +214,7 @@ Removed
 		return; 
 	}
 //Mailing news
-function generateNewsMail($email, $lastname, $firstname, $coinClubID, $newsSubject, $newsDescription){
+public function generateNewsMail($email, $lastname, $firstname, $coinClubID, $newsSubject, $newsDescription){
 	  $mail = new PHPMailer(true);
 	  $this->getClubById($coinClubID);
 	  $mail->FromName = $this->getClubName();
@@ -244,7 +244,7 @@ function generateNewsMail($email, $lastname, $firstname, $coinClubID, $newsSubje
 }
 
 
-function getMailUsersUser($coinClubID, $newsSubject, $newsDescription){
+public function getMailUsersUser($coinClubID, $newsSubject, $newsDescription){
 	$User = new User();
 	$sql = mysql_query("SELECT * FROM clubmembers WHERE coinClubID = '$coinClubID' ")or die(mysql_error());
 	  while($row = mysql_fetch_array($sql))

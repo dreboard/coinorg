@@ -28,7 +28,7 @@ public function __construct() {}
 			  }
 			  return $coinSum;	
 	  }	
-function getCommemorativeSumByID($userID){
+public function getCommemorativeSumByID($userID){
 	$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE commemorative = '1' AND userID = '$userID'") or die(mysql_error()); 
 	  while($row = mysql_fetch_array($sql))
 			  {
@@ -71,7 +71,7 @@ function getCommemorativeSumByID($userID){
 	  }	
 	  
 //By denomination and commemorative type	  
-function getCommemorativeVersionSumTypeCount($commemorativeVersion, $coinType, $userID){
+public function getCommemorativeVersionSumTypeCount($commemorativeVersion, $coinType, $userID){
 	$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE commemorativeVersion = '".str_replace('_', ' ', $commemorativeVersion)."' AND coinType = '".str_replace('_', ' ', $coinType)."' AND userID = '$userID'") or die(mysql_error()); 
 	  while($row = mysql_fetch_array($sql))
 			  {
@@ -79,7 +79,7 @@ function getCommemorativeVersionSumTypeCount($commemorativeVersion, $coinType, $
 			  }
 			  return $coinSum;	
 	  }	
-function getCommemorativeVersionReportTypeCount($commemorativeVersion, $coinType, $userID){
+public function getCommemorativeVersionReportTypeCount($commemorativeVersion, $coinType, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE commemorativeVersion = '".str_replace('_', ' ', $commemorativeVersion)."' AND  coinType = '".str_replace('_', ' ', $coinType)."' AND userID = '$userID'") or die(mysql_error());
 	return mysql_num_rows($sql);
 }
@@ -194,62 +194,62 @@ public function getCommemorativeImg($userID){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //GRADES
-	function getCategoryGrade($grade, $userID){
+	public function getCategoryGrade($grade, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND commemorative = '1' AND coinGrade = '$grade' AND proService = 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
     }
-	function getCommemorativeVersionGrade($grade, $commemorativeVersion, $userID){
+	public function getCommemorativeVersionGrade($grade, $commemorativeVersion, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND commemorativeVersion = '".str_replace('_', ' ', $commemorativeVersion)."' AND coinGrade = '$grade' AND proService = 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
     }
-	function getCategoryProGrade($grade, $coinCategory, $userID){
+	public function getCategoryProGrade($grade, $coinCategory, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '".str_replace('_', ' ', $coinCategory)."' AND coinGrade = '$grade' AND proService != 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql);
     }
-	function getCommemorativeVersionProGrade($grade, $commemorativeVersion, $userID){
+	public function getCommemorativeVersionProGrade($grade, $commemorativeVersion, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND commemorativeVersion = '".str_replace('_', ' ', $commemorativeVersion)."' AND coinGrade = '$grade' AND proService != 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql); 
     }
-	function getCommemorativeVersionGradeByStrike($strike, $commemorativeVersion, $userID){
+	public function getCommemorativeVersionGradeByStrike($strike, $commemorativeVersion, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND commemorativeVersion = '".str_replace('_', ' ', $commemorativeVersion)."' AND strike = '$strike' AND coinGrade != 'No Grade' AND proService = 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
     }		
-	function getTotalCommemorativeVersionProGradeByStrike($strike, $commemorativeVersion, $userID){
+	public function getTotalCommemorativeVersionProGradeByStrike($strike, $commemorativeVersion, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND commemorativeVersion = '".str_replace('_', ' ', $commemorativeVersion)."' AND strike = '$strike' AND proService != 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
     }		
-	function getTotalCommemorativeVersionGrade($grade, $commemorativeVersion, $userID){
+	public function getTotalCommemorativeVersionGrade($grade, $commemorativeVersion, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND commemorativeVersion = '".str_replace('_', ' ', $commemorativeVersion)."' AND coinGrade = '$grade'") or die(mysql_error()); 
 	return mysql_num_rows($sql); 
     }		
-function getStrikeCountByCommemorativeVersion($commemorativeVersion, $userID, $strike){
+public function getStrikeCountByCommemorativeVersion($commemorativeVersion, $userID, $strike){
 	$sql = mysql_query("SELECT * FROM collection WHERE commemorativeVersion = '".str_replace('_', ' ', $commemorativeVersion)."' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
 }		
 //type report counts
-	function getGradeTypeCount($coinType, $userID){
+	public function getGradeTypeCount($coinType, $userID){
 	$myQuery = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '".str_replace('_', ' ', $coinType)."'  AND coinGrade != 'No Grade'") or die(mysql_error());  
 	$collectCount = mysql_num_rows($myQuery);    	
 	return $collectCount;
     }
-	function getNotGradedTypeCount($coinType, $userID){
+	public function getNotGradedTypeCount($coinType, $userID){
 	$myQuery = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '".str_replace('_', ' ', $coinType)."'  AND coinGrade = 'No Grade'") or die(mysql_error());  
 	$collectCount = mysql_num_rows($myQuery);    	
 	return $collectCount;
     }	
-	function getAllGradedTypeCount($coinType, $userID){
+	public function getAllGradedTypeCount($coinType, $userID){
 	$myQuery = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '".str_replace('_', ' ', $coinType)."'  AND coinGrade != 'No Grade'") or die(mysql_error());  
 	$collectCount = mysql_num_rows($myQuery);    	
 	return $collectCount;
     }		
-	function getGradeProTypeCount($coinType, $userID){
+	public function getGradeProTypeCount($coinType, $userID){
 	$myQuery = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '".str_replace('_', ' ', $coinType)."' AND proService != 'None'") or die(mysql_error());  
 	$collectCount = mysql_num_rows($myQuery);    	
 	return $collectCount;
     }
 
 
-function getBusinessHighGradeNumberByID($coinID, $userID, $strike){
+public function getBusinessHighGradeNumberByID($coinID, $userID, $strike){
 	$sql = mysql_query("SELECT MAX(coinGradeNum) FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error()); 
 	while($row = mysql_fetch_array($sql)){
 		if($row['MAX(coinGradeNum)'] == '0'){
@@ -268,23 +268,23 @@ function getBusinessHighGradeNumberByID($coinID, $userID, $strike){
   }
 }
 
-function getGradedStrikeCountByType($coinType, $userID, $strike){
+public function getGradedStrikeCountByType($coinType, $userID, $strike){
 	$sql = mysql_query("SELECT * FROM collection WHERE coinType = '".str_replace('_', ' ', $coinType)."' AND userID = '$userID' AND strike = '$strike' AND coinGrade != 'No Grade'  AND proService = 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
 }
-function getStrikeCountByCategory($coinCategory, $userID, $strike){
+public function getStrikeCountByCategory($coinCategory, $userID, $strike){
 	$sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '".str_replace('_', ' ', $coinCategory)."' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
 }
-function getGradedStrikeCountByCategory($coinCategory, $userID, $strike){
+public function getGradedStrikeCountByCategory($coinCategory, $userID, $strike){
 	$sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '".str_replace('_', ' ', $coinCategory)."' AND userID = '$userID' AND strike = '$strike' AND coinGrade != 'No Grade'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
 }
-function getStrikeCountByType($coinType, $userID, $strike){
+public function getStrikeCountByType($coinType, $userID, $strike){
 	$sql = mysql_query("SELECT * FROM collection WHERE coinType = '".str_replace('_', ' ', $coinType)."' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
 }
-function getBusinessHighGradeNumberByType($coinType, $userID, $strike){
+public function getBusinessHighGradeNumberByType($coinType, $userID, $strike){
 	$sql = mysql_query("SELECT MAX(coinGradeNum) FROM collection WHERE coinType = '".str_replace('_', ' ', $coinType)."' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error()); 
 	while($row = mysql_fetch_array($sql)){
 		if($row['MAX(coinGradeNum)'] == '0'){
@@ -303,7 +303,7 @@ function getBusinessHighGradeNumberByType($coinType, $userID, $strike){
   }
 }
 
-function assignGradePrefix($coinGradeNum){
+public function assignGradePrefix($coinGradeNum){
 		switch ($coinGradeNum) {
 			case '1':
 			return "PO";break;
@@ -372,33 +372,33 @@ function assignGradePrefix($coinGradeNum){
 
 
 //Ungraded counts
-	function getNoGradeCount($userID){
+	public function getNoGradeCount($userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND proService = 'None'") or die(mysql_error());  
 	return mysql_num_rows($sql);
     }
-	function getGradeCategoryCount($coinCategory, $userID){
+	public function getGradeCategoryCount($coinCategory, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '".str_replace('_', ' ', $coinCategory)."' AND coinGrade != 'No Grade'") or die(mysql_error());  
 return mysql_num_rows($sql);
     }
 	
-	function getNoGradeCategoryCount($coinCategory, $userID){
+	public function getNoGradeCategoryCount($coinCategory, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '".str_replace('_', ' ', $coinCategory)."' AND coinGrade = 'No Grade'") or die(mysql_error()); 
 	return mysql_num_rows($sql);
 	}
-	function getNoGradeTypeCount($coinType, $userID){
+	public function getNoGradeTypeCount($coinType, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '".str_replace('_', ' ', $coinType)."'  AND proService = 'None'") or die(mysql_error());  
 return mysql_num_rows($sql);
     }
-	function getNoGradeGoldCount($userID){
+	public function getNoGradeGoldCount($userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID'  AND proService = 'None' AND coinMetal = 'Gold'") or die(mysql_error());  
 return mysql_num_rows($sql);
     }
 	
-	function getNoGradeStrikeTypeCount($coinType, $userID, $strike){
+	public function getNoGradeStrikeTypeCount($coinType, $userID, $strike){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '".str_replace('_', ' ', $coinType)."' AND coinGrade = 'No Grade' AND strike = '$strike'") or die(mysql_error()); 
 	return mysql_num_rows($sql);
 	}
-	function getCoinIDProGrader($proService, $userID, $coinID){
+	public function getCoinIDProGrader($proService, $userID, $coinID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND proService = '".str_replace('_', ' ', $proService)."' AND coinID = '$coinID'") or die(mysql_error()); 
 	return mysql_num_rows($sql);
 	}	

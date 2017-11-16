@@ -132,11 +132,11 @@ class Forum {
 	
 	
 	
-	function setReplyNumber($questionID){
+	public function setReplyNumber($questionID){
 		$sql = mysql_query("UPDATE forum_question SET reply = reply + 1 WHERE questionID = '$questionID'") or die(mysql_error()); 
 		return;
 	}	
-	function setViewNumber($questionID, $userID){
+	public function setViewNumber($questionID, $userID){
 		$this->forumQuestionByID($questionID);
 		if($this->getAsker() == $userID){
 			return false;
@@ -145,11 +145,11 @@ class Forum {
 		return true;
 		}
 	}
-	function getTopicsByCategory($coinCategory){
+	public function getTopicsByCategory($coinCategory){
 		$sql = mysql_query("SELECT * FROM forum_question WHERE coinCategory = '$coinCategory'") or die(mysql_error());  
 		return mysql_num_rows($sql); 
 	}
-	function getTopicViewsByCategory($coinCategory){
+	public function getTopicViewsByCategory($coinCategory){
 		$sql = mysql_query("SELECT COALESCE(sum(view), 0) FROM forum_question WHERE coinCategory = '$coinCategory'") or die(mysql_error()); 
 	    while($row = mysql_fetch_array($sql))
 			  {
@@ -157,7 +157,7 @@ class Forum {
 			  }
 			  return $coinSum;	
 	}
-	function getTopicRepliesByCategory($coinCategory){
+	public function getTopicRepliesByCategory($coinCategory){
 		$sql = mysql_query("SELECT COALESCE(sum(reply), 0) FROM forum_question WHERE coinCategory = '$coinCategory'") or die(mysql_error()); 
 	    while($row = mysql_fetch_array($sql))
 			  {
@@ -165,7 +165,7 @@ class Forum {
 			  }
 			  return $coinSum;	
 	}
-	function getLastPostByCategory($coinCategory){
+	public function getLastPostByCategory($coinCategory){
 		$sql = mysql_query("SELECT * FROM forum_question WHERE coinCategory = '$coinCategory' ORDER BY questionID DESC LIMIT 1") or die(mysql_error()); 
 		if(mysql_num_rows($sql) == 0){
 			return 'No Posts';

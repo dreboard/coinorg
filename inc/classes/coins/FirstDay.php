@@ -57,7 +57,7 @@ class FirstDay {
 
 
 //ENTER INDIVIDUAL COINS
-	function enterFirstDayCoin($firstdayID, $coinID, $collectfirstdayID, $userID){
+	public function enterFirstDayCoin($firstdayID, $coinID, $collectfirstdayID, $userID){
 		$coin = new Coin();
 		$coin->getCoinById($coinID);
 		$coinID = $coin->getCoinID();

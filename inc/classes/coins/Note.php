@@ -62,7 +62,7 @@ class Note {
 	return mysql_num_rows($sql);
     }  
 	
-	function getNoteCategoryCount($userID, $noteCategory){
+	public function getNoteCategoryCount($userID, $noteCategory){
 	$sql = mysql_query("SELECT * FROM folders WHERE noteCategory = '$noteCategory' AND userID = '$userID'");
 	return mysql_num_rows($sql);
  }

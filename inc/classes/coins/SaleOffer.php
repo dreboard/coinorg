@@ -29,7 +29,7 @@ class SaleOffer {
     }
 
 	
-function deleteSaleCoin($sellListID, $userID){
+public function deleteSaleCoin($sellListID, $userID){
 	$this->getCollectionById($sellListID);
 	if($this->getCoinImage1() !== '../img/noPic.jpg'){
 		unlink($this->getCoinImage1());
@@ -41,13 +41,13 @@ function deleteSaleCoin($sellListID, $userID){
 
 
 //By category
-function getSalesCountByCategory($coinCategory, $userID){
+public function getSalesCountByCategory($coinCategory, $userID){
 $sql = mysql_query("SELECT * FROM selllist WHERE coinCategory = '$coinCategory' AND userID = '$userID'") or die(mysql_error());
 $getTypeRequest = mysql_num_rows($sql);
 return $getTypeRequest;
 }	
 
-function totalSalesTotalsByCategory($coinCategory, $userID){
+public function totalSalesTotalsByCategory($coinCategory, $userID){
 $myQuery = mysql_query("SELECT SUM(sellPrice) FROM selllist WHERE coinCategory = '$coinCategory' AND userID = '$userID'") or die(mysql_error()); 
 
 while($row = mysql_fetch_array($myQuery))
@@ -61,7 +61,7 @@ while($row = mysql_fetch_array($myQuery))
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //ADMIN AREA
 
-function totalCoinsByUser($userID){
+public function totalCoinsByUser($userID){
 $sql = mysql_query("SELECT * FROM selllist WHERE userID = '$userID'") or die(mysql_error()); 
 return mysql_num_rows($sql);
 }

@@ -91,7 +91,7 @@ class CoinCategories
         return $coinSum;
     }
 
-    function getCategoryFaceVal($userID, $coinCategory)
+    public function getCategoryFaceVal($userID, $coinCategory)
     {
         // Facevalue = Roll count * (Denomination * Roll count)
         $this->getCoinByCategory($coinCategory);

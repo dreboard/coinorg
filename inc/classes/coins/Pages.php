@@ -28,7 +28,7 @@ class Pages
             WHERE pageName = :pageName
             LIMIT 1
         ");
-        $stmt->execute(array(':pageName' => $pageName));
+        $stmt->execute([':pageName' => $pageName]);
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $this->pageID = $row['pageID'];
             $this->pageCategory = $row['pageCategory'];

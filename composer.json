@@ -13,6 +13,8 @@
         "files": ["inc/classes/coins/Coin.php", "inc/db/DBConnect.php"]
     },
     "require": {
-        "dshafik/php7-mysql-shim": "^0.2.0"
+        "dshafik/php7-mysql-shim": "^0.2.0",
+        "phpmd/phpmd": "^2.6",
+        "squizlabs/php_codesniffer": "^3.1"
     }
 }

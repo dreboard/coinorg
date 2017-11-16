@@ -72,7 +72,7 @@ class VarietySet {
 	}	
 
 
-function getCoinCertifiedCountByID($varietysetID, $userID){
+public function getCoinCertifiedCountByID($varietysetID, $userID){
 $sql = mysql_query("SELECT * FROM collectset WHERE varietysetID = '$varietysetID' AND userID = '$userID' AND proService != 'None'") or die(mysql_error());
 return mysql_num_rows($sql);
 }	
@@ -98,7 +98,7 @@ return mysql_num_rows($sql);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Variety sets
-	function enterVarietySetCoin($collectsetID, $coinID, $mintsetID, $userID, $purchaseFrom, $auctionNumber, $additional, $purchasePrice, $ebaySellerID, $shopName, $shopUrl, $showName, $showCity,  $purchaseDate){
+	public function enterVarietySetCoin($collectsetID, $coinID, $mintsetID, $userID, $purchaseFrom, $auctionNumber, $additional, $purchasePrice, $ebaySellerID, $shopName, $shopUrl, $showName, $showCity, $purchaseDate){
 		$coin = new Coin();
 		$collection = new Collection();
 		$coin->getCoinById($coinID);

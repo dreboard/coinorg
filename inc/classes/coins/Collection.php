@@ -39,7 +39,7 @@ class Collection
             WHERE collectionID = :collectionID AND userID = :userID
             LIMIT 1
             ");
-        $stmt->execute(array(':collectionID' => $collectionID, ':userID' => $this->user));
+        $stmt->execute([':collectionID' => $collectionID, ':userID' => $this->user]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
@@ -855,7 +855,7 @@ class Collection
         return mysql_num_rows($coinQuery);
     }
 
-    function getThisCoinID($coinID)
+    public function getThisCoinID($coinID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE coinID='$coinID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -872,14 +872,14 @@ class Collection
         return intval($row['coinID']);
     }
 
-    function checkCollection($coinID, $userID)
+    public function checkCollection($coinID, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '$coinID'") or die(mysql_error());
         $collectCount = mysql_num_rows($sql);
         return $collectCount;
     }
 
-    function deleteCollectedCoin($collectionID, $userID)
+    public function deleteCollectedCoin($collectionID, $userID)
     {
         $this->getCollectionById($collectionID);
         if ($this->getCoinImage1() !== '../img/noPic.jpg') {
@@ -898,7 +898,7 @@ class Collection
         return;
     }
 
-    function setToUndefined($value)
+    public function setToUndefined($value)
     {
         if ($value == 'None') {
             $value = 'Undefined';
@@ -908,7 +908,7 @@ class Collection
         return $value;
     }
 
-    function setToNone($value)
+    public function setToNone($value)
     {
         if ($value == '' || !$value) {
             $value = 'None';
@@ -918,7 +918,7 @@ class Collection
         return $value;
     }
 
-    function setToZero($value)
+    public function setToZero($value)
     {
         if ($value == '') {
             $value = '0';
@@ -928,7 +928,7 @@ class Collection
         return $value;
     }
 
-    function setNoValToZero($value)
+    public function setNoValToZero($value)
     {
         if (!$value) {
             $value = '0';
@@ -1429,7 +1429,7 @@ class Collection
         }
     }
 
-    function getCenturyTypeImage($century, $coinType, $userID)
+    public function getCenturyTypeImage($century, $coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(DISTINCT coinID) 
@@ -1696,7 +1696,7 @@ class Collection
     //Category totals
 
 //Get type collection Images and Type Collection percentages
-    function getReportImage($coinType, $userID)
+    public function getReportImage($coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(*) FROM collection 
@@ -1718,7 +1718,7 @@ class Collection
         return $image;
     }
 
-    function getCatImage($coinCategory, $userID)
+    public function getCatImage($coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(*) FROM collection 
@@ -1740,7 +1740,7 @@ class Collection
         return $image;
     }
 
-    function getSubCatImage($coinType, $userID)
+    public function getSubCatImage($coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(*) FROM collection 
@@ -1765,7 +1765,7 @@ class Collection
     }
 
 
-    function getCertReportImage($coinType, $userID)
+    public function getCertReportImage($coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(*) FROM collection 
@@ -1788,7 +1788,7 @@ class Collection
         return $image;
     }
 
-    function getCertTypeReportImage($coinType, $userID, $proService)
+    public function getCertTypeReportImage($coinType, $userID, $proService)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(*) FROM collection 
@@ -1813,7 +1813,7 @@ class Collection
         return $image;
     }
 
-    function getPresidentialImg($coinSubCategory, $userID)
+    public function getPresidentialImg($coinSubCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(*) FROM collection 
@@ -1839,7 +1839,7 @@ class Collection
         }
     }
 
-    function getVarietyImg($coinVersion, $userID)
+    public function getVarietyImg($coinVersion, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(*) FROM collection 
@@ -1873,7 +1873,7 @@ class Collection
         }*/
     }
 
-    function getQuarterImg($design, $userID)
+    public function getQuarterImg($design, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE design = '" . str_replace('_', ' ', $design) . "' AND userID = '$userID'") or die(mysql_error());
         $bagsAll = mysql_query("SELECT * FROM collectbags WHERE design = '" . str_replace('_', ' ', $design) . "' AND userID = '$userID'") or die(mysql_error());
@@ -1887,7 +1887,7 @@ class Collection
         }
     }
 
-    function getDesignImg($design, $userID)
+    public function getDesignImg($design, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2170,7 +2170,7 @@ class Collection
 
     //////////////By coinCategory count
     //Get type collection
-    function getCoinCategoryCollected($userID, $value)
+    public function getCoinCategoryCollected($userID, $value)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(DISTINCT coins.coinType) FROM collection 
@@ -2231,7 +2231,7 @@ class Collection
 
     }
 
-    function getProofDistinctCollected($userID, $coinCategory)
+    public function getProofDistinctCollected($userID, $coinCategory)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(DISTINCT coinID) FROM collection 
@@ -2246,7 +2246,7 @@ class Collection
         //$sql = mysql_query("SELECT DISTINCT coinID FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND strike = 'Proof' AND userID = '$userID'") or die(mysql_error());
     }
 
-    function getTypeProofCountInvestment($userID, $coinCategory)
+    public function getTypeProofCountInvestment($userID, $coinCategory)
     {
         $sql = "
           SELECT COALESCE(sum(collection.purchasePrice), 0.00) 
@@ -2300,7 +2300,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND firstday = '1'") or die(mysql_error());
     }
 
-    function totalIDInvestment($coinID)
+    public function totalIDInvestment($coinID)
     {
         $sql = mysql_query("SELECT SUM(collection.purchasePrice) FROM collection WHERE coinID='$coinID'") or die(mysql_error());
 
@@ -2315,7 +2315,7 @@ class Collection
 
     ///////Master grades
 
-    function getMasterGrade($coinGrade, $userID)
+    public function getMasterGrade($coinGrade, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(*) FROM collection 
@@ -2330,7 +2330,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID'  AND coinGrade = '$grade' AND proService = 'None'") or die(mysql_error());
     }
 
-    function getMasterProGrade($coinGrade, $userID)
+    public function getMasterProGrade($coinGrade, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(*) FROM collection 
@@ -2343,7 +2343,7 @@ class Collection
         return $stmt->fetchColumn();
     }
 
-    function getMasterTotalGrade($coinGrade, $userID)
+    public function getMasterTotalGrade($coinGrade, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(*) FROM collection 
@@ -2357,7 +2357,7 @@ class Collection
         // $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinGrade = '$grade'") or die(mysql_error());
     }
 
-    function getMasterProGrader($proService, $userID)
+    public function getMasterProGrader($proService, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(*) FROM collection 
@@ -2371,7 +2371,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND proService = '$proService'") or die(mysql_error());
     }
 
-    function getDesignationGradeCount($userID, $designation)
+    public function getDesignationGradeCount($userID, $designation)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(*) FROM collection 
@@ -2387,7 +2387,7 @@ class Collection
 
     }
 
-    function getDesignationDistinctGradeCount($userID, $designation)
+    public function getDesignationDistinctGradeCount($userID, $designation)
     {
         $stmt = $this->db->dbhc->prepare("
           SELECT COUNT(DISTINCT coinID) FROM collection 
@@ -2403,7 +2403,7 @@ class Collection
 
     }
 
-    function totalDesignationInvestment($userID, $designation)
+    public function totalDesignationInvestment($userID, $designation)
     {
         $sql = "
           SELECT COALESCE(sum(collection.purchasePrice), 0.00) 
@@ -2431,7 +2431,7 @@ class Collection
 
 
 ////// Category grades
-    function getTotalCategoryGradeByStrike($strike, $coinCategory, $userID)
+    public function getTotalCategoryGradeByStrike($strike, $coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2449,7 +2449,7 @@ class Collection
 
     }
 
-    function getTotalCategoryProGradeByStrike($strike, $coinCategory, $userID)
+    public function getTotalCategoryProGradeByStrike($strike, $coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2499,7 +2499,7 @@ class Collection
 
 
     ///////Type grades
-    function getTypeGrade($coinGrade, $coinType, $userID)
+    public function getTypeGrade($coinGrade, $coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2516,7 +2516,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinGrade = '$grade' AND proService = 'None'") or die(mysql_error());
     }
 
-    function getCategoryGrade($coinGrade, $coinCategory, $userID)
+    public function getCategoryGrade($coinGrade, $coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2533,7 +2533,7 @@ class Collection
 
     //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND coinGrade = '$grade' AND proService = 'None'") or die(mysql_error());}
 
-    function getCategoryProGrade($coinGrade, $coinCategory, $userID)
+    public function getCategoryProGrade($coinGrade, $coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
                 SELECT COUNT(*) FROM collection 
@@ -2550,7 +2550,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND coinGrade = '$grade' AND proService != 'None'") or die(mysql_error());
     }
 
-    function getCategoryGradedCount($coinCategory, $userID)
+    public function getCategoryGradedCount($coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
                 SELECT COUNT(*) FROM collection 
@@ -2566,7 +2566,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND coinGrade != 'No Grade'") or die(mysql_error());
     }
 
-    function getTypeGradedCount($coinType, $userID)
+    public function getTypeGradedCount($coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
                 SELECT COUNT(*) FROM collection 
@@ -2582,7 +2582,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinGrade != 'No Grade'") or die(mysql_error());
     }
 
-    function getCategoryNoProGradeCount($coinCategory, $userID)
+    public function getCategoryNoProGradeCount($coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
                 SELECT COUNT(*) FROM collection 
@@ -2598,7 +2598,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND coinGrade != 'No Grade' AND proService = 'None'") or die(mysql_error());
     }
 
-    function getCategoryProGradeCount($coinCategory, $userID)
+    public function getCategoryProGradeCount($coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
                 SELECT COUNT(*) FROM collection 
@@ -2614,7 +2614,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND coinGrade != 'No Grade' AND proService != 'None'") or die(mysql_error());
     }
 
-    function getTotalCategoryGrade($coinGrade, $coinCategory, $userID)
+    public function getTotalCategoryGrade($coinGrade, $coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
                 SELECT COUNT(*) FROM collection 
@@ -2632,7 +2632,7 @@ class Collection
     }
 
 
-    function getProGrade($coinGrade, $coinType, $userID)
+    public function getProGrade($coinGrade, $coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
                 SELECT COUNT(*) FROM collection 
@@ -2649,7 +2649,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinGrade = '$grade' AND proService != 'None'") or die(mysql_error());
     }
 
-    function getTotalTypeGrade($coinGrade, $coinType, $userID)
+    public function getTotalTypeGrade($coinGrade, $coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
                 SELECT COUNT(*) FROM collection 
@@ -2666,7 +2666,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinGrade = '$grade'") or die(mysql_error());
     }
 
-    function getTotalTypeGradeByStrike($strike, $coinType, $userID)
+    public function getTotalTypeGradeByStrike($strike, $coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2683,7 +2683,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND strike = '$strike' AND coinGrade != 'No Grade'") or die(mysql_error());
     }
 
-    function getTotalTypeProGradeByStrike($strike, $coinType, $userID)
+    public function getTotalTypeProGradeByStrike($strike, $coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2700,7 +2700,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND strike = '$strike' AND proService != 'None'") or die(mysql_error());
     }
 
-    function getTotalTypeNoProGradeByStrike($strike, $coinType, $userID)
+    public function getTotalTypeNoProGradeByStrike($strike, $coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2718,7 +2718,7 @@ class Collection
     }
 
 
-    function getProGrader($proService, $coinCategory, $userID)
+    public function getProGrader($proService, $coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2734,7 +2734,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND proService = '$proService'") or die(mysql_error());
     }
 
-    function getTypeProGrader($proService, $coinType, $userID)
+    public function getTypeProGrader($proService, $coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2756,7 +2756,7 @@ class Collection
     $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '".str_replace('_', ' ', $coinType)."'  AND coinGrade != 'No Grade'") or die(mysql_error());
     return mysql_num_rows($sql);
     }*/
-    function getGradeTypeCount($coinType, $userID)
+    public function getGradeTypeCount($coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2771,7 +2771,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinGradeNum < '71'") or die(mysql_error());
     }
 
-    function getNotGradedTypeCount($coinType, $userID)
+    public function getNotGradedTypeCount($coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2786,7 +2786,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinGradeNum > '70'") or die(mysql_error());
     }
 
-    function getAllGradedTypeCount($coinType, $userID)
+    public function getAllGradedTypeCount($coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2801,7 +2801,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'  AND coinGrade != 'No Grade'") or die(mysql_error());
     }
 
-    function getGradeProTypeCount($coinType, $userID)
+    public function getGradeProTypeCount($coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -2818,7 +2818,7 @@ class Collection
     }
 
 
-    function getBusinessHighGradeNumberByID($coinID, $userID, $strike)
+    public function getBusinessHighGradeNumberByID($coinID, $userID, $strike)
     {
         $sql = mysql_query("SELECT MAX(coinGradeNum) FROM collection WHERE coinGradeNum < '71' AND coinID = '$coinID' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -2838,7 +2838,7 @@ class Collection
         }
     }
 
-    function getGradedStrikeCountByType($coinType, $userID, $strike)
+    public function getGradedStrikeCountByType($coinType, $userID, $strike)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -2855,7 +2855,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID' AND strike = '$strike' AND coinGrade != 'No Grade'  AND proService = 'None'") or die(mysql_error());
     }
 
-    function getStrikeCountByCategory($coinCategory, $userID, $strike)
+    public function getStrikeCountByCategory($coinCategory, $userID, $strike)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -2871,7 +2871,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error());
     }
 
-    function getGradedStrikeCountByCategory($coinCategory, $userID, $strike)
+    public function getGradedStrikeCountByCategory($coinCategory, $userID, $strike)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -2888,7 +2888,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND userID = '$userID' AND strike = '$strike' AND coinGrade != 'No Grade'") or die(mysql_error());
     }
 
-    function getStrikeCountByType($coinType, $userID, $strike)
+    public function getStrikeCountByType($coinType, $userID, $strike)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -2922,7 +2922,7 @@ class Collection
     }
   }
 }*/
-    function getBusinessHighGradeNumberByType($coinType, $userID, $strike)
+    public function getBusinessHighGradeNumberByType($coinType, $userID, $strike)
     {
         $sql = mysql_query("SELECT MAX(coinGradeNum) FROM collection WHERE coinGradeNum < '71' AND  coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error());
         if (mysql_num_rows($sql) == 0) {
@@ -2944,7 +2944,7 @@ class Collection
         }
     }
 
-    function assignGradePrefix($coinGradeNum)
+    public function assignGradePrefix($coinGradeNum)
     {
         switch ($coinGradeNum) {
             case '1': return "PO"; break;
@@ -2982,7 +2982,7 @@ class Collection
 
 
 //Ungraded counts
-    function getNoGradeCount($userID)
+    public function getNoGradeCount($userID)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -2995,7 +2995,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND proService = 'None'") or die(mysql_error());
     }
 
-    function getGradeCategoryCount($coinCategory, $userID)
+    public function getGradeCategoryCount($coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -3010,7 +3010,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND coinGrade != 'No Grade'") or die(mysql_error());
     }
 
-    function getNoGradeCategoryCount($coinCategory, $userID)
+    public function getNoGradeCategoryCount($coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -3025,7 +3025,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND coinGrade = 'No Grade'") or die(mysql_error());
     }
 
-    function getNoGradeTypeCount($coinType, $userID)
+    public function getNoGradeTypeCount($coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -3040,7 +3040,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'  AND proService = 'None'") or die(mysql_error());
     }
 
-    function getNoGradeGoldCount($userID)
+    public function getNoGradeGoldCount($userID)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -3054,7 +3054,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND proService = 'None' AND coinMetal = 'Gold'") or die(mysql_error());
     }
 
-    function getNoGradeStrikeTypeCount($coinType, $userID, $strike)
+    public function getNoGradeStrikeTypeCount($coinType, $userID, $strike)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -3078,7 +3078,7 @@ class Collection
      * @param $coinID
      * @return mixed
      */
-    function getCoinIDProGrader($proService, $userID, $coinID)
+    public function getCoinIDProGrader($proService, $userID, $coinID)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -3101,7 +3101,7 @@ class Collection
      * @param $userID
      * @return mixed
      */
-    function getUserError($userID)
+    public function getUserError($userID)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -3119,7 +3119,7 @@ class Collection
      * @param $userID
      * @return string
      */
-    function getUserErrorSum($userID)
+    public function getUserErrorSum($userID)
     {
         $sql = "
           SELECT COALESCE(sum(collection.purchasePrice), 0.00) 
@@ -3146,7 +3146,7 @@ class Collection
      * @param $userID
      * @return mixed
      */
-    function getError($errorType, $userID)
+    public function getError($errorType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -3167,7 +3167,7 @@ class Collection
      * @param $userID
      * @return mixed
      */
-    function getProError($errorType, $userID)
+    public function getProError($errorType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection 
@@ -3183,7 +3183,7 @@ class Collection
     }
 
 //type
-    function getUserTypeError($userID, $coinType)
+    public function getUserTypeError($userID, $coinType)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection
@@ -3199,7 +3199,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND errorCoin = '1' ") or die(mysql_error());
     }
 
-    function getUserTypeErrorSum($userID, $coinType)
+    public function getUserTypeErrorSum($userID, $coinType)
     {
         $sql = "
           SELECT COALESCE(sum(collection.purchasePrice), 0.00) 
@@ -3222,7 +3222,7 @@ class Collection
         //$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE errorCoin = '1' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
     }
 
-    function getTypeError($errorType, $coinType, $userID)
+    public function getTypeError($errorType, $coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection
@@ -3239,7 +3239,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'  AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService = 'None'") or die(mysql_error());
     }
 
-    function getTypeProError($errorType, $coinType, $userID)
+    public function getTypeProError($errorType, $coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection
@@ -3257,7 +3257,7 @@ class Collection
     }
 
 //category
-    function getUserCategoryError($userID, $coinCategory)
+    public function getUserCategoryError($userID, $coinCategory)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection
@@ -3273,7 +3273,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND errorCoin = '1' ") or die(mysql_error());
     }
 
-    function getUserCategoryErrorSum($userID, $coinCategory)
+    public function getUserCategoryErrorSum($userID, $coinCategory)
     {
         $sql = "
           SELECT COALESCE(sum(collection.purchasePrice), 0.00) 
@@ -3303,7 +3303,7 @@ class Collection
      * @param $userID
      * @return mixed
      */
-    function getCategoryError($errorType, $coinCategory, $userID)
+    public function getCategoryError($errorType, $coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection
@@ -3327,7 +3327,7 @@ class Collection
      * @param $userID
      * @return mixed
      */
-    function getCategoryProError($errorType, $coinCategory, $userID)
+    public function getCategoryProError($errorType, $coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
               SELECT COUNT(*) FROM collection
@@ -3344,7 +3344,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "'  AND errorType = '" . str_replace('_', ' ', $errorType) . "' AND proService != 'None'") or die(mysql_error());
     }
 
-    function checkCoin($userID, $collectfolderID)
+    public function checkCoin($userID, $collectfolderID)
     {
         if ($this->collectfolderID == '0') {
             $image = "blank.jpg";
@@ -3363,7 +3363,7 @@ class Collection
      * @param $userID
      * @return mixed
      */
-    function getCoinDamageType($damage, $coinID, $userID)
+    public function getCoinDamageType($damage, $coinID, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -3381,7 +3381,7 @@ class Collection
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //View coin and type bulk reports
 //BY COIN
-    function getCoinRollCountByID($coinID, $userID)
+    public function getCoinRollCountByID($coinID, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collectrolls 
@@ -3395,7 +3395,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collectrolls WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
     }
 
-    function getCoinBoxCountByID($coinID, $userID)
+    public function getCoinBoxCountByID($coinID, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collectboxes 
@@ -3409,7 +3409,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collectboxes WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
     }
 
-    function getCoinBagCountByID($coinID, $userID)
+    public function getCoinBagCountByID($coinID, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collectbags 
@@ -3423,7 +3423,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collectbags WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
     }
 
-    function getCoinCertifiedCountByID($coinID, $userID)
+    public function getCoinCertifiedCountByID($coinID, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -3438,7 +3438,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinIDNum' AND userID = '$userID' AND proService != 'None'") or die(mysql_error());
     }
 
-    function getCoinRollCountByCoinID($coinID, $userID)
+    public function getCoinRollCountByCoinID($coinID, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -3453,7 +3453,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND collectrollsID != '0' ") or die(mysql_error());
     }
 
-    function getCoinFolderCountByCoinID($coinID, $userID)
+    public function getCoinFolderCountByCoinID($coinID, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collectrolls 
@@ -3468,7 +3468,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND collectfolderID != '0' ") or die(mysql_error());
     }
 
-    function getCoinSetsCountByCoinID($coinID, $userID)
+    public function getCoinSetsCountByCoinID($coinID, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collectrolls 
@@ -3483,7 +3483,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND collectsetID != '0' ") or die(mysql_error());
     }
 
-    function getCoinCertListCountByCoinID($coinID, $userID)
+    public function getCoinCertListCountByCoinID($coinID, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collectrolls 
@@ -3499,7 +3499,7 @@ class Collection
     }
 
 //BY COIN TYPE
-    function getCoinRollCountByType($coinType, $userID)
+    public function getCoinRollCountByType($coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collectrolls 
@@ -3514,7 +3514,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collectrolls WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
     }
 
-    function getCoinBoxCountByType($coinType, $userID)
+    public function getCoinBoxCountByType($coinType, $userID)
     {
         /*echo $this->user, $userID; die;
         if($userID !== $this->user){
@@ -3533,7 +3533,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collectboxes WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
     }
 
-    function getCoinBagCountByType($coinType, $userID)
+    public function getCoinBagCountByType($coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collectbags 
@@ -3548,7 +3548,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collectbags WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
     }
 
-    function availableTypeCoinsRequest($coinType, $userID)
+    public function availableTypeCoinsRequest($coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection
@@ -3564,7 +3564,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND proservice = 'None' AND collectfolderID = '0' AND collectrollsID = '0' AND collectsetID = '0' AND setregID = '0' AND userID = '$userID'");
     }
 
-    function availableCategoryCoinsRequest($coinCategory, $userID)
+    public function availableCategoryCoinsRequest($coinCategory, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection
@@ -3580,7 +3580,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND proservice = 'None' AND collectfolderID = '0' AND collectrollsID = '0' AND collectsetID = '0' AND setregID = '0' AND userID = '$userID'");
     }
 
-    function gexMaxTypeRollNumberDisplay($coinType, $userID)
+    public function gexMaxTypeRollNumberDisplay($coinType, $userID)
     {
         $CoinTypes = new CoinTypes();
         $CoinTypes->getCoinByType($coinType);
@@ -3597,7 +3597,7 @@ class Collection
         return $num;
     }
 
-    function gexMaxCategoryRollNumberDisplay($coinCategory, $userID)
+    public function gexMaxCategoryRollNumberDisplay($coinCategory, $userID)
     {
         $CoinCategories = new CoinCategories();
         $CoinCategories->getCoinByCategory($coinCategory);
@@ -3614,7 +3614,7 @@ class Collection
         return $num;
     }
 
-    function autoInsertCoinTypeIntoRoll($coinType, $collectrollsID, $userID)
+    public function autoInsertCoinTypeIntoRoll($coinType, $collectrollsID, $userID)
     {
         $CoinTypes = new CoinTypes();
         $CoinTypes->getCoinByType($coinType);
@@ -3635,7 +3635,7 @@ class Collection
      * @param $userID
      * @return mixed
      */
-    function getCollectionCoinByCoinID($coinID, $collectfolderID, $userID)
+    public function getCollectionCoinByCoinID($coinID, $collectfolderID, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection
@@ -3663,7 +3663,7 @@ class Collection
      * @param $userID
      * @return mixed
      */
-    function getFoldersCollectedByCoinType($coinType, $userID)
+    public function getFoldersCollectedByCoinType($coinType, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collectfolder 
@@ -3679,7 +3679,7 @@ class Collection
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Get bulk link viewCoinDetail.php
-    function getRollHolderNumber($collectionID, $userID)
+    public function getRollHolderNumber($collectionID, $userID)
     {
         $collectionRolls = new CollectionRolls();
         $Encryption = new Encryption();
@@ -3691,7 +3691,7 @@ class Collection
             AND collectionID = :collectionID
             LIMIT 1
         ");
-        $stmt->execute(array(':userID' => $this->user, ':collectionID' => $collectionID));
+        $stmt->execute([':userID' => $this->user, ':collectionID' => $collectionID]);
 
         //$sql = mysql_query("SELECT * FROM collection WHERE collectionID = '$collectionID' AND userID = '$userID'") or die(mysql_error());
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -3733,7 +3733,7 @@ class Collection
         return $html;
     }
 
-    function getFolderHolderNumber($collectionID, $userID)
+    public function getFolderHolderNumber($collectionID, $userID)
     {
         $Encryption = new Encryption();
         $this->getCollectionById($collectionID);
@@ -3766,7 +3766,7 @@ class Collection
         return $html;
     }
 
-    function getSetHolderNumber($collectionID, $userID)
+    public function getSetHolderNumber($collectionID, $userID)
     {
         $Encryption = new Encryption();
         $sql = mysql_query("SELECT * FROM collection WHERE collectionID = '$collectionID' AND userID = '$userID'") or die(mysql_error());
@@ -3790,7 +3790,7 @@ class Collection
         return $collectsetID;
     }
 
-    function getPurchaseDetails($collectionID, $userID)
+    public function getPurchaseDetails($collectionID, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE collectionID = '$collectionID' AND userID = '$userID'") or die(mysql_error());
         $row = mysql_fetch_array($sql);
@@ -3871,7 +3871,7 @@ class Collection
 
 //By denomination
 
-    function getMasterCoinCountByCoinCategory($coinCategory, $userID)
+    public function getMasterCoinCountByCoinCategory($coinCategory, $userID)
     {
         $sql = "
           SELECT COUNT(*) 
@@ -3889,7 +3889,7 @@ class Collection
     }
 
 /////Investment Totals
-    function getMasterCoinSumByCoinCategory($coinCategory, $userID)
+    public function getMasterCoinSumByCoinCategory($coinCategory, $userID)
     {
         $sql = "CALL UserTotalInvestmentSumByCategory(:userID, :coinCategory)";
 
@@ -3906,7 +3906,7 @@ class Collection
         }
     }
 
-    function getSumTypeCount($coinType, $userID)
+    public function getSumTypeCount($coinType, $userID)
     {
         $sql = "CALL UserTotalInvestmentSumByType(:userID, :coinType)";
 
@@ -3924,7 +3924,7 @@ class Collection
     }
 
 //Get collected pieces
-    function getReportTypeCount($coinType, $userID)
+    public function getReportTypeCount($coinType, $userID)
     {
         $sql = "
           SELECT COUNT(*) 
@@ -3940,13 +3940,13 @@ class Collection
     }
 
 //Bt category
-    function getMasterRollCountByCoinCategory($coinCategory, $userID)
+    public function getMasterRollCountByCoinCategory($coinCategory, $userID)
     {
         $sql = mysql_query("SELECT * FROM collectrolls WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function totalCoinCategoryInvestment($coinID, $userID)
+    public function totalCoinCategoryInvestment($coinID, $userID)
     {
         $sql = "
           SELECT COALESCE(sum(collection.purchasePrice), 0.00) 
@@ -3974,7 +3974,7 @@ class Collection
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //ADMIN AREA
 
-    function totalCoinsByUser($userID)
+    public function totalCoinsByUser($userID)
     {
         $sql = "
           SELECT COUNT(*) 
@@ -3988,7 +3988,7 @@ class Collection
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Club area
 
-    function getCoinMemberCoins($clubmember)
+    public function getCoinMemberCoins($clubmember)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE userID = '$clubmember'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -4004,7 +4004,7 @@ class Collection
      * @param $mintMark
      * @return string
      */
-    function getMintMarkImageByID($coinID, $userID, $mintMark)
+    public function getMintMarkImageByID($coinID, $userID, $mintMark)
     {
         $sql = "
           SELECT COUNT(*) 
@@ -4040,7 +4040,7 @@ class Collection
         }*/
     }
 
-    function getImageByID($coinID, $userID)
+    public function getImageByID($coinID, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -4055,7 +4055,7 @@ class Collection
         }
     }
 
-    function getKennedyMetalImg($coinType, $coinSubCategory, $userID)
+    public function getKennedyMetalImg($coinType, $coinSubCategory, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinSubCategory = '$coinSubCategory' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -4070,7 +4070,7 @@ class Collection
         }
     }
 
-    function getEightyTwoVarietyImg($coinID, $userID)
+    public function getEightyTwoVarietyImg($coinID, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -4085,7 +4085,7 @@ class Collection
         }
     }
 
-    function getIndianHeadFlatImg($userID)
+    public function getIndianHeadFlatImg($userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '3598' OR coinID = '3599' OR coinID = '3600' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -4096,7 +4096,7 @@ class Collection
         }
     }
 
-    function getIndianHeadShallowImg($userID)
+    public function getIndianHeadShallowImg($userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '3601' OR coinID = '3602' OR coinID = '3603'  OR coinID = '3604'  OR coinID = '4040'  OR coinID = '3605'  OR coinID = '3606'  OR coinID = '3607'   OR coinID = '3608'  OR coinID = '3609'  OR coinID = '3611'  OR coinID = '3625' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -4107,9 +4107,9 @@ class Collection
         }
     }
 
-    function getIndianHeadBoldImg($userID)
+    public function getIndianHeadBoldImg($userID)
     {
-        $values = array(3612, 3614, 3616, 3618, 3622, 3623, 3624, 3626, 3627, 3628, 3629, 3630, 3631, 3632, 3633, 3634, 3637, 3640, 3641, 3642, 3643, 3644, 3645, 3647, 3648, 3649, 3650, 3651, 3652, 3653, 3654, 3655, 3656, 3657, 3658, 3659, 3660, 3661, 3662);
+        $values = [3612, 3614, 3616, 3618, 3622, 3623, 3624, 3626, 3627, 3628, 3629, 3630, 3631, 3632, 3633, 3634, 3637, 3640, 3641, 3642, 3643, 3644, 3645, 3647, 3648, 3649, 3650, 3651, 3652, 3653, 3654, 3655, 3656, 3657, 3658, 3659, 3660, 3661, 3662];
 
         $countAll = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID IN('" . implode("', '", $values) . "')") or die(mysql_error());
 
@@ -4122,7 +4122,7 @@ class Collection
         }
     }
 
-    function getSeatedNoMottoImg($userID)
+    public function getSeatedNoMottoImg($userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID >= '2473' AND coinID <= '2514' AND userID = '$userID'") or die(mysql_error());
 
@@ -4135,9 +4135,9 @@ class Collection
         }
     }
 
-    function getSeatedArrowsAndRaysImg($userID)
+    public function getSeatedArrowsAndRaysImg($userID)
     {
-        $values = array(2515, 2516);
+        $values = [2515, 2516];
 
         $countAll = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID IN('" . implode("', '", $values) . "')") or die(mysql_error());
 
@@ -4151,7 +4151,7 @@ class Collection
     }
 
 //
-    function getSeatedHalfImg($userID)
+    public function getSeatedHalfImg($userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID >= '2517' AND coinID <= '2604' AND userID = '$userID'") or die(mysql_error());
 
@@ -4164,7 +4164,7 @@ class Collection
         }
     }
 
-    function getSeatedHalfProofImg($userID)
+    public function getSeatedHalfProofImg($userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID >= '5081' AND coinID <= '5111' AND userID = '$userID'") or die(mysql_error());
 
@@ -4177,7 +4177,7 @@ class Collection
         }
     }
 
-    function getFranklinHalfProofImg($userID)
+    public function getFranklinHalfProofImg($userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID >= '5081' AND coinID <= '5111' AND userID = '$userID'") or die(mysql_error());
 
@@ -4190,9 +4190,9 @@ class Collection
         }
     }
 
-    function getBarberQuarterTypeIImg($userID)
+    public function getBarberQuarterTypeIImg($userID)
     {
-        $values = array(1493, 1494, 1495);
+        $values = [1493, 1494, 1495];
 
         $countAll = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID IN('" . implode("', '", $values) . "')") or die(mysql_error());
 
@@ -4205,7 +4205,7 @@ class Collection
         }
     }
 
-    function getBarberQuarterTypeIIImg($userID)
+    public function getBarberQuarterTypeIIImg($userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID >= '1496' AND coinID <= '1518' AND userID = '$userID'") or die(mysql_error());
 
@@ -4218,7 +4218,7 @@ class Collection
         }
     }
 
-    function getBarberQuarterTypeIIIImg($userID)
+    public function getBarberQuarterTypeIIIImg($userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID >= '1519' AND coinID <= '1566' AND userID = '$userID'") or die(mysql_error());
 
@@ -4294,7 +4294,7 @@ class Collection
     }
 
 
-    function getImageByYear($coinYear, $coinType, $userID)
+    public function getImageByYear($coinYear, $coinType, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinYear = '$coinYear' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -4309,19 +4309,19 @@ class Collection
         }
     }
 
-    function getReportVersionCount($commemorativeType, $userID)
+    public function getReportVersionCount($commemorativeType, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE commemorativeType = '" . str_replace('_', ' ', $commemorativeType) . "' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getCommemorativeTypeProCount($commemorativeType, $userID)
+    public function getCommemorativeTypeProCount($commemorativeType, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE commemorativeType = '" . str_replace('_', ' ', $commemorativeType) . "' AND userID = '$userID' AND proService != 'None'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getCommemorativeTypeProofCount($commemorativeType, $userID)
+    public function getCommemorativeTypeProofCount($commemorativeType, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE commemorativeType = '" . str_replace('_', ' ', $commemorativeType) . "' AND userID = '$userID' AND strike = 'Proof'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -4354,7 +4354,7 @@ class Collection
     }
 
 
-    function getKeyImg($coinID, $userID)
+    public function getKeyImg($coinID, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -4403,31 +4403,31 @@ class Collection
         return mysql_num_rows($sql);
     }
 
-    function getKeyMasterProGrader($proService, $userID)
+    public function getKeyMasterProGrader($proService, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND proService = '$proService' AND keyDate = '1'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getKeyMasterGrade($grade, $userID)
+    public function getKeyMasterGrade($grade, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID'  AND coinGrade = '$grade' AND proService = 'None' AND keyDate = '1'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getKeyMasterProGrade($grade, $userID)
+    public function getKeyMasterProGrade($grade, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID'  AND coinGrade = '$grade' AND proService != 'None' AND keyDate = '1'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getKeyMasterTotalGrade($grade, $userID)
+    public function getKeyMasterTotalGrade($grade, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinGrade = '$grade' AND keyDate = '1'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getKeyCertCategoryImage($type, $userID)
+    public function getKeyCertCategoryImage($type, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $type) . "' AND userID = '$userID' AND keyDate = '1' AND proService != 'None'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -4535,7 +4535,7 @@ class Collection
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //By year
-    function getCoinImageByYear($coinYear, $coinCategory, $userID)
+    public function getCoinImageByYear($coinYear, $coinCategory, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND coinYear = '$coinYear' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -4553,31 +4553,31 @@ class Collection
 //////////////////////////////date sets
 
 //Getting percent collected
-    function getNumOfByMintCoinThisYear($coinYear, $coinType)
+    public function getNumOfByMintCoinThisYear($coinYear, $coinType)
     {
         $countAll = mysql_query("SELECT * FROM coins WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinYear = '$coinYear' AND byMint = '1'") or die(mysql_error());
         return mysql_num_rows($countAll);
     }
 
-    function getNumOfCoinThisYear($coinYear, $coinType)
+    public function getNumOfCoinThisYear($coinYear, $coinType)
     {
         $countAll = mysql_query("SELECT * FROM coins WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinYear = '$coinYear'") or die(mysql_error());
         return mysql_num_rows($countAll);
     }
 
-    function getNumOfCoinSavedThisYear($coinYear, $coinType, $userID)
+    public function getNumOfCoinSavedThisYear($coinYear, $coinType, $userID)
     {
         $countAll = mysql_query("SELECT DISTINCT coinID FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinYear = '$coinYear' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
     }
 
-    function getNumOfByMintCoinSavedThisYear($coinYear, $coinType, $userID)
+    public function getNumOfByMintCoinSavedThisYear($coinYear, $coinType, $userID)
     {
         $countAll = mysql_query("SELECT DISTINCT mintMark FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinYear = '$coinYear' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
     }
 
-    function getAllCoinThisYear($coinYear, $coinType, $userID)
+    public function getAllCoinThisYear($coinYear, $coinType, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinYear = '$coinYear' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
@@ -4585,7 +4585,7 @@ class Collection
 
 ///
 
-    function getDateSetByYear($coinYear, $coinCategory, $userID)
+    public function getDateSetByYear($coinYear, $coinCategory, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND coinYear = '$coinYear' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -4987,7 +4987,7 @@ class Collection
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    function getCollectionStatus($collectionID)
+    public function getCollectionStatus($collectionID)
     {
         $Encryption = new Encryption();
         $this->getCollectionById($collectionID);
@@ -4999,7 +4999,7 @@ class Collection
         return $status;
     }
 
-    function setBlankNickname($coinNickname, $coinID, $userID)
+    public function setBlankNickname($coinNickname, $coinID, $userID)
     {
         $coin = new Coin();
         $coin->getCoinById($coinID);
@@ -5011,7 +5011,7 @@ class Collection
         }
     }
 
-    function setBulkNickname($coinNickname, $coinID, $userID)
+    public function setBulkNickname($coinNickname, $coinID, $userID)
     {
         $coin = new Coin();
         $coin->getCoinById($coinID);
@@ -5023,7 +5023,7 @@ class Collection
         }
     }
 
-    function setMintsetCoinNickname($coinNickname, $coinID, $userID)
+    public function setMintsetCoinNickname($coinNickname, $coinID, $userID)
     {
         $Mintset = new Mintset();
         $coin->getCoinById($coinID);
@@ -5035,7 +5035,7 @@ class Collection
         }
     }
 
-    function setPurchaseToZero($purchasePrice)
+    public function setPurchaseToZero($purchasePrice)
     {
         if ($purchasePrice == '') {
             return '0.00';
@@ -5044,7 +5044,7 @@ class Collection
         }
     }
 
-    function processSheldonNum($sheldon)
+    public function processSheldonNum($sheldon)
     {
         if ($sheldon == 'None') {
             $sheldon = 'None';
@@ -5054,7 +5054,7 @@ class Collection
         return strip_tags($vam);
     }
 
-    function addPeriodToReferenceNum($value)
+    public function addPeriodToReferenceNum($value)
     {
         if ($value == '') {
             return false;
@@ -5065,7 +5065,7 @@ class Collection
     }
 
 //Unknown coins
-    function calculateCentrury($date2)
+    public function calculateCentrury($date2)
     {
         switch ($date2) {
             case "7":
@@ -5106,7 +5106,7 @@ class Collection
         return true;
     }
 
-    function getGradeList($coinStrike)
+    public function getGradeList($coinStrike)
     {
         $html = '';
         switch ($coinStrike) {
@@ -5170,7 +5170,7 @@ class Collection
 
 ///////////////////////
 
-    function deleteCoinAndImages($collectionID, $userID)
+    public function deleteCoinAndImages($collectionID, $userID)
     {
         $this->getCollectionById($collectionID);
         if ($this->getCoinImage1() !== '../img/noPic.jpg') {
@@ -5198,7 +5198,7 @@ class Collection
     }
 
 
-    function deleteCoinAndImagesFromSet($collectsetID, $userID)
+    public function deleteCoinAndImagesFromSet($collectsetID, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE collectsetID = '$collectsetID' AND userID = '$userID' ORDER BY coinYear ASC") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -5231,7 +5231,7 @@ class Collection
     }
 
 
-    function deleteCoin($collectionID, $userID)
+    public function deleteCoin($collectionID, $userID)
     {
         $FileManager = new FileManager();
         $FileManager->recursiveRemove($userID . '/' . $collectionID);
@@ -5239,7 +5239,7 @@ class Collection
         return;
     }
 
-    function deleteAllCoins($coinCategory, $userID)
+    public function deleteAllCoins($coinCategory, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '$coinCategory' AND userID = '$userID' ") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -5248,7 +5248,7 @@ class Collection
         return;
     }
 
-    function changeCoinLock($collectionID, $locked, $userID)
+    public function changeCoinLock($collectionID, $locked, $userID)
     {
         $sql = mysql_query("UPDATE collection SET  locked = '$locked'  WHERE  collectionID = '$collectionID' AND userID = '$userID' ") or die(mysql_error());
         return;
@@ -5291,12 +5291,12 @@ class Collection
     }
 
 
-    function getMADClashDenomination($coinCategory)
+    public function getMADClashDenomination($coinCategory)
     {
 
     }
 
-    function getCoinAttribute($collectionID, $userID)
+    public function getCoinAttribute($collectionID, $userID)
     {
         $this->getCollectionById($collectionID);
         $attDisplay = '';
@@ -5343,25 +5343,25 @@ class Collection
         return mysql_num_rows($sql);
     }
 
-    function getTypeStrikeFullBandCount($userID, $coinType, $strike, $fullAtt)
+    public function getTypeStrikeFullBandCount($userID, $coinType, $strike, $fullAtt)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND fullAtt = '$fullAtt' AND strike = '$strike'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getTypeFullBandCount($userID, $coinType, $fullAtt)
+    public function getTypeFullBandCount($userID, $coinType, $fullAtt)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND fullAtt = '$fullAtt'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getTypeFullBandProCount($userID, $coinType, $fullAtt)
+    public function getTypeFullBandProCount($userID, $coinType, $fullAtt)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE proService != 'None' AND userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND fullAtt = '$fullAtt'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getDDRVarietyImg($coinID, $ddr, $userID)
+    public function getDDRVarietyImg($coinID, $ddr, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND ddr = '$ddr' AND userID = '$userID' ") or die(mysql_error());
         if (mysql_num_rows($sql) == 0) {
@@ -5374,7 +5374,7 @@ class Collection
         }
     }
 
-    function getDDOVarietyImg($coinID, $ddo, $userID)
+    public function getDDOVarietyImg($coinID, $ddo, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND ddo = '$ddo' AND userID = '$userID' ") or die(mysql_error());
         if (mysql_num_rows($sql) == 0) {
@@ -5387,7 +5387,7 @@ class Collection
         }
     }
 
-    function getWDDRVarietyImg($coinID, $wddr, $userID)
+    public function getWDDRVarietyImg($coinID, $wddr, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND wddr = '$wddr' AND userID = '$userID' ") or die(mysql_error());
         if (mysql_num_rows($sql) == 0) {
@@ -5400,7 +5400,7 @@ class Collection
         }
     }
 
-    function getWDDOVarietyImg($coinID, $wddo, $userID)
+    public function getWDDOVarietyImg($coinID, $wddo, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND wddo = '$wddo' AND userID = '$userID' ") or die(mysql_error());
         if (mysql_num_rows($sql) == 0) {
@@ -5535,7 +5535,7 @@ class Collection
     }
 
 
-    function getVarietyForCoin2($collectionID)
+    public function getVarietyForCoin2($collectionID)
     {
         $this->getCollectionById($collectionID);
         if ($this->getVarietyCoin() != '0') {
@@ -5585,7 +5585,7 @@ class Collection
         }
     }
 
-    function getVarietyForCoin($collectionID)
+    public function getVarietyForCoin($collectionID)
     {
         $this->getCollectionById($collectionID);
         $errorDisplay = "";
@@ -5652,7 +5652,7 @@ class Collection
         return $errorDisplay;
     }
 
-    function getGradeAttributeForCoin($collectionID)
+    public function getGradeAttributeForCoin($collectionID)
     {
         $this->getCollectionById($collectionID);
         $attributeDisplay = "";
@@ -5671,7 +5671,7 @@ class Collection
         return $attributeDisplay;
     }
 
-    function getFSForCoin($collectionID)
+    public function getFSForCoin($collectionID)
     {
         $this->getCollectionById($collectionID);
         if ($this->getFsNum() != 'None') {
@@ -5682,7 +5682,7 @@ class Collection
     }
 
 //by coin
-    function getVarietyTypeCoinCount($coinID, $userID)
+    public function getVarietyTypeCoinCount($coinID, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '" . $coinID . "' AND varietyCoin = '1' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
@@ -5708,7 +5708,7 @@ class Collection
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Large Cents sets
 
-    function getSheldonImage($sheldon, $userID)
+    public function getSheldonImage($sheldon, $userID)
     {
 
 //$countAll = mysql_query("SELECT * FROM collection WHERE sheldon IN (".implode(',',$sheldon).") AND userID = '$userID'") or die(mysql_error());
@@ -5722,7 +5722,7 @@ class Collection
         return $image;
     }
 
-    function getSheldonsImage($sheldon, $userID)
+    public function getSheldonsImage($sheldon, $userID)
     {
         $sheldonsArray = '"' . implode('","', $sheldon) . '"';
         $countAll = mysql_query("SELECT * FROM collection WHERE sheldon IN ($sheldonsArray) AND userID = '$userID'") or die(mysql_error());
@@ -5787,7 +5787,7 @@ class Collection
 
 ///////////////////////////////////
 //Morgan Dollars
-    function getVamByYearAndMint($coinYear, $vam, $userID, $mintMark)
+    public function getVamByYearAndMint($coinYear, $vam, $userID, $mintMark)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinType = 'Morgan Dollar' AND coinYear = '$coinYear' AND userID = '$userID' AND vam = '$vam' AND mintMark = '$mintMark' ") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -5808,7 +5808,7 @@ class Collection
         return mysql_num_rows($sql);
     }
 
-    function getHighGradeVam($coinType, $userID, $vam)
+    public function getHighGradeVam($coinType, $userID, $vam)
     {
         $sql = mysql_query("SELECT MAX(coinGradeNum), strike FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID' AND vam = '$vam'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -5831,7 +5831,7 @@ class Collection
 
 ///////////////////////////////////
 //Snow
-    function getSnowByYearAndMint($coinYear, $snow, $userID, $mintMark, $coinType)
+    public function getSnowByYearAndMint($coinYear, $snow, $userID, $mintMark, $coinType)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinYear = '$coinYear' AND userID = '$userID' AND snow = '$snow' AND mintMark = '$mintMark' ") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -5845,7 +5845,7 @@ class Collection
         }
     }
 
-    function getSnowByYearAndMintAndSubCategory($coinYear, $snow, $userID, $mintMark, $coinType, $coinSubCategory)
+    public function getSnowByYearAndMintAndSubCategory($coinYear, $snow, $userID, $mintMark, $coinType, $coinSubCategory)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinSubCategory = '" . str_replace('_', ' ', $coinSubCategory) . "' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinYear = '$coinYear' AND userID = '$userID' AND snow = '$snow' AND mintMark = '$mintMark' ") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -5869,7 +5869,7 @@ class Collection
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Designations Color and Attributes
 
-    function getTypeDesignationGradeCount($userID, $designation, $coinType)
+    public function getTypeDesignationGradeCount($userID, $designation, $coinType)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -5886,7 +5886,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND designation = '$designation'") or die(mysql_error());
     }
 
-    function getTypeColorCount($userID, $color, $coinType)
+    public function getTypeColorCount($userID, $color, $coinType)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -5903,7 +5903,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND color = '$color'") or die(mysql_error());
     }
 
-    function getTypeStrikeColorCount($userID, $color, $coinType, $strike)
+    public function getTypeStrikeColorCount($userID, $color, $coinType, $strike)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -5921,7 +5921,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND color = '$color' AND strike = '$strike'") or die(mysql_error());
     }
 
-    function getCoinColorCount($userID, $color, $coinID)
+    public function getCoinColorCount($userID, $color, $coinID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -5937,7 +5937,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND color = '$color'") or die(mysql_error());
     }
 
-    function getCoinColorProCount($userID, $color, $coinID)
+    public function getCoinColorProCount($userID, $color, $coinID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -5954,7 +5954,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND color = '$color' AND proService != 'None'") or die(mysql_error());
     }
 
-    function getCoinColorRawCount($userID, $color, $coinID)
+    public function getCoinColorRawCount($userID, $color, $coinID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -5970,7 +5970,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND color = '$color' AND proService = 'None'") or die(mysql_error());
     }
 
-    function getCoinStrikeColorProCount($userID, $color, $coinID, $strike)
+    public function getCoinStrikeColorProCount($userID, $color, $coinID, $strike)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -5988,7 +5988,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND strike = '$strike' AND color = '$color' AND proService != 'None'") or die(mysql_error());
     }
 
-    function getCoinStrikeColorRawCount($userID, $color, $coinID, $strike)
+    public function getCoinStrikeColorRawCount($userID, $color, $coinID, $strike)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -6006,7 +6006,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND strike = '$strike' AND color = '$color' AND proService = 'None'") or die(mysql_error());
     }
 
-    function getCoinDesignationProCount($userID, $fullAtt, $coinID)
+    public function getCoinDesignationProCount($userID, $fullAtt, $coinID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -6022,7 +6022,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND fullAtt = '$fullAtt' AND proService != 'None'") or die(mysql_error());
     }
 
-    function getCoinDesignationRawCount($userID, $fullAtt, $coinID)
+    public function getCoinDesignationRawCount($userID, $fullAtt, $coinID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -6038,7 +6038,7 @@ class Collection
     }
 
 
-    function getCoinDesignationCount($userID, $fullAtt, $coinID)
+    public function getCoinDesignationCount($userID, $fullAtt, $coinID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -6054,7 +6054,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '" . intval($coinID) . "' AND fullAtt = '$fullAtt'") or die(mysql_error());
     }
 
-    function getCoinMorganDesignationCount($userID, $morganDesignation, $coinID)
+    public function getCoinMorganDesignationCount($userID, $morganDesignation, $coinID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -6071,7 +6071,7 @@ class Collection
     }
 
 //colorreport.php
-    function getDistinctCoinIDByColorCount($coinType, $userID, $color)
+    public function getDistinctCoinIDByColorCount($coinType, $userID, $color)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(DISTINCT coinID) FROM collection 
@@ -6087,7 +6087,7 @@ class Collection
         //$sql = mysql_query("SELECT DISTINCT coinID FROM collection WHERE coinType = '$coinType' AND color = '$color' AND userID = '$userID' ") or die(mysql_error());
     }
 
-    function getDistinctCoinIDByColorByCoinStrikeCount($coinType, $userID, $color, $strike)
+    public function getDistinctCoinIDByColorByCoinStrikeCount($coinType, $userID, $color, $strike)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(DISTINCT coinID) FROM collection 
@@ -6105,7 +6105,7 @@ class Collection
         //$sql = mysql_query("SELECT DISTINCT coinID FROM collection WHERE coinType = '$coinType' AND color = '$color' AND userID = '$userID' AND strike = '$strike' ") or die(mysql_error());
     }
 
-    function getCoinIDByColorCount($coinType, $userID, $color)
+    public function getCoinIDByColorCount($coinType, $userID, $color)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -6121,7 +6121,7 @@ class Collection
         //$sql = mysql_query("SELECT * FROM collection WHERE coinType = '$coinType' AND color = '$color' AND userID = '$userID' ") or die(mysql_error());
     }
 
-    function getCoinIDByColorByCoinStrikeCount($coinType, $userID, $color, $strike)
+    public function getCoinIDByColorByCoinStrikeCount($coinType, $userID, $color, $strike)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -6140,7 +6140,7 @@ class Collection
     }
 
 //full reports
-    function getAllCoinsFullAttCount($coinType, $userID, $fullAtt)
+    public function getAllCoinsFullAttCount($coinType, $userID, $fullAtt)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 

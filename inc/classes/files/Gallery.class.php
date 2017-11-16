@@ -55,7 +55,7 @@ public function deleteImg($galleryID) {
 	 return;
 }
 
-function createAlbum($userID) {
+public function createAlbum($userID) {
 		$folderName = "../gallery/".$userID;
 		if ( !file_exists($folderName) ) {
 			mkdir($folderName, 0777);
@@ -66,7 +66,7 @@ function createAlbum($userID) {
 			}
 
     }	
-function createEventThumbFolder($userID) {
+public function createEventThumbFolder($userID) {
 		$folderName = "../gallery/".$userID.'thumbs/';
 		if ( !file_exists($folderName) ) {
 			mkdir($folderName, 0777);

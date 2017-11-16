@@ -24,7 +24,7 @@ class Subscription
     }
 	
 	
-function activateSubscription($subscriptionID){
+public function activateSubscription($subscriptionID){
 	$sql = mysql_query("UPDATE subscription SET status = '1' WHERE subscriptionID = '".$subscriptionID."' LIMIT 1")or die(mysql_error());
 	if ($sql) {
 		return true;
@@ -32,7 +32,7 @@ function activateSubscription($subscriptionID){
 	return false;
   }
 }
-function deactivateSubscription($subscriptionID){
+public function deactivateSubscription($subscriptionID){
 	$sql = mysql_query("UPDATE subscription SET status = '0' WHERE subscriptionID = '".$subscriptionID."' LIMIT 1")or die(mysql_error());
 	if ($sql) {
 		return true;
@@ -41,7 +41,7 @@ function deactivateSubscription($subscriptionID){
   }
 }
 
-function sendNewSubscribeMail($userID, $email, $lastname, $firstname){
+public function sendNewSubscribeMail($userID, $email, $lastname, $firstname){
 	  $mail = new PHPMailer(true);
 	  $mail->FromName = 'Car Starter';
       $mail->From = 'noreply@http://mycoinorganizer.com';

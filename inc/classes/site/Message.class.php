@@ -90,16 +90,16 @@ class Message
     }	
 
 	
-function markRead($messageID){
+public function markRead($messageID){
 	$result = mysql_query("UPDATE messages SET status = 'Read' WHERE messageID = '$messageID'") or die(mysql_error()); 
 	return;
 }
-function markUnRead($messageID){
+public function markUnRead($messageID){
 $result = mysql_query("UPDATE messages SET status = 'Unread' WHERE messageID = '$messageID'") or die(mysql_error()); 
 	return;
 }
 
-function getStatusView($messageID, $userID){
+public function getStatusView($messageID, $userID){
   if($this->status == 'Read'){
 	  $statusView = "";
   } else {
@@ -112,7 +112,7 @@ function getStatusView($messageID, $userID){
 	return $statusView;
 }
 
-function noScriptMsg($string) {
+public function noScriptMsg($string) {
 $allow = '<table> <tr> <td> <span> <sub> <sup> <li> <ol> <ul> <a> <br> <p> <h1> <h2> <h3> <h4> <h5> <h6> <strong> <hr> <div> <img>';	
 $string = strip_tags($string, $allow);
 $string = preg_replace('#(<[^>]+[\x00-\x20\"\'\/])(on|xmlns)[^>]*>#iUu', "$1>", $string);
@@ -120,7 +120,7 @@ return addslashes($string);
 }
 
 
-function getAttachmentLink($messageID, $fileID){
+public function getAttachmentLink($messageID, $fileID){
 $siteQuery = mysql_query("SELECT * FROM projectfiles WHERE fileID = '$fileID'") or die(mysql_error());
 while($row = mysql_fetch_assoc($siteQuery))
 	  {

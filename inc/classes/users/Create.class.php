@@ -11,9 +11,9 @@ class Createmember
 	
 	
 	
-	function processMember($profileArray)
+	public function processMember($profileArray)
 	{
-		$allowedKeys = array('first','last','phone','card_number','email','password');
+		$allowedKeys = ['first','last','phone','card_number','email','password'];
 		$profileArray = array_intersect_key($profileArray, array_fill_keys($allowedKeys,NULL));
 		foreach ($profileArray as $key => $value) {
 			$profileArray[$key] = strip_tags(trim($value));

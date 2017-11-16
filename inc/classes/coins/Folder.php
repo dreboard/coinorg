@@ -54,7 +54,7 @@ class Folder {
 	return mysql_num_rows($coinQuery);
     }  
 	
-	function getFolderIDByCode($folderCode){
+	public function getFolderIDByCode($folderCode){
 	$pageQuery = mysql_query("SELECT * FROM folders WHERE folderCode = '$folderCode'");
 	while ($show = mysql_fetch_array($pageQuery))
 	  {

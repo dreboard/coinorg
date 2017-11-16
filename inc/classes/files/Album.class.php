@@ -115,7 +115,7 @@ public function deleteImg($albumpicID) {
 	}
 	 return;
 }
-function createAlbumFolder($coinClubID) {
+public function createAlbumFolder($coinClubID) {
 		$folderName = 'gallery/'.$coinClubID.'/';
 		if ( !file_exists($folderName) ) {
 			mkdir($folderName, 0777);

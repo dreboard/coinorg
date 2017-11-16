@@ -18,7 +18,7 @@ class Containers
             WHERE containerID = :containerID AND userID = :userID
             LIMIT 1
             ");
-        $stmt->execute(array(':containerID' => $containerID, ':userID' => $userID));
+        $stmt->execute([':containerID' => $containerID, ':userID' => $userID]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->userID = $row['userID'];
@@ -144,13 +144,13 @@ class Containers
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Type Counts
-    function totalContainerTypeIDByID($userID, $containerTypeID)
+    public function totalContainerTypeIDByID($userID, $containerTypeID)
     {
         $sql = mysql_query("SELECT * FROM containers WHERE containerTypeID = '$containerTypeID' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function totalContainerTypeByID($userID, $containerType)
+    public function totalContainerTypeByID($userID, $containerType)
     {
         $sql = mysql_query("SELECT * FROM containers WHERE containerType = '$containerType' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -161,7 +161,7 @@ class Containers
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //User AREA
 
-    function totalContainersByUser($userID)
+    public function totalContainersByUser($userID)
     {
         $sql = mysql_query("SELECT * FROM containers WHERE userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -176,13 +176,13 @@ class Containers
         return $containerPrice;
     }
 
-    function getCertContainerCount($userID, $containerType)
+    public function getCertContainerCount($userID, $containerType)
     {
         $sql = mysql_query("SELECT * FROM containers WHERE userID = '$userID' AND containerType = '$containerType'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getRollBinCategoryCount($userID, $containerType, $coinCategory)
+    public function getRollBinCategoryCount($userID, $containerType, $coinCategory)
     {
         $sql = mysql_query("SELECT * FROM containers WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND userID = '$userID' AND containerType = '$containerType'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -201,19 +201,19 @@ class Containers
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //COLLECTION COUNTS
 
-    function availableCoinsRequest($containerID, $userID)
+    public function availableCoinsRequest($containerID, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE proservice != 'None' AND collectrollsID = '0' AND collectfolderID = '0' AND containerID = '0' AND collectsetID = '0' AND userID = '$userID'");
         return mysql_num_rows($sql);
     }
 
-    function openSlabCoinsRequest($containerID, $userID)
+    public function openSlabCoinsRequest($containerID, $userID)
     {
         $this->getContainerById($containerID);
         return $this->getFull() - $this->getSlabBoxCount($containerID, $userID);
     }
 
-    function getCollectionContainerItemCount($containerID, $userID)
+    public function getCollectionContainerItemCount($containerID, $userID)
     {
         $this->getContainerById($containerID);
         switch ($this->getContainerType()) {
@@ -237,7 +237,7 @@ class Containers
     }
 
 
-    function getCollectionContainerCount($containerID)
+    public function getCollectionContainerCount($containerID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE containerID = '$containerID'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -255,13 +255,13 @@ class Containers
 //COIN COUNTS
 
 
-    function getCertCount($containerID, $userID)
+    public function getCertCount($containerID, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE containerID = '$containerID' AND proService != 'None'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getCollectionDenomCount($containerID, $denomination)
+    public function getCollectionDenomCount($containerID, $denomination)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE denomination = '" . $denomination . "' AND containerID = '$containerID'") or die(mysql_error());
         if (mysql_num_rows($sql) == '0') {
@@ -275,13 +275,13 @@ class Containers
 //ROLL COUNTS
 
 
-    function getRollCertCount($containerID, $userID)
+    public function getRollCertCount($containerID, $userID)
     {
         $sql = mysql_query("SELECT * FROM collectrolls WHERE containerID = '$containerID' AND proService != 'None'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getRollCount($containerID, $userID)
+    public function getRollCount($containerID, $userID)
     {
         $sql = mysql_query("SELECT * FROM collectrolls WHERE containerID = '$containerID'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -369,7 +369,7 @@ class Containers
 ////
 //SETS
 
-    function availableSetsRequest($containerID, $userID)
+    public function availableSetsRequest($containerID, $userID)
     {
         $sql = mysql_query("SELECT * FROM collectset WHERE setType = 'Proof' AND collectrollsID = '0' AND collectfolderID = '0' AND containerID = '0' AND collectsetID = '0' AND userID = '$userID'");
         return mysql_num_rows($sql);
@@ -412,7 +412,7 @@ class Containers
     }
 
 //switch mint sets
-    function otherProofSetsList($oldID, $userID, $containerID)
+    public function otherProofSetsList($oldID, $userID, $containerID)
     {
         $Encryption = new Encryption();
         $CollectionSet = new CollectionSet();
@@ -443,7 +443,7 @@ class Containers
         return mysql_num_rows($sql);
     }
 
-    function otherMintSetsList($oldID, $userID, $containerID)
+    public function otherMintSetsList($oldID, $userID, $containerID)
     {
         $Encryption = new Encryption();
         $CollectionSet = new CollectionSet();
@@ -529,7 +529,7 @@ class Containers
     }
 
 //COIN TYPE ROLLS
-    function otherTrayTypeCoinsList($oldID, $coinCategory, $userID, $containerID)
+    public function otherTrayTypeCoinsList($oldID, $coinCategory, $userID, $containerID)
     {
         $Encryption = new Encryption();
         $collectionRolls = new CollectionRolls();
@@ -559,7 +559,7 @@ class Containers
         return $html;
     }
 
-    function getOldTrayCollectionID($collectrollsID, $userID)
+    public function getOldTrayCollectionID($collectrollsID, $userID)
     {
         $sql = mysql_query("SELECT * FROM collectrolls WHERE collectrollsID = '$collectrollsID' AND userID = '$userID'");
         $row = mysql_fetch_array($sql);
@@ -567,7 +567,7 @@ class Containers
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Generate Links
-    function getContainerTypeLink($containerID, $containerType)
+    public function getContainerTypeLink($containerID, $containerType)
     {
         $Encryption = new Encryption();
 
@@ -595,7 +595,7 @@ class Containers
         }
     }
 
-    function getContainerTypeLinkByID($containerID)
+    public function getContainerTypeLinkByID($containerID)
     {
         $Encryption = new Encryption();
         $this->getContainerById($containerID);
@@ -623,7 +623,7 @@ class Containers
         return $typeLink;
     }
 
-    function getContainerTypeURLByID($containerID)
+    public function getContainerTypeURLByID($containerID)
     {
         $Encryption = new Encryption();
         $this->getContainerById($containerID);
@@ -760,7 +760,7 @@ class Containers
     }
 
 //switch slabbed coins
-    function otherSlabCoinsList($oldID, $userID, $containerID)
+    public function otherSlabCoinsList($oldID, $userID, $containerID)
     {
         $Encryption = new Encryption();
         $collection = new collection();

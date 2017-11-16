@@ -265,7 +265,7 @@ public function __construct() {}
        return mysql_num_rows($sql);
   }  
   
- function getCoinImageByYear($coinYear){
+ public function getCoinImageByYear($coinYear){
 	$countAll = mysql_query("SELECT * FROM coins WHERE coinYear = '$coinYear' LIMIT 1") or die(mysql_error());
 	$img_check = mysql_num_rows($countAll);
 	while($row = mysql_fetch_array($countAll)){
@@ -280,7 +280,7 @@ public function __construct() {}
 //GET COMPLETE TYPE
 
 
-function getCoinCatCountByID($userID, $coinCategory){
+public function getCoinCatCountByID($userID, $coinCategory){
     $sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '".str_replace('_', ' ', $coinCategory)."' AND userID = '$userID'") or die(mysql_error());
 	return mysql_num_rows($sql);
 }
@@ -340,8 +340,8 @@ function getCoinCatCountByID($userID, $coinCategory){
     return $ret;
 }	*/	
 	
-function byYearMintMark($coinType,$coinYear){
-	$ret = array();
+public function byYearMintMark($coinType, $coinYear){
+	$ret = [];
     $query = "SELECT DISTINCT mintmark FROM coins WHERE coinType = '$coinType' AND coinYear = '$coinYear'";
     $r = mysql_query($query);
     while ($o = mysql_fetch_array($r,MYSQL_ASSOC)) {
@@ -366,7 +366,7 @@ function byYearMintMark($coinType,$coinYear){
 	
 	}
 	
-	function getCatCount($coinCategory){
+	public function getCatCount($coinCategory){
 	$sql = mysql_query("SELECT COUNT(coinCategory) FROM coins WHERE coinCategory = '".str_replace('_', ' ', $coinCategory)."'") or die(mysql_error());
 	return mysql_num_rows($sql);
 }
@@ -560,7 +560,7 @@ function byYearMintMark($coinType,$coinYear){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //DENOMINATION
 
-function getCoinByDenomination($denomination){
+public function getCoinByDenomination($denomination){
 		$sql = mysql_query("SELECT * FROM coins WHERE denomination = '$denomination'") or die(mysql_error()); 
 	  while($row = mysql_fetch_array($sql))
 			  {
@@ -569,7 +569,7 @@ function getCoinByDenomination($denomination){
 			  return $coinCategory;	
 }	
 
-function getFSDenom($coinType, $coinCategory){
+public function getFSDenom($coinType, $coinCategory){
 switch ($coinCategory)
 {
 case "Half Cent":
@@ -672,7 +672,7 @@ case "One Hundred Dollar":
 }	
 	
 }
-function getTrailDieDenom($coinCategory){
+public function getTrailDieDenom($coinCategory){
 switch ($coinCategory)
 {
 case "Small Cent":

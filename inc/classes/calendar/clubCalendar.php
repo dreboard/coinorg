@@ -50,7 +50,7 @@ function draw_calendar($month, $year, $coinClubID){
 	$calendar = '<table cellpadding="0" cellspacing="0" class="calendar"   width="100%" border="0">';
 
 	/* table headings */
-	$headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+	$headings = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 	$calendar.= '<tr align="center" class="darker"><td  width="14%">'.implode('</td><td  width="14%">',$headings).'</td></tr></table>
 	<table cellpadding="2" cellspacing="0" class="calendar"  id="monthCalendar" width="100%" border="1">';
 
@@ -59,7 +59,7 @@ function draw_calendar($month, $year, $coinClubID){
 	$days_in_month = date('t',mktime(0,0,0,$month,1,$year));
 	$days_in_this_week = 1;
 	$day_counter = 0;
-	$dates_array = array();
+	$dates_array = [];
 
 	/* row for week one */
 	$calendar.= '<tr class="calendar-row">';

@@ -2,25 +2,25 @@
 
 class Encryption
 {
-    var $skey = "SuPerEncKey2010";
-    const EMAIL_SECRET_KEY = '1xx6LQETAaaABd38CYPGh7rKtzUfumbyc63';
-    const EMAIL_SECRET_IV = 'uu8mmlxxx1xQETa4Agfv986ebvgbvC7_rDb';
-    const MAIL_KEY = "SuPerEncKey2014b";
-    const MAIL_EXPIRE_TIME = 1209600; //INCLUDED IN VERIFY URL LINK 2 weeks
-    const ENCRYPT_METHOD = "AES-256-CBC";
-    const ENCRYPT_HASH_ALGO = "sha256";
+    public $skey = "SuPerEncKey2010";
+    public const EMAIL_SECRET_KEY = '1xx6LQETAaaABd38CYPGh7rKtzUfumbyc63';
+    public const EMAIL_SECRET_IV = 'uu8mmlxxx1xQETa4Agfv986ebvgbvC7_rDb';
+    public const MAIL_KEY = "SuPerEncKey2014b";
+    public const MAIL_EXPIRE_TIME = 1209600; //INCLUDED IN VERIFY URL LINK 2 weeks
+    public const ENCRYPT_METHOD = "AES-256-CBC";
+    public const ENCRYPT_HASH_ALGO = "sha256";
 
     public function safe_b64encode($string)
     {
 
         $data = base64_encode($string);
-        $data = str_replace(array('+', '/', '='), array('-', '_', ''), $data);
+        $data = str_replace(['+', '/', '='], ['-', '_', ''], $data);
         return $data;
     }
 
     public function safe_b64decode($string)
     {
-        $data = str_replace(array('-', '_'), array('+', '/'), $string);
+        $data = str_replace(['-', '_'], ['+', '/'], $string);
         $mod4 = strlen($data) % 4;
         if ($mod4) {
             $data .= substr('====', $mod4);

@@ -4,11 +4,11 @@ class General
 
 public function random_string()
   {
-    $character_set_array = array( );
-    $character_set_array[ ] = array( 'count' => 6, 'characters' => 'abcdefghijklmnopqrstuvwxyz' );
-    $character_set_array[ ] = array( 'count' => 2, 'characters' => '0123456789' );
-    $character_set_array[ ] = array( 'count' => 2, 'characters' => '!@#$+-*&?:' );
-    $temp_array = array( );
+    $character_set_array = [];
+    $character_set_array[ ] = ['count' => 6, 'characters' => 'abcdefghijklmnopqrstuvwxyz'];
+    $character_set_array[ ] = ['count' => 2, 'characters' => '0123456789'];
+    $character_set_array[ ] = ['count' => 2, 'characters' => '!@#$+-*&?:'];
+    $temp_array = [];
     foreach ( $character_set_array as $character_set )
     {
       for ( $i = 0; $i < $character_set[ 'count' ]; $i++ )
@@ -21,7 +21,7 @@ public function random_string()
   }
 
 
-function summary($str, $limit=20, $strip = false) {
+public function summary($str, $limit=20, $strip = false) {
     $str = ($strip == true)?strip_tags($str):$str;
     if (strlen ($str) > $limit) {
         $str = substr ($str, 0, $limit - 3);
@@ -36,7 +36,7 @@ function summary($str, $limit=20, $strip = false) {
 	$percent = number_format($percentCalc, 1);
 	return $percent;
 }*/
-function percent($small, $large){
+public function percent($small, $large){
 	if($large !=0){
 	$percentCalc = ((100*$small)/$large);
 	$percent = number_format($percentCalc, 1);
@@ -46,7 +46,7 @@ function percent($small, $large){
 }
 }
 //////////////////////////////money Formats
-function formatMoney($number, $fractional=false) { 
+public function formatMoney($number, $fractional=false) {
     if ($fractional) { 
         $number = sprintf('%.2f', $number); 
     } 
@@ -61,7 +61,7 @@ function formatMoney($number, $fractional=false) {
     return $number; 
 }
 
-function decimal($val, $precision = 0) { 
+public function decimal($val, $precision = 0) {
     if ((float) $val) : 
         $val = round((float) $val, (int) $precision); 
         list($a, $b) = explode('.', $val); 
@@ -84,14 +84,14 @@ function decimal($val, $precision = 0) {
 	}	
 
 
-function setTheDate($value){
+public function setTheDate($value){
 	if($value == '') {
 		$value = date("Y-m-d");
 	} else {
 		$value = date("Y-m-d",strtotime($value));
 	}
 }
-function setThePrice($value){
+public function setThePrice($value){
   if($value == '') {
 	  $value = '0.00';
   } else {
@@ -99,7 +99,7 @@ function setThePrice($value){
   }
   return $value;
 }
-function setNoDescription($value){
+public function setNoDescription($value){
   if($value == '') {
 	  $value = 'None';
   } else {
@@ -107,7 +107,7 @@ function setNoDescription($value){
   }
   return $value;
 }
-function setToNone($value){
+public function setToNone($value){
   if($value == '') {
 	  $value = 'None';
   } else {
@@ -116,20 +116,20 @@ function setToNone($value){
   return $value;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function cleanInput($input) {
+public function cleanInput($input) {
 
-  $search = array(
+  $search = [
     '@<script[^>]*?>.*?</script>@si',   // Strip out javascript
     '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
     '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
     '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
-  );
+  ];
 
     $output = preg_replace($search, '', $input);
     return $output;
   }
 
-function sanitize($input) {
+public function sanitize($input) {
     if (is_array($input)) {
         foreach($input as $var=>$val) {
             $output[$var] = $this->sanitize($val);

@@ -49,7 +49,7 @@ class CoinLot {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //User AREA
 
-function totalLotsByUser($userID){
+public function totalLotsByUser($userID){
   $sql = mysql_query("SELECT * FROM coinLots WHERE userID = '$userID'") or die(mysql_error()); 
   return mysql_num_rows($sql);
 }
@@ -69,12 +69,12 @@ function totalLotsByUser($userID){
 //COLLECTION COUNTS
 
 
-function getCertCount($coinLotID){
+public function getCertCount($coinLotID){
 $sql = mysql_query("SELECT * FROM collection WHERE coinLotID = '$coinLotID' AND proService != 'None'") or die(mysql_error());
   return mysql_num_rows($sql);    
 }
 
-function getCoinLotDenomCount($coinLotID, $denomination){
+public function getCoinLotDenomCount($coinLotID, $denomination){
   $sql = mysql_query( "SELECT * FROM collection WHERE denomination = '".$denomination."' AND coinLotID = '$coinLotID'") or die(mysql_error()); 
   if(mysql_num_rows($sql) == '0'){
 	  $nums = '0';

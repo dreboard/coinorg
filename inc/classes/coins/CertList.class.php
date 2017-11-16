@@ -15,11 +15,11 @@ class CertList{
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND certlist = '1' ") or die(mysql_error());
 	return mysql_num_rows($sql);
     } 
-	function getCoinIDCount($coinID, $userID){
+	public function getCoinIDCount($coinID, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND certlist = '1'") or die(mysql_error()); 
 	return mysql_num_rows($sql);
 	}	
-	function getCertCoinName($certlistID){
+	public function getCertCoinName($certlistID){
 	  $Coin = new Coin();
 	  $this->getCertCoinById($certlistID);
 	  $Coin->getCoinById($this->getCoinID());

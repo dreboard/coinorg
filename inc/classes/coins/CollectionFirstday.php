@@ -149,7 +149,7 @@ class CollectionFirstday {
 	}
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 //User Totals
-	function totalFirstDayInvestment($userID){
+	public function totalFirstDayInvestment($userID){
 	$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectfirstday WHERE userID = '$userID'") or die(mysql_error()); 
 	  while($row = mysql_fetch_array($sql))
 			  {
@@ -159,7 +159,7 @@ class CollectionFirstday {
 	  }		
 
 //from
-	function totalFirstDayInvestmentFrom($userID, $purchaseFrom){
+	public function totalFirstDayInvestmentFrom($userID, $purchaseFrom){
 	$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectfirstday WHERE purchaseFrom = '".str_replace('_', ' ', $purchaseFrom)."' AND userID = '$userID'") or die(mysql_error()); 
 	  while($row = mysql_fetch_array($sql))
 			  {
@@ -226,12 +226,12 @@ class CollectionFirstday {
 	return mysql_num_rows($sql);    	
     }
 
-	function getFirstDayProGrader($proService, $userID){
+	public function getFirstDayProGrader($proService, $userID){
 	$myQuery = mysql_query("SELECT * FROM collectfirstday WHERE userID = '$userID'  AND proService = '$proService'") or die(mysql_error()); 
 	return mysql_num_rows($myQuery);    	
     }	
 
-	function getFirstDaySetTypeProGrader($proService, $firstdayType, $userID){
+	public function getFirstDaySetTypeProGrader($proService, $firstdayType, $userID){
 	$myQuery = mysql_query("SELECT * FROM collectfirstday WHERE userID = '$userID' AND firstdayType = '$firstdayType'  AND proService = '$proService'") or die(mysql_error()); 
 	return mysql_num_rows($myQuery);    	
     }	
@@ -260,7 +260,7 @@ class CollectionFirstday {
 	$sql = mysql_query("SELECT * FROM collectfirstday WHERE firstdayID = '$firstdayID' AND  userID = '$userID'");
 	return mysql_num_rows($sql);
 }	
-	function totalFirstDayIDInvestment($firstdayID, $userID){
+	public function totalFirstDayIDInvestment($firstdayID, $userID){
 	$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectfirstday WHERE userID = '$userID' AND  firstdayID = '$firstdayID'") or die(mysql_error()); 
 	  while($row = mysql_fetch_array($sql))
 			  {
@@ -268,7 +268,7 @@ class CollectionFirstday {
 			  }
 			  return $coinSum;	
 	  }	
-	function getFirstDayIDProGrader($firstdayID, $proService, $firstdayType, $userID){
+	public function getFirstDayIDProGrader($firstdayID, $proService, $firstdayType, $userID){
 	$myQuery = mysql_query("SELECT * FROM collectfirstday WHERE userID = '$userID' AND firstdayType = '$firstdayType'  AND proService = '$proService' AND firstdayID = '$firstdayID'") or die(mysql_error()); 
 	return mysql_num_rows($myQuery);    	
     }		
@@ -288,7 +288,7 @@ class CollectionFirstday {
 }	
 
 
-	function totalFirstDayTypeInvestment($coinType, $userID){
+	public function totalFirstDayTypeInvestment($coinType, $userID){
 	$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectfirstday WHERE userID = '$userID' AND  coinType = '".str_replace('_', ' ', $coinType)."'") or die(mysql_error()); 
 	  while($row = mysql_fetch_array($sql))
 			  {
@@ -296,7 +296,7 @@ class CollectionFirstday {
 			  }
 			  return $coinSum;	
 	  }	
-	function getFirstDayCoinTypeProGrader($coinType, $proService, $firstdayType, $userID){
+	public function getFirstDayCoinTypeProGrader($coinType, $proService, $firstdayType, $userID){
 	$myQuery = mysql_query("SELECT * FROM collectfirstday WHERE userID = '$userID' AND firstdayType = '$firstdayType'  AND proService = '$proService' AND coinType = '".str_replace('_', ' ', $coinType)."'") or die(mysql_error()); 
 	return mysql_num_rows($myQuery);    	
     }	
@@ -305,7 +305,7 @@ class CollectionFirstday {
 	$sql = mysql_query("SELECT * FROM collectfirstday WHERE coinVersion = '".str_replace('_', ' ', $coinVersion)."' AND  userID = '$userID'");
 	return mysql_num_rows($sql);
 }	
-	function totalFirstDayVersionInvestment($coinVersion, $userID){
+	public function totalFirstDayVersionInvestment($coinVersion, $userID){
 	$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectfirstday WHERE userID = '$userID' AND  coinVersion = '".str_replace('_', ' ', $coinVersion)."'") or die(mysql_error()); 
 	  while($row = mysql_fetch_array($sql))
 			  {
@@ -313,7 +313,7 @@ class CollectionFirstday {
 			  }
 			  return $coinSum;	
 	  }	
-	function getFirstDayCoinVersionProGrader($coinVersion, $proService, $firstdayType, $userID){
+	public function getFirstDayCoinVersionProGrader($coinVersion, $proService, $firstdayType, $userID){
 	$myQuery = mysql_query("SELECT * FROM collectfirstday WHERE userID = '$userID' AND firstdayType = '$firstdayType'  AND proService = '$proService' AND coinVersion = '".str_replace('_', ' ', $coinVersion)."'") or die(mysql_error()); 
 	return mysql_num_rows($myQuery);    	
     }		

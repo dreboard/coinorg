@@ -8,27 +8,27 @@
  * @license CC Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0) - http://creativecommons.org/licenses/by-sa/3.0/
  */
 class Paginator{
-	var $items_per_page;
-	var $items_total;
-	var $current_page;
-	var $num_pages;
-	var $mid_range;
-	var $low;
-	var $limit;
-	var $return;
-	var $default_ipp;
-	var $querystring;
-	var $ipp_array;
+	public $items_per_page;
+	public $items_total;
+	public $current_page;
+	public $num_pages;
+	public $mid_range;
+	public $low;
+	public $limit;
+	public $return;
+	public $default_ipp;
+	public $querystring;
+	public $ipp_array;
 
-	function __construct()
+	public function __construct()
 	{
 		$this->current_page = 1;
 		$this->mid_range = 7;
-		$this->ipp_array = array(21,35,70,100,'All');
+		$this->ipp_array = [21,35,70,100,'All'];
 		$this->items_per_page = (!empty($_GET['ipp'])) ? $_GET['ipp']:$this->default_ipp;
 	}
 
-	function paginate()
+	public function paginate()
 	{
 		if(!isset($this->default_ipp)) $this->default_ipp=21;
 		if(@$_GET['ipp'] == 'All')
@@ -105,14 +105,14 @@ class Paginator{
 		if($this->current_page <= 0) $this->items_per_page = 0;
 		$this->limit = (@$_GET['ipp'] == 'All') ? "":" LIMIT $this->low,$this->items_per_page";
 	}
-	function display_items_per_page()
+	public function display_items_per_page()
 	{
 		$items = '';
 		if(!isset($_GET['ipp'])) $this->items_per_page = $this->default_ipp;
 		foreach($this->ipp_array as $ipp_opt) $items .= ($ipp_opt == $this->items_per_page) ? "<option selected value=\"$ipp_opt\">$ipp_opt</option>\n":"<option value=\"$ipp_opt\">$ipp_opt</option>\n";
 		return "<span class=\"paginate\">Items per page:</span><select class=\"paginate\" onchange=\"window.location='$_SERVER[PHP_SELF]?page=1&ipp='+this[this.selectedIndex].value+'$this->querystring';return false\">$items</select>\n";
 	}
-	function display_jump_menu()
+	public function display_jump_menu()
 	{
 		for($i=1;$i<=$this->num_pages;$i++)
 		{
@@ -120,7 +120,7 @@ class Paginator{
 		}
 		return "<span class=\"paginate\">Page:</span><select class=\"paginate\" onchange=\"window.location='$_SERVER[PHP_SELF]?page='+this[this.selectedIndex].value+'&ipp=$this->items_per_page$this->querystring';return false\">$option</select>\n";
 	}
-	function display_pages()
+	public function display_pages()
 	{
 		return $this->return;
 	}

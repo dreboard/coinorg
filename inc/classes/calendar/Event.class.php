@@ -173,7 +173,7 @@ class Event
 
 
 //Club Events
-function calendarClubEventDisplay($eventStartDate, $coinClubID){
+public function calendarClubEventDisplay($eventStartDate, $coinClubID){
 	$Encryption = new Encryption();
 	$sql = mysql_query("SELECT * FROM eventDays WHERE eventDay = '$eventStartDate' AND coinClubID = '$coinClubID'") or die(mysql_error());
 	
@@ -187,7 +187,7 @@ function calendarClubEventDisplay($eventStartDate, $coinClubID){
     return $html;
 }
 //Dealer events
-function calendarDealerEventDisplay($eventStartDate, $userID){
+public function calendarDealerEventDisplay($eventStartDate, $userID){
 	$Encryption = new Encryption();
 	$sql = mysql_query("SELECT * FROM eventDays WHERE eventDay = '$eventStartDate' AND userID = '$userID'") or die(mysql_error());
 	$html = '';
@@ -199,7 +199,7 @@ function calendarDealerEventDisplay($eventStartDate, $userID){
     return $html;
 }
 //////FRONT CALENDAR
-function multiEventFrontDisplay($eventStartDate){
+public function multiEventFrontDisplay($eventStartDate){
 	$sql = mysql_query("SELECT * FROM eventDays WHERE eventDay = '$eventStartDate'") or die(mysql_error());
 	if (mysql_num_rows($sql) == 0) {
  			return NULL;
@@ -216,7 +216,7 @@ function multiEventFrontDisplay($eventStartDate){
 		}
     return $html;
 }
-function calendarFrontDisplay($eventStartDate){
+public function calendarFrontDisplay($eventStartDate){
 	$sql = mysql_query("SELECT * FROM event WHERE eventStartDate = '$eventStartDate'") or die(mysql_error());
 	
 	$html = '';
@@ -319,25 +319,25 @@ function calendarFrontDisplay($eventStartDate){
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////CREATING EVENTS//////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function insertDays($eventDay, $eventStartTime, $eventEndTime, $eventID, $dayNumber, $coinClubID) {
+public function insertDays($eventDay, $eventStartTime, $eventEndTime, $eventID, $dayNumber, $coinClubID) {
     $sql = mysql_query("INSERT INTO eventDays(eventDay, eventStartTime, eventEndTime, dayNumber, eventID, coinClubID) VALUES('$eventDay', '$eventStartTime', '$eventEndTime', '$dayNumber', '$eventID', '$coinClubID')") or die(mysql_error());
 }
-function insertDealerDays($eventDay, $eventStartTime, $eventEndTime, $eventID, $dayNumber, $userID) {
+public function insertDealerDays($eventDay, $eventStartTime, $eventEndTime, $eventID, $dayNumber, $userID) {
     $sql = mysql_query("INSERT INTO eventDays(eventDay, eventStartTime, eventEndTime, dayNumber, eventID, userID) VALUES('$eventDay', '$eventStartTime', '$eventEndTime', '$dayNumber', '$eventID', '$userID')") or die(mysql_error());
 }
 
 
 
-function insertNewDays($eventDay, $eventStartTime, $eventEndTime, $eventID, $dayNumber, $userID) {
+public function insertNewDays($eventDay, $eventStartTime, $eventEndTime, $eventID, $dayNumber, $userID) {
     $sql = mysql_query("INSERT INTO eventDays(eventDay, eventStartTime, eventEndTime, dayNumber, eventID, userID) VALUES('$eventDay', '$eventStartTime', '$eventEndTime', '$dayNumber', '$eventID', '$userID')") or die(mysql_error());
 }
-function getDatesBetween2Dates($startTime, $endTime) {
+public function getDatesBetween2Dates($startTime, $endTime) {
     $day = 86400;
     $format = 'Y-m-d';
     $startTime = strtotime($startTime);
     $endTime = strtotime($endTime);
     $numDays = round(($endTime - $startTime) / $day) + 1;
-    $days = array();
+    $days = [];
         
     for ($i = 0; $i < $numDays; $i++) {		
         $days[] = date($format, ($startTime + ($i * $day)));
@@ -348,7 +348,7 @@ function getDatesBetween2Dates($startTime, $endTime) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////// EVENT IMAGE GALLERY
 //Make a folder
-function createEventFolder($eventID, $userID) {
+public function createEventFolder($eventID, $userID) {
 		$folderName = $userID."/events/".$eventID;
 		if ( !file_exists($folderName) ) {
 			mkdir($folderName, 0777);
@@ -359,7 +359,7 @@ function createEventFolder($eventID, $userID) {
 			}
 
     }	
-function createEventThumbFolder($eventID) {
+public function createEventThumbFolder($eventID) {
 	    $folderName = $userID."/events/".$eventID."/thumbs";
 		if ( !file_exists($folderName) ) {
 			mkdir($folderName, 0777);
@@ -369,7 +369,7 @@ function createEventThumbFolder($eventID) {
 			}
 
     }
-function deleteEventDir($eventID) {
+public function deleteEventDir($eventID) {
 	$dirPath = "../gallery/".$eventID;
     if (! is_dir($dirPath)) {
         throw new InvalidArgumentException('$dirPath must be a directory');

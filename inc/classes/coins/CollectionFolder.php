@@ -18,7 +18,7 @@ class CollectionFolder {
             WHERE collectfolderID = :collectfolderID AND userID = :userID
             LIMIT 1
         ");
-        $stmt->execute(array(':collectfolderID' => $collectfolderID, ':userID' => $userID));
+        $stmt->execute([':collectfolderID' => $collectfolderID, ':userID' => $userID]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->userID = $row['userID'];
@@ -110,7 +110,7 @@ class CollectionFolder {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //By User
-function getUserSum($userID){
+public function getUserSum($userID){
 	$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectfolder WHERE userID = '$userID'") or die(mysql_error());
 	  while($row = mysql_fetch_array($sql))
 			  {
@@ -119,7 +119,7 @@ function getUserSum($userID){
 			  return $coinSum;	
 	  }		
 //from
-function getUserSumFrom($userID, $purchaseFrom){
+public function getUserSumFrom($userID, $purchaseFrom){
 	$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectfolder WHERE purchaseFrom = '".str_replace('_', ' ', $purchaseFrom)."' AND userID = '$userID'") or die(mysql_error());
 	  while($row = mysql_fetch_array($sql))
 			  {
@@ -132,7 +132,7 @@ function getUserSumFrom($userID, $purchaseFrom){
 	return mysql_num_rows($sql); 
     }	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function getCompanyCountByUser($folderType, $folderCompany, $userID){
+public function getCompanyCountByUser($folderType, $folderCompany, $userID){
 $sql = mysql_query("SELECT * FROM collectfolder WHERE folderCompany = '".str_replace('_', ' ', $folderCompany)."' AND folderType = '$folderType' AND userID = '$userID'") or die(mysql_error());
 return mysql_num_rows($sql);
 }	
@@ -240,7 +240,7 @@ public function getFolderImg($coinID, $collectfolderID, $userID){
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // FOLDERS MANAGEMENT
-function checkForCoinIDInFolder($collectfolderID, $coinID, $userID){
+public function checkForCoinIDInFolder($collectfolderID, $coinID, $userID){
 $sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND collectfolderID = '$collectfolderID'") or die(mysql_error());
 switch (mysql_num_rows($sql))
 {
@@ -257,7 +257,7 @@ return $folderNum;
 }		
 
 
-function checkForCoinIDInCollection($collectfolderID, $coinID, $userID){
+public function checkForCoinIDInCollection($collectfolderID, $coinID, $userID){
 $sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND collectfolderID = '0'") or die(mysql_error());
 switch (mysql_num_rows($sql))
 {
@@ -274,7 +274,7 @@ return $folderNum;
 }
 
 
-  function openCoinCount($coinID, $collectfolderID){
+  public function openCoinCount($coinID, $collectfolderID){
 	$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND collectfolderID = '$collectfolderID'");
 	$coinCount = mysql_num_rows($sql);
 	while ($row = mysql_fetch_array($sql))
@@ -291,17 +291,17 @@ return $folderNum;
 	 return $image;
  }
  
-  function removeFolderCoin($oldCollectionID){
+  public function removeFolderCoin($oldCollectionID){
 	$sql = mysql_query("UPDATE collection SET collectfolderID '0' WHERE collectionID = '$oldCollectionID'");
 	 return;
  } 
  
-  function setFolderCoin($collectionID, $collectfolderID){
+  public function setFolderCoin($collectionID, $collectfolderID){
 	$sql = mysql_query("UPDATE collection SET collectfolderID '$collectfolderID' WHERE collectionID = '$collectionID' ");
 	 return;
  }  
  
-   function getFolderCoin($coinID, $collectfolderID, $userID){
+   public function getFolderCoin($coinID, $collectfolderID, $userID){
 	 $coin = new Coin();
 	 $Encryption = new Encryption();
 	 $coin->getCoinById($coinID);
@@ -331,7 +331,7 @@ return $folderNum;
 
 
 
-   function getOldCollectionID($coinID, $collectfolderID, $userID){
+   public function getOldCollectionID($coinID, $collectfolderID, $userID){
 	$sql = mysql_query("SELECT collectionID FROM collection WHERE coinID = '$coinID' AND collectfolderID = '$collectfolderID' AND userID = '$userID'");
 	$row = mysql_fetch_array($sql);
 	return $row['collectionID'];
@@ -396,12 +396,12 @@ return $folderNum;
 	 return $html;
  }*/
  
-    function getOldFolderCoinByID($coinID, $collectfolderID, $userID){
+    public function getOldFolderCoinByID($coinID, $collectfolderID, $userID){
 	$sql = mysql_query("SELECT collectionID FROM collection WHERE coinID = '$coinID' AND collectfolderID = '$collectfolderID' AND userID = '$userID'");
 	$row = mysql_fetch_array($sql);
 	return $row['collectionID'];
  }
-   function otherCoinsList($coinID, $collectfolderID, $userID){
+   public function otherCoinsList($coinID, $collectfolderID, $userID){
 	$coin = new Coin();
 	$Encryption = new Encryption();
 	$collection = new Collection();
@@ -435,7 +435,7 @@ return $folderNum;
 /*
 Bulk add new coins to new folder
 */
-function getNewFolderCoins($collectfolderID, $folderID, $userID, $purchaseFrom, $auctionNumber, $additional, $purchasePrice, $purchaseDate, $ebaySellerID, $shopName, $shopUrl, $showName, $showCity) {
+public function getNewFolderCoins($collectfolderID, $folderID, $userID, $purchaseFrom, $auctionNumber, $additional, $purchasePrice, $purchaseDate, $ebaySellerID, $shopName, $shopUrl, $showName, $showCity) {
 	    $folder = new Folder();
         $folder->getFolderByID($folderID);
 		$coinList = explode(",", $folder->getFolderCoins());
@@ -447,7 +447,7 @@ function getNewFolderCoins($collectfolderID, $folderID, $userID, $purchaseFrom, 
 	return;
 	}
 
-	function enterNewFolderCoins($collectfolderID, $coinID, $userID, $purchaseFrom, $auctionNumber, $additional, $purchasePrice, $ebaySellerID, $shopName, $shopUrl, $showName, $showCity,  $purchaseDate){
+	public function enterNewFolderCoins($collectfolderID, $coinID, $userID, $purchaseFrom, $auctionNumber, $additional, $purchasePrice, $ebaySellerID, $shopName, $shopUrl, $showName, $showCity, $purchaseDate){
 		$coin = new Coin();
 		$coin->getCoinById($coinID);
 		$coinID = $coin->getCoinID();
@@ -460,7 +460,7 @@ $sql = mysql_query("INSERT INTO collection(coinID, collectfolderID, purchaseFrom
 Bulk add coins to folder
 */
 
-function addOpenFolderCoins($collectfolderID, $userID) {
+public function addOpenFolderCoins($collectfolderID, $userID) {
 	    $this->getCollectionFolderById($collectfolderID);
 	    $folder = new Folder();
         $folder->getFolderByID($this->getFolderID());
@@ -471,7 +471,7 @@ function addOpenFolderCoins($collectfolderID, $userID) {
 	return;
 	}
 	
-function getCoinFolderStatusByCoinID($coinID, $userID, $collectfolderID){
+public function getCoinFolderStatusByCoinID($coinID, $userID, $collectfolderID){
 	$sql = mysql_query("SELECT collectionID FROM collection WHERE coinID = '$coinID' AND proService = 'None' AND collectfolderID = '0' AND collectrollsID = '0' AND collectsetID = '0' AND userID = '$userID'  ORDER BY collectionID LIMIT 1");
 	if(mysql_num_rows($sql) == 0){
 		 return null;
@@ -490,7 +490,7 @@ function getCoinFolderStatusByCoinID($coinID, $userID, $collectfolderID){
    }
 }
 
-function checkFolderForOpenCoinID($coinID, $userID, $collectfolderID, $collectionID){
+public function checkFolderForOpenCoinID($coinID, $userID, $collectfolderID, $collectionID){
 	$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND collectfolderID = '$collectfolderID' AND collectrollsID = '0' AND collectsetID = '0' AND userID = '$userID'");
 	if(mysql_num_rows($sql) > 0){
 		 return null;

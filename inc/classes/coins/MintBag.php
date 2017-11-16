@@ -101,7 +101,7 @@ class MintBag {
 	$sql = mysql_query( "SELECT * FROM collectbags WHERE bagID = '$bagID' AND  userID = '$userID'");
 	return mysql_num_rows($sql);    	
     }	
-	function totalFirstDayInvestment($userID){
+	public function totalFirstDayInvestment($userID){
 	$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectfirstday WHERE userID = '$userID'") or die(mysql_error()); 
 	  while($row = mysql_fetch_array($sql))
 			  {

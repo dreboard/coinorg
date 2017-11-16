@@ -91,7 +91,7 @@ public function __construct() {}
 			  }
 			  return $coinSum;	
 	  }		
-function getGoldReportImg($coinCategory, $userID){
+public function getGoldReportImg($coinCategory, $userID){
 	$countAll = mysql_query("SELECT * FROM collection WHERE coinCategory = '".str_replace('_', ' ', $coinCategory)."' AND userID = '$userID' AND coinMetal = 'Gold' AND commemorative = '0' ") or die(mysql_error());
 	$img_check = mysql_num_rows($countAll);
 	if($img_check == 0){ 
@@ -134,7 +134,7 @@ function getGoldReportImg($coinCategory, $userID){
 	
  }
 
-function getGoldCenturyCategoryImg($coinCategory, $userID, $century){
+public function getGoldCenturyCategoryImg($coinCategory, $userID, $century){
 	$countAll = mysql_query("SELECT * FROM collection WHERE coinCategory = '".str_replace('_', ' ', $coinCategory)."' AND userID = '$userID' AND coinMetal = 'Gold' AND commemorative = '0' AND century = '$century'") or die(mysql_error());
 	$img_check = mysql_num_rows($countAll);
 	if($img_check == 0){ 
@@ -187,7 +187,7 @@ function getGoldCenturyCategoryImg($coinCategory, $userID, $century){
 	return $collectCount;
     }		
 ////////////////////////////Gold Report
-function checkGoldCollection($userID){
+public function checkGoldCollection($userID){
 	$myQuery = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinMetal = 'Gold'") or die(mysql_error()); 
 	$collectCount = mysql_num_rows($myQuery);    	
 	return $collectCount;
@@ -280,7 +280,7 @@ function checkGoldCollection($userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID'  AND century = '$century'  AND coinMetal = 'Gold' AND commemorative = '0' ") or die(mysql_error()); 
 	return mysql_num_rows($sql);
     }	
-function getGoldCategoryImg($coinCategory, $userID){
+public function getGoldCategoryImg($coinCategory, $userID){
 	$countAll = mysql_query("SELECT * FROM collection WHERE coinCategory = '".str_replace('_', ' ', $coinCategory)."' AND userID = '$userID' AND coinMetal = 'Gold' AND commemorative = '0'") or die(mysql_error());
 	$img_check = mysql_num_rows($countAll);
 	if($img_check == 0){ 
@@ -312,7 +312,7 @@ public function getPlatinumProofImg($coinID, $userID){
 	
 	}	
 }
-function getAllPlatinumSum($userID){
+public function getAllPlatinumSum($userID){
 	$sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE coinMetal = 'Platinum' AND  userID = '$userID'") or die(mysql_error()); 
 	while($row = mysql_fetch_array($sql))
 	{
@@ -320,7 +320,7 @@ function getAllPlatinumSum($userID){
 	}	
 		return $coinSum;
 }
-function getAllPlatinumFaceVal($userID){
+public function getAllPlatinumFaceVal($userID){
 	$sql = mysql_query("SELECT COALESCE(sum(denomination), 0.00) FROM collection WHERE coinMetal = 'Platinum' AND  userID = '$userID'") or die(mysql_error()); 
 	while($row = mysql_fetch_array($sql))
 	{
@@ -328,7 +328,7 @@ function getAllPlatinumFaceVal($userID){
 	}	
 		return $coinSum;
 }
-function getPlatinumCountByID($userID){
+public function getPlatinumCountByID($userID){
     $sql = mysql_query("SELECT * FROM collection WHERE coinMetal = 'Platinum' AND userID = '$userID'") or die(mysql_error());
 	return mysql_num_rows($sql);
 }

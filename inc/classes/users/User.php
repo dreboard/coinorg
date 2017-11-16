@@ -17,7 +17,7 @@ class User
             WHERE userID = :userID
             LIMIT 1
             ");
-        $stmt->execute(array(':userID' => $userID));
+        $stmt->execute([':userID' => $userID]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->userID = $row['userID'];
@@ -151,7 +151,7 @@ class User
      * @param int $userID
      * @todo switch id with user object to get user details
      */
-    function sendCodeMail($email, $userID)
+    public function sendCodeMail($email, $userID)
     {
         $Encrypt = new Encryption();
         $mail = new PHPMailer(true);
@@ -196,7 +196,7 @@ class User
 
     }
 
-    function activateUser($userID)
+    public function activateUser($userID)
     {
         $sql = mysql_query("UPDATE user SET active = '1' WHERE userID = '" . $userID . "' LIMIT 1") or die(mysql_error());
         if ($sql) {
@@ -207,7 +207,7 @@ class User
         }
     }
 
-    function checkActivation($email)
+    public function checkActivation($email)
     {
         $sql = mysql_query("SELECT * FROM user WHERE email = '$email' LIMIT 1") or die(mysql_error());
         $row = mysql_fetch_array($sql);
@@ -220,7 +220,7 @@ class User
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //register users
 
-    function checkUsername($username)
+    public function checkUsername($username)
     {
         $sql = mysql_query("SELECT * FROM user WHERE username = '$username' LIMIT 1") or die(mysql_error());
         if (mysql_num_rows($sql) > 0) {
@@ -230,7 +230,7 @@ class User
         }
     }
 
-    function checkEmail($email)
+    public function checkEmail($email)
     {
         $sql = mysql_query("SELECT * FROM user WHERE email = '$email' LIMIT 1") or die(mysql_error());
         if (mysql_num_rows($sql) > 0) {
@@ -240,14 +240,14 @@ class User
         }
     }
 
-    function runRegFuncs($email, $username)
+    public function runRegFuncs($email, $username)
     {
         checkEmail($email);
         checkUsername($username); // run funciton5
     }
 
 
-    function sendWelcomeMail($userID, $email, $lastname, $firstname)
+    public function sendWelcomeMail($userID, $email, $lastname, $firstname)
     {
         $Encrypt = new Encryption();
         $mail = new PHPMailer(true);
@@ -279,7 +279,7 @@ class User
 
 ///////Create User
 //Make a folder
-    function createUserFolder($userID)
+    public function createUserFolder($userID)
     {
         $folderName = "user/" . $userID;
         if (!file_exists($folderName)) {
@@ -341,7 +341,7 @@ class User
 
 
 //Delete user
-    function deleteUser($userID)
+    public function deleteUser($userID)
     {
         $collectionQuery = mysql_query("DELETE FROM collection WHERE userID = '$userID' ") or die(mysql_error());
         $collectbagsQuery = mysql_query("DELETE FROM collectbags WHERE userID = '$userID' ") or die(mysql_error());
@@ -352,7 +352,7 @@ class User
         $this->deleteUserDir($userID);
     }
 
-    function deleteUserDir($userID)
+    public function deleteUserDir($userID)
     {
         $dirPath = $userID . '/';
         if (!is_dir($dirPath)) {
@@ -511,7 +511,7 @@ class User
         }
     }
 
-    function setUserViewNumber($usersID, $userID)
+    public function setUserViewNumber($usersID, $userID)
     {
         $this->getUserById($userID);
         if ($this->getUserID() == $usersID) {

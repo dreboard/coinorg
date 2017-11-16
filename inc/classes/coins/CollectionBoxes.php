@@ -18,7 +18,7 @@ class CollectionBoxes
             WHERE collectboxID = :collectboxID AND userID = :userID
             LIMIT 1
         ");
-        $stmt->execute(array(':collectboxID' => $collectboxID, ':userID' => $userID));
+        $stmt->execute([':collectboxID' => $collectboxID, ':userID' => $userID]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->userID = $row['userID'];
@@ -121,7 +121,7 @@ class CollectionBoxes
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //ENTER INDIVIDUAL ROLLS FROM BOX ENTRY
-    function enterMintRolls($boxMintID, $userID, $purchaseFrom, $purchaseDate, $purchasePrice, $collectboxID)
+    public function enterMintRolls($boxMintID, $userID, $purchaseFrom, $purchaseDate, $purchasePrice, $collectboxID)
     {
         $MintBox = new MintBox();
         $MintBox->getMintBoxByID($boxMintID);
@@ -249,7 +249,7 @@ class CollectionBoxes
         return $coinSum;
     }
 
-    function getUserSum($userID)
+    public function getUserSum($userID)
     {
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectboxes WHERE userID = '$userID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -264,7 +264,7 @@ class CollectionBoxes
 //BY TYPE
 
 
-    function getRollTypeValByCoinType($rollType, $userID, $coinType)
+    public function getRollTypeValByCoinType($rollType, $userID, $coinType)
     {
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectboxes WHERE rollType = '$rollType' AND userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -273,7 +273,7 @@ class CollectionBoxes
         return $coinSum;
     }
 
-    function getTypeFaceVal($userID, $coinType)
+    public function getTypeFaceVal($userID, $coinType)
     {
         $CoinTypes = new CoinTypes();
         $CoinTypes->getCoinByType($coinType);
@@ -293,13 +293,13 @@ class CollectionBoxes
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  
 //Get by year roll count
-    function getNumOfRollsSavedThisYear($coinYear, $coinType, $userID)
+    public function getNumOfRollsSavedThisYear($coinYear, $coinType, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collectboxes WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinYear = '$coinYear' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
     }
 
-    function getNumOfAllYearByType($coinType, $userID)
+    public function getNumOfAllYearByType($coinType, $userID)
     {
         $sql = mysql_query("SELECT COUNT(DISTINCT coinYear) as num FROM collectboxes WHERE rollType = 'Same Year' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
         $total = mysql_fetch_array($sql);

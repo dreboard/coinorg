@@ -72,7 +72,7 @@ class CollectionRolls
             WHERE collectrollsID = :collectrollsID AND userID = :userID
             LIMIT 1
         ");
-        $stmt->execute(array(':collectrollsID' => $collectrollsID, ':userID' => $this->userID));
+        $stmt->execute([':collectrollsID' => $collectrollsID, ':userID' => $this->userID]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->userID = $row['userID'];
@@ -351,7 +351,7 @@ class CollectionRolls
         return mysql_num_rows($results);
     }
 
-    function getCoinStatus($i, $collectrollsID, $userID)
+    public function getCoinStatus($i, $collectrollsID, $userID)
     {
         $sql = mysql_query("SELECT * FROM collectrolls WHERE coin" . $i . " = 'coin" . $i . "' AND collectrollsID = '$collectrollsID' AND userID = '$userID'") or die(mysql_error());
         $row = mysql_fetch_array($sql);
@@ -366,7 +366,7 @@ class CollectionRolls
         return $status;
     }
 
-    function getSmallCentFaceVal($userID)
+    public function getSmallCentFaceVal($userID)
     {
         $sql = mysql_query("SELECT * FROM collectrolls WHERE coinCategory = 'Small Cent' AND userID = '$userID'") or die(mysql_error());
         $getCategoryRequest = mysql_num_rows($sql);
@@ -374,7 +374,7 @@ class CollectionRolls
         return $totalVal;
     }
 
-    function getSmallCentCertCount($userID)
+    public function getSmallCentCertCount($userID)
     {
         $sql = mysql_query("SELECT * FROM collectrolls WHERE proService != 'None' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -391,7 +391,7 @@ class CollectionRolls
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    function getRollTypeLink($collectrollsID)
+    public function getRollTypeLink($collectrollsID)
     {
         $Encryption = new Encryption();
         $this->getCollectionRollById($collectrollsID);
@@ -421,7 +421,7 @@ class CollectionRolls
         return $detailLink;
     }
 
-    function getRollTypeIconLink($collectrollsID)
+    public function getRollTypeIconLink($collectrollsID)
     {
         $Encryption = new Encryption();
         $this->getCollectionRollById($collectrollsID);
@@ -452,13 +452,13 @@ class CollectionRolls
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //COIN TYPE
-    function getRollTypeCount($rollType, $userID)
+    public function getRollTypeCount($rollType, $userID)
     {
         $sql = mysql_query("SELECT * FROM collectrolls WHERE rollType = '$rollType' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getRollTypeCountByRolltype($rollType, $userID, $coinType)
+    public function getRollTypeCountByRolltype($rollType, $userID, $coinType)
     {
         $sql = mysql_query("SELECT * FROM collectrolls WHERE rollType = '$rollType' AND userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -476,7 +476,7 @@ class CollectionRolls
         return mysql_num_rows($sql);
     }
 
-    function newCoinSelects($coinType)
+    public function newCoinSelects($coinType)
     {
         $sql = mysql_query("SELECT * FROM coins WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND byMint = '1' ORDER BY coinYear ASC") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -488,7 +488,7 @@ class CollectionRolls
         return true;
     }
 
-    function coinSelects($coinType, $userID)
+    public function coinSelects($coinType, $userID)
     {
         $getTypes = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND collectrollsID = '0' ORDER BY coinID ASC") or die(mysql_error());
         while ($row = mysql_fetch_array($getTypes)) {
@@ -508,7 +508,7 @@ class CollectionRolls
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Totals
-    function getUserSum($userID)
+    public function getUserSum($userID)
     {
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectrolls WHERE userID = '$userID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -517,7 +517,7 @@ class CollectionRolls
         return $coinSum;
     }
 
-    function getRollsFaceVal($userID)
+    public function getRollsFaceVal($userID)
     {
         $sql = mysql_query("SELECT COALESCE(sum(denomination), 0.00) FROM collection WHERE collectrollsID != '0' AND  userID = '$userID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -527,7 +527,7 @@ class CollectionRolls
     }
 
 //from
-    function getUserSumFrom($userID, $purchaseFrom)
+    public function getUserSumFrom($userID, $purchaseFrom)
     {
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectrolls WHERE purchaseFrom = '" . str_replace('_', ' ', $purchaseFrom) . "' AND userID = '$userID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -550,7 +550,7 @@ class CollectionRolls
         return mysql_num_rows($sql);
     }
 
-    function getRollTypeCountByRollCategory($rollType, $userID, $coinCategory)
+    public function getRollTypeCountByRollCategory($rollType, $userID, $coinCategory)
     {
         $sql = mysql_query("SELECT * FROM collectrolls WHERE rollType = '$rollType' AND userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -571,7 +571,7 @@ class CollectionRolls
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //COIN ID
-    function getCollectionCoinIDFaceVal($coinID, $userID)
+    public function getCollectionCoinIDFaceVal($coinID, $userID)
     {
         $sql = mysql_query("SELECT COALESCE(sum(denomination), 0.00) FROM collection WHERE collectrollsID != '0' AND coinID = '$coinID' AND userID = '$userID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -580,7 +580,7 @@ class CollectionRolls
         return $coinSum;
     }
 
-    function getCollectionRollSumByCoinID($collectrollsID, $userID)
+    public function getCollectionRollSumByCoinID($collectrollsID, $userID)
     {
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE collectrollsID = '$collectrollsID' AND userID = '$userID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -623,7 +623,7 @@ class CollectionRolls
         return $coinSum;
     }
 
-    function totalRollInvestment($coinID, $userID)
+    public function totalRollInvestment($coinID, $userID)
     {
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectrolls WHERE userID='$userID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -643,7 +643,7 @@ class CollectionRolls
         return $collectCount;
     }
 
-    function getRollTypeVal($rollType, $userID)
+    public function getRollTypeVal($rollType, $userID)
     {
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectrolls WHERE rollType = '$rollType' AND userID = '$userID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -695,7 +695,7 @@ class CollectionRolls
         return $coinSum;
     }
 
-    function getRollTypeValByCoinType($rollType, $userID, $coinType)
+    public function getRollTypeValByCoinType($rollType, $userID, $coinType)
     {
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectrolls WHERE rollType = '$rollType' AND userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -704,7 +704,7 @@ class CollectionRolls
         return $coinSum;
     }
 
-    function getTypeFaceVal($userID, $coinType)
+    public function getTypeFaceVal($userID, $coinType)
     {
         $CoinTypes = new CoinTypes();
         $CoinTypes->getCoinByType($coinType);
@@ -713,7 +713,7 @@ class CollectionRolls
     }
 
 //Get by year roll count
-    function getNumOfRollsSavedThisYear($coinYear, $coinType, $userID)
+    public function getNumOfRollsSavedThisYear($coinYear, $coinType, $userID)
     {
         $CoinTypes = new CoinTypes();
         $CoinTypes->getCoinByType($coinType);
@@ -728,7 +728,7 @@ class CollectionRolls
         return $fullRoll;
     }
 
-    function getNumOfAllYearByType($coinType, $userID)
+    public function getNumOfAllYearByType($coinType, $userID)
     {
         $sql = mysql_query("SELECT COUNT(DISTINCT coinYear) as num FROM collectrolls WHERE rollType = 'Same Year' AND coinType = '" . str_replace('_', ' ', $coinType) . "' AND userID = '$userID'") or die(mysql_error());
         $total = mysql_fetch_array($sql);
@@ -740,7 +740,7 @@ class CollectionRolls
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Mint rolls
-    function getMintRollIDValByID($rollMintID, $userID)
+    public function getMintRollIDValByID($rollMintID, $userID)
     {
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectrolls WHERE rollMintID = '$rollMintID' AND userID = '$userID' ") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -749,13 +749,13 @@ class CollectionRolls
         return $coinSum;
     }
 
-    function getMintRollIDCountByID($rollMintID, $userID)
+    public function getMintRollIDCountByID($rollMintID, $userID)
     {
         $sql = mysql_query("SELECT * FROM collectrolls WHERE rollMintID = '$rollMintID' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getMintRollImg($coinVersion, $userID)
+    public function getMintRollImg($coinVersion, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collectrolls WHERE coinVersion = '" . str_replace('_', ' ', $coinVersion) . "' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -791,7 +791,7 @@ class CollectionRolls
         return mysql_num_rows($sql);
     }
 
-    function getProofRollTypeValByCoinType($userID)
+    public function getProofRollTypeValByCoinType($userID)
     {
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectrolls WHERE strike = 'Proof' AND userID = '$userID' ") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -806,7 +806,7 @@ class CollectionRolls
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //By ROLL
-    function getThisRollFaceVal($collectrollsID, $userID)
+    public function getThisRollFaceVal($collectrollsID, $userID)
     {
         $sql = mysql_query("SELECT COALESCE(sum(denomination), 0.00) FROM collection WHERE collectrollsID = '$collectrollsID' AND userID = '$userID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -815,7 +815,7 @@ class CollectionRolls
         return $coinSum;
     }
 
-    function getThisRollTypeVal($collectrollsID, $userID)
+    public function getThisRollTypeVal($collectrollsID, $userID)
     {
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collection WHERE collectrollsID = '$collectrollsID' AND userID = '$userID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -853,7 +853,7 @@ class CollectionRolls
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //INSERTING AND MANAGING ROLLS
 
-    function removeRollContainer($collectrollsID, $userID)
+    public function removeRollContainer($collectrollsID, $userID)
     {
         $sql = mysql_query("UPDATE collectrolls SET containerID = '0' WHERE collectrollsID = '$collectrollsID' AND userID = '$userID'");
         if ($sql) {
@@ -863,7 +863,7 @@ class CollectionRolls
         }
     }
 
-    function checkClosedRollStatus($collectrollsID, $userID)
+    public function checkClosedRollStatus($collectrollsID, $userID)
     {
         $this->getCollectionRollById($collectrollsID);
         $CoinTypes = new CoinTypes();
@@ -907,7 +907,7 @@ class CollectionRolls
         return mysql_num_rows($sql);
     }
 
-    function enterNewRollOpenCoins($collectrollsID, $coinID, $userID, $purchaseFrom, $auctionNumber, $additional, $purchasePrice, $ebaySellerID, $shopName, $shopUrl, $showName, $showCity, $purchaseDate)
+    public function enterNewRollOpenCoins($collectrollsID, $coinID, $userID, $purchaseFrom, $auctionNumber, $additional, $purchasePrice, $ebaySellerID, $shopName, $shopUrl, $showName, $showCity, $purchaseDate)
     {
         $coin = new Coin();
         $coin->getCoinById($coinID);
@@ -917,7 +917,7 @@ class CollectionRolls
         return true;
     }
 
-    function enterNewRollCoins($collectrollsID, $coinID, $userID, $purchaseFrom, $auctionNumber, $additional, $purchasePrice, $ebaySellerID, $shopName, $shopUrl, $showName, $showCity, $purchaseDate)
+    public function enterNewRollCoins($collectrollsID, $coinID, $userID, $purchaseFrom, $auctionNumber, $additional, $purchasePrice, $ebaySellerID, $shopName, $shopUrl, $showName, $showCity, $purchaseDate)
     {
         $coin = new Coin();
         $coin->getCoinById($coinID);
@@ -928,7 +928,7 @@ class CollectionRolls
     }
 
 //COIN MIXED ROLLS
-    function checkClosedMixedRollStatus($collectrollsID, $userID)
+    public function checkClosedMixedRollStatus($collectrollsID, $userID)
     {
         $this->getCollectionRollById($collectrollsID);
         $CoinCategories = new CoinCategories();
@@ -942,7 +942,7 @@ class CollectionRolls
         return $fullRoll;
     }
 
-    function otherMixedCoinsList($collectionID, $coinCategory, $userID, $collectrollsID)
+    public function otherMixedCoinsList($collectionID, $coinCategory, $userID, $collectrollsID)
     {
         $coin = new Coin();
         $Encryption = new Encryption();
@@ -971,7 +971,7 @@ class CollectionRolls
     }
 
 //COIN TYPE ROLLS
-    function otherTypeCoinsList($collectionID, $coinType, $userID, $collectrollsID)
+    public function otherTypeCoinsList($collectionID, $coinType, $userID, $collectrollsID)
     {
         $coin = new Coin();
         $Encryption = new Encryption();
@@ -999,7 +999,7 @@ class CollectionRolls
         return $html;
     }
 
-    function getOldCollectionID($collectionID, $collectrollsID, $userID)
+    public function getOldCollectionID($collectionID, $collectrollsID, $userID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE collectionID = '$collectionID' AND userID = '$userID' AND collectrollsID = '$collectrollsID' ");
         $row = mysql_fetch_array($sql);
@@ -1007,7 +1007,7 @@ class CollectionRolls
     }
 
 //COIN DATE ROLLS
-    function otherDateCoinsList($collectionID, $coinType, $userID, $collectrollsID)
+    public function otherDateCoinsList($collectionID, $coinType, $userID, $collectrollsID)
     {
         $coin = new Coin();
         $Encryption = new Encryption();
@@ -1036,7 +1036,7 @@ class CollectionRolls
     }
 
 //COIN ID ROLLS
-    function otherSameCoinsList($coinID, $oldCollectionID, $userID, $collectrollsID)
+    public function otherSameCoinsList($coinID, $oldCollectionID, $userID, $collectrollsID)
     {
         $coin = new Coin();
         $Encryption = new Encryption();
@@ -1068,7 +1068,7 @@ class CollectionRolls
 
 
 //Same Year ROLLS
-    function otherYearCoinsList($collectionID, $coinType, $userID, $collectrollsID)
+    public function otherYearCoinsList($collectionID, $coinType, $userID, $collectrollsID)
     {
         $coin = new Coin();
         $Encryption = new Encryption();

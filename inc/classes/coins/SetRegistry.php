@@ -53,7 +53,7 @@ class SetRegistry {
 
 
 	
-	function deleteSetReg($setregID){
+	public function deleteSetReg($setregID){
 	$sql = mysql_query("DELETE FROM setreg WHERE setregID = '$setregID'") or die(mysql_error()); 
 	$sql2 = mysql_query("UPDATE collection SET setregID = '0' WHERE setregID = '$setregID'") or die(mysql_error()); 
 	return;    	
@@ -64,16 +64,16 @@ class SetRegistry {
 //By USER			
 //viewCoinGrade.php		
 
-	function getSetRegCount($userID){
+	public function getSetRegCount($userID){
 	$sql = mysql_query("SELECT * FROM setreg WHERE userID = '$userID'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
     }	
-	function getSetRegAllCoinsCount($userID){
+	public function getSetRegAllCoinsCount($userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE setregID != '0' AND userID = '$userID'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
     }
 	
-	function getSetRegCoinsCount($setregID){
+	public function getSetRegCoinsCount($setregID){
 	$sql = mysql_query("SELECT * FROM setreg WHERE setregID = '$setregID'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
     }
@@ -104,7 +104,7 @@ public function getCoinsCount($setregID) {
 }	
 /////////////////////////////////////////////////////////////////////////////////////
 //PCGS functions
-function insertTempCoins($setregID){
+public function insertTempCoins($setregID){
 	$coin = new Coin();
 	$collection = new Collection();
 	$results = mysql_query("SELECT * FROM collection WHERE setregID = '$setregID'") or die(mysql_error()); 
@@ -157,7 +157,7 @@ public function getOtherNum($collectionID){
 				break;
           }
 }
-function assignPCGSDemon($denomination){
+public function assignPCGSDemon($denomination){
 		switch ($denomination) {
 			case '0.005':
 			return "1/2C";break;

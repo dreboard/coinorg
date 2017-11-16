@@ -32,45 +32,45 @@ class Grade {
 //By coin			
 //viewCoinGrade.php		
 
-	function getCoinIDGrade($grade, $coinID, $userID){
+	public function getCoinIDGrade($grade, $coinID, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '".$coinID."' AND coinGrade = '$grade' AND proService = 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
     }	
-	function getCoinProGrade($grade, $coinID, $userID){
+	public function getCoinProGrade($grade, $coinID, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '".$coinID."' AND coinGrade = '$grade' AND proService != 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql); 
     }
-	function getTotalCoinGrade($grade, $coinID, $userID){
+	public function getTotalCoinGrade($grade, $coinID, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '".$coinID."' AND coinGrade = '$grade'") or die(mysql_error()); 
 	return mysql_num_rows($sql); 
     }	
-	function getCoinIDProGradeCount($coinID, $userID){
+	public function getCoinIDProGradeCount($coinID, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '".$coinID."' AND proService != 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql); 
     }		
-	function getCoinIDProGrader($proService, $coinID, $userID){
+	public function getCoinIDProGrader($proService, $coinID, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '".$coinID."' AND proService = '$proService'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
     }	
-	function getGradedCoinIDCount($coinID, $userID){
+	public function getGradedCoinIDCount($coinID, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '".$coinID."'  AND coinGrade != 'No Grade'") or die(mysql_error());  
 	return mysql_num_rows($sql); 
     }	
-	function getNoGradeCoinIDCount($coinID, $userID){
+	public function getNoGradeCoinIDCount($coinID, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '".$coinID."'  AND coinGrade = 'No Grade'") or die(mysql_error());  
 	return mysql_num_rows($sql); 
     }			
 
-	function getProofCameoCoinIDCount($coinID, $userID, $designation){
+	public function getProofCameoCoinIDCount($coinID, $userID, $designation){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND designation = '$designation' AND coinID = '".$coinID."'") or die(mysql_error());  
 	return mysql_num_rows($sql); 
     }	
 
-function getStrikeCountByCoinID($coinID, $userID, $strike){
+public function getStrikeCountByCoinID($coinID, $userID, $strike){
 	$sql = mysql_query("SELECT * FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
 }
-function getBusinessHighGradeNumberByCoinID($coinID, $userID, $strike){
+public function getBusinessHighGradeNumberByCoinID($coinID, $userID, $strike){
 	$sql = mysql_query("SELECT MAX(coinGradeNum) FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error()); 
 	while($row = mysql_fetch_array($sql)){
 		if($row['MAX(coinGradeNum)'] == '0'){
@@ -89,7 +89,7 @@ function getBusinessHighGradeNumberByCoinID($coinID, $userID, $strike){
 	}
   }
 }
-function getBusinessHighGradeNumberByColorByCoinID($coinID, $color, $userID, $strike){
+public function getBusinessHighGradeNumberByColorByCoinID($coinID, $color, $userID, $strike){
 	$sql = mysql_query("SELECT MAX(coinGradeNum) FROM collection WHERE coinID = '$coinID' AND color = '$color' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error()); 
 	while($row = mysql_fetch_array($sql)){
 		if($row['MAX(coinGradeNum)'] == '0'){
@@ -108,7 +108,7 @@ function getBusinessHighGradeNumberByColorByCoinID($coinID, $color, $userID, $st
 	}
   }
 }
-function getServiceHighGradeNumberByCoinID($coinID, $userID, $strike, $proService){
+public function getServiceHighGradeNumberByCoinID($coinID, $userID, $strike, $proService){
 	$sql = mysql_query("SELECT MAX(coinGradeNum) FROM collection WHERE coinID = '$coinID' AND userID = '$userID' AND strike = '$strike' AND proService = '$proService'") or die(mysql_error()); 
 	while($row = mysql_fetch_array($sql)){
 		if($row['MAX(coinGradeNum)'] == '0'){
@@ -128,7 +128,7 @@ function getServiceHighGradeNumberByCoinID($coinID, $userID, $strike, $proServic
   }
 }
 	
-function getDesignationHighGradeNumberByCoinID($coinID, $fullAtt, $userID, $strike){
+public function getDesignationHighGradeNumberByCoinID($coinID, $fullAtt, $userID, $strike){
 	$sql = mysql_query("SELECT MAX(coinGradeNum) FROM collection WHERE coinID = '$coinID' AND fullAtt = '$fullAtt' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error()); 
 	while($row = mysql_fetch_array($sql)){
 		if($row['MAX(coinGradeNum)'] == '0'){
@@ -148,15 +148,15 @@ function getDesignationHighGradeNumberByCoinID($coinID, $fullAtt, $userID, $stri
   }
 }	
 	
-	function getTotalTypeGradeByCoinID($strike, $coinID, $userID){
+	public function getTotalTypeGradeByCoinID($strike, $coinID, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '$coinID' AND strike = '$strike' AND coinGrade != 'No Grade'") or die(mysql_error()); 
 	return mysql_num_rows($sql); 
     }	
-	function getTotalTypeProGradeByCoinID($strike, $coinID, $userID){
+	public function getTotalTypeProGradeByCoinID($strike, $coinID, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '$coinID' AND strike = '$strike' AND proService != 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql); 
     }	
-	function getProCoinGrade($grade, $coinID, $userID){
+	public function getProCoinGrade($grade, $coinID, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '$coinID' AND coinGrade = '$grade' AND proService != 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql); 
     }
@@ -164,15 +164,15 @@ function getDesignationHighGradeNumberByCoinID($coinID, $fullAtt, $userID, $stri
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //SERIES
 		//Total Collected	
-function getStrikeCountByDesign($design, $userID, $strike){
+public function getStrikeCountByDesign($design, $userID, $strike){
 	$sql = mysql_query("SELECT * FROM collection WHERE design = '$design' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error()); 
 	return mysql_num_rows($sql);    	
 }
-	function getTotalTypeProGradeByDesign($strike, $design, $userID){
+	public function getTotalTypeProGradeByDesign($strike, $design, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND design = '$design' AND strike = '$strike' AND proService != 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql); 
     }	
-	function getTotalTypeGradeByDesign($strike, $design, $userID){
+	public function getTotalTypeGradeByDesign($strike, $design, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND design = '$design' AND strike = '$strike' AND coinGrade != 'No Grade'") or die(mysql_error()); 
 	return mysql_num_rows($sql); 
     }	
@@ -204,21 +204,21 @@ function getStrikeCountByDesign($design, $userID, $strike){
 			  }
 			  return $coinSum;	
 	  }	
-	function getDesignGrade($grade, $design, $userID){
+	public function getDesignGrade($grade, $design, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND design = '$design' AND coinGrade = '$grade' AND proService = 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql); 
     }
-	function getDesignProGrade($grade, $design, $userID){
+	public function getDesignProGrade($grade, $design, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND design = '$design' AND coinGrade = '$grade' AND proService != 'None'") or die(mysql_error()); 
 	return mysql_num_rows($sql); 
     }
 
-	function getTotalDesignGrade($grade, $design, $userID){
+	public function getTotalDesignGrade($grade, $design, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND design = '$design' AND coinGrade = '$grade' ") or die(mysql_error()); 
     return mysql_num_rows($sql); 
     }	
 	
-function getBusinessHighGradeNumberByDesign($design, $userID, $strike){
+public function getBusinessHighGradeNumberByDesign($design, $userID, $strike){
 	$sql = mysql_query("SELECT MAX(coinGradeNum) FROM collection WHERE design = '$design' AND userID = '$userID' AND strike = '$strike'") or die(mysql_error()); 
 	while($row = mysql_fetch_array($sql)){
 		if($row['MAX(coinGradeNum)'] == '0'){
@@ -243,7 +243,7 @@ function getBusinessHighGradeNumberByDesign($design, $userID, $strike){
 
 
 /////////////////////////////////////////////////////////////////////////////////////
-function assignGradePrefix($coinGradeNum){
+public function assignGradePrefix($coinGradeNum){
 		switch ($coinGradeNum) {
 			case '1':
 			return "PO";break;
@@ -311,7 +311,7 @@ function assignGradePrefix($coinGradeNum){
 		}	
 	
 }
-function assignGradeProofPrefix($coinGradeNum){
+public function assignGradeProofPrefix($coinGradeNum){
 		switch ($coinGradeNum) {
 			case '35':
 			case '40':

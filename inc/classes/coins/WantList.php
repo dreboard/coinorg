@@ -23,7 +23,7 @@ class WantList
             SELECT * FROM wantlist WHERE wantlistID = :$wantlistID
             LIMIT 1
             ");
-        $stmt->execute(array(':wantlistID' => $wantlistID));
+        $stmt->execute([':wantlistID' => $wantlistID]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $this->userID = $row['userID'];
         $this->coinID = $row['coinID'];
@@ -96,7 +96,7 @@ class WantList
         return strip_tags($this->strike);
     }
 
-    function getWantedCoinID($coinID)
+    public function getWantedCoinID($coinID)
     {
         $myQuery = mysql_query("SELECT * FROM collection WHERE coinID='$coinID'") or die(mysql_error());
         while ($row = mysql_fetch_array($myQuery)) {
@@ -105,14 +105,14 @@ class WantList
         return $coinID;
     }
 
-    function checkWantedInCollection($coinID, $userID)
+    public function checkWantedInCollection($coinID, $userID)
     {
         $myQuery = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinID = '$coinID'") or die(mysql_error());
         $collectCount = mysql_num_rows($myQuery);
         return $collectCount;
     }
 
-    function deleteWantedCoin($wantlistID)
+    public function deleteWantedCoin($wantlistID)
     {
         @mysql_query("DELETE FROM wantlist WHERE wantlistID = '$wantlistID'") or die(mysql_error());
         return;
@@ -121,7 +121,7 @@ class WantList
 
     //////////////By coinCategory count
     //Get type collection
-    function getCoinCategoryCollected($userID, $value)
+    public function getCoinCategoryCollected($userID, $value)
     {
         /*$sql = mysql_query("SELECT DISTINCT coinType FROM collection WHERE coinCategory = '" . $value . "' AND userID = '$userID'") or die(mysql_error());
         $getCategoryRequest = mysql_num_rows($sql);
@@ -167,7 +167,7 @@ class WantList
 
 //By denomination
 
-    function getWantedCoinCountByCoinCategory($coinCategory, $userID)
+    public function getWantedCoinCountByCoinCategory($coinCategory, $userID)
     {
         /*$sql = mysql_query("SELECT * FROM collection WHERE coinCategory = '$coinCategory' AND userID = '$userID'") or die(mysql_error());
         $getTypeRequest = mysql_num_rows($sql);
@@ -175,7 +175,7 @@ class WantList
         return 1;
     }
 
-    function getWantedCoinCountByCoinType($coinType, $userID)
+    public function getWantedCoinCountByCoinType($coinType, $userID)
     {
         /*$sql = mysql_query("SELECT * FROM collection WHERE coinType = '$coinType' AND userID = '$userID'") or die(mysql_error());
         $getTypeRequest = mysql_num_rows($sql);
@@ -183,7 +183,7 @@ class WantList
         return 1;
     }
 
-    function getWantedCoinCountByError($error, $coinType, $userID)
+    public function getWantedCoinCountByError($error, $coinType, $userID)
     {
         /*$myQuery = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '$coinType'  AND errorType = '$error' AND proService = 'None'") or die(mysql_error());
         $collectCount = mysql_num_rows($myQuery);
@@ -191,7 +191,7 @@ class WantList
         return 1;
     }
 
-    function getWantedCoinCountByProError($error, $coinType, $userID, $proService)
+    public function getWantedCoinCountByProError($error, $coinType, $userID, $proService)
     {
         /*$myQuery = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND coinCategory = '$coinType'  AND errorType = '$error' AND proService = 'proService'") or die(mysql_error());
         $collectCount = mysql_num_rows($myQuery);
@@ -202,7 +202,7 @@ class WantList
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Want coin
-    function getWantedCoin($coinID, $userID)
+    public function getWantedCoin($coinID, $userID)
     {
         /*$myQuery = mysql_query("SELECT * FROM wantlist WHERE coinID='$coinID' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($myQuery);*/

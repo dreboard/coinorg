@@ -351,7 +351,7 @@ public function getMonthlyInvestment($coinType, $userID, $month, $year){
 		return number_format($faceTotal,2);
 	  }	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function getNextPurchaseID(){
+public function getNextPurchaseID(){
 	$sql = mysql_query("SELECT * FROM purchases ORDER BY purchaseID DESC LIMIT 1") or die(mysql_error()); 
 		  while($row = mysql_fetch_array($sql))
 			  {

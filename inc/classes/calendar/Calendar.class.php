@@ -76,7 +76,7 @@ class Calendar
 
 /* regularly-scheduled programming */
 
-function monthControls($month, $year)
+public function monthControls($month, $year)
 {
 $select_month_control = '<select name="month" id="month">';
 for($x = 1; $x <= 12; $x++) {
@@ -104,7 +104,7 @@ $controls = '<form method="get">'.$select_month_control.$select_year_control.'&n
 return $controls;
 }
 
-function monthControls2($month, $year)
+public function monthControls2($month, $year)
 {
 $select_month_control = '<select name="month" id="month">';
 for($x = 1; $x <= 12; $x++) {
@@ -142,13 +142,13 @@ return $controls;
  * */
 
 /* draws a calendar */
-function draw_calendar($month, $year, $loc){
+public function draw_calendar($month, $year, $loc){
      $Event  = new Event();
 	/* draw table */
 	$calendar = '<table cellpadding="0" cellspacing="0" class="calendar" border="1" width="100%">';
 
 	/* table headings */
-	$headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+	$headings = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 	$calendar.= '<tr class="calenderHdr"><th>'.implode('</th><th  width="120">',$headings).'</th></tr>';
 
 	/* days and weeks vars now ... */
@@ -156,7 +156,7 @@ function draw_calendar($month, $year, $loc){
 	$days_in_month = date('t',mktime(0,0,0,$month,1,$year));
 	$days_in_this_week = 1;
 	$day_counter = 0;
-	$dates_array = array();
+	$dates_array = [];
 
 	/* row for week one */
 	$calendar.= '<tr class="calendarRow">';
@@ -225,13 +225,13 @@ function draw_calendar($month, $year, $loc){
 }
 /////////////////////////////////////////////////////////////////////
 
-function drawClubcalendar($month, $year, $coinClubID){
+public function drawClubcalendar($month, $year, $coinClubID){
      $Event  = new Event();
 	/* draw table */
 	$calendar = '<table cellpadding="0" cellspacing="0" class="calendar" border="1" width="100%">';
 
 	/* table headings */
-	$headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+	$headings = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 	$calendar.= '<tr class="calenderHdr"><th>'.implode('</th><th  width="120">',$headings).'</th></tr>';
 
 	/* days and weeks vars now ... */
@@ -239,7 +239,7 @@ function drawClubcalendar($month, $year, $coinClubID){
 	$days_in_month = date('t',mktime(0,0,0,$month,1,$year));
 	$days_in_this_week = 1;
 	$day_counter = 0;
-	$dates_array = array();
+	$dates_array = [];
 
 	/* row for week one */
 	$calendar.= '<tr class="calendarRow">';
@@ -292,13 +292,13 @@ function drawClubcalendar($month, $year, $coinClubID){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function drawClubcalendar2($month, $year, $coinClubID){
+public function drawClubcalendar2($month, $year, $coinClubID){
      $Event  = new Event();
 	/* draw table */
 	$calendar = '<table cellpadding="0" cellspacing="0" class="calendar" border="1" width="100%" bordercolor="#999999">';
 
 	/* table headings */
-	$headings = array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
+	$headings = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 	$calendar.= '<tr align="center" class="calenderHdr"><th>'.implode('</th><th align="center" width="80">',$headings).'</th></tr>';
 
 	/* days and weeks vars now ... */
@@ -306,7 +306,7 @@ function drawClubcalendar2($month, $year, $coinClubID){
 	$days_in_month = date('t',mktime(0,0,0,$month,1,$year));
 	$days_in_this_week = 1;
 	$day_counter = 0;
-	$dates_array = array();
+	$dates_array = [];
 
 	/* row for week one */
 	$calendar.= '<tr class="calendarRow">';
@@ -359,13 +359,13 @@ function drawClubcalendar2($month, $year, $coinClubID){
 
 
 //dealers
-function drawDealerCalendar($month, $year, $userID){
+public function drawDealerCalendar($month, $year, $userID){
      $Event  = new Event();
 	/* draw table */
 	$calendar = '<table cellpadding="0" cellspacing="0" class="calendar" border="1" width="100%" bordercolor="#999999">';
 
 	/* table headings */
-	$headings = array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
+	$headings = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 	$calendar.= '<tr align="center" class="calenderHdr"><th>'.implode('</th><th align="center" width="80">',$headings).'</th></tr>';
 
 	/* days and weeks vars now ... */
@@ -373,7 +373,7 @@ function drawDealerCalendar($month, $year, $userID){
 	$days_in_month = date('t',mktime(0,0,0,$month,1,$year));
 	$days_in_this_week = 1;
 	$day_counter = 0;
-	$dates_array = array();
+	$dates_array = [];
 
 	/* row for week one */
 	$calendar.= '<tr class="calendarRow">';
@@ -426,13 +426,13 @@ function drawDealerCalendar($month, $year, $userID){
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function getDatesBetween2Dates($startTime, $endTime) {
+public function getDatesBetween2Dates($startTime, $endTime) {
     $day = 86400;
     $format = 'Y-m-d';
     $startTime = strtotime($startTime);
     $endTime = strtotime($endTime);
     $numDays = round(($endTime - $startTime) / $day) + 1;
-    $days = array();
+    $days = [];
         
     for ($i = 0; $i < $numDays; $i++) {		
         $days[] = date($format, ($startTime + ($i * $day)));

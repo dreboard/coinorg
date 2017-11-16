@@ -8,8 +8,8 @@
 		
 		public function __construct() {
 			$this->center = time();
-			$this->cells = array();
-			$this->attributes = array();
+			$this->cells = [];
+			$this->attributes = [];
 			$this->centerLinkParameter = 'center';
 		}
 		

@@ -17,7 +17,7 @@ class CoinCollect
             WHERE coincollectID = :coincollectID AND userID = :userID
             LIMIT 1
         ");
-        $stmt->execute(array(':coincollectID' => $coincollectID, ':userID' => $userID));
+        $stmt->execute([':coincollectID' => $coincollectID, ':userID' => $userID]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->userID = $row['userID'];
@@ -147,7 +147,7 @@ class CoinCollect
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //User AREA
 
-    function totalCollectionsByUser($userID)
+    public function totalCollectionsByUser($userID)
     {
         $sql = mysql_query("SELECT * FROM coincollect WHERE userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -168,13 +168,13 @@ class CoinCollect
 //COLLECTION COUNTS
 
 
-    function getCertCount($coincollectID)
+    public function getCertCount($coincollectID)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE coincollectID = '$coincollectID' AND proService != 'None'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getCollectionDenomCount($coincollectID, $denomination)
+    public function getCollectionDenomCount($coincollectID, $denomination)
     {
         $sql = mysql_query("SELECT * FROM collection WHERE denomination = '" . $denomination . "' AND coincollectID = '$coincollectID'") or die(mysql_error());
         if (mysql_num_rows($sql) == '0') {
@@ -210,7 +210,7 @@ class CoinCollect
             WHERE userID = :userID
             LIMIT 1
         ");
-        $stmt->execute(array(':userID' => $userID));
+        $stmt->execute([':userID' => $userID]);
         $html = '';
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $this->getCoinCollectionById($row['coincollectID']);
@@ -239,7 +239,7 @@ class CoinCollect
         return $coinSum;
     }
 
-    function getCertCategoryCount($userID, $coinCategory)
+    public function getCertCategoryCount($userID, $coinCategory)
     {
         $sql = mysql_query("SELECT * FROM coincollect WHERE coincollectID = '$coincollectID' AND proService != 'None'") or die(mysql_error());
         return mysql_num_rows($sql);

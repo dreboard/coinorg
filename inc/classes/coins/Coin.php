@@ -3,9 +3,7 @@ namespace App\Coins;
 
 use \DBConnect;
 use \PDO;
-//getYearDistinctMintMarkCount
-//getCoinName
-// AND LEFT(coinName, 4) <= ".date('Y')."
+
 /**
  * namespace App\Coins;
  * CoinOrg
@@ -28,6 +26,7 @@ class Coin
     protected $VF20;
     protected $EF40;
     protected $AU50;
+
     protected $MS60;
     protected $MS63;
     protected $MS65;
@@ -84,7 +83,7 @@ class Coin
     {
         $sql = 'SELECT * FROM coins WHERE coinID = :coinID';
         $stmt = $this->db->dbhc->prepare($sql);
-        $stmt->execute(array(':coinID' => $coinID));
+        $stmt->execute([':coinID' => $coinID]);
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($row){
@@ -467,7 +466,7 @@ class Coin
         return mysql_num_rows($sql);
     }
 
-    function getCoinImageByYear($coinYear)
+    public function getCoinImageByYear($coinYear)
     {
         $countAll = mysql_query("SELECT * FROM coins WHERE coinYear = '$coinYear' LIMIT 1") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -483,7 +482,7 @@ class Coin
 //GET COMPLETE TYPE
 
 
-    function getCoinCatCountByID($userID, $coinCategory)
+    public function getCoinCatCountByID($userID, $coinCategory)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection 
@@ -600,9 +599,9 @@ class Coin
         return $ret;
     }	*/
 
-    function byYearMintMark($coinType, $coinYear)
+    public function byYearMintMark($coinType, $coinYear)
     {
-        $ret = array();
+        $ret = [];
         $query = "SELECT DISTINCT mintmark FROM coins WHERE coinType = '$coinType' AND coinYear = '$coinYear'";
         $r = mysql_query($query);
         while ($o = mysql_fetch_array($r, MYSQL_ASSOC)) {
@@ -627,7 +626,7 @@ class Coin
 
     }
 
-    function getCatCount($coinCategory)
+    public function getCatCount($coinCategory)
     {
         $sql = mysql_query("SELECT COUNT(coinCategory) FROM coins WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -668,7 +667,7 @@ class Coin
             SELECT * FROM coins     
             WHERE coinType = :coinType
             ");
-        $stmt->execute(array(':coinType' => $coinType));
+        $stmt->execute([':coinType' => $coinType]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $coinCategory = $row['coinCategory'];
@@ -682,7 +681,7 @@ class Coin
             SELECT * FROM coins     
             WHERE coinType = :coinType
             ");
-        $stmt->execute(array(':coinType' => $coinType));
+        $stmt->execute([':coinType' => $coinType]);
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $coinMetal = $row['coinMetal'];
         }
@@ -855,7 +854,7 @@ class Coin
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //DENOMINATION
 
-    function getCoinByDenomination($denomination)
+    public function getCoinByDenomination($denomination)
     {
         $sql = mysql_query("SELECT * FROM coins WHERE denomination = '$denomination'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -864,7 +863,7 @@ class Coin
         return $coinCategory;
     }
 
-    function getFSDenom($coinType, $coinCategory)
+    public function getFSDenom($coinType, $coinCategory)
     {
         switch ($coinCategory) {
             case "Half Cent":
@@ -965,7 +964,7 @@ class Coin
 
     }
 
-    function getTrailDieDenom($coinCategory)
+    public function getTrailDieDenom($coinCategory)
     {
         switch ($coinCategory) {
             case "Small Cent":

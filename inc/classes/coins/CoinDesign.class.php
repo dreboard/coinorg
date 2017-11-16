@@ -4,7 +4,7 @@ class CoinDesign
 {
 
 
-function getDesignStartYear($design){
+public function getDesignStartYear($design){
 	
 switch ($design)
 {
@@ -27,7 +27,7 @@ switch ($design)
   return $startYear;
 }
 
-function getDesignEndYear($design){
+public function getDesignEndYear($design){
 	
 switch ($design)
 {
@@ -51,44 +51,44 @@ switch ($design)
 }
 
 
-function getCategoryArray($design){
+public function getCategoryArray($design){
 switch ($design)
 {
   case 'Seated Liberty':
-	$coinCategoryGroup = array("Half Dime", "Dime", "Quarter", "Half Dollar", "Dollar");
+	$coinCategoryGroup = ["Half Dime", "Dime", "Quarter", "Half Dollar", "Dollar"];
 	break;
   case 'Barber':
-	$coinCategoryGroup = array("Dime", "Quarter", "Half Dollar");
+	$coinCategoryGroup = ["Dime", "Quarter", "Half Dollar"];
 	break;
   case 'Draped Bust':
-	$coinCategoryGroup = array("Half Cent", "Large Cent", "Half Dime", "Dime", "Quarter", "Half Dollar", "Dollar");
+	$coinCategoryGroup = ["Half Cent", "Large Cent", "Half Dime", "Dime", "Quarter", "Half Dollar", "Dollar"];
 	break;
   case 'Liberty Cap':
-	$coinCategoryGroup = array("Half Cent", "Large Cent", "Half Dime", "Dime", "Quarter", "Half Dollar");
+	$coinCategoryGroup = ["Half Cent", "Large Cent", "Half Dime", "Dime", "Quarter", "Half Dollar"];
 	break;
   case 'Flowing Hair':
-	$coinCategoryGroup = array("Large Cent", "Half Dime", "Half Dollar", "Dollar");
+	$coinCategoryGroup = ["Large Cent", "Half Dime", "Half Dollar", "Dollar"];
 	break;	
   }
   return $coinCategoryGroup;
 }
-function getCoinTypeByDesignArray($design){
+public function getCoinTypeByDesignArray($design){
 switch ($design)
 {
   case 'Seated Liberty':
-	$coinCategoryGroup = array("Seated Liberty Half Dime", "Seated Liberty Dime", "Seated Liberty Quarter", "Seated Liberty Half Dollar", "Seated Liberty Dollar");
+	$coinCategoryGroup = ["Seated Liberty Half Dime", "Seated Liberty Dime", "Seated Liberty Quarter", "Seated Liberty Half Dollar", "Seated Liberty Dollar"];
 	break;
   case 'Barber':
-	$coinCategoryGroup = array("Barber Dime", "Barber Quarter", "Barber Half Dollar");
+	$coinCategoryGroup = ["Barber Dime", "Barber Quarter", "Barber Half Dollar"];
 	break;
   case 'Draped Bust':
-	$coinCategoryGroup = array("Draped Bust Half Cent", "Draped Bust Large Cent", "Draped Bust Half Dime", "Draped Bust Dime", "Draped Bust Quarter", "Draped Bust Half Dollar", "Draped Bust Dollar");
+	$coinCategoryGroup = ["Draped Bust Half Cent", "Draped Bust Large Cent", "Draped Bust Half Dime", "Draped Bust Dime", "Draped Bust Quarter", "Draped Bust Half Dollar", "Draped Bust Dollar"];
 	break;
   case 'Liberty Cap':
-	$coinCategoryGroup = array("Liberty Cap Half Dime", "Liberty Cap Dime", "Liberty Cap Quarter", "Liberty Cap Half Dollar", "Liberty Cap Dollar");
+	$coinCategoryGroup = ["Liberty Cap Half Dime", "Liberty Cap Dime", "Liberty Cap Quarter", "Liberty Cap Half Dollar", "Liberty Cap Dollar"];
 	break;
   case 'Flowing Hair':
-	$coinCategoryGroup = array("Flowing Hair Large Cent", "Flowing Hair Half Dime", "Flowing Hair Half Dollar", "Flowing Hair Dollar");
+	$coinCategoryGroup = ["Flowing Hair Large Cent", "Flowing Hair Half Dime", "Flowing Hair Half Dollar", "Flowing Hair Dollar"];
 	break;	
   }
   return $coinCategoryGroup;
@@ -169,7 +169,7 @@ switch ($design)
 
 
 
-function coinYearDisplay($coinCategory, $userID, $coinYear){
+public function coinYearDisplay($coinCategory, $userID, $coinYear){
 	$collection = new Collection();
 	$countAll = mysql_query("SELECT * FROM coins WHERE coinCategory = '".str_replace('_', ' ', $coinCategory)."' AND coinName LIKE '%$coinYear%' AND design = 'Seated Liberty'") or die(mysql_error());
 	while($row = mysql_fetch_array($countAll)){
@@ -184,28 +184,28 @@ function coinYearDisplay($coinCategory, $userID, $coinYear){
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Grades
-	function getProGrader($proService, $design, $userID){
+	public function getProGrader($proService, $design, $userID){
 	$myQuery = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND design = '".str_replace('_', ' ', $design)."' AND proService = '$proService'") or die(mysql_error()); 
 	$collectCount = mysql_num_rows($myQuery);    	
 	return $collectCount;
     }
-	function getNoGradeDesignCount($design, $userID){
+	public function getNoGradeDesignCount($design, $userID){
 	$sql = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND design = '".str_replace('_', ' ', $design)."' AND coinGrade = 'No Grade'") or die(mysql_error()); 
 	return mysql_num_rows($sql);
 	}
-	function getGradeDesignCount($design, $userID){
+	public function getGradeDesignCount($design, $userID){
 	$myQuery = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND design = '".str_replace('_', ' ', $design)."' AND coinGrade != 'No Grade'") or die(mysql_error());  
 	$collectCount = mysql_num_rows($myQuery);    	
 	return $collectCount;
     }
 	
 	
-	function getDesignProGradeCount($design, $userID){
+	public function getDesignProGradeCount($design, $userID){
 	$myQuery = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND design = '".str_replace('_', ' ', $design)."' AND coinGrade != 'No Grade' AND proService != 'None'") or die(mysql_error()); 
 	$collectCount = mysql_num_rows($myQuery);    	
 	return $collectCount;
     }		
-	function getDesignNoProGradeCount($design, $userID){
+	public function getDesignNoProGradeCount($design, $userID){
 	$myQuery = mysql_query("SELECT * FROM collection WHERE userID = '$userID' AND design = '".str_replace('_', ' ', $design)."' AND coinGrade != 'No Grade' AND proService = 'None'") or die(mysql_error()); 
 	$collectCount = mysql_num_rows($myQuery);    	
 	return $collectCount;

@@ -1,17 +1,17 @@
 <?php
 class Upload {
-        var $FileName;
-        var $TempFileName;
-        var $UploadDirectory;
-        var $ValidExtensions;
-        var $Message;
-        var $MaximumFileSize;
-        var $IsImage;
-        var $Email;
-        var $MaximumWidth;
-        var $MaximumHeight;
+        public $FileName;
+        public $TempFileName;
+        public $UploadDirectory;
+        public $ValidExtensions;
+        public $Message;
+        public $MaximumFileSize;
+        public $IsImage;
+        public $Email;
+        public $MaximumWidth;
+        public $MaximumHeight;
 
-        function __construct()
+        public function __construct()
         {
         }
         /**
@@ -20,7 +20,7 @@ class Upload {
          *@return true the extension is valid.
          *@return false the extension is invalid.
          */
-        function ValidateExtension()
+        public function ValidateExtension()
         {
                 $FileName = trim($this->FileName);
                 $FileParts = pathinfo($FileName);
@@ -47,7 +47,7 @@ class Upload {
          *@return true the size is smaller than the alloted value.
          *@return false the size is larger than the alloted value.
          */
-        function ValidateSize()
+        public function ValidateSize()
         {
                 $MaximumFileSize = $this->MaximumFileSize;
                 $TempFileName = $this->GetTempName();
@@ -68,7 +68,7 @@ class Upload {
          *@return true can never be returned as all file names must be unique.
          *@return false the file name does not exist.
          */
-        function ValidateExistance()
+        public function ValidateExistance()
         {
                 $FileName = $this->FileName;
                 $UploadDirectory = $this->UploadDirectory;
@@ -88,7 +88,7 @@ class Upload {
          *@return true the UploadDirectory exists, writable, and has a traling slash.
          *@return false the directory was never set, does not exist, or is not writable.
          */
-        function ValidateDirectory()
+        public function ValidateDirectory()
         {
                 $UploadDirectory = $this->UploadDirectory;
                 if (!$UploadDirectory) {
@@ -118,7 +118,7 @@ class Upload {
          *@return true the image is smaller than the alloted dimensions.
          *@return false the width and/or height is larger then the alloted dimensions.
          */
-        function ValidateImage() {
+        public function ValidateImage() {
                 $MaximumWidth = $this->MaximumWidth;
                 $MaximumHeight = $this->MaximumHeight;
                 $TempFileName = $this->TempFileName;
@@ -143,7 +143,7 @@ class Upload {
          *@return false never.
          *@todo create a more information-friendly log.
          */
-        function SendMail() {
+        public function SendMail() {
                 $To = $this->Email;
                 $Subject = "File Uploaded";
                 $From = "From: Uploader";
@@ -156,7 +156,7 @@ class Upload {
          *@return true the file was uploaded.
          *@return false the upload failed.
          */
-        function UploadFile()
+        public function UploadFile()
         {
                 if (!$this->ValidateExtension()) {
                         die($this->GetMessage());
@@ -187,86 +187,86 @@ class Upload {
         }
         #Accessors and Mutators beyond this point.
         #Siginificant documentation is not needed.
-        function SetFileName($argv)
+        public function SetFileName($argv)
         {
                 $this->FileName = $argv;
         }
-        function SetUploadDirectory($argv)
+        public function SetUploadDirectory($argv)
         {
                 $this->UploadDirectory = $argv;
         }
-        function SetTempName($argv)
+        public function SetTempName($argv)
         {
                 $this->TempFileName = $argv;
         }
-        function SetValidExtensions($argv)
+        public function SetValidExtensions($argv)
         {
                 $this->ValidExtensions = $argv;
         }
-        function SetMessage($argv)
+        public function SetMessage($argv)
         {
                 $this->Message = $argv;
         }
-        function SetMaximumFileSize($argv)
+        public function SetMaximumFileSize($argv)
         {
                 $this->MaximumFileSize = $argv;
         }
-        function SetEmail($argv)
+        public function SetEmail($argv)
         {
                 $this->Email = $argv;
         }
-        function SetIsImage($argv)
+        public function SetIsImage($argv)
         {
                 $this->IsImage = $argv;
         }
-        function SetMaximumWidth($argv)
+        public function SetMaximumWidth($argv)
         {
                 $this->MaximumWidth = $argv;
         }
-        function SetMaximumHeight($argv)
+        public function SetMaximumHeight($argv)
         {
                 $this->MaximumHeight = $argv;
         }   
-        function GetFileName()
+        public function GetFileName()
         {
                 return $this->FileName;
         }
-        function GetUploadDirectory()
+        public function GetUploadDirectory()
         {
                 return $this->UploadDirectory;
         }
-        function GetTempName()
+        public function GetTempName()
         {
                 return $this->TempFileName;
         }
-        function GetValidExtensions()
+        public function GetValidExtensions()
         {
                 return $this->ValidExtensions;
         }
-        function GetMessage()
+        public function GetMessage()
         {
                 if (!isset($this->Message)) {
                         $this->SetMessage("No Message");
                 }
                 return $this->Message;
         }
-        function GetMaximumFileSize()
+        public function GetMaximumFileSize()
         {
                 return $this->MaximumFileSize;
         }
-        function GetEmail()
+        public function GetEmail()
         {
                 return $this->Email;
         }
-        function GetIsImage()
+        public function GetIsImage()
         {
                 return $this->IsImage;
         }
-        function GetMaximumWidth()
+        public function GetMaximumWidth()
         {
                 return $this->MaximumWidth;
         }
-        function GetMaximumHeight()
+        public function GetMaximumHeight()
         {
                 return $this->MaximumHeight;
         }

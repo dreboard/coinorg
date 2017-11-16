@@ -18,7 +18,7 @@ protected $db_host = 'localhost';
     //true, then it will return a single row instead of an array of rows.  
     public function processRowSet($rowSet, $singleRow=false)  
     {  
-        $resultArray = array();  
+        $resultArray = [];
         while($row = mysql_fetch_assoc($rowSet))  
         {  
             array_push($resultArray, $row);  
@@ -80,8 +80,4 @@ protected $db_host = 'localhost';
     }  
   
 }	
-	
-	
 
-
-?>

@@ -19,7 +19,7 @@ class Login
             $email = $_POST['email'];
             $password = $_POST['password'];
             $stmt = $this->db->prepare("SELECT * FROM user WHERE email=:email AND password=:password LIMIT 1");
-            $stmt->execute(array(':email' => $email, ':password' => $password));
+            $stmt->execute([':email' => $email, ':password' => $password]);
             $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($stmt->rowCount() > 0) {
                 $_SESSION['userID'] = $userRow['userID'];

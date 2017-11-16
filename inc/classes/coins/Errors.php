@@ -8,7 +8,7 @@ getErrorForCoin
 
 class Errors
 {
-    public $bieCoins = array('7117', '7173', '7116', '7174', '7113', '7114', '7115', '7175', '7176', '7177', '7178', '7179', '7180', '7181', '7182', '7183', '7184', '7185', '7187', '7188', '7189', '7171', '7172');
+    public $bieCoins = ['7117', '7173', '7116', '7174', '7113', '7114', '7115', '7175', '7176', '7177', '7178', '7179', '7180', '7181', '7182', '7183', '7184', '7185', '7187', '7188', '7189', '7171', '7172'];
 
     public function __construct()
     {
@@ -137,7 +137,7 @@ class Errors
         }
     }*/
 
-    function getErrorForCoin($collectionID)
+    public function getErrorForCoin($collectionID)
     {
         $collection = new Collection;
         $collection->getCollectionById($collectionID);
@@ -320,13 +320,13 @@ class Errors
 
 
 //////////////////All
-    function getAllErrorById($userID)
+    public function getAllErrorById($userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE errorType != 'None' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
     }
 
-    function getErrorByNameByID($errorType, $userID)
+    public function getErrorByNameByID($errorType, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE errorType = '$errorType' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
@@ -350,7 +350,7 @@ class Errors
         return $coinSum;
     }
 
-    function getErrorTypeImgByID($userID, $errorType)
+    public function getErrorTypeImgByID($userID, $errorType)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE errorType = '" . str_replace('_', ' ', $errorType) . "' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -366,13 +366,13 @@ class Errors
     }
 
 //Category
-    function getErrorTypeCategoryCount($errorType, $coinCategory, $userID)
+    public function getErrorTypeCategoryCount($errorType, $coinCategory, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND errorType != 'None' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
     }
 
-    function getErrorTypeByCategory($errorType, $coinCategory, $userID)
+    public function getErrorTypeByCategory($errorType, $coinCategory, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND errorType = '$errorType' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
@@ -397,13 +397,13 @@ class Errors
     }
 
 //Type
-    function getErrorTypeTypeCount($errorType, $coinType, $userID)
+    public function getErrorTypeTypeCount($errorType, $coinType, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND errorType != 'None' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
     }
 
-    function getErrorTypeByType($errorType, $coinType, $userID)
+    public function getErrorTypeByType($errorType, $coinType, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND errorType = '$errorType' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
@@ -428,7 +428,7 @@ class Errors
     }
 
 //Coin
-    function getErrorTypeCoinCount($coinID, $userID)
+    public function getErrorTypeCoinCount($coinID, $userID)
     {
         $stmt = $this->db->dbhc->prepare("
             SELECT COUNT(*) FROM collection
@@ -443,7 +443,7 @@ class Errors
         //$countAll = mysql_query("SELECT * FROM collection WHERE coinID = '" . $coinID . "' AND errorCoin = '1' AND userID = '$userID'") or die(mysql_error());
     }
 
-    function getErrorByTypeCoinCount($coinID, $userID, $error)
+    public function getErrorByTypeCoinCount($coinID, $userID, $error)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '" . $coinID . "' AND $error != 'None' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
@@ -468,7 +468,7 @@ class Errors
 //////////////////////////
 
 
-    function getErrorTypeByCoin($errorType, $coinType, $userID)
+    public function getErrorTypeByCoin($errorType, $coinType, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '" . $coinID . "' AND errorType = '$errorType' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
@@ -492,7 +492,7 @@ class Errors
         return $coinSum;
     }
 
-    function getErrorTypeImgByCoin($coinID, $userID, $errorType)
+    public function getErrorTypeImgByCoin($coinID, $userID, $errorType)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '" . $coinID . "' AND errorType = '$errorType' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -513,13 +513,13 @@ class Errors
 ///////////////////Problem coins
 
 //All
-    function getProblemCount($userID)
+    public function getProblemCount($userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND problem != 'None' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
     }
 
-    function getProblemByID($problem, $userID)
+    public function getProblemByID($problem, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND problem = '$problem' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
@@ -535,13 +535,13 @@ class Errors
     }
 
 //Category
-    function getProblemCategoryCount($coinCategory, $userID)
+    public function getProblemCategoryCount($coinCategory, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND problem != 'None' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
     }
 
-    function getProblemByCategory($problem, $coinCategory, $userID)
+    public function getProblemByCategory($problem, $coinCategory, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND problem = '$problem' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
@@ -557,7 +557,7 @@ class Errors
     }
 
 //Type
-    function getProblemTypeCount($coinType, $userID)
+    public function getProblemTypeCount($coinType, $userID)
     {
         $sql = "
           SELECT COUNT(*) 
@@ -576,7 +576,7 @@ class Errors
         //$countAll = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND problem != 'None' AND userID = '$userID'") or die(mysql_error());
     }
 
-    function getProblemByType($problem, $coinType, $userID)
+    public function getProblemByType($problem, $coinType, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND problem = '$problem' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
@@ -592,13 +592,13 @@ class Errors
     }
 
 //Coin
-    function getProblemCoinCount($coinID, $userID)
+    public function getProblemCoinCount($coinID, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '" . $coinID . "' AND problem != 'None' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
     }
 
-    function getProblemByCoin($problem, $coinType, $userID)
+    public function getProblemByCoin($problem, $coinType, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '" . $coinID . "' AND problem = '$problem' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($countAll);
@@ -613,7 +613,7 @@ class Errors
         return $coinSum;
     }
 
-    function getProblemImgByCoin($coinID, $userID)
+    public function getProblemImgByCoin($coinID, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinID = '" . $coinID . "' AND problem = '$problem' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);

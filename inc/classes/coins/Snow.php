@@ -25,425 +25,425 @@ class Snow
     /**
      * @var array
      */
-    var $_1859_P = array();
+    public $_1859_P = array();
     /**
      * @var array
      */
-    var $_1860_P = array();
+    public $_1860_P = array();
     /**
      * @var array
      */
-    var $_1861_P = array();
+    public $_1861_P = array();
     /**
      * @var array
      */
-    var $_1862_P = array();
+    public $_1862_P = array();
     /**
      * @var array
      */
-    var $_1863_P = array();
+    public $_1863_P = array();
     /**
      * @var array
      */
-    var $_1864_P = array();
+    public $_1864_P = array();
     /**
      * @var array
      */
-    var $_1865_P = array();
+    public $_1865_P = array();
     /**
      * @var array
      */
-    var $_1866_P = array();
+    public $_1866_P = array();
     /**
      * @var array
      */
-    var $_1867_P = array();
+    public $_1867_P = array();
     /**
      * @var array
      */
-    var $_1868_P = array();
+    public $_1868_P = array();
     /**
      * @var array
      */
-    var $_1869_P = array();
+    public $_1869_P = array();
     /**
      * @var array
      */
-    var $_1870_P = array();
+    public $_1870_P = array();
     /**
      * @var array
      */
-    var $_1871_P = array();
+    public $_1871_P = array();
     /**
      * @var array
      */
-    var $_1872_P = array();
+    public $_1872_P = array();
     /**
      * @var array
      */
-    var $_1873_P = array();
+    public $_1873_P = array();
     /**
      * @var array
      */
-    var $_1874_P = array();
+    public $_1874_P = array();
     /**
      * @var array
      */
-    var $_1875_P = array();
+    public $_1875_P = array();
     /**
      * @var array
      */
-    var $_1876_P = array();
+    public $_1876_P = array();
     /**
      * @var array
      */
-    var $_1877_P = array();
+    public $_1877_P = array();
     /**
      * @var array
      */
-    var $_1878_P = array();
+    public $_1878_P = array();
     /**
      * @var array
      */
-    var $_1879_P = array();
+    public $_1879_P = array();
     /**
      * @var array
      */
-    var $_1880_P = array();
+    public $_1880_P = array();
     /**
      * @var array
      */
-    var $_1881_P = array();
+    public $_1881_P = array();
     /**
      * @var array
      */
-    var $_1882_P = array();
+    public $_1882_P = array();
     /**
      * @var array
      */
-    var $_1883_P = array();
+    public $_1883_P = array();
     /**
      * @var array
      */
-    var $_1884_P = array();
+    public $_1884_P = array();
     /**
      * @var array
      */
-    var $_1885_P = array();
+    public $_1885_P = array();
     /**
      * @var array
      */
-    var $_1886_P = array();
+    public $_1886_P = array();
     /**
      * @var array
      */
-    var $_1887_P = array();
+    public $_1887_P = array();
     /**
      * @var array
      */
-    var $_1888_P = array();
+    public $_1888_P = array();
     /**
      * @var array
      */
-    var $_1889_P = array();
+    public $_1889_P = array();
     /**
      * @var array
      */
-    var $_1890_P = array();
+    public $_1890_P = array();
     /**
      * @var array
      */
-    var $_1891_P = array();
+    public $_1891_P = array();
     /**
      * @var array
      */
-    var $_1892_P = array();
+    public $_1892_P = array();
     /**
      * @var array
      */
-    var $_1893_P = array();
+    public $_1893_P = array();
     /**
      * @var array
      */
-    var $_1894_P = array();
+    public $_1894_P = array();
     /**
      * @var array
      */
-    var $_1895_P = array();
+    public $_1895_P = array();
     /**
      * @var array
      */
-    var $_1896_P = array();
+    public $_1896_P = array();
     /**
      * @var array
      */
-    var $_1897_P = array();
+    public $_1897_P = array();
     /**
      * @var array
      */
-    var $_1898_P = array();
+    public $_1898_P = array();
     /**
      * @var array
      */
-    var $_1899_P = array();
+    public $_1899_P = array();
     /**
      * @var array
      */
-    var $_1900_P = array();
+    public $_1900_P = array();
     /**
      * @var array
      */
-    var $_1901_P = array();
+    public $_1901_P = array();
     /**
      * @var array
      */
-    var $_1902_P = array();
+    public $_1902_P = array();
     /**
      * @var array
      */
-    var $_1903_P = array();
+    public $_1903_P = array();
     /**
      * @var array
      */
-    var $_1904_P = array();
+    public $_1904_P = array();
     /**
      * @var array
      */
-    var $_1905_P = array();
+    public $_1905_P = array();
     /**
      * @var array
      */
-    var $_1906_P = array();
+    public $_1906_P = array();
     /**
      * @var array
      */
-    var $_1907_P = array();
+    public $_1907_P = array();
     /**
      * @var array
      */
-    var $_1908_P = array();
+    public $_1908_P = array();
     /**
      * @var array
      */
-    var $_1908_S = array();
+    public $_1908_S = array();
     /**
      * @var array
      */
-    var $_1909_P = array();
+    public $_1909_P = array();
     /**
      * @var array
      */
-    var $_1909_S = array();
+    public $_1909_S = array();
     /**
      * @var array
      */
-    var $_1859_P_Proof = array();
+    public $_1859_P_Proof = array();
     /**
      * @var array
      */
-    var $_1860_P_Proof = array();
+    public $_1860_P_Proof = array();
     /**
      * @var array
      */
-    var $_1861_P_Proof = array();
+    public $_1861_P_Proof = array();
     /**
      * @var array
      */
-    var $_1862_P_Proof = array();
+    public $_1862_P_Proof = array();
     /**
      * @var array
      */
-    var $_1863_P_Proof = array();
+    public $_1863_P_Proof = array();
     /**
      * @var array
      */
-    var $_1864_P_Proof = array();
+    public $_1864_P_Proof = array();
     /**
      * @var array
      */
-    var $_1865_P_Proof = array();
+    public $_1865_P_Proof = array();
     /**
      * @var array
      */
-    var $_1866_P_Proof = array();
+    public $_1866_P_Proof = array();
     /**
      * @var array
      */
-    var $_1867_P_Proof = array();
+    public $_1867_P_Proof = array();
     /**
      * @var array
      */
-    var $_1868_P_Proof = array();
+    public $_1868_P_Proof = array();
     /**
      * @var array
      */
-    var $_1869_P_Proof = array();
+    public $_1869_P_Proof = array();
     /**
      * @var array
      */
-    var $_1870_P_Proof = array();
+    public $_1870_P_Proof = array();
     /**
      * @var array
      */
-    var $_1871_P_Proof = array();
+    public $_1871_P_Proof = array();
     /**
      * @var array
      */
-    var $_1872_P_Proof = array();
+    public $_1872_P_Proof = array();
     /**
      * @var array
      */
-    var $_1873_P_Proof = array();
+    public $_1873_P_Proof = array();
     /**
      * @var array
      */
-    var $_1874_P_Proof = array();
+    public $_1874_P_Proof = array();
     /**
      * @var array
      */
-    var $_1875_P_Proof = array();
+    public $_1875_P_Proof = array();
     /**
      * @var array
      */
-    var $_1876_P_Proof = array();
+    public $_1876_P_Proof = array();
     /**
      * @var array
      */
-    var $_1877_P_Proof = array();
+    public $_1877_P_Proof = array();
     /**
      * @var array
      */
-    var $_1878_P_Proof = array();
+    public $_1878_P_Proof = array();
     /**
      * @var array
      */
-    var $_1879_P_Proof = array();
+    public $_1879_P_Proof = array();
     /**
      * @var array
      */
-    var $_1880_P_Proof = array();
+    public $_1880_P_Proof = array();
     /**
      * @var array
      */
-    var $_1881_P_Proof = array();
+    public $_1881_P_Proof = array();
     /**
      * @var array
      */
-    var $_1882_P_Proof = array();
+    public $_1882_P_Proof = array();
     /**
      * @var array
      */
-    var $_1883_P_Proof = array();
+    public $_1883_P_Proof = array();
     /**
      * @var array
      */
-    var $_1884_P_Proof = array();
+    public $_1884_P_Proof = array();
     /**
      * @var array
      */
-    var $_1885_P_Proof = array();
+    public $_1885_P_Proof = array();
     /**
      * @var array
      */
-    var $_1886_P_Proof = array();
+    public $_1886_P_Proof = array();
     /**
      * @var array
      */
-    var $_1887_P_Proof = array();
+    public $_1887_P_Proof = array();
     /**
      * @var array
      */
-    var $_1888_P_Proof = array();
+    public $_1888_P_Proof = array();
     /**
      * @var array
      */
-    var $_1889_P_Proof = array();
+    public $_1889_P_Proof = array();
     /**
      * @var array
      */
-    var $_1890_P_Proof = array();
+    public $_1890_P_Proof = array();
     /**
      * @var array
      */
-    var $_1891_P_Proof = array();
+    public $_1891_P_Proof = array();
     /**
      * @var array
      */
-    var $_1892_P_Proof = array();
+    public $_1892_P_Proof = array();
     /**
      * @var array
      */
-    var $_1893_P_Proof = array();
+    public $_1893_P_Proof = array();
     /**
      * @var array
      */
-    var $_1894_P_Proof = array();
+    public $_1894_P_Proof = array();
     /**
      * @var array
      */
-    var $_1895_P_Proof = array();
+    public $_1895_P_Proof = array();
     /**
      * @var array
      */
-    var $_1896_P_Proof = array();
+    public $_1896_P_Proof = array();
     /**
      * @var array
      */
-    var $_1897_P_Proof = array();
+    public $_1897_P_Proof = array();
     /**
      * @var array
      */
-    var $_1898_P_Proof = array();
+    public $_1898_P_Proof = array();
     /**
      * @var array
      */
-    var $_1899_P_Proof = array();
+    public $_1899_P_Proof = array();
     /**
      * @var array
      */
-    var $_1900_P_Proof = array();
+    public $_1900_P_Proof = array();
     /**
      * @var array
      */
-    var $_1901_P_Proof = array();
+    public $_1901_P_Proof = array();
     /**
      * @var array
      */
-    var $_1902_P_Proof = array();
+    public $_1902_P_Proof = array();
     /**
      * @var array
      */
-    var $_1903_P_Proof = array();
+    public $_1903_P_Proof = array();
     /**
      * @var array
      */
-    var $_1904_P_Proof = array();
+    public $_1904_P_Proof = array();
     /**
      * @var array
      */
-    var $_1905_P_Proof = array();
+    public $_1905_P_Proof = array();
     /**
      * @var array
      */
-    var $_1906_P_Proof = array();
+    public $_1906_P_Proof = array();
     /**
      * @var array
      */
-    var $_1907_P_Proof = array();
+    public $_1907_P_Proof = array();
     /**
      * @var array
      */
-    var $_1908_P_Proof = array();
+    public $_1908_P_Proof = array();
     /**
      * @var array
      */
-    var $_1909_P_Proof = array();
+    public $_1909_P_Proof = [];
 
 
     /**
      *
      */
-    function test()
+    public function test()
     {
         $this->__construct();
     }
@@ -453,7 +453,7 @@ class Snow
      *
      * Get the array of Snow values for each year.
      */
-    function __construct()
+    public function __construct()
     {
         $this->_1859_P_Proof = array('PR 1', 'PR 2');
         $this->_1859_P = array('Snow 1', 'Snow 2', 'Snow 3', 'Snow 4', 'Snow 5', 'Snow 6');
@@ -509,7 +509,7 @@ class Snow
         $this->_1876_P_Proof = array('PR 1', 'PR 2', 'PR 3');
         $this->_1876_P = array('Snow 1');
 
-        $this->_1877_P_Proof = array('PR 1', 'PR 2', 'PR 3');
+        $this->_1877_P_Proof = ['PR 1', 'PR 2', 'PR 3'];
         $this->_1877_P = array('Snow 1', 'Snow 2');
 
         $this->_1878_P_Proof = array('PR 1', 'PR 2', 'PR 3', 'PR 4', 'PR 5');
@@ -615,7 +615,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1859_P()
+    public function get_1859_P()
     {
         return $this->_1859_P;
     }
@@ -623,7 +623,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1859_P_Proof()
+    public function get_1859_P_Proof()
     {
         return $this->_1859_P_Proof;
     }
@@ -631,7 +631,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1860_P()
+    public function get_1860_P()
     {
         return $this->_1860_P;
     }
@@ -639,7 +639,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1860_P_Proof()
+    public function get_1860_P_Proof()
     {
         return $this->_1860_P_Proof;
     }
@@ -647,7 +647,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1861_P()
+    public function get_1861_P()
     {
         return $this->_1861_P;
     }
@@ -655,7 +655,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1861_P_Proof()
+    public function get_1861_P_Proof()
     {
         return $this->_1861_P_Proof;
     }
@@ -663,7 +663,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1862_P()
+    public function get_1862_P()
     {
         return $this->_1862_P;
     }
@@ -671,7 +671,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1862_P_Proof()
+    public function get_1862_P_Proof()
     {
         return $this->_1862_P_Proof;
     }
@@ -679,7 +679,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1863_P()
+    public function get_1863_P()
     {
         return $this->_1863_P;
     }
@@ -687,7 +687,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1863_P_Proof()
+    public function get_1863_P_Proof()
     {
         return $this->_1863_P_Proof;
     }
@@ -695,7 +695,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1864_P()
+    public function get_1864_P()
     {
         return $this->_1864_P;
     }
@@ -703,7 +703,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1864_P_Proof()
+    public function get_1864_P_Proof()
     {
         return $this->_1864_P_Proof;
     }
@@ -711,7 +711,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1865_P()
+    public function get_1865_P()
     {
         return $this->_1865_P;
     }
@@ -719,7 +719,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1865_P_Proof()
+    public function get_1865_P_Proof()
     {
         return $this->_1865_P_Proof;
     }
@@ -727,7 +727,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1866_P()
+    public function get_1866_P()
     {
         return $this->_1866_P;
     }
@@ -735,7 +735,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1866_P_Proof()
+    public function get_1866_P_Proof()
     {
         return $this->_1866_P_Proof;
     }
@@ -743,7 +743,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1867_P()
+    public function get_1867_P()
     {
         return $this->_1867_P;
     }
@@ -751,7 +751,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1867_P_Proof()
+    public function get_1867_P_Proof()
     {
         return $this->_1867_P_Proof;
     }
@@ -759,7 +759,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1868_P()
+    public function get_1868_P()
     {
         return $this->_1868_P;
     }
@@ -767,7 +767,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1868_P_Proof()
+    public function get_1868_P_Proof()
     {
         return $this->_1868_P_Proof;
     }
@@ -775,7 +775,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1869_P()
+    public function get_1869_P()
     {
         return $this->_1869_P;
     }
@@ -783,7 +783,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1869_P_Proof()
+    public function get_1869_P_Proof()
     {
         return $this->_1869_P_Proof;
     }
@@ -791,7 +791,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1870_P()
+    public function get_1870_P()
     {
         return $this->_1870_P;
     }
@@ -799,7 +799,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1870_P_Proof()
+    public function get_1870_P_Proof()
     {
         return $this->_1870_P_Proof;
     }
@@ -807,7 +807,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1871_P()
+    public function get_1871_P()
     {
         return $this->_1871_P;
     }
@@ -815,7 +815,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1871_P_Proof()
+    public function get_1871_P_Proof()
     {
         return $this->_1871_P_Proof;
     }
@@ -823,7 +823,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1872_P()
+    public function get_1872_P()
     {
         return $this->_1872_P;
     }
@@ -831,7 +831,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1872_P_Proof()
+    public function get_1872_P_Proof()
     {
         return $this->_1872_P_Proof;
     }
@@ -839,7 +839,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1873_P()
+    public function get_1873_P()
     {
         return $this->_1873_P;
     }
@@ -847,7 +847,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1873_P_Proof()
+    public function get_1873_P_Proof()
     {
         return $this->_1873_P_Proof;
     }
@@ -855,7 +855,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1874_P()
+    public function get_1874_P()
     {
         return $this->_1874_P;
     }
@@ -863,7 +863,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1874_P_Proof()
+    public function get_1874_P_Proof()
     {
         return $this->_1874_P_Proof;
     }
@@ -871,7 +871,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1875_P()
+    public function get_1875_P()
     {
         return $this->_1875_P;
     }
@@ -879,7 +879,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1875_P_Proof()
+    public function get_1875_P_Proof()
     {
         return $this->_1875_P_Proof;
     }
@@ -887,7 +887,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1876_P()
+    public function get_1876_P()
     {
         return $this->_1876_P;
     }
@@ -895,7 +895,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1876_P_Proof()
+    public function get_1876_P_Proof()
     {
         return $this->_1876_P_Proof;
     }
@@ -903,7 +903,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1877_P()
+    public function get_1877_P()
     {
         return $this->_1877_P;
     }
@@ -911,7 +911,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1877_P_Proof()
+    public function get_1877_P_Proof()
     {
         return $this->_1877_P_Proof;
     }
@@ -919,7 +919,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1878_P()
+    public function get_1878_P()
     {
         return $this->_1878_P;
     }
@@ -927,7 +927,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1878_P_Proof()
+    public function get_1878_P_Proof()
     {
         return $this->_1878_P_Proof;
     }
@@ -935,7 +935,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1879_P()
+    public function get_1879_P()
     {
         return $this->_1879_P;
     }
@@ -943,7 +943,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1879_P_Proof()
+    public function get_1879_P_Proof()
     {
         return $this->_1879_P_Proof;
     }
@@ -951,7 +951,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1880_P()
+    public function get_1880_P()
     {
         return $this->_1880_P;
     }
@@ -959,7 +959,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1880_P_Proof()
+    public function get_1880_P_Proof()
     {
         return $this->_1880_P_Proof;
     }
@@ -967,7 +967,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1881_P()
+    public function get_1881_P()
     {
         return $this->_1881_P;
     }
@@ -975,7 +975,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1881_P_Proof()
+    public function get_1881_P_Proof()
     {
         return $this->_1881_P_Proof;
     }
@@ -983,7 +983,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1882_P()
+    public function get_1882_P()
     {
         return $this->_1882_P;
     }
@@ -991,7 +991,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1882_P_Proof()
+    public function get_1882_P_Proof()
     {
         return $this->_1882_P_Proof;
     }
@@ -999,7 +999,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1883_P()
+    public function get_1883_P()
     {
         return $this->_1883_P;
     }
@@ -1007,7 +1007,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1883_P_Proof()
+    public function get_1883_P_Proof()
     {
         return $this->_1883_P_Proof;
     }
@@ -1015,7 +1015,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1884_P()
+    public function get_1884_P()
     {
         return $this->_1884_P;
     }
@@ -1023,7 +1023,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1884_P_Proof()
+    public function get_1884_P_Proof()
     {
         return $this->_1884_P_Proof;
     }
@@ -1031,7 +1031,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1885_P()
+    public function get_1885_P()
     {
         return $this->_1885_P;
     }
@@ -1039,7 +1039,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1885_P_Proof()
+    public function get_1885_P_Proof()
     {
         return $this->_1885_P_Proof;
     }
@@ -1047,7 +1047,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1886_P()
+    public function get_1886_P()
     {
         return $this->_1886_P;
     }
@@ -1055,7 +1055,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1886_P_Proof()
+    public function get_1886_P_Proof()
     {
         return $this->_1886_P_Proof;
     }
@@ -1063,7 +1063,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1887_P()
+    public function get_1887_P()
     {
         return $this->_1887_P;
     }
@@ -1071,7 +1071,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1887_P_Proof()
+    public function get_1887_P_Proof()
     {
         return $this->_1887_P_Proof;
     }
@@ -1079,7 +1079,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1888_P()
+    public function get_1888_P()
     {
         return $this->_1888_P;
     }
@@ -1087,7 +1087,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1888_P_Proof()
+    public function get_1888_P_Proof()
     {
         return $this->_1888_P_Proof;
     }
@@ -1095,7 +1095,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1889_P()
+    public function get_1889_P()
     {
         return $this->_1889_P;
     }
@@ -1103,7 +1103,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1889_P_Proof()
+    public function get_1889_P_Proof()
     {
         return $this->_1889_P_Proof;
     }
@@ -1111,7 +1111,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1890_P()
+    public function get_1890_P()
     {
         return $this->_1890_P;
     }
@@ -1119,7 +1119,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1890_P_Proof()
+    public function get_1890_P_Proof()
     {
         return $this->_1890_P_Proof;
     }
@@ -1127,7 +1127,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1891_P()
+    public function get_1891_P()
     {
         return $this->_1891_P;
     }
@@ -1135,7 +1135,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1891_P_Proof()
+    public function get_1891_P_Proof()
     {
         return $this->_1891_P_Proof;
     }
@@ -1143,7 +1143,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1892_P()
+    public function get_1892_P()
     {
         return $this->_1892_P;
     }
@@ -1151,7 +1151,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1892_P_Proof()
+    public function get_1892_P_Proof()
     {
         return $this->_1892_P_Proof;
     }
@@ -1159,7 +1159,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1893_P()
+    public function get_1893_P()
     {
         return $this->_1893_P;
     }
@@ -1167,7 +1167,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1893_P_Proof()
+    public function get_1893_P_Proof()
     {
         return $this->_1893_P_Proof;
     }
@@ -1175,7 +1175,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1894_P()
+    public function get_1894_P()
     {
         return $this->_1894_P;
     }
@@ -1183,7 +1183,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1894_P_Proof()
+    public function get_1894_P_Proof()
     {
         return $this->_1894_P_Proof;
     }
@@ -1191,7 +1191,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1895_P()
+    public function get_1895_P()
     {
         return $this->_1895_P;
     }
@@ -1199,7 +1199,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1895_P_Proof()
+    public function get_1895_P_Proof()
     {
         return $this->_1895_P_Proof;
     }
@@ -1207,7 +1207,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1896_P()
+    public function get_1896_P()
     {
         return $this->_1896_P;
     }
@@ -1215,7 +1215,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1896_P_Proof()
+    public function get_1896_P_Proof()
     {
         return $this->_1896_P_Proof;
     }
@@ -1223,7 +1223,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1897_P()
+    public function get_1897_P()
     {
         return $this->_1897_P;
     }
@@ -1231,7 +1231,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1897_P_Proof()
+    public function get_1897_P_Proof()
     {
         return $this->_1897_P_Proof;
     }
@@ -1239,7 +1239,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1898_P()
+    public function get_1898_P()
     {
         return $this->_1898_P;
     }
@@ -1247,7 +1247,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1898_P_Proof()
+    public function get_1898_P_Proof()
     {
         return $this->_1898_P_Proof;
     }
@@ -1255,7 +1255,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1899_P()
+    public function get_1899_P()
     {
         return $this->_1899_P;
     }
@@ -1263,7 +1263,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1899_P_Proof()
+    public function get_1899_P_Proof()
     {
         return $this->_1899_P_Proof;
     }
@@ -1271,7 +1271,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1900_P()
+    public function get_1900_P()
     {
         return $this->_1900_P;
     }
@@ -1279,7 +1279,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1900_P_Proof()
+    public function get_1900_P_Proof()
     {
         return $this->_1900_P_Proof;
     }
@@ -1287,7 +1287,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1901_P()
+    public function get_1901_P()
     {
         return $this->_1901_P;
     }
@@ -1295,7 +1295,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1901_P_Proof()
+    public function get_1901_P_Proof()
     {
         return $this->_1901_P_Proof;
     }
@@ -1303,7 +1303,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1902_P()
+    public function get_1902_P()
     {
         return $this->_1902_P;
     }
@@ -1311,7 +1311,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1902_P_Proof()
+    public function get_1902_P_Proof()
     {
         return $this->_1902_P_Proof;
     }
@@ -1319,7 +1319,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1903_P()
+    public function get_1903_P()
     {
         return $this->_1903_P;
     }
@@ -1327,7 +1327,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1903_P_Proof()
+    public function get_1903_P_Proof()
     {
         return $this->_1903_P_Proof;
     }
@@ -1335,7 +1335,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1904_P()
+    public function get_1904_P()
     {
         return $this->_1904_P;
     }
@@ -1343,7 +1343,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1904_P_Proof()
+    public function get_1904_P_Proof()
     {
         return $this->_1904_P_Proof;
     }
@@ -1351,7 +1351,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1905_P()
+    public function get_1905_P()
     {
         return $this->_1905_P;
     }
@@ -1359,7 +1359,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1905_P_Proof()
+    public function get_1905_P_Proof()
     {
         return $this->_1905_P_Proof;
     }
@@ -1367,7 +1367,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1906_P()
+    public function get_1906_P()
     {
         return $this->_1906_P;
     }
@@ -1375,7 +1375,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1906_P_Proof()
+    public function get_1906_P_Proof()
     {
         return $this->_1906_P_Proof;
     }
@@ -1383,7 +1383,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1907_P()
+    public function get_1907_P()
     {
         return $this->_1907_P;
     }
@@ -1391,7 +1391,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1907_P_Proof()
+    public function get_1907_P_Proof()
     {
         return $this->_1907_P_Proof;
     }
@@ -1399,7 +1399,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1908_P()
+    public function get_1908_P()
     {
         return $this->_1908_P;
     }
@@ -1407,7 +1407,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1908_S()
+    public function get_1908_S()
     {
         return $this->_1908_S;
     }
@@ -1415,7 +1415,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1908_P_Proof()
+    public function get_1908_P_Proof()
     {
         return $this->_1908_P_Proof;
     }
@@ -1423,7 +1423,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1909_P()
+    public function get_1909_P()
     {
         return $this->_1909_P;
     }
@@ -1431,7 +1431,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1909_S()
+    public function get_1909_S()
     {
         return $this->_1909_S;
     }
@@ -1439,7 +1439,7 @@ class Snow
     /**
      * @return array
      */
-    function get_1909_P_Proof()
+    public function get_1909_P_Proof()
     {
         return $this->_1909_P_Proof;
     }
@@ -1477,7 +1477,7 @@ class Snow
      * @param $strike
      * @return string
      */
-    function getSnowByYearAndByMint($coinType, $coinYear, $snow, $userID, $mintMark, $strike)
+    public function getSnowByYearAndByMint($coinType, $coinYear, $snow, $userID, $mintMark, $strike)
     {
         $countAll = mysql_query("SELECT * FROM collection WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND coinYear = '$coinYear' AND strike = '$strike' AND userID = '$userID' AND snow = '$snow' AND mintMark = '$mintMark' ") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -1499,6 +1499,3 @@ class Snow
 
 
 }
-
-
-?>

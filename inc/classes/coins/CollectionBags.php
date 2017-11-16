@@ -24,7 +24,7 @@ class CollectionBags
             WHERE collectbagID = :collectbagID AND userID = :userID
             LIMIT 1
         ");
-        $stmt->execute(array(':collectbagID' => $collectbagID, ':userID' => $userID));
+        $stmt->execute([':collectbagID' => $collectbagID, ':userID' => $userID]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->userID = $row['userID'];
@@ -163,7 +163,7 @@ class CollectionBags
         return mysql_num_rows($sql) + 1;
     }
 
-    function setBagName($userID, $coinType, $bagNickname)
+    public function setBagName($userID, $coinType, $bagNickname)
     {
         if ($bagNickname == '') {
             $bagNickname = $coinType . $this->getBagTypeCountPlus($userID, $coinType);
@@ -191,7 +191,7 @@ class CollectionBags
         return $coinSum;
     }
 
-    function getUserSum($userID)
+    public function getUserSum($userID)
     {
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectbags WHERE userID = '$userID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -201,7 +201,7 @@ class CollectionBags
     }
 
 //from
-    function getUserSumFrom($userID, $purchaseFrom)
+    public function getUserSumFrom($userID, $purchaseFrom)
     {
         $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectbags WHERE purchaseFrom = '" . str_replace('_', ' ', $purchaseFrom) . "' AND userID = '$userID'") or die(mysql_error());
         while ($row = mysql_fetch_array($sql)) {
@@ -256,7 +256,7 @@ class CollectionBags
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //by category
-    function getBagTypeCountByCoinCategory($bagType, $userID, $coinCategory)
+    public function getBagTypeCountByCoinCategory($bagType, $userID, $coinCategory)
     {
         $sql = mysql_query("SELECT * FROM collectbags WHERE bagType = '" . str_replace('_', ' ', $bagType) . "' AND userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -280,13 +280,13 @@ class CollectionBags
         return $coinSum;
     }
 
-    function getCountByCoinCategory($userID, $coinCategory)
+    public function getCountByCoinCategory($userID, $coinCategory)
     {
         $sql = mysql_query("SELECT * FROM collectbags WHERE userID = '$userID' AND coinCategory = '" . str_replace('_', ' ', $coinCategory) . "'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getBagConditionCategoryCount($bagCondition, $userID, $coinCategory)
+    public function getBagConditionCategoryCount($bagCondition, $userID, $coinCategory)
     {
         $sql = mysql_query("SELECT * FROM collectbags WHERE coinCategory = '" . str_replace('_', ' ', $coinCategory) . "' AND bagCondition = '" . str_replace('_', ' ', $bagCondition) . "' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -312,13 +312,13 @@ class CollectionBags
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //by type
-    function getBagTypeCountByCoinType($bagType, $userID, $coinType)
+    public function getBagTypeCountByCoinType($bagType, $userID, $coinType)
     {
         $sql = mysql_query("SELECT * FROM collectbags WHERE bagType = '" . str_replace('_', ' ', $bagType) . "' AND userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'") or die(mysql_error());
         return mysql_num_rows($sql);
     }
 
-    function getCountByCoinType($userID, $coinType)
+    public function getCountByCoinType($userID, $coinType)
     {
         $sql = mysql_query("SELECT * FROM collectbags WHERE userID = '$userID' AND coinType = '" . str_replace('_', ' ', $coinType) . "'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -342,7 +342,7 @@ class CollectionBags
         return $coinSum;
     }
 
-    function getBagConditionTypeCount($bagCondition, $userID, $coinType)
+    public function getBagConditionTypeCount($bagCondition, $userID, $coinType)
     {
         $sql = mysql_query("SELECT * FROM collectbags WHERE coinType = '" . str_replace('_', ' ', $coinType) . "' AND bagCondition = '" . str_replace('_', ' ', $bagCondition) . "' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -366,7 +366,7 @@ class CollectionBags
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Bag type
-    function getBagTypeCount($bagType, $userID)
+    public function getBagTypeCount($bagType, $userID)
     {
         $sql = mysql_query("SELECT * FROM collectbags WHERE bagType = '" . str_replace('_', ' ', $bagType) . "' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -399,7 +399,7 @@ class CollectionBags
         return $coinSum;
     }
 
-    function getBagConditionCount($bagCondition, $userID)
+    public function getBagConditionCount($bagCondition, $userID)
     {
         $sql = mysql_query("SELECT * FROM collectbags WHERE bagCondition = '" . str_replace('_', ' ', $bagCondition) . "' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -407,7 +407,7 @@ class CollectionBags
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Bag year
-    function getBagTypeCountByYear($coinYear, $userID)
+    public function getBagTypeCountByYear($coinYear, $userID)
     {
         $sql = mysql_query("SELECT * FROM collectbags WHERE coinYear = '" . $coinYear . "' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -471,7 +471,7 @@ class CollectionBags
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Mint bags
-    function getMintBagImg($coinVersion, $userID)
+    public function getMintBagImg($coinVersion, $userID)
     {
         $countAll = mysql_query("SELECT * FROM collectbags WHERE coinVersion = '" . str_replace('_', ' ', $coinVersion) . "' AND userID = '$userID'") or die(mysql_error());
         $img_check = mysql_num_rows($countAll);
@@ -485,7 +485,7 @@ class CollectionBags
         }
     }
 
-    function getCountByMintBagID($bagID, $userID)
+    public function getCountByMintBagID($bagID, $userID)
     {
         $sql = mysql_query("SELECT * FROM collectbags WHERE bagID = '" . $bagID . "' AND userID = '$userID'") or die(mysql_error());
         return mysql_num_rows($sql);
@@ -519,7 +519,7 @@ class CollectionBags
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Links and views
 
-    function getBagTypeLink($collectbagID)
+    public function getBagTypeLink($collectbagID)
     {
         $Encryption = new Encryption();
         $this->getCollectionBagById($collectbagID);

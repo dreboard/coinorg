@@ -115,7 +115,7 @@ class CoinTypes
         return strip_tags($this->rollVal);
     }
 
-    function getMintedYearList($list)
+    public function getMintedYearList($list)
     {
         $result = preg_replace_callback('/(\d+)-(\d+)/', function ($m) {
             return implode(',', range($m[1], $m[2]));
@@ -220,5 +220,3 @@ class CoinTypes
     }
 
 }
-
-?>

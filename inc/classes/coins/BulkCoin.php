@@ -35,7 +35,7 @@ class BulkCoin
     {
         $sql = 'SELECT * FROM bulkcoin WHERE bulkcoinID = :bulkcoinID';
         $stmt = $this->db->dbhc->prepare($sql);
-        $stmt->execute(array(':bulkcoinID' => $bulkcoinID));
+        $stmt->execute([':bulkcoinID' => $bulkcoinID]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->bulkNickname = $row['bulkNickname'];
@@ -180,12 +180,14 @@ class BulkCoin
         } else {
             return '0.00';
         }
-
-        $sql = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM bulkcoin WHERE  userID = '$userID'") or die(mysql_error());
-        while ($row = mysql_fetch_array($sql)) {
+        /*$
+        $sql = "SELECT COALESCE(sum(purchasePrice), 0.00) FROM bulkcoin WHERE  userID = '$userID'";
+        $query = mysql_query($sql) or die(mysql_error());
+        $row = mysql_fetch_array($query);
+        while ($row) {
             $coinSum = $row['COALESCE(sum(purchasePrice), 0.00)'];
         }
-        return $coinSum;
+        return $coinSum;*/
     }
 
     public function getCoinFaceValueByAccount($userID)
@@ -467,7 +469,7 @@ class BulkCoin
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Enter Bag
-    function insertBagToBulk($userID, $collectbagID, $coinType)
+    public function insertBagToBulk($userID, $collectbagID, $coinType)
     {
         $CollectionBags = new CollectionBags();
         $CollectionBags->getCollectionBagById($collectbagID);
@@ -479,7 +481,7 @@ class BulkCoin
     }
 
 
-    function insertRollToBulk($userID, $collectrollsID, $coinType)
+    public function insertRollToBulk($userID, $collectrollsID, $coinType)
     {
         $CollectionRolls = new CollectionRolls();
         $CollectionRolls->getCollectionRollById($collectrollsID);

@@ -53,7 +53,7 @@ class CollectMintRolls {
         return strip_tags($this->mintMark);
     }		
 
-function newCoinSelects($coinType){
+public function newCoinSelects($coinType){
    $getTypes = mysql_query("SELECT * FROM coins WHERE coinType = '$coinType' ORDER BY coinName ASC") or die(mysql_error());
    while($row = mysql_fetch_array($getTypes))
   {
@@ -70,7 +70,7 @@ return;
 
 }		
 
-function getRollIdByDesign($design){
+public function getRollIdByDesign($design){
         $sql = mysql_query("SELECT * FROM rollsmint WHERE design = '$design'") or die(mysql_error());
         $row = mysql_fetch_array($sql);
 		return intval($row['rollMintID']);	

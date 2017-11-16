@@ -31,7 +31,7 @@ else {
 }
 */////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function make_thumb($src,$dest,$desired_width) {
+public function make_thumb($src, $dest, $desired_width) {
   /* read the source image */
   $source_image = imagecreatefromjpeg($src);
   $width = imagesx($source_image);
@@ -47,8 +47,8 @@ function make_thumb($src,$dest,$desired_width) {
 }
 
 /* function:  returns files from dir */
-function get_files($images_dir,$exts = array('jpg')) {
-  $files = array();
+public function get_files($images_dir, $exts = ['jpg']) {
+  $files = [];
   if($handle = opendir($images_dir)) {
     while(false !== ($file = readdir($handle))) {
       $extension = strtolower($this->get_file_extension($file));
@@ -62,7 +62,7 @@ function get_files($images_dir,$exts = array('jpg')) {
 }
 
 /* function:  returns a file's extension */
-function get_file_extension($file_name) {
+public function get_file_extension($file_name) {
   return substr(strrchr($file_name,'.'),1);
 }
 

@@ -1,7 +1,7 @@
 <?php 
 class FileManager {
 
-function RmDirRecursive($path) 
+public function RmDirRecursive($path)
 {
     $realPath = realpath($path);
     if (!file_exists($realPath)) 
@@ -36,7 +36,7 @@ public static function deleteDir($dirPath) {
     rmdir($dirPath);
 }	
 
-function recursiveRemove($dir) {
+public function recursiveRemove($dir) {
     $structure = glob(rtrim($dir, "/").'/*');
     if (is_array($structure)) {
         foreach($structure as $file) {

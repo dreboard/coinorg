@@ -76,7 +76,7 @@ class Calendar
 
 /* regularly-scheduled programming */
 
-function monthControls($month, $year)
+public function monthControls($month, $year)
 {
 $select_month_control = '<select name="month" id="month">';
 for($x = 1; $x <= 12; $x++) {
@@ -115,13 +115,13 @@ return $controls;
  * */
 
 /* draws a calendar */
-function draw_calendar($month, $year, $loc){
+public function draw_calendar($month, $year, $loc){
      $Event  = new Event();
 	/* draw table */
 	$calendar = '<table cellpadding="0" cellspacing="0" class="calendar" border="0">';
 
 	/* table headings */
-	$headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+	$headings = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 	$calendar.= '<tr class="calenderHdr"><th>'.implode('</th><th  width="120">',$headings).'</th></tr>';
 
 	/* days and weeks vars now ... */
@@ -129,7 +129,7 @@ function draw_calendar($month, $year, $loc){
 	$days_in_month = date('t',mktime(0,0,0,$month,1,$year));
 	$days_in_this_week = 1;
 	$day_counter = 0;
-	$dates_array = array();
+	$dates_array = [];
 
 	/* row for week one */
 	$calendar.= '<tr class="calendarRow">';
@@ -195,13 +195,13 @@ function draw_calendar($month, $year, $loc){
 }
 
 
-function getDatesBetween2Dates($startTime, $endTime) {
+public function getDatesBetween2Dates($startTime, $endTime) {
     $day = 86400;
     $format = 'Y-m-d';
     $startTime = strtotime($startTime);
     $endTime = strtotime($endTime);
     $numDays = round(($endTime - $startTime) / $day) + 1;
-    $days = array();
+    $days = [];
         
     for ($i = 0; $i < $numDays; $i++) {		
         $days[] = date($format, ($startTime + ($i * $day)));

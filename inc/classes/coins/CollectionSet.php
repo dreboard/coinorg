@@ -166,17 +166,17 @@ class CollectionSet {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //add and remove
 
-function enterMintsetCoin($coinID, $mintsetID, $coinType, $coinCategory, $purchaseDate){
+public function enterMintsetCoin($coinID, $mintsetID, $coinType, $coinCategory, $purchaseDate){
 mysql_query("INSERT INTO collection(coinID, coinType, coinCategory,  slabCondition, coinGrade, designation, problem, purchaseDate, purchaseFrom, auctionNumber, additional, purchasePrice, ebaySellerID, shopName, shopUrl, coinNote, enterDate, userID, errorType, byMint, firstday) VALUES('$coinID', '$coinType', '$coinCategory', '$slabCondition',  '$coinGrade', '$designation', '$problem', '$purchaseDate', '$purchaseFrom', '$auctionNumber', '$additional', '0.00', '$ebaySellerID', '$shopName', '$shopUrl', '$coinNote', '$theDate', '$userID', '$errorType', '$byMint', '$firstday')") or die(mysql_error()); 
 
 return true;
 }
 
-function deleteCoinSet($collectsetID, $userID){
+public function deleteCoinSet($collectsetID, $userID){
 	 mysql_query("DELETE FROM collection WHERE collectsetID = '$collectsetID' AND userID = '$userID'") or die(mysql_error());
 	 return;
 }
-function deleteCollectedCoinSet($collectsetID, $userID){
+public function deleteCollectedCoinSet($collectsetID, $userID){
 	$this->getCollectionSetById($collectsetID);
 	if($this->getCoinImage1() !== 'blankBig.jpg'){
 		
@@ -209,7 +209,7 @@ function deleteCollectedCoinSet($collectsetID, $userID){
 	  $this->deleteCoinSet($collectsetID, $userID); 
 	  return;
 }
-function getSetTypeLink($setType){
+public function getSetTypeLink($setType){
 	
 		$setList = '<option value="viewVarietySet.php">Variety Sets</option>
 		                 <option value="viewSet.php">Mint Sets</option>
@@ -223,7 +223,7 @@ function getSetTypeLink($setType){
 
 		return $setList;
 }
-function getSetDetailLink($collectsetID){
+public function getSetDetailLink($collectsetID){
 	$Encryption = new Encryption();
 		$this->getCollectionSetById($collectsetID);
 		switch($this->getSetType()){
@@ -267,7 +267,7 @@ function getSetDetailLink($collectsetID){
 	return mysql_num_rows($sql);    	
     }	
 	
-	function totalAllMintsetsInvestment($userID){
+	public function totalAllMintsetsInvestment($userID){
 	$myQuery = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectset WHERE userID = '$userID'") or die(mysql_error()); 
 	
 	while($row = mysql_fetch_array($myQuery))
@@ -277,7 +277,7 @@ function getSetDetailLink($collectsetID){
 		return $coinSum;
 	}
 //from
-	function totalAllMintsetsInvestmentFrom($userID, $purchaseFrom){
+	public function totalAllMintsetsInvestmentFrom($userID, $purchaseFrom){
 	$myQuery = mysql_query("SELECT COALESCE(sum(purchasePrice), 0.00) FROM collectset WHERE purchaseFrom = '".str_replace('_', ' ', $purchaseFrom)."' AND userID = '$userID'") or die(mysql_error()); 
 	
 	while($row = mysql_fetch_array($myQuery))
@@ -327,15 +327,15 @@ function getSetDetailLink($collectsetID){
 
 
 
-	function getSetProGrader($proService, $userID){
+	public function getSetProGrader($proService, $userID){
 	$myQuery = mysql_query("SELECT * FROM collectset WHERE userID = '$userID'  AND proService = '$proService'") or die(mysql_error()); 
 	return mysql_num_rows($myQuery);    	
     }	
-	function getSetProofProGrader($proService, $userID, $coinMetal){
+	public function getSetProofProGrader($proService, $userID, $coinMetal){
 	$myQuery = mysql_query("SELECT * FROM collectset WHERE userID = '$userID' AND coinMetal = '$coinMetal' AND strike = 'Proof' AND proService = '$proService'") or die(mysql_error()); 
 	return mysql_num_rows($myQuery);    	
     }	
-	function getSetYearSetProofProGrader($proService, $userID){
+	public function getSetYearSetProofProGrader($proService, $userID){
 	$myQuery = mysql_query("SELECT * FROM collectset WHERE setType = 'Year Set' AND userID = '$userID' AND strike = 'Proof' AND proService = '$proService'") or die(mysql_error()); 
 	return mysql_num_rows($myQuery);    	
     }	
@@ -372,7 +372,7 @@ function getSetDetailLink($collectsetID){
 	return mysql_num_rows($sql);    	
     }	
 
-	function getSetTypeProGrader($setType,$proService, $userID){
+	public function getSetTypeProGrader($setType, $proService, $userID){
 	$myQuery = mysql_query("SELECT * FROM collectset WHERE userID = '$userID'  AND proService = '$proService' AND setType = '".str_replace('_', ' ', $setType)."'") or die(mysql_error());
 	return mysql_num_rows($myQuery);    	
     }	

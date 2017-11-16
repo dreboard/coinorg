@@ -191,7 +191,7 @@ class CollectionUnk {
         return $link;
     }
 	
-function deleteCollectedCoin($unknownCollectionID, $userID){
+public function deleteCollectedCoin($unknownCollectionID, $userID){
 	$unknownCollectionID = intval($_POST["unknownCollectionID"]);
 	$this->getCollectionById($unknownCollectionID);
 	if($this->getCoinImage1() !== 'blankBig.jpg'){
